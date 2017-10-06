@@ -9,7 +9,7 @@ const client = new Discord.Client();
 const auth = require("./auth.json");
 const prefix = '~'
 
-client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLlVYQ.Wlv4fhVVRI2XLkSgXTqwPkTCQQU');
+client.login(process.env.TOKEN);
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
