@@ -44,7 +44,7 @@ That's it! You should be good to go!
 
 ### Running
 Open a command window where you want the bot to be installed. 
-    -This is done through pressing `shift + right click` in the desired folder
+This is done through pressing `shift + right click` in the desired folder
 ```bash
 # Enter into the Komugari folder
 cd path/to/Komugari
