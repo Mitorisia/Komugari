@@ -4,8 +4,8 @@
     Komugari is very helpful to intro-level programmers wanting to learn javascript. As she is how I learned to code.
 
 ## Index
-- [Commands](COMMANDS.md)
-- [Requirements](#requirements))
+- [Commands](commands.md)
+- [Requirements](#requirements)
 - [Installing](#installing)
 - [Setup](#setup)
 - [Running](#running)
@@ -29,7 +29,7 @@ npm i
 ```
 
 ### Setup
-1. Go to the [Discord Developers Applications Page]() - making sure that you're logged into the correct account
+1. Go to the [Discord Developers Applications Page](https://discordapp.com/developers/applications/me) - making sure that you're logged into the correct account
 2. Create an app and enter the desired credentials
 3. Make the app into a bot user
 4. Click `Reveal Token` to get your unique bot token. This is equivalent to an username and a password - don't let anyone see your token
@@ -79,8 +79,11 @@ node .
 Komugari was coded in JavaScript with [discord.js](https://github.com/hydrabolt/discord.js)
 
 Sole developer : ( Mako : ( as my very first coding experience
+
     - hi I really like 2 draw 
+
         - [DeviantArt](http://makohime.deviantart.com/)
         - [Instagram](https://www.instagram.com/mitorisia/)
+        
     - also i'm really young don't expect too much from a mentally defective child
 
