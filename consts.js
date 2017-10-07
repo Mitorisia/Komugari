@@ -43,9 +43,11 @@ exports.nsfwError = [
   "I can't post this here! Please direct me to an NSFW channel!",
   "I\'m afraid that kind of stuff isn't allowed in here..",
   "This doesn't look like an NSFW channel!",
-  "I-If I post that here, won't we be punished?",
   "Please try again in an NSFW channel!",
-  "u///u, I don't think I can post that in a normal channel."
+  "u///u, I don't think I can post that in a normal channel.",
+  "Don't make me post that here...",
+  "💢That doesn't belong here!",
+  "W-What? I can't post that here!"
 ]
 
 exports.rightThere = [

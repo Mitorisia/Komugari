@@ -1,16 +1,31 @@
 <p style="text-align:center;">
 <h1>Komugari</h1>
-    <h3>A simple, multifunctional bot based on anime and NSFW</h3>
-    Komugari is very helpful to intro-level programmers wanting to learn javascript. As she is how I learned to code.
+    <h3>A simple, multi-functional bot based on anime and NSFW</h3>
+    Who am I kidding no one asks me any questions.
+
+
+<p align="left">
+<img align="left" title="Invite the bot to your Server!" src="https://a.safe.moe/QQ7f3.jpg"></a>
+</p>
 
 ## Index
-- [Commands](commands.md)
+- [Intro](#intro)
 - [Requirements](#requirements)
 - [Installing](#installing)
 - [Setup](#setup)
 - [Running](#running)
 - [To-do](#todo)
 - [Credits](#credits)
+
+
+### Intro 
+You can invite the bot to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)!! 
+
+Want to run Komugari yourself? Look no further, I've prepared a thorough guide on how you can get her up and running in no time! 
+
+Yes, I am aware that I left a couple API keys in here, please don't abuse them, I am beyond simply lazy.
+
+This bot is under constant development whether you like it or not.
 
 ### Requirements
 - `git` ([Windows](https://git-scm.com/download/win) | [Linux](https://git-scm.com/download/linux) | [macOS](https://git-scm.com/download/mac))
@@ -53,11 +68,6 @@ node .
 ```
 
 ### Todo
-- [ ] categorized commands (???)
-- [ ] Anime search command 
-- [ ] ratewaifu
-- [ ] Horoscope using the [horoscope api](http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today) 
-- [ ] osu! user search!
 - [ ] Action commands
     - [ ] cuddle
     - [ ] grope
@@ -76,14 +86,15 @@ node .
 > This list is in the order of priority
 
 ### Credits 
-Komugari was coded in JavaScript with [discord.js](https://github.com/hydrabolt/discord.js)
+Komugari was coded in JavaScript with [Discord.js](https://github.com/hydrabolt/discord.js).
 
 Sole developer : ( Mako : ( as my very first coding experience
 
-    - hi I really like 2 draw 
+- I'm kind of really young don't expect too much from a mentally defective child
 
-        - [DeviantArt](http://makohime.deviantart.com/)
-        - [Instagram](https://www.instagram.com/mitorisia/)
-        
-    - also i'm really young don't expect too much from a mentally defective child
+- hi I really like 2 draw 
+
+    - [DeviantArt](http://makohime.deviantart.com/)
+    - [Instagram](https://www.instagram.com/mitorisia/)
+    
 
