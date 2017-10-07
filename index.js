@@ -14,12 +14,6 @@ const prefix = '~'
 
 client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');
 
-//time formatting for private use
-var timeZone = moment(moment().format());
-var spetTime = timeZone.tz('America/Toronto').format('MMM Do, HH:mm');
-var keyreenTime = timeZone.tz('Europe/Kiev').format('MMM Do, HH:mm');
-var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm'); 
-
 //ready and game status, message ready to main server
 client.on("ready", () => {
 	client.consts = require('./consts.js');
@@ -28,7 +22,7 @@ client.on("ready", () => {
 	console.log(`Komugari is live an ready in ${client.guilds.size} guilds.`);
 
 	var channel = client.channels.get('198399488614727680');
-	//channel.send(`Ding`);
+	channel.send(`Ding`);
 });
 
 client.on('guildCreate', guild => {
@@ -61,10 +55,18 @@ client.on("message", message => {
      			return message.channel.send({embed}).then(m=>m.react("🎴"))
 			}
 
+			//time formatting for private use
+
 			var serverIDs = ['198399488614727680', '202075400225030144']
 
 			if(message.content.startsWith('<@365907645795794946> time') || message.content.startsWith('<@!365907645795794946> time')) {
 				if (serverIDs.indexOf(message.guild.id) > -1) {
+
+					var timeZone = moment(moment().format());
+					var spetTime = timeZone.tz('America/Toronto').format('MMM Do, HH:mm');
+					var keyreenTime = timeZone.tz('Europe/Kiev').format('MMM Do, HH:mm');
+					var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm'); 
+
 					var embed = new Discord.RichEmbed()
 						.setColor('#8FB3C3')
 						.addField('keyreen', keyreenTime)
