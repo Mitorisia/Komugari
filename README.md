@@ -1,13 +1,9 @@
-<p style="text-align:center;">
-<h1>Komugari</h1>
-    <h3>A simple, multi-functional bot based on anime and NSFW</h3>
-    Who am I kidding no one asks me any questions.
-
 <html>
     <header>
         <img align="right" src="https://a.safe.moe/vIEnD.png" height="300" >
         <h1>Komugari</h1>
         <p><b>A simple, multifunctional Discord bot with a focus on anime and NSFW!</b></p>
+        who am I kidding no one asks me any questions
 
 ## Index
 - [Intro](#intro)
