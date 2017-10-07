@@ -18,7 +18,7 @@ exports.run = async function (client, message, Discord, args) {
                 .addField('❯ Accuracy Percentage', user.accuracyFormatted, true)
                 .addField("❯ Rank", user.pp.rank, true)
                 .addField('❯ Country Rank', user.pp.countryRank, true)
-                .addBlankField()
+                .addBlankField(true)
                 .addField('❯ SS', user.counts.SS, true)
                 .addField('❯ S', user.counts.S, true)
                 .addField('❯ A', user.counts.A, true)
