@@ -3,10 +3,11 @@
     <h3>A simple, multi-functional bot based on anime and NSFW</h3>
     Who am I kidding no one asks me any questions.
 
-
-<p align="left">
-<img align="left" title="Invite the bot to your Server!" src="https://a.safe.moe/QQ7f3.jpg"></a>
-</p>
+<html>
+    <header>
+        <img align="right" src="https://a.safe.moe/vIEnD.png" height="300" >
+        <h1>Komugari</h1>
+        <p><b>A simple, multifunctional Discord bot with a focus on anime and NSFW!</b></p>
 
 ## Index
 - [Intro](#intro)
