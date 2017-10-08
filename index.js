@@ -8,7 +8,7 @@
 const moment = require('moment')
 const tz = require('moment-timezone')
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const client = new Discord.Client({disableEveryone: true});
 const auth = require("./auth.json");
 const prefix = '~'
 

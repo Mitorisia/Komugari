@@ -326,16 +326,6 @@ exports.run = (client, message, Discord, args) => {
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ('byemom')) { 
-     const embed = new Discord.RichEmbed()
-        .setAuthor(`ByeMom`, 'https://a.safe.moe/h0JMI.png')
-        .setColor('727293')
-        .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `What are you gonna do when mom's gone?`)
-        .addField(`__Usage:__`, "`~byemom [search]`")
-     return message.channel.send({embed}).then(m=>m.react("🎴"))
-
-
     } else if(helpCommand === ('shit')) { 
      const embed = new Discord.RichEmbed()
         .setAuthor(`Shit`, 'https://a.safe.moe/h0JMI.png')
@@ -438,17 +428,6 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ('futa')) { //reddit trash
-        const embed = new Discord.RichEmbed()
-           .setAuthor(`Futanari`, 'https://a.safe.moe/jZZKM.png')
-           .setColor('727293')
-           .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `G-gya?! Girls with.. what now?`)
-           .addField(`__Usage:__`, "`~futa`")
-           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
-        return message.channel.send({embed}).then(m=>m.react("🎴"))
-
-
     } else if(helpCommand === ('trap')) { //reddit trash
         const embed = new Discord.RichEmbed()
            .setAuthor(`Trap`, 'https://a.safe.moe/jZZKM.png')
@@ -480,7 +459,7 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    }else if(helpCommand === ("rate")) {
+    } else if(helpCommand === ("rate")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Rate", client.setAuthor.displayAvatarURL)
             .setColor('727293')
@@ -490,7 +469,7 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    }else if(helpCommand === ("osu")) {
+    } else if(helpCommand === ("osu")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Osu!", 'https://a.safe.moe/Z7DGu.png')
             .setColor('727293')
@@ -500,7 +479,7 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    }else if(helpCommand === ("horoscope")) {
+    } else if(helpCommand === ("horoscope")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Horoscope", 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
             .setColor('727293')
@@ -509,7 +488,8 @@ exports.run = (client, message, Discord, args) => {
             .addField(`__Usage:__`, "`~horoscope [sign]`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
-    }else if(helpCommand === ("anime")) {
+
+    } else if(helpCommand === ("anime")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Anime", 'https://myanimelist.cdn-dena.com/img/sp/icon/apple-touch-icon-256.png')
             .setColor('727293')
@@ -518,7 +498,17 @@ exports.run = (client, message, Discord, args) => {
             .addField(`__Usage:__`, "`~anime [name/tag]`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
         
+
+    } else if(helpCommand === ("speak")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Speak", 'https://a.safe.moe/3XYZ6.gif')
+            .setColor('727293')
+            .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Plays a random anime sound...?`)
+            .addField(`__Usage:__`, "`~speak`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
         
+
     } else {
         const embed = new Discord.RichEmbed()
             .setAuthor(`Komugari`, client.user.displayAvatarURL)
@@ -529,6 +519,6 @@ exports.run = (client, message, Discord, args) => {
             .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
             .addField(`__Support:__`, `\`~support [message]\``, true)
             .addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
-     return message.channel.send({embed}).then(m=>m.react("🎴"))
+     return message.channel.send(`The command ${helpCommand} was not found!`, {embed: embed}).then(m=>m.react("🎴"))		
     }
 }

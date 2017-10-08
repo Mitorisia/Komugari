@@ -1,3 +1,32 @@
+//action stuff weeee
+exports.cuddleP = [
+
+]
+
+exports.handP = [
+
+]
+
+exports.hugP = [
+
+]
+
+exports.kissP = [
+
+]
+
+exports.lewdP = [
+
+]
+
+exports.patP = [
+
+]
+
+exports.slapP = [
+  
+]
+
 //clocks for time command
 exports.clocks = ['🕛', '🕐', '🕑', '🕒', '🕓', '🕔', '🕕', '🕖', '🕗', '🕘', '🕙', '🕚']
 

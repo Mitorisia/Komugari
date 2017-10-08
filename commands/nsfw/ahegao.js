@@ -12,7 +12,7 @@ exports.run = (client, message, Discord) => {
         randomPuppy('ahegao')
             .then(url => {
                 const embed = new Discord.RichEmbed()
-                    .setFooter(`r/ahegao`)
+                    .setFooter(`ahegao`)
                     .setImage(url)
                     .setColor('#A187E0')
                 return message.channel.send({embed})
