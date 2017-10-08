@@ -6,7 +6,6 @@ exports.run = async (client, message, Discord) => {
 	}
 
 	if (!message.member.voiceChannel) {
-		await message.react('❌')
 		return message.channel.send('Join a voice channel to hear me!')
 	} else {
 
@@ -15,7 +14,7 @@ exports.run = async (client, message, Discord) => {
 		
 			if (!client.voiceConnections.get(message.guild.id)) {
 				const conn = await message.member.voiceChannel.join()
-				conn.playFile(`./sounds/anime/${file}.opus`)
+				conn.playFile(`./assets/sounds/anime/${file}.opus`)
 				conn.player.dispatcher.once('end', () => {
 					conn.channel.leave()
 				})
