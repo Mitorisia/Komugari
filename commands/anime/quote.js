@@ -1,6 +1,6 @@
 const aq = require('animequote');
 
-exports.run = async function (client, message, Discord) {
+exports.run = async (client, message, Discord) => {
     const embed = new Discord.RichEmbed()
         .setTitle(aq().quotecharacter)
         .setDescription(aq().quotesentence)

@@ -1,4 +1,4 @@
-exports.run = async function(bot, msg) {
+exports.run = async (bot, msg) => {
     let member = await msg.mentions.members.first();
     if(!member) return msg.reply("You need to mention someone you plant!");
     let myRole = msg.member.highestRole.position;

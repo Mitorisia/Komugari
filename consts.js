@@ -8,7 +8,61 @@ exports.handP = [
 ]
 
 exports.hugP = [
-
+  'http://i.imgur.com/pZa9Ppe.gif',
+  'http://i.imgur.com/QghzxNa.gif',
+  'http://i.imgur.com/Z5DpKer.gif',
+  'http://i.imgur.com/J9EDW2g.gif',
+  'http://i.imgur.com/33GnoBC.gif',
+  'http://i.imgur.com/QNNA4M2.gifv',
+  'http://i.imgur.com/LWhsSJU.gif',
+  'http://i.imgur.com/RRpmeap.gif',
+  'http://i.imgur.com/nOuAxhI.gif',
+  'http://i.imgur.com/YfkTt9h.gif',
+  'http://i.imgur.com/qSejAy0.gifv',
+  'http://i.imgur.com/vFwUm3E.gif',
+  'http://i.imgur.com/kif6tPp.gif',
+  'http://i.imgur.com/QBlUzrl.gif',
+  'http://i.imgur.com/NjUA3dn.gif',
+  'http://i.imgur.com/x11OYI1.gif',
+  'http://i.imgur.com/EVtWJHw.gifv',
+  'http://i.imgur.com/UcSS0oZ.gifv',
+  'http://i.imgur.com/HNcRPJ7.gifv',
+  'http://i.imgur.com/1jZ7TBv.gifv',
+  'http://i.imgur.com/P6KLS0T.gifv',
+  'http://i.imgur.com/oDNvTyt.gifv',
+  'http://i.imgur.com/LZBcwKd.gifv',
+  'http://i.imgur.com/CU8uP3Y.gifv',
+  'http://i.imgur.com/2Un7CYs.gifv',
+  'http://i.imgur.com/xRZ7zg1.gif',
+  'http://i.imgur.com/ZzYUNjv.gif',
+  'https://i.imgur.com/OGHfXlE.gifv',
+  'https://i.imgur.com/KPbKHJ1.gifv',
+  'http://i.imgur.com/QdETnvv.gif',
+  'http://i.imgur.com/rPoxqas.gif',
+  'http://i.imgur.com/iI3o7t0.gif',
+  'http://i.imgur.com/hcxDeFZ.gif',
+  'http://i.imgur.com/y03B2dL.gif',
+  'http://i.imgur.com/la2DSbP.gif',
+  'http://i.imgur.com/I8LyQ9L.gif',
+  'http://i.imgur.com/SOMVzbs.gif',
+  'http://i.imgur.com/YXWnCwv.gif',
+  'http://i.imgur.com/Y9CAUOl.gifv',
+  'http://i.imgur.com/GYHunne.gif',
+  'http://25.media.tumblr.com/668e4508190fb9f62ea9b5eb1d112531/tumblr_mw41ntelfK1s6ghcbo1_500.gif',
+  'https://38.media.tumblr.com/91b578f5c95575f088f05be5ee0f284a/tumblr_mlrr92OyU21so32vdo1_500.gif',
+  'http://i.imgur.com/WEQjiiT.gif',
+  'http://i.imgur.com/w0Phmum.gif',
+  'http://i.imgur.com/Mi0m04x.gif',
+  'http://i.imgur.com/KN2ahrk.gif',
+  'http://i.imgur.com/2v3eUQw.gif',
+  'http://i.imgur.com/OIPxM9W.gifv',
+  'https://media.giphy.com/media/143v0Z4767T15e/giphy.gif',
+  'http://gifimage.net/wp-content/uploads/2017/06/anime-hug-gif-7.gif',
+  'https://media.tenor.com/images/da9278d1ae0a39a4932a7a656ba3c73f/tenor.gif',
+  'https://media.giphy.com/media/TdXxcoNvHDVu0/giphy.gif',
+  'https://s-media-cache-ak0.pinimg.com/originals/c5/85/27/c58527caa736f8d5ce4ab6ee6e3f736b.gif',
+  'https://media.tenor.com/images/c67e9d0cf6b9126540c4e490bacbceee/tenor.gif',
+  'http://38.media.tumblr.com/e9fae5fd165029c63c6963f855238c1b/tumblr_nqygyy3PNm1uz2l4zo1_500.gif'
 ]
 
 exports.kissP = [
@@ -16,11 +70,12 @@ exports.kissP = [
 ]
 
 exports.lewdP = [
-
-]
-
-exports.patP = [
-
+  'https://cdn.discordapp.com/attachments/169950217007923201/366383509297692674/fa887d040806b095f58a5e51aafdc06dab4b69feb9497c27241d54263e9162f1_1.jpg',
+  'http://i.imgur.com/5aEzsjo.gif',
+  '',
+  '',
+  '',
+  ''
 ]
 
 exports.slapP = [
@@ -73,7 +128,7 @@ exports.nsfwError = [
   "I\'m afraid that kind of stuff isn't allowed in here..",
   "This doesn't look like an NSFW channel!",
   "Please try again in an NSFW channel!",
-  "u///u, I don't think I can post that in a normal channel.",
+  "u///u, I don't think I can post that in an average channel.",
   "Don't make me post that here...",
   "💢That doesn't belong here!",
   "W-What? I can't post that here!"

@@ -6,7 +6,7 @@ const options = {
 	frames: 8
 }
 
-exports.run = async function (client, message, Discord, args) {
+exports.run = async (client, message, Discord, args) => {
 	if (!message.channel.permissionsFor(client.user.id).has('ATTACH_FILES')) {
 		return message.reply('I can\'t attach messages!').then(m => m.delete(5000));
 	}

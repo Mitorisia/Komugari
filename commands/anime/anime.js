@@ -1,8 +1,9 @@
 //please don't steal that password, i'm too lazy to hide it, think of the people,,, thank u for your time
-
+var aq = require('animequote')
 var request = require('request');
 
 exports.run = (client, message, Discord, args) => {
+
     var tag = args.join('+');
     request(`https://myanimelist.net/api/anime/search.xml?q=${tag}`, function (error, response, body) {
       if (error!=null) {
@@ -26,5 +27,6 @@ exports.run = (client, message, Discord, args) => {
         });
       }
     }).auth('aawew', '3q3qokguys');
-  }
+}
+
 

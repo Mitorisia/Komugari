@@ -1,6 +1,6 @@
 const snekfetch = require('snekfetch');
 
-exports.run = async function (client, message, Discord, args) {
+exports.run = async (client, message, Discord, args) => {
     var sign = message.content.split(/\s+/g)[1]
     const text = await snekfetch
         .get(`http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today`);

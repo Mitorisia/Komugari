@@ -13,6 +13,7 @@ exports.run = async (client, message, Discord) => {
 			var voiceChannel = message.member.voiceChannel;
 		
 			if (!client.voiceConnections.get(message.guild.id)) {
+				message.react('🐱')
 				const conn = await message.member.voiceChannel.join()
 				conn.playFile(`./assets/sounds/anime/${file}.opus`)
 				conn.player.dispatcher.once('end', () => {

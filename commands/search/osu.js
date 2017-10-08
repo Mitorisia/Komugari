@@ -5,7 +5,7 @@ var osuApi = new osu.Api('f316a5a29f4b0da2712b4fb68422f083f3fdb931', {
     completeScores: false
 })
 
-exports.run = async function (client, message, Discord, args) {
+exports.run = async (client, message, Discord, args) => {
     const query = args 
     try {
         osuApi.getUser({u: query}).then(user => {

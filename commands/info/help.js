@@ -139,7 +139,7 @@ exports.run = (client, message, Discord, args) => {
      const embed = new Discord.RichEmbed()
         .setAuthor(`Smug`, 'http://smug.moe/smg/17.png')
         .setColor('727293')
-        .setFooter(`Anime | Any message from me can be removed by reacting with a 🎴 emoji.`)
+        .setFooter(`Action | Any message from me can be removed by reacting with a 🎴 emoji.`)
         .addField(`__Description:__`, `Sends a random smug anime picture.`)
         .addField(`__Usage:__`, "`~smug`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
@@ -461,7 +461,7 @@ exports.run = (client, message, Discord, args) => {
 
     } else if(helpCommand === ("rate")) {
         const embed =  new Discord.RichEmbed()
-            .setAuthor("Rate", client.setAuthor.displayAvatarURL)
+            .setAuthor("Rate", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Fun | Any message from me can be removed by reacting with a 🎴 emoji.")
             .addField(`__Description:__`, `Rates the given item out of 10.`)
@@ -501,13 +501,93 @@ exports.run = (client, message, Discord, args) => {
 
     } else if(helpCommand === ("speak")) {
         const embed =  new Discord.RichEmbed()
-            .setAuthor("Speak", 'https://a.safe.moe/3XYZ6.gif')
+            .setAuthor("Speak", 'https://a.safe.moe/hZGj2.gif')
             .setColor('727293')
             .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
             .addField(`__Description:__`, `Plays a random anime sound...?`)
             .addField(`__Usage:__`, "`~speak`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
-        
+
+
+    } else if(helpCommand === ("quote")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Quote", 'https://a.safe.moe/hZGj2.gif')
+            .setColor('727293')
+            .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `A random quote from a random character!`)
+            .addField(`__Usage:__`, "`~quote`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+    
+
+    } else if(helpCommand === ("cuddle")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Cuddle", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Cuddles with the user you mentioned!`)
+            .addField(`__Usage:__`, "`~cuddle <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    
+    } else if(helpCommand === ("hand")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Hand", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Holds hands with the user you mentioned!`)
+            .addField(`__Usage:__`, "`~hand <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ("hug")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Hug", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Hugs the user you mentioned!`)
+            .addField(`__Usage:__`, "`~hug <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ("kiss")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Kiss", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Kisses the user you mentioned!`)
+            .addField(`__Usage:__`, "`~kiss <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ("lewd")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Lewd", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `That's *lewd*!`)
+            .addField(`__Usage:__`, "`~lewd`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ("pat")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Pat", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Pats the user you mentioned!`)
+            .addField(`__Usage:__`, "`~pat <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ("slap")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Slap", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Slaps the user you mentioned!`)
+            .addField(`__Usage:__`, "`~slap <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
 
     } else {
         const embed = new Discord.RichEmbed()
