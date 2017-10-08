@@ -19,7 +19,7 @@ client.on("ready", () => {
 	client.consts = require('./consts.js');
 	client.user.setPresence({ game: { name: 'with you | ~help', type: 0 } });
 
-	console.log(`Komugari is live an ready in ${client.guilds.size} guilds.`);
+	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
 	var channel = client.channels.get('198399488614727680');
 	channel.send(`Ding`);
@@ -36,9 +36,13 @@ client.on('guildDelete', guild => {
 
 //basic message replies
 client.on("message", message => {
-	if(message.author.bot)return;
+	if(message.author.bot)return; 
+	
+	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) {
+		return message.react('')
+	}
 		try {
-			if(message.content.includes('press f')){
+			if(message.content.includes('press f')) {
 				message.react('🇫');
 			}
 
@@ -87,7 +91,7 @@ client.on("message", message => {
 		
 		  if (!message.content.startsWith(prefix)) return;
 		
-		  //COMMAND Handler
+		  //COMMAND Handler wow this is really simple
 		  const org = args.shift().slice(prefix.length);
 		  const command = org.toLowerCase()
 

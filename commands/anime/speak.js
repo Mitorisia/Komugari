@@ -1,5 +1,3 @@
-const file = Math.floor(Math.random() * 42 + 1)
-
 exports.run = async (client, message, Discord) => {
 	if (!message.channel.permissionsFor(client.user.id).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
 		return message.reply('I can\'t join nor play in the specified channel!')
@@ -11,6 +9,7 @@ exports.run = async (client, message, Discord) => {
 
 		try {
 			var voiceChannel = message.member.voiceChannel;
+			var file = Math.floor(Math.random() * 42 + 1)
 		
 			if (!client.voiceConnections.get(message.guild.id)) {
 				message.react('🐱')

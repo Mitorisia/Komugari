@@ -4,7 +4,21 @@ exports.cuddleP = [
 ]
 
 exports.handP = [
-
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
 ]
 
 exports.hugP = [
@@ -62,10 +76,29 @@ exports.hugP = [
   'https://media.giphy.com/media/TdXxcoNvHDVu0/giphy.gif',
   'https://s-media-cache-ak0.pinimg.com/originals/c5/85/27/c58527caa736f8d5ce4ab6ee6e3f736b.gif',
   'https://media.tenor.com/images/c67e9d0cf6b9126540c4e490bacbceee/tenor.gif',
-  'http://38.media.tumblr.com/e9fae5fd165029c63c6963f855238c1b/tumblr_nqygyy3PNm1uz2l4zo1_500.gif'
+  'http://38.media.tumblr.com/e9fae5fd165029c63c6963f855238c1b/tumblr_nqygyy3PNm1uz2l4zo1_500.gif',
+  'https://media.giphy.com/media/wnsgren9NtITS/giphy.gif',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
 ]
 
 exports.kissP = [
+  'https://media.giphy.com/media/FqBTvSNjNzeZG/giphy.gif',
+  '',
+  '',
+  '',
+  ''
 
 ]
 
@@ -75,11 +108,50 @@ exports.lewdP = [
   '',
   '',
   '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
   ''
 ]
 
 exports.slapP = [
-  
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
 ]
 
 //clocks for time command
