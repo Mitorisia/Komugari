@@ -534,13 +534,13 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ("osustats")) {
+    } else if(helpCommand === ("osu")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Osu!", 'https://a.safe.moe/Z7DGu.png')
             .setColor('727293')
             .setFooter("Search | Any message from me can be removed by reacting with a 🎴 emoji.")
             .setDescription(`Searches for an user on Osu!`)
-            .addField(`__Usage:__`, "`~osustats [user]`")
+            .addField(`__Usage:__`, "`~osu [user]`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 

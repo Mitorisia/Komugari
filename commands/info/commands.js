@@ -8,7 +8,7 @@ exports.run = (client, message, Discord) => {
         .addField("__Info:__", "`commands` `help` `support`", true)
         .addField("__Moderation:__", "`ban` `kick` `prune` `warn`", true) //debating whether or not i want these aaasdasdasdfasdf
         .addField("__Utility:__", "`color` `time` `translate` `weather`", true)
-        .addField("__Search:__", "`img` `osustats` `wiki` `urban` `youtube`", true)
+        .addField("__Search:__", "`img` `osu` `wiki` `urban` `youtube`", true)
         .addField("__Fun:__", "`8ball` `cat` `dog` `f` `horoscope` `meme` `rate` `rightthere` `say` `talk`")
         .addField("__Memes:__", "`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
         .addField("__Anime:__", "`anime` `catgirl` `moe` `safebooru` `zr`", true)
