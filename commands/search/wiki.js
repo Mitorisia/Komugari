@@ -9,7 +9,7 @@ exports.run = async (client, message, Discord, args) => {
     return message.channel.send('You must specify something to search!').then(m => m.delete(5000));
   }
 
-  message.channel.send(`Searching for ${query} on Wikipedia...`).then(m => m.delete(3000));
+  message.channel.send(`Searching for ${query} on Wikipedia...`).then(m => m.delete(5000));
 
   const data = await wiki().search(query, 1)
   if (!data.results || !data.results.length) {
