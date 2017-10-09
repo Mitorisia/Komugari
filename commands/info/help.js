@@ -146,13 +146,13 @@ exports.run = (client, message, Discord, args) => {
         .addField(`__Usage:__`, "`~smug`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
-    } else if(helpCommand === ('disgust')) { //smug
+    } else if(helpCommand === ('gross')) { //smug
         const embed = new Discord.RichEmbed()
-           .setAuthor(`Disgust`, 'http://i.imgur.com/YV3oSUV.jpg')
+           .setAuthor(`Gross`, 'http://i.imgur.com/YV3oSUV.jpg')
            .setColor('727293')
            .setFooter(`Action | Any message from me can be removed by reacting with a 🎴 emoji.`)
            .setDescription(`Absolutely disgusting! Now which one of you likes ***handholding!?***`)
-           .addField(`__Usage:__`, "`~disgust`")
+           .addField(`__Usage:__`, "`~gross`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
