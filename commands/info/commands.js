@@ -14,7 +14,7 @@ exports.run = (client, message, Discord) => {
         .addField("__Anime:__", "`anime` `catgirl` `moe` `safebooru` `zr`", true)
         .addField("__Voice:__", "`listen` `speak`", true)
         .addField("__Action:__", "`disgust` `grope` `hand` `hug` `kiss` `lewd` `pat` `slap` `smug`", true)
-        .addField("__2D NSFW:__", "`ahegao` `hentai` `hentaiirl` `neko` `trap`", true)
+        .addField("__2D NSFW:__", "`hentai` `hentaiirl` `neko` `trap`", true)
         .addField("__3D NSFW:__", "`ass` `boobs` `nsfw` `nsfwgif` `pornhub`", true)
         .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `yandere` `e621`")
     return message.channel.send({embed}).then(m=>m.react("🎴"))

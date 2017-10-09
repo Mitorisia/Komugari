@@ -482,17 +482,6 @@ exports.run = (client, message, Discord, args) => {
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ('ahegao')) { //reddit trash
-        const embed = new Discord.RichEmbed()
-           .setAuthor(`Ahegao`, 'https://a.safe.moe/jZZKM.png')
-           .setColor('727293')
-           .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .setDescription(`Ahegao, not to be confused with ahoge.`)
-           .addField(`__Usage:__`, "`~ahegao`")
-           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
-        return message.channel.send({embed}).then(m=>m.react("🎴"))
-
-
     } else if(helpCommand === ('trap')) { //reddit trash
         const embed = new Discord.RichEmbed()
            .setAuthor(`Trap`, 'https://a.safe.moe/jZZKM.png')

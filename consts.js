@@ -320,7 +320,8 @@ exports.hentaiSubreddits = [
   'ecchi',
   'rule34',
   'HENTAI_GIF',
-  'thick_hentai'
+  'thick_hentai',
+  'ahegao'
 ]
 
 exports.nsfwSubreddits = [
