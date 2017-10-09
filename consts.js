@@ -286,6 +286,54 @@ exports.gropeP = [
   'https://i.warosu.org/data/cgl/img/0085/60/1440092303236.gif'
 ]
 
+exports.cryP = [
+  'https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif',
+  'https://media.giphy.com/media/3fmRTfVIKMRiM/giphy.gif',
+  'https://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-29.gif',
+  'https://media.tenor.com/images/06ae6bbe852471939cf61a81e5a9eb23/tenor.gif',
+  'https://68.media.tumblr.com/e9fb46144efc579746e57bcaebd3350a/tumblr_olrmy4djBG1tydz8to1_500.gif',
+  'https://media.tenor.com/images/75edc9882e5175f86c2af777ffbb14a6/tenor.gif',
+  'https://media.tenor.com/images/464eb736d9af79e3ad4942c569747161/tenor.gif',
+  'http://media2.giphy.com/media/shVJpcnY5MZVK/giphy.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-11.gif',
+  'https://media.tenor.com/images/8acc3eaf2435f375e177f4431ff06e1a/tenor.gif',
+  'https://media.tenor.com/images/82e9e7713acefba2eccc892a0abe7493/tenor.gif',
+  'http://media0.giphy.com/media/4NuAILyDbmD16/giphy.gif',
+  'https://media.tenor.com/images/cff668938903f9942991f54b031043b7/tenor.gif',
+  'http://31.media.tumblr.com/5e208e8aa214f70ca846c605b3518058/tumblr_mj7y6nLfFR1rof7gpo1_500.gif',
+  'https://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-9.gif',
+  'http://i0.kym-cdn.com/photos/images/newsfeed/001/071/540/707.gif',
+  'https://m.popkey.co/b64414/bXMk3.gif',
+  'https://media.tenor.com/images/c3d12fb159431fab7363c7146019adc3/tenor.gif',
+  'https://media.tenor.com/images/151d39abf0f85f1da3dc7908a82a42dd/tenor.gif',
+  'https://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-28.gif',
+  'https://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-24.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-6.gif',
+  'https://media.tenor.com/images/031c7c348d3b86296976e2407723d4a8/tenor.gif',
+  'https://media.tenor.com/images/40bb68680f5a12431e1d64e46c685770/tenor.gif',
+  'https://media.giphy.com/media/MpY4qYSGGFuRq/giphy.gif',
+  'https://media.tenor.com/images/19e75f837a3780462afdb1ceb75d6316/tenor.gif',
+  'https://media.tenor.com/images/c423f44c2b2b4fa32b49ad414524fc89/tenor.gif',
+  'https://m.popkey.co/d7405f/M7r37.gif',
+  'https://media.tenor.com/images/5912cbe4bc0dec511b5e0996a2ad9b6f/tenor.gif',
+  'https://media.tenor.com/images/1d30f1f490ef5eb086d90bb5b0013a49/tenor.gif',
+  'https://s-media-cache-ak0.pinimg.com/originals/69/fc/82/69fc828893e612d86fc7bb85862be96e.gif',
+  'https://68.media.tumblr.com/2878ee0ff1de9034a8b96e77915771ea/tumblr_opqkpsFVyG1scqbpuo1_500.gif'
+]
+
+exports.nobullyP = [
+  'https://img.fireden.net/vg/image/1429/21/1429213405948.gif',
+  'http://livedoor.4.blogimg.jp/netagazou_okiba/imgs/a/e/ae001952.gif',
+  'http://i0.kym-cdn.com/photos/images/original/000/958/553/2ea.jpg',
+  'https://images-cdn.9gag.com/photo/aqbMvxj_700b.jpg',
+  'https://pics.me.me/its-very-rude-to-bully-pls-no-bully-ok-10430989.png',
+  'http://i0.kym-cdn.com/entries/icons/facebook/000/018/273/plsnobully.jpg',
+  'http://i0.kym-cdn.com/photos/images/original/000/843/647/a7e.png',
+  'https://pics.me.me/d-dont-bully-nenecchi-no-bully-sakai-3630469.png',
+  'http://pm1.narvii.com/6445/9042292483d2deb544466848cd3d477664d4dc8a_00.jpg',
+  'http://i.imgur.com/0dKdpUI.jpg'
+]
+
 exports.disgustP = [
   'http://images5.fanpop.com/image/answers/2454000/2454603_1329760918765.95res_499_281.jpg',
   'http://www.entravity.com/wp-content/uploads/2013/10/kyoukai-3-19-mitsuki-look-of-disgust.jpg',
@@ -297,7 +345,8 @@ exports.disgustP = [
   'https://i.imgur.com/PMJ1V2Q.jpg',
   'https://static2.fjcdn.com/comments/I+actually+legit+wanted+to+puke+right+when+they+got+_cbc2ba03fa31bdfac47c9bd6afdcd066.png',
   'http://i.imgur.com/26Jtecd.jpg',
-  'http://i.imgur.com/plGxQqL.gif'
+  'http://i.imgur.com/plGxQqL.gif',
+  'https://i.warosu.org/data/jp/img/0119/69/1394904888687.jpg'
 ]
 
 //clocks for time command

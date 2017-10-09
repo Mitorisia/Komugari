@@ -614,6 +614,25 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
+    } else if(helpCommand === ("cry")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Cry", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`uWaa`)
+            .addField(`__Usage:__`, "`~cry`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    } else if(helpCommand === ("nobully")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("No Bully", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Absolutely no bullying allowed!`)
+            .addField(`__Usage:__`, "`~nobully`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
     } else if(helpCommand === ("pat")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Pat", client.user.displayAvatarURL)
