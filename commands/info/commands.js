@@ -13,7 +13,7 @@ exports.run = (client, message, Discord) => {
         .addField("__Memes:__", "`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
         .addField("__Anime:__", "`anime` `catgirl` `moe` `safebooru` `zr`", true)
         .addField("__Voice:__", "`listen` `speak`", true)
-        .addField("__Action:__", "`cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `pat` `slap` `smug`", true)
+        .addField("__Action:__", "`cry` `disgust` `grope` `hand` `hug` `kiss` `lewd` `nobully` `nom` `nyan` `pat` `pout` `slap` `smug` `slap` `stare` `tickle`", true)
         .addField("__2D NSFW:__", "`hentai` `hentaiirl` `neko` `trap`", true)
         .addField("__3D NSFW:__", "`ass` `boobs` `nsfw` `nsfwgif` `pornhub`", true)
         .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `yandere` `e621`")

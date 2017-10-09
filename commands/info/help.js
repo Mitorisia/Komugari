@@ -10,7 +10,7 @@ exports.run = (client, message, Discord, args) => {
         .setThumbnail(client.user.displayAvatarURL)
         .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
         .setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
-        .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
+        .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
         .addField(`__Support:__`, `\`~support [message]\``, true)        
         .addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
     return message.channel.send({embed}).then(m=>m.react("🎴"))
@@ -146,13 +146,13 @@ exports.run = (client, message, Discord, args) => {
         .addField(`__Usage:__`, "`~smug`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
-    } else if(helpCommand === ('gross')) { //smug
+    } else if(helpCommand === ('disgust')) { //smug
         const embed = new Discord.RichEmbed()
-           .setAuthor(`Gross`, 'http://i.imgur.com/YV3oSUV.jpg')
+           .setAuthor(`Disgust`, 'http://i.imgur.com/YV3oSUV.jpg')
            .setColor('727293')
            .setFooter(`Action | Any message from me can be removed by reacting with a 🎴 emoji.`)
            .setDescription(`Absolutely disgusting! Now which one of you likes ***handholding!?***`)
-           .addField(`__Usage:__`, "`~gross`")
+           .addField(`__Usage:__`, "`~disgust`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -661,6 +661,62 @@ exports.run = (client, message, Discord, args) => {
             .addField(`__Usage:__`, "`~grope <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
+    } else if(helpCommand === ("lick")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Lick", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Licks the user you mentioned!`)
+            .addField(`__Usage:__`, "`~lick <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    } else if(helpCommand === ("nom")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Nom", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Noms on the user you mentioned!`)
+            .addField(`__Usage:__`, "`~nom <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    } else if(helpCommand === ("nyan")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Nyan", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Nyaa~`)
+            .addField(`__Usage:__`, "`~nyan`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    } else if(helpCommand === ("pout")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Pout", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Let them know who's sulking!`)
+            .addField(`__Usage:__`, "`~pout <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ("stare")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Stare", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Stares at the user you mentioned!`)
+            .addField(`__Usage:__`, "`~stare <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+        
+    } else if(helpCommand === ("tickle")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Tickle", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setDescription(`Tickles the user you mentioned!`)
+            .addField(`__Usage:__`, "`~tickle <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
 
     } else {
         const embed = new Discord.RichEmbed()
@@ -669,7 +725,7 @@ exports.run = (client, message, Discord, args) => {
             .setThumbnail(client.user.displayAvatarURL)
             .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
             .setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
-            .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
+            .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
             .addField(`__Support:__`, `\`~support [message]\``, true)
             .addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
      return message.channel.send(`The command **${helpCommand}** was not found!`, {embed: embed}).then(m=>m.react("🎴"))		

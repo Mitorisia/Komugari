@@ -1,11 +1,12 @@
-/* Yes I know this is very ugly and underdeveloped coding
+/* for fuck's sake this shit isn't done of course the token's still in here have some sense of morality
+*  Yes I know this is very ugly and underdeveloped coding
 *  can't say much more than sHUT tHE HECK UP this is my first time coding 
 *  hecking hell coding is the hardest thing 
 *  i did reference off of other open-sourced discord.js bots
 *  code my Mako#8739 with the help of many other open-sourced Discord.js bots.
 *  if you'd like me to credit you for any code that I've used of yours or has referenced off of, just submit a pull request or ask me personally!!
 */
-//botURL = https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831 
+//botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782
 
 const moment = require('moment')
 const tz = require('moment-timezone')
@@ -59,7 +60,7 @@ client.on("message", message => {
        				.setThumbnail(client.user.displayAvatarURL)
 				    .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
 					.setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
-					.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
+					.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
 					.addField(`__Support:__`, `\`~support [message]\``, true)					
         			.addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
      			return message.channel.send({embed}).then(m=>m.react("🎴"))
