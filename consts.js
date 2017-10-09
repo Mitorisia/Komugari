@@ -203,6 +203,60 @@ exports.slapP = [
   'https://38.media.tumblr.com/db2c23d95ea558373d5ac51a7b8b4193/tumblr_nl801msjXa1saml9ao2_500.gif',
 ]
 
+exports.patP = [
+  'https://78.media.tumblr.com/6bc4805da052bdeb34785a3acd59e69f/tumblr_olyfq6PNw01qbvovho1_500.gif',
+  'https://78.media.tumblr.com/59074e59e5563e15623216e3e33cd259/tumblr_ojt62uIuDB1vztiw8o1_500.gif',
+  'https://78.media.tumblr.com/1c433aeea03d0fcee34c22696ba1307b/tumblr_osl1kmMWL91qbvovho1_500.gif',
+  'https://78.media.tumblr.com/71d93048022df065a1d2af96ab71afa3/tumblr_olykrec0DB1qbvovho1_500.gif',
+  'https://78.media.tumblr.com/18e1fdcde34edf0cf03c588162fbd0ea/tumblr_npeccq4y3H1rzk6edo1_500.gif',
+  'https://78.media.tumblr.com/5f971a365d815655803dcaea590df074/tumblr_od76a3qX4i1s9gdrpo1_500.gif',
+  'https://78.media.tumblr.com/ee613e7778d2c7120e4a622f51b606da/tumblr_ov9bobF4qz1vfz661o1_500.gif',
+  'https://78.media.tumblr.com/313a6fcdf842ba0e0f393de0746f6cd6/tumblr_oc9tu4rAff1v8ljjro1_500.gif',
+  'https://m.popkey.co/a5cfaf/1x6lW.gif',
+  'https://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-21.gif',
+  'https://media.giphy.com/media/ARSp9T7wwxNcs/giphy.gif',
+  'http://i.imgur.com/laEy6LU.gif',
+  'https://media.giphy.com/media/4HP0ddZnNVvKU/giphy.gif',
+  'https://33.media.tumblr.com/cb4da84b16d8e189c5b7a61632a54953/tumblr_nrcwmt2SNG1r4vymlo1_400.gif',
+  'https://funnypictures1.fjcdn.com/funny_gifs/Head_ac555b_6102763.gif',
+  'https://78.media.tumblr.com/3b72bb8d292b80c37f8a6d64d2ff0cca/tumblr_o9ha9ez6pv1v7p6apo2_400.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/head-pat-gif.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-18.gif',
+  'http://pa1.narvii.com/6444/4c7bd6014db28784b1dbaeb6eb9491cce4bbebb5_hq.gif',
+  'http://i.imgur.com/LRDanyb.gif',
+  'http://pa1.narvii.com/6375/2037371b0d018847c26326aa855b3ebcf5a22ec6_hq.gif',
+  'https://s-media-cache-ak0.pinimg.com/originals/c0/3f/58/c03f5817acde4b1c168d31ffe02c522e.gif',
+  'http://i2.kym-cdn.com/photos/images/original/001/142/787/396.gif',
+  'https://animatedit.files.wordpress.com/2017/01/omake-gif-anime-gate-episode-15-tuka-head-pat.gif',
+  'https://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-16.gif',
+  'https://media.tenor.com/images/fb3e0b0f18188450bfded4a585de2b90/tenor.gif',
+  'http://data.whicdn.com/images/84233961/original.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-5.gif',
+  'http://funnypictures1.fjcdn.com/funny_gifs/Head_389b42_6102763.gif',
+  'https://68.media.tumblr.com/5f971a365d815655803dcaea590df074/tumblr_od76a3qX4i1s9gdrpo1_500.gif',
+  'http://31.media.tumblr.com/eeabfb1162d1976b9f4f6927f5e9639f/tumblr_mkt8lsn4En1rbyttso1_500.gif',
+  'https://i.imgur.com/lZ4BP1C.gif',
+  'https://68.media.tumblr.com/2d61aa2fd9286f5670fbb17b6e56475f/tumblr_o4ufimpBNt1tydz8to1_500.gif',
+  'http://i.imgur.com/L8voKd1.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-10.gif',
+  'https://i.imgur.com/xXCmcJx.gif',
+  'https://archive-media-0.nyafuu.org/c/image/1483/55/1483553008493.gif',
+  'https://78.media.tumblr.com/b5b3aa9815fc4f367a90c6cebff82708/tumblr_om5f4tvcHX1thzx08o1_500.gif',
+  'http://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-20.gif',
+  'https://media.giphy.com/media/104xeY1nIvrI64/giphy.gif',
+  'http://i.imgur.com/CqGsABt.gif',
+  'http://i3.kym-cdn.com/photos/images/original/000/915/038/7e9.gif',
+  'https://thumbs.gfycat.com/ReflectingConfusedBluet-max-1mb.gif',
+  'http://img24.laughinggif.com/pic/HTTP2xpdmVkb29yLmJsb2dpbWcuanAvZ2lmYW5pbWUvaW1ncy9kL2UvZGU1M2FiMWMuZ2lm.gif',
+  'http://pa1.narvii.com/6260/9912a106df20e91d2681f7d0e3c8237c06586eab_hq.gif',
+  'http://i.imgur.com/QmtaRmn.gif',
+  'http://cloud-3.steamusercontent.com/ugc/93852834496370454/39194370AA7AC1056892B7F839643B24901F22BB/',
+  'http://cdn-9chat-fun.9cache.com/media/photo/aoPO5LzVm_480wa_v1.gif',
+  'http://49.media.tumblr.com/tumblr_lpbblk4UL21qbvovho1_500.gif',
+  'https://i.warosu.org/data/tg/img/0486/06/1470269762425.gif',
+  'http://pa1.narvii.com/6563/1c505849056037f244973a3be854c51c7a5c93f3_hq.gif'
+]
+
 exports.gropeP = [
   'https://media.giphy.com/media/3gDfReOhMWhd6/giphy.gif',
   'http://24.media.tumblr.com/10615c3d2f2818a3c34a6169b4b55a0c/tumblr_mgfir2MBiA1rk6j3co1_500.gif',
@@ -273,7 +327,11 @@ exports.nsfwSubreddits = [
   'nsfw',
   'HighResNSFW',
   'porn',
-  'BonerMaterial'
+  'BonerMaterial',
+  'adorableporn',
+  'juicyasians',
+  'LegalTeens',
+  'nsfwcosplay'
 ]
 
 exports.nsfwGifSubreddits = [
@@ -281,6 +339,9 @@ exports.nsfwGifSubreddits = [
   'nsfw_gifs',
   'porninfifteenseconds',
   '60FPSPorn',
+  'porn_gifs',
+  'nsfw_Best_Porn_Gif',
+  'LipsThatGrip'
 ]
 
 exports.nsfwError = [
@@ -292,7 +353,7 @@ exports.nsfwError = [
   "I\'m afraid that kind of stuff isn't allowed in here..",
   "This doesn't look like an NSFW channel!",
   "Please try again in an NSFW channel!",
-  "u///u, I don't think I can post that in an average channel.",
+  "u///u, I don't think I can post that in your average channel.",
   "Don't make me post that here...",
   "💢That doesn't belong here!",
   "W-What? I can't post that here!"

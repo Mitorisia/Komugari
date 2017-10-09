@@ -2,9 +2,11 @@
 *  can't say much more than sHUT tHE HECK UP this is my first time coding 
 *  hecking hell coding is the hardest thing 
 *  i did reference off of other open-sourced discord.js bots
-*  do not steal my token kthnx
+*  code my Mako#8739 with the help of many other open-sourced Discord.js bots.
+*  if you'd like me to credit you for any code that I've used of yours or has referenced off of, just submit a pull request or ask me personally!!
 */
 //botURL = https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831 
+
 const moment = require('moment')
 const tz = require('moment-timezone')
 const Discord = require("discord.js");
@@ -46,12 +48,16 @@ client.on("message", message => {
 				message.react('🇫');
 			}
 
+			if(message.content.includes('nya')) {
+				message.react('🐱');
+			}
+
 			if(message.content == '<@365907645795794946> help' || message.content == '<@!365907645795794946> help') {
 				const embed = new Discord.RichEmbed()
 					.setAuthor(`Komugari`, client.user.displayAvatarURL)
     				.setColor('#727293')
        				.setThumbnail(client.user.displayAvatarURL)
-				    .setFooter(`Any message from the me can be removed by reacting with a 🎴 emoji.`)
+				    .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
 					.setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
 					.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
 					.addField(`__Support:__`, `\`~support [message]\``, true)					
@@ -99,42 +105,42 @@ client.on("message", message => {
 			let commandFile = require(`./commands/memes/${command}.js`);
 			commandFile.run(client, message, Discord, args);
 		  } catch (err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			let commandFile = require(`./commands/nsfw/${command}.js`);
 			commandFile.run(client, message, Discord, args);
 		  } catch (err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			let commandFile = require(`./commands/search/${command}.js`);
 			commandFile.run(client, message, Discord, args);
 		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			  let commandFile = require(`./commands/anime/${command}.js`)
 			  commandFile.run(client, message, Discord, args);
 		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			let commandFile = require(`./commands/action/${command}.js`)
 			commandFile.run(client, message, Discord, args);
 		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			let commandFile = require(`./commands/utility/${command}.js`);
 			commandFile.run(client, message, Discord, args);
 		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			  let commandFile = require(`./commands/fun/${command}.js`)
 			  commandFile.run(client, message, Discord, args);
 		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  } try {
 			let commandFile = require(`./commands/info/${command}.js`)
 			commandFile.run(client, message, Discord, args);
 		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando
+			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
 		  }
 });
 

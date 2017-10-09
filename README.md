@@ -4,8 +4,6 @@
         <h1>Komugari</h1>
         <p><b>A simple, multifunctional Discord bot with a focus on anime and NSFW!</b></p>
         who am I kidding no one asks me any questions
-    
-##### there are tokens, API keys, and login credentials in the code. <b>Please</b> don't steal them kthnx
 
 ## Index
 - [Intro](https://github.com/DysphoriAlluka/Komugari/wiki)
@@ -13,5 +11,10 @@
 - [Installing](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#installing)
 - [Setup](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#setup)
 - [Running](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#running)
-- [To-do](#todo)
+- [To-do](https://github.com/DysphoriAlluka/Komugari/projects/1)
 - [Credits](https://github.com/DysphoriAlluka/Komugari/wiki/Credits)
+
+## Additonal Info! 
+If you want to help develop the bot or add anything, please feel free to! 
+
+Simply submit a pull request!! Or even contact me on Discord: **Mako#8739** !!

@@ -8,6 +8,7 @@ exports.run = async (client, message, Discord, args) => {
 
     try{
         const embed = new Discord.RichEmbed()
+            .setColor('#074288')
             .setAuthor(`Horoscope for ${body.sunsign} on ${body.date}`, 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
             .setDescription(body.horoscope)
             .setTimestamp()

@@ -15,12 +15,9 @@ exports.run = async (client, message, Discord, args) => {
         
     } else {
         const recipient = message.content.split(/\s+/g).slice(1).join(" ");
-        randomPuppy('headpats')
-            .then(url => {
                 const embed = new Discord.RichEmbed()
                     .setColor('#F2B8A4')
-                    .setImage(url)
+                    .setImage(client.consts.patP[Math.round(Math.random() * (client.consts.patP.length - 1))])
                 return message.channel.send(`${message.author} pats ${recipient}!`, {embed: embed})
-            })
         }
 }

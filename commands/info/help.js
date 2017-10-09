@@ -1,3 +1,6 @@
+//oh my hecking god how did i even sit here and write all of this???? this is so.. wtf is this
+//also no, I do not know of a simpler way to do this,,,,,,,,,,,,,,,,,,,,,,aaaa if you can fix this please do not hesitate :" ))
+
 exports.run = (client, message, Discord, args) => {
     var helpCommand = message.content.split(/\s+/g)[1]
     if(message.content == '~help') { //base help
@@ -5,7 +8,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Komugari`, client.user.displayAvatarURL)
         .setColor('#727293')
         .setThumbnail(client.user.displayAvatarURL)
-        .setFooter(`Any message from the me can be removed by reacting with a 🎴 emoji.`)
+        .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
         .setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
         .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
         .addField(`__Support:__`, `\`~support [message]\``, true)        
@@ -18,9 +21,8 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Talk`, 'https://a.safe.moe/S4jjl.png')
         .setColor('727293')
         .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Talk to the bot using the cleverbot api.` )
+        .setDescription(`Talk to the bot using the cleverbot api.` )
         .addField(`__Usage:__`, "`~! [sentence]` | `~talk [sentence]`")
-        .addField(`__Note:__`, `This command is limited to only 5000 usages, I will find a permanent alternative when this runs out.`);
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -29,7 +31,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Color`, 'https://a.safe.moe/Yfolq.jpg')
         .setColor('727293')
         .setFooter(`Utility | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Shows preview for a given hex color, if none provided, a random color will be generated.` )
+        .setDescription(`Shows preview for a given hex color, if none provided, a random color will be generated.` )
         .addField(`__Usage:__`, "`~color <color code>`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -39,9 +41,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Img/Image`, 'https://a.safe.moe/F3RvU.png')
         .setColor('727293')
         .setFooter(`Search | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Searches google images for your word or keyword.` )
-        .addField(`__Usage:__`, "`~img [search tag or keyword]`")
-        .addField(`__Note:__`, `This command is limited to only 100 usages per day, please do not spam it.`)
+        .setDescription(`Searches google images for your word or keyword.` )
+        .addField(`__Usage:__`, "`~img [search tag or keyword]`", true)
+        .addField(`__Note:__`, `Please do not spam it as it is limited per day.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -50,7 +52,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Say`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Hidden | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Makes Ben speak your sentence for you, and then removes your command.`)
+        .setDescription(`Makes Ben speak your sentence for you, and then removes your command.`)
         .addField(`__Usage:__`, "`~say [message]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -60,7 +62,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`SayTTS`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Hidden | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Makes Ben speak your sentence for you in TTS, and then removes your command.`)
+        .setDescription(`Makes Ben speak your sentence for you in TTS, and then removes your command.`)
         .addField(`__Usage:__`, "`~! [sentence]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -70,7 +72,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Support`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Info | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Sends your message to the support server.` )
+        .setDescription(`Sends your message to the support server.` )
         .addField(`__Usage:__`, "`~support [questions, inquiries, feedback, issues, or bugs] <~dm>`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -80,7 +82,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Time`, 'https://a.safe.moe/jE3GJ.png')
         .setColor('727293')
         .setFooter(`Utility | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Tells the date and time in a specific location.` )
+        .setDescription(`Tells the date and time in a specific location.` )
         .addField(`__Usage:__`, "`~time [location]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -90,7 +92,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Weather`, 'https://a.safe.moe/JPcx7.png')
         .setColor('727293')
         .setFooter(`Utility | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Shows detailed weather information for the given location.` )
+        .setDescription(`Shows detailed weather information for the given location.` )
         .addField(`__Usage:__`, "`~weather [location]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -100,7 +102,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Wiki`, 'https://a.safe.moe/8GCNj.png')
         .setColor('727293')
         .setFooter(`Search | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Returns the summary of the first matching search result from Wikipedia.`)
+        .setDescription(`Returns the summary of the first matching search result from Wikipedia.`)
         .addField(`__Usage:__`, "`~wiki [query]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -110,7 +112,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Translate`, 'https://a.safe.moe/2jXgX.png')
         .setColor('727293')
         .setFooter(`Utility | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Translates the given text to a specified language.`)
+        .setDescription(`Translates the given text to a specified language.`)
         .addField(`__Usage:__`, "`~translate [language] [foreign text]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -120,7 +122,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Help`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Info | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Shows the main help message.`)
+        .setDescription(`Shows the main help message.`)
         .addField(`__Usage:__`, "`~help`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
     
@@ -130,7 +132,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Commands`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Info | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Shows list of commands.`)
+        .setDescription(`Shows list of commands.`)
         .addField(`__Usage:__`, "`~commands`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -140,7 +142,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Smug`, 'http://smug.moe/smg/17.png')
         .setColor('727293')
         .setFooter(`Action | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Sends a random smug anime picture.`)
+        .setDescription(`Sends a random smug anime picture.`)
         .addField(`__Usage:__`, "`~smug`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -149,7 +151,7 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Disgust`, 'http://i.imgur.com/YV3oSUV.jpg')
            .setColor('727293')
            .setFooter(`Action | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Absolutely disgusting! Now which one of you likes ***handholding!?***`)
+           .setDescription(`Absolutely disgusting! Now which one of you likes ***handholding!?***`)
            .addField(`__Usage:__`, "`~disgust`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -159,9 +161,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Right There`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Outputs a random 'right there' emojipasta.`)
-        .addField(`__Usage:__`, "`~rightthere`")
-        .addField(`__Note:__`, `This contains nsfw elements and language, please use accordingly.`)
+        .setDescription(`Outputs a random 'right there' emojipasta.`)
+        .addField(`__Usage:__`, "`~rightthere`", true)
+        .addField(`__Note:__`, `Contains nsfw elements and language.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -170,7 +172,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Cat`, 'https://a.safe.moe/6GDXu.png')
         .setColor('727293')
         .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Shows a random picture of a cat. Who doesn't love cats?`)
+        .setDescription(`Shows a random picture of a cat. Who doesn't love cats?`)
         .addField(`__Usage:__`, "`~cat`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -180,7 +182,7 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Dog`, 'https://random.dog/3f62f2c1-e0cb-4077-8cd9-1ca76bfe98d5.jpg')
            .setColor('727293')
            .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Shows a random picture of a dog. Doggos are the best`)
+           .setDescription(`Shows a random picture of a dog. Doggos are the best`)
            .addField(`__Usage:__`, "`~dog`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -190,7 +192,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`8ball`, 'https://a.safe.moe/aKDHV.png')
         .setColor('727293')
         .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Ask the all knowing 8ball a question.`)
+        .setDescription(`Ask the all knowing 8ball a question.`)
         .addField(`__Usage:__`, "`~8ball [question]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -200,7 +202,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`YouTube`, 'https://a.safe.moe/V3Dhb.png')
         .setColor('727293')
         .setFooter(`Search | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Searches for videos on YouTube.`)
+        .setDescription(`Searches for videos on YouTube.`)
         .addField(`__Usage:__`, "`~youtube [query]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -210,9 +212,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Danbooru`, 'https://a.safe.moe/ppHw0.png')
         .setColor('727293')
         .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Searches for images on Danbooru.`)
-        .addField(`__Usage:__`, "`~danbooru <tags>`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Searches for images on Danbooru.`)
+        .addField(`__Usage:__`, "`~danbooru <tags>`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -221,9 +223,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Safebooru`, 'https://a.safe.moe/ppHw0.png')
         .setColor('727293')
         .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Searches for images on Safebooru.`)
-        .addField(`__Usage:__`, "`~safebooru [tags]`")
-        .addField(`__Note:__`, `This command can be used in non-nsfw channels, but keep in mind Safebooru's definition of safe.`)
+        .setDescription(`Searches for images on Safebooru.`)
+        .addField(`__Usage:__`, "`~safebooru [tags]`", true)
+        .addField(`__Note:__`, `Keep in mind Safebooru's definition of safe.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -232,31 +234,52 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Gelbooru`, 'https://a.safe.moe/ppHw0.png')
            .setColor('727293')
            .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Searches for images on Gelbooru.`)
-           .addField(`__Usage:__`, "`~gelbooru <tags>`")
-           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+           .setDescription(`Searches for images on Gelbooru.`)
+           .addField(`__Usage:__`, "`~gelbooru <tags>`", true)
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ('konachan')) { //danbooru search 
+    } else if(helpCommand === ('konachan')) { //konachan.com search 
         const embed = new Discord.RichEmbed()
            .setAuthor(`Konachan`, 'https://a.safe.moe/ppHw0.png')
            .setColor('727293')
            .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Searches for images on Konachan.com`)
-           .addField(`__Usage:__`, "`~konachan <tags>`")
-           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+           .setDescription(`Searches for images on Konachan.com`)
+           .addField(`__Usage:__`, "`~konachan <tags>`", true)
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ('yandere')) { //danbooru search 
+    } else if(helpCommand === ('yandere')) { //yandere search 
         const embed = new Discord.RichEmbed()
            .setAuthor(`Yandere`, 'https://a.safe.moe/ppHw0.png')
            .setColor('727293')
            .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Searches for images on Yandere.`)
-           .addField(`__Usage:__`, "`~yandere <tags>`")
-           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+           .setDescription(`Searches for images on Yandere.`)
+           .addField(`__Usage:__`, "`~yandere <tags>`", true)
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ('e621')) { //e621 search 
+        const embed = new Discord.RichEmbed()
+           .setAuthor(`e621`, 'https://a.safe.moe/ppHw0.png')
+           .setColor('727293')
+           .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
+           .setDescription(`Searches for images on e621.`)
+           .addField(`__Usage:__`, "`~e621 <tags>`", true)
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    } else if(helpCommand === ('pornhub')) { //e621 search 
+        const embed = new Discord.RichEmbed()
+           .setAuthor(`PornHub`, 'https://cdn.discordapp.com/emojis/366936784283762689.png')
+           .setColor('727293')
+           .setFooter(`NSFW - 3D | Any message from me can be removed by reacting with a 🎴 emoji.`)
+           .setDescription(`Searches for videos on PornHub.`)
+           .addField(`__Usage:__`, "`~pornhub <tags>`", true)
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -265,18 +288,18 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Neko`, 'https://a.safe.moe/3XYZ6.gif')
         .setColor('727293')
         .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Uses [nekos.life](http://nekos.life/) to send you the best images of lewd nekos.`)
-        .addField(`__Usage:__`, "`~neko`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Uses [nekos.life](http://nekos.life/) to send you the best images of lewd nekos.`)
+        .addField(`__Usage:__`, "`~neko`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ('catgirl')) { //lewd neko
+    } else if(helpCommand === ('catgirl')) { //sfw neko
         const embed = new Discord.RichEmbed()
            .setAuthor(`Cat Girl`, 'https://a.safe.moe/3XYZ6.gif')
            .setColor('727293')
            .setFooter(`Anime | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Uses [nekos.life](http://nekos.life/) to send you the best images of catgirls.`)
+           .setDescription(`Uses [nekos.life](http://nekos.life/) to send you the best images of catgirls.`)
            .addField(`__Usage:__`, "`~catgirl`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -286,9 +309,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Ass`, 'https://a.safe.moe/cM3Vs.png')
         .setColor('727293')
         .setFooter(`NSFW - 3D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Sends a random picture of ass. 'Ain't no playin' around, you just gotta get in there, and eat the whole ass, bruh.'`)
-        .addField(`__Usage:__`, "`~ass`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Sends a random picture of ass. 'Ain't no playin' around, you just gotta get in there, and eat the whole ass, bruh.'`)
+        .addField(`__Usage:__`, "`~ass`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -297,9 +320,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Boobs`, 'https://a.safe.moe/cM3Vs.png')
         .setColor('727293')
         .setFooter(`NSFW - 3D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Sends a random picture of boobs.`)
-        .addField(`__Usage:__`, "`~boobs`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Sends a random picture of boobs.`)
+        .addField(`__Usage:__`, "`~boobs`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -308,9 +331,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Hentai_Irl`, 'https://a.safe.moe/jZZKM.png')
         .setColor('727293')
         .setFooter(`NSFW - 2D| Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Sends a random picture from [r/hentai_irl](https://www.reddit.com/r/hentai_irl/).`)
-        .addField(`__Usage:__`, "`~hentaiirl`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Sends a random picture from [r/hentai_irl](https://www.reddit.com/r/hentai_irl/).`)
+        .addField(`__Usage:__`, "`~hentaiirl`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -319,7 +342,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Meme`, client.user.displayAvatarURL)
         .setColor('727293')
         .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Have me bring you the best and freshest memes from selected meme subreddits.`)
+        .setDescription(`Have me bring you the best and freshest memes from selected meme subreddits.`)
         .addField(`__Usage:__`, "`~meme`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -329,9 +352,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`NSFW.gif`, 'https://a.safe.moe/O8TDd.png')
         .setColor('727293')
         .setFooter(`NSFW - 3D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Returns an NSFW gif from [r/NSFW_GIF](https://www.reddit.com/r/NSFW_GIF/)`)
-        .addField(`__Usage:__`, "`~nsfwgif`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Returns an NSFW gif from [r/NSFW_GIF](https://www.reddit.com/r/NSFW_GIF/)`)
+        .addField(`__Usage:__`, "`~nsfwgif`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -340,9 +363,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Hentai`, 'https://a.safe.moe/jZZKM.png')
         .setColor('727293')
         .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Have me bring you the best and freshest hentai from selected hentai subreddits.`)
-        .addField(`__Usage:__`, "`~hentai`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Have me bring you the best and freshest hentai from selected hentai subreddits.`)
+        .addField(`__Usage:__`, "`~hentai`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -351,9 +374,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Rule34`, 'https://a.safe.moe/ppHw0.png')
         .setColor('727293')
         .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Searches for images on Rule34.`)
-        .addField(`__Usage:__`, "`~rule34 <tags>`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Searches for images on Rule34.`)
+        .addField(`__Usage:__`, "`~rule34 <tags>`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -362,9 +385,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`NSFW`, 'https://a.safe.moe/cM3Vs.png')
         .setColor('727293')
         .setFooter(`NSFW - 3D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Have me bring you the best and freshest porn from selected NSFW subreddits.`)
-        .addField(`__Usage:__`, "`~nsfw`")
-        .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        .setDescription(`Have me bring you the best and freshest porn from selected NSFW subreddits.`)
+        .addField(`__Usage:__`, "`~nsfw`", true)
+        .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -373,7 +396,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Shit`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Ugh, I stepped in what now?`)
+        .setDescription(`Ugh, I stepped in what now?`)
         .addField(`__Usage:__`, "`~shit [whatever's on the bottom of your foot]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -383,7 +406,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Triggered`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Old, stank meme. Is this still relevant?`)
+        .setDescription(`Old, stank meme. Is this still relevant?`)
         .addField(`__Usage:__`, "`~triggered <mention>`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -393,7 +416,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`F to Pay Respects`, 'https://a.safe.moe/TGUHH.png')
         .setColor('727293')
         .setFooter(`Fun | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Better pay up your respects.`)
+        .setDescription(`Better pay up your respects.`)
         .addField(`__Usage:__`, "`~f <what you're paying respects to>`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -403,9 +426,9 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Urban`, 'https://a.safe.moe/1fscn.png')
         .setColor('727293')
         .setFooter(`Search | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Searches Urban Dictionary for your word or keyword.` )
-        .addField(`__Usage:__`, "`~urban [search tag or keyword]`")
-        .addField(`__Note:__`, `If left blank, it will return a random definition.`);
+        .setDescription(`Searches Urban Dictionary for your word or keyword.` )
+        .addField(`__Usage:__`, "`~urban <search tag or keyword>`", true)
+        .addField(`__Note:__`, `If left blank, it will return a random definition.`, true);
      return message.channel.send({embed}).then(m=> m.react('🎴'))
 
 
@@ -414,7 +437,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Shits`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Let them know what's shit and what's not.`)
+        .setDescription(`Let them know what's shit and what's not.`)
         .addField(`__Usage:__`, "`~shits [something that is clearly shit]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -424,7 +447,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Retarded`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `What's this? A cute little dog..?`)
+        .setDescription(`What's this? A cute little dog..?`)
         .addField(`__Usage:__`, "`~retarded [something really retarded]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -434,7 +457,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`The Search`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Is intelligible life still prevalent?`)
+        .setDescription(`Is intelligible life still prevalent?`)
         .addField(`__Usage:__`, "`~thesearch [something extraterrestrial life finds mundane]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -444,7 +467,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Bonzi`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Tell an amazing fact!`)
+        .setDescription(`Tell an amazing fact!`)
         .addField(`__Usage:__`, "`~bonzi [an amazing fact]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -454,7 +477,7 @@ exports.run = (client, message, Discord, args) => {
         .setAuthor(`Disabled`, 'https://a.safe.moe/h0JMI.png')
         .setColor('727293')
         .setFooter(`Memes | Any message from me can be removed by reacting with a 🎴 emoji.`)
-        .addField(`__Description:__`, `Disabilities: know the difference between what's disabled and what's not.`)
+        .setDescription(`Disabilities: know the difference between what's disabled and what's not.`)
         .addField(`__Usage:__`, "`~disabled [mention | image URL]`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -464,7 +487,7 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Ahegao`, 'https://a.safe.moe/jZZKM.png')
            .setColor('727293')
            .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Ahegao, not to be confused with ahoge.`)
+           .setDescription(`Ahegao, not to be confused with ahoge.`)
            .addField(`__Usage:__`, "`~ahegao`")
            .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
         return message.channel.send({embed}).then(m=>m.react("🎴"))
@@ -475,9 +498,9 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Trap`, 'https://a.safe.moe/jZZKM.png')
            .setColor('727293')
            .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `Traps are only 2.19% gay.`)
-           .addField(`__Usage:__`, "`~trap`")
-           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+           .setDescription(`Traps are only 2.19% gay.`)
+           .addField(`__Usage:__`, "`~trap`", true)
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`, true)
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -486,7 +509,7 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Zettai Ryouiki`, 'https://a.safe.moe/AuUEW.jpg')
            .setColor('727293')
            .setFooter(`Anime | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `"Absolute Territory" (絶対領域, zettai ryouiki) describes the amount of bare thigh skin between the skirt and stockings or socks for female characters.`)
+           .setDescription(`"Absolute Territory" (絶対領域, zettai ryouiki) describes the amount of bare thigh skin between the skirt and stockings or socks for female characters.`)
            .addField(`__Usage:__`, "`~zr`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -496,7 +519,7 @@ exports.run = (client, message, Discord, args) => {
            .setAuthor(`Moe`, 'https://a.safe.moe/SYe8T.jpg')
            .setColor('727293')
            .setFooter(`Anime | Any message from me can be removed by reacting with a 🎴 emoji.`)
-           .addField(`__Description:__`, `ONLY the cutest anime girls.`)
+           .setDescription(`ONLY the cutest anime girls.`)
            .addField(`__Usage:__`, "`~moe`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -506,18 +529,18 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Rate", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Fun | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Rates the given item out of 10.`)
+            .setDescription(`Rates the given item out of 10.`)
             .addField(`__Usage:__`, "`~rate [item]`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
-    } else if(helpCommand === ("osu")) {
+    } else if(helpCommand === ("osustats")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Osu!", 'https://a.safe.moe/Z7DGu.png')
             .setColor('727293')
             .setFooter("Search | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Searches for an user on Osu!`)
-            .addField(`__Usage:__`, "`~osu [user]`")
+            .setDescription(`Searches for an user on Osu!`)
+            .addField(`__Usage:__`, "`~osustats [user]`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
@@ -526,7 +549,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Horoscope", 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
             .setColor('727293')
             .setFooter("Fun | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Gives you your daily horoscope!`)
+            .setDescription(`Gives you your daily horoscope!`)
             .addField(`__Usage:__`, "`~horoscope [sign]`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -536,9 +559,9 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Anime", 'https://myanimelist.cdn-dena.com/img/sp/icon/apple-touch-icon-256.png')
             .setColor('727293')
             .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Searches for an anime on MyAnimeList!`)
-            .addField(`__Usage:__`, "`~anime [name/tag]`")
-            .addField(`__Note:__`, 'Use `~anime` to get an anime suggestion!')
+            .setDescription(`Searches for an anime on MyAnimeList!`)
+            .addField(`__Usage:__`, "`~anime [name/tag]`", true)
+            .addField(`__Note:__`, 'Use `~anime` to get an anime suggestion!', true)
         return message.channel.send({embed}).then(m=>m.react("🎴"))
         
 
@@ -547,7 +570,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Speak", 'https://a.safe.moe/hZGj2.gif')
             .setColor('727293')
             .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Plays a random anime sound...?`)
+            .setDescription(`Plays a random anime sound...?`)
             .addField(`__Usage:__`, "`~speak`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -557,7 +580,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Quote", 'https://a.safe.moe/hZGj2.gif')
             .setColor('727293')
             .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `A random quote from a random character!`)
+            .setDescription(`A random quote from a random character!`)
             .addField(`__Usage:__`, "`~quote`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
     
@@ -567,7 +590,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Hand", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Holds hands with the user you mentioned... lewd.`)
+            .setDescription(`Holds hands with the user you mentioned... lewd.`)
             .addField(`__Usage:__`, "`~hand <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -577,7 +600,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Hug", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Hugs the user you mentioned!`)
+            .setDescription(`Hugs the user you mentioned!`)
             .addField(`__Usage:__`, "`~hug <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -587,7 +610,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Kiss", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Kisses the user you mentioned!`)
+            .setDescription(`Kisses the user you mentioned!`)
             .addField(`__Usage:__`, "`~kiss <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -597,7 +620,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Lewd", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `That's *lewd*!`)
+            .setDescription(`That's *lewd*!`)
             .addField(`__Usage:__`, "`~lewd`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -607,7 +630,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Pat", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Pats the user you mentioned!`)
+            .setDescription(`Pats the user you mentioned!`)
             .addField(`__Usage:__`, "`~pat <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -617,7 +640,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Slap", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Slaps the user you mentioned!`)
+            .setDescription(`Slaps the user you mentioned!`)
             .addField(`__Usage:__`, "`~slap <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -626,7 +649,7 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor("Slap", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Gropes(...?) the user you mentioned...?`)
+            .setDescription(`Gropes(...?) the user you mentioned...?`)
             .addField(`__Usage:__`, "`~grope <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -636,11 +659,11 @@ exports.run = (client, message, Discord, args) => {
             .setAuthor(`Komugari`, client.user.displayAvatarURL)
             .setColor('#727293')
             .setThumbnail(client.user.displayAvatarURL)
-            .setFooter(`Any message from the me can be removed by reacting with a 🎴 emoji.`)
+            .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
             .setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
             .addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=2083912831)`, true)
             .addField(`__Support:__`, `\`~support [message]\``, true)
             .addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
-     return message.channel.send(`The command ${helpCommand} was not found!`, {embed: embed}).then(m=>m.react("🎴"))		
+     return message.channel.send(`The command **${helpCommand}** was not found!`, {embed: embed}).then(m=>m.react("🎴"))		
     }
 }

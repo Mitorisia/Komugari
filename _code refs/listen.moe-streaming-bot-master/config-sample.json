@@ -1,0 +1,16 @@
+{
+    "token": "Bot's token",
+    "stream": "https://listen.moe/stream",
+    "streamInfo": "https://listen.moe/api/info/socket",
+    "ua": "Odyssey Radio Discord bot/1.1.0 (https://github.com/Geo1088/listen.moe-streaming-bot)",
+    "separator": "-",
+    "owners": [
+        "User ID who should have access to eval",
+        "You can put multiples here"
+    ],
+    "guildDefaults": {
+        "vc": "",
+        "prefix": "~~",
+        "denied": []
+    }
+}

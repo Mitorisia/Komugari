@@ -1,6 +1,6 @@
 exports.run = async (client, message, Discord) => {
 	if (!message.channel.permissionsFor(client.user.id).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
-		message.react('💢')
+		message.react('❓')
 		return message.channel.send('I don\'t have the permissions to do this!').then(m => m.delete(5000));
 	}
 
