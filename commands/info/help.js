@@ -144,6 +144,15 @@ exports.run = (client, message, Discord, args) => {
         .addField(`__Usage:__`, "`~smug`")
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
+    } else if(helpCommand === ('disgust')) { //smug
+        const embed = new Discord.RichEmbed()
+           .setAuthor(`Disgust`, 'http://i.imgur.com/YV3oSUV.jpg')
+           .setColor('727293')
+           .setFooter(`Action | Any message from me can be removed by reacting with a 🎴 emoji.`)
+           .addField(`__Description:__`, `Absolutely disgusting! Now which one of you likes ***handholding!?***`)
+           .addField(`__Usage:__`, "`~disgust`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
 
     } else if(helpCommand === ('rightthere')) { //right there
      const embed = new Discord.RichEmbed()
@@ -200,9 +209,9 @@ exports.run = (client, message, Discord, args) => {
      const embed = new Discord.RichEmbed()
         .setAuthor(`Danbooru`, 'https://a.safe.moe/ppHw0.png')
         .setColor('727293')
-        .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
+        .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
         .addField(`__Description:__`, `Searches for images on Danbooru.`)
-        .addField(`__Usage:__`, "`~danbooru [tags]`")
+        .addField(`__Usage:__`, "`~danbooru <tags>`")
         .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -216,6 +225,39 @@ exports.run = (client, message, Discord, args) => {
         .addField(`__Usage:__`, "`~safebooru [tags]`")
         .addField(`__Note:__`, `This command can be used in non-nsfw channels, but keep in mind Safebooru's definition of safe.`)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ('gelbooru')) { //gelbooru search 
+        const embed = new Discord.RichEmbed()
+           .setAuthor(`Gelbooru`, 'https://a.safe.moe/ppHw0.png')
+           .setColor('727293')
+           .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
+           .addField(`__Description:__`, `Searches for images on Gelbooru.`)
+           .addField(`__Usage:__`, "`~gelbooru <tags>`")
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ('konachan')) { //danbooru search 
+        const embed = new Discord.RichEmbed()
+           .setAuthor(`Konachan`, 'https://a.safe.moe/ppHw0.png')
+           .setColor('727293')
+           .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
+           .addField(`__Description:__`, `Searches for images on Konachan.com`)
+           .addField(`__Usage:__`, "`~konachan <tags>`")
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+
+    } else if(helpCommand === ('yandere')) { //danbooru search 
+        const embed = new Discord.RichEmbed()
+           .setAuthor(`Yandere`, 'https://a.safe.moe/ppHw0.png')
+           .setColor('727293')
+           .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
+           .addField(`__Description:__`, `Searches for images on Yandere.`)
+           .addField(`__Usage:__`, "`~yandere <tags>`")
+           .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 
     } else if(helpCommand === ('neko')) { //lewd neko
@@ -308,9 +350,9 @@ exports.run = (client, message, Discord, args) => {
      const embed = new Discord.RichEmbed()
         .setAuthor(`Rule34`, 'https://a.safe.moe/ppHw0.png')
         .setColor('727293')
-        .setFooter(`NSFW - 2D | Any message from me can be removed by reacting with a 🎴 emoji.`)
+        .setFooter(`NSFW Image Boards | Any message from me can be removed by reacting with a 🎴 emoji.`)
         .addField(`__Description:__`, `Searches for images on Rule34.`)
-        .addField(`__Usage:__`, "`~rule34 [tags]`")
+        .addField(`__Usage:__`, "`~rule34 <tags>`")
         .addField(`__Note:__`, `This command can only be used in NSFW channels.`)
      return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -496,6 +538,7 @@ exports.run = (client, message, Discord, args) => {
             .setFooter("Anime | Any message from me can be removed by reacting with a 🎴 emoji.")
             .addField(`__Description:__`, `Searches for an anime on MyAnimeList!`)
             .addField(`__Usage:__`, "`~anime [name/tag]`")
+            .addField(`__Note:__`, 'Use `~anime` to get an anime suggestion!')
         return message.channel.send({embed}).then(m=>m.react("🎴"))
         
 
@@ -519,22 +562,12 @@ exports.run = (client, message, Discord, args) => {
         return message.channel.send({embed}).then(m=>m.react("🎴"))
     
 
-    } else if(helpCommand === ("cuddle")) {
-        const embed =  new Discord.RichEmbed()
-            .setAuthor("Cuddle", client.user.displayAvatarURL)
-            .setColor('727293')
-            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Cuddles with the user you mentioned!`)
-            .addField(`__Usage:__`, "`~cuddle <user>`")
-        return message.channel.send({embed}).then(m=>m.react("🎴"))
-
-    
     } else if(helpCommand === ("hand")) {
         const embed =  new Discord.RichEmbed()
             .setAuthor("Hand", client.user.displayAvatarURL)
             .setColor('727293')
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField(`__Description:__`, `Holds hands with the user you mentioned!`)
+            .addField(`__Description:__`, `Holds hands with the user you mentioned... lewd.`)
             .addField(`__Usage:__`, "`~hand <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
@@ -586,6 +619,15 @@ exports.run = (client, message, Discord, args) => {
             .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
             .addField(`__Description:__`, `Slaps the user you mentioned!`)
             .addField(`__Usage:__`, "`~slap <user>`")
+        return message.channel.send({embed}).then(m=>m.react("🎴"))
+
+    } else if(helpCommand === ("grope")) {
+        const embed =  new Discord.RichEmbed()
+            .setAuthor("Slap", client.user.displayAvatarURL)
+            .setColor('727293')
+            .setFooter("Action | Any message from me can be removed by reacting with a 🎴 emoji.")
+            .addField(`__Description:__`, `Gropes(...?) the user you mentioned...?`)
+            .addField(`__Usage:__`, "`~grope <user>`")
         return message.channel.send({embed}).then(m=>m.react("🎴"))
 
 

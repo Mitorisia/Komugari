@@ -8,12 +8,12 @@ exports.run = (client, message, Discord, args) => {
     }
     
      var query = message.content.split(/\s+/g).slice(1).join(" ");
-        booru.search('danbooru', [query], {limit: 1, random: true})
+        booru.search('konac', [query], {limit: 1, random: true})
          .then(booru.commonfy)
          .then(images => {
              for(let image of images) {
                  const embed = new Discord.RichEmbed()
-                    .setAuthor(`Danbooru ${query}`, 'https://a.safe.moe/ppHw0.png')
+                    .setAuthor(`Konachan ${query}`, 'https://a.safe.moe/ppHw0.png')
                     .setImage(image.common.file_url)
                     .setColor('#C597B8')
                  message.channel.send({embed})

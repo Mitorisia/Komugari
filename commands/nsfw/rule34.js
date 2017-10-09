@@ -13,9 +13,9 @@ exports.run = (client, message, Discord, args) => {
          .then(images => {
              for(let image of images) {
                  const embed = new Discord.RichEmbed()
-                    .setAuthor(`Rule34 | ${query}`, 'https://a.safe.moe/ppHw0.png')
+                    .setAuthor(`Rule34 ${query}`, 'https://a.safe.moe/ppHw0.png')
                     .setImage(image.common.file_url)
-                    .setColor('#bb7539')
+                    .setColor('#C597B8')
                  message.channel.send({embed})
              }
 

@@ -9,7 +9,7 @@ exports.run = (client, message, Discord, args) => {
                  const embed = new Discord.RichEmbed()
                     .setAuthor(`Safebooru | ${query}`, 'https://a.safe.moe/ppHw0.png')
                     .setImage(image.common.file_url)
-                    .setColor('#bb7539')
+                    .setColor('#C597B8')
                  message.channel.send({embed})
              }
 

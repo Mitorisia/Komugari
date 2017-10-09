@@ -1,15 +1,16 @@
 const randomPuppy = require('random-puppy')
 
 exports.run = async (client, message, Discord, args) => {
-    function selfPat() {
-        var rand = [];
-        return rand[Math.floor(Math.random() * rand.length)];
-    } 
-
     if(args.length < 1) {
         const embed = new Discord.RichEmbed()
-            .setColor('#4E373B')
-            .setImage(selfPat())
+            .setColor('#F2B8A4')
+            .setImage('https://media.tenor.com/images/c889116a54b04010fb82db2695348311/tenor.gif')
+        return message.channel.send(`${message.author} pats... themselves..?`, {embed: embed})
+
+    } else if(message.mentions.users.first() == message.author) {
+        const embed = new Discord.RichEmbed()
+            .setColor('#F2B8A4')
+            .setImage('https://media.tenor.com/images/c889116a54b04010fb82db2695348311/tenor.gif')
         return message.channel.send(`${message.author} pats... themselves..?`, {embed: embed})
         
     } else {
@@ -17,7 +18,7 @@ exports.run = async (client, message, Discord, args) => {
         randomPuppy('headpats')
             .then(url => {
                 const embed = new Discord.RichEmbed()
-                    .setColor('#4E373B')
+                    .setColor('#F2B8A4')
                     .setImage(url)
                 return message.channel.send(`${message.author} pats ${recipient}!`, {embed: embed})
             })
