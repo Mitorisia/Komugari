@@ -1,5 +1,24 @@
-exports.run = (client, message) => {
+const { Command } = require('discord.js-commando');
+
+module.exports = class SayCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'say',
+            aliases: ['copycat', 'repeat', 'echo', 'parrot'],
+            group: 'fun',
+            memberName: 'say',
+            description: 'Makes Komugari say something for you.',
+            examples: ['say Hello!'],
+            throttling: {
+                usages: 1,
+                duration: 5
+            }
+        });
+    }
+
+    run (message) {
 	let sayMessage = message.content.split(/\s+/g).slice(1).join(" ");
-	if(!sayMessage) return message.channel.send('Please specify something for me to say.')
-        	return message.channel.send(sayMessage).catch(console.error);
+	if(!sayMessage) return message.say('Please specify something for me to say.')
+			return message.say(sayMessage).catch(console.error);
+	}
 }

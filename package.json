@@ -16,6 +16,7 @@
     "booru": "^0.3.3",
     "cleverbot-node": "^0.3.11",
     "discord.js": "^11.1.0",
+    "discord.js-commando": "github:gawdl3y/discord.js-commando",
     "ffmpeg-binaries": "^3.2.2-3",
     "gifencoder": "^1.1.0",
     "google-images": "^2.1.0",

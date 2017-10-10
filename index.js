@@ -8,14 +8,35 @@
 */
 //botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782
 
-const moment = require('moment')
-const tz = require('moment-timezone')
-const Discord = require("discord.js");
-const client = new Discord.Client({disableEveryone: true});
-const auth = require("./auth.json");
-const prefix = '~'
+const moment = require('moment');
+const tz = require('moment-timezone');
 
-client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');
+const { CommandoClient } = require('discord.js-commando');
+const client = new CommandoClient({
+    commandPrefix: '~',
+    owner: '180050347589369856',
+	disableEveryone: true,
+	unknownCommandResponse: false
+});
+const Discord = require('discord.js')
+
+const auth = require("./auth.json");
+const prefix = '~';
+
+client.registry
+	.registerDefaultTypes()
+	.registerGroups([
+		['action', 'Action'],
+		['anime', 'Anime'],
+		['fun', 'Fun'],
+		['info', 'Info'],
+		['memes', 'Memes'],
+		['moderation', 'Moderation'],
+		['nsfw', 'NSFW'],
+		['search', 'search'],
+		['utility', 'Utility']
+	])
+	.registerCommandsIn(__dirname + "/commands");
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
@@ -30,19 +51,28 @@ client.on("ready", () => {
 
 client.on('guildCreate', guild => {
 	var channel = client.channels.get('198399488614727680')
-		channel.send(`Komugari was added to ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`)
+		channel.send(`Komugari was added to ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`);
 });
 client.on('guildDelete', guild => {
-	var channel = client.channels.get('198399488614727680')
-		channel.send(`Komugari was removed from ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`)
+	var channel = client.channels.get('198399488614727680');
+		channel.send(`Komugari was removed from ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`);
 });
+
+//removes bot's message if reacted with card thing
+client.on("messageReactionAdd", (messageReaction, user) => {
+	if(messageReaction.message.author.id !== '365907645795794946') return;
+	if(user.bot) return;
+	if(messageReaction.emoji == '🎴') {
+        messageReaction.message.delete();
+      }
+})
 
 //basic message replies
 client.on("message", message => {
-	if(message.author.bot)return; 
+	if(message.channel.type == "dm" || message.author.bot) return;
 	
 	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) {
-		return message.react('')
+		return message.react('😖')
 	}
 		try {
 			if(message.content.includes('press f')) {
@@ -54,7 +84,7 @@ client.on("message", message => {
 			}
 
 			if(message.content == '<@365907645795794946> help' || message.content == '<@!365907645795794946> help') {
-				const embed = new Discord.RichEmbed()
+				const embed = new Discord.MessageEmbed()
 					.setAuthor(`Komugari`, client.user.displayAvatarURL)
     				.setColor('#727293')
        				.setThumbnail(client.user.displayAvatarURL)
@@ -78,7 +108,7 @@ client.on("message", message => {
 					var keyreenTime = timeZone.tz('Europe/Kiev').format('MMM Do, HH:mm');
 					var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm'); 
 
-					var embed = new Discord.RichEmbed()
+					var embed = new Discord.MessageEmbed()
 						.setColor('#8FB3C3')
 						.addField('keyreen', keyreenTime)
 						.addField('kodicks', kodicksTime)
@@ -93,63 +123,6 @@ client.on("message", message => {
 		} catch(err) {
 			console.log(err)
 		}
-
-		  const args = message.content.split(" "); 
-		
-		  if (!message.content.startsWith(prefix)) return;
-		
-		  //COMMAND Handler wow this is really simple
-		  const org = args.shift().slice(prefix.length);
-		  const command = org.toLowerCase()
-
-		  try {
-			let commandFile = require(`./commands/memes/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch (err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/nsfw/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch (err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/search/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			  let commandFile = require(`./commands/anime/${command}.js`)
-			  commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/action/${command}.js`)
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/utility/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			  let commandFile = require(`./commands/fun/${command}.js`)
-			  commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/info/${command}.js`)
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  }
 });
 
-//removes bot's message if reacted with card thing
-client.on("messageReactionAdd", (messageReaction, user) => {
-	if(messageReaction.message.author.id !== '365907645795794946') return;
-	if(user.bot) return;
-	if(messageReaction.emoji == '🎴') {
-        messageReaction.message.delete();
-      }
-})
+client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');
