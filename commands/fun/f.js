@@ -9,7 +9,7 @@ module.exports = class FCommand extends Command {
             group: 'fun',
             memberName: 'f',
             description: 'Press F to pay respects',
-            examples: ['f the user that just left :" ('],
+            examples: ['~f <something you want to respect>'],
             throttling: {
                 usages: 1,
                 duration: 5
@@ -21,7 +21,7 @@ module.exports = class FCommand extends Command {
         const respect = message.content.split(/\s+/g).slice(1).join(" ");
         if(!respect) {
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`${message.author.username} has paid their respects.`, message.author.avatarURL())
+                .setAuthor(`${message.author.username} has paid their respects.`, message.author.displayAvatarURL())
                 .setColor('#4E373B')
                 .setFooter(`Press F to pay your respects.`)
             message.channel.send({embed}).then(m=>m.react("🇫"))
@@ -30,7 +30,7 @@ module.exports = class FCommand extends Command {
             } else {
                 const respect = message.content.split(/\s+/g).slice(1).join(" ");
                 const embed = new Discord.MessageEmbed()
-                    .setAuthor(`${message.author.username} has paid their respects to ${respect}.`, message.author.avatarURL())
+                    .setAuthor(`${message.author.username} has paid their respects to ${respect}.`, message.author.displayAvatarURL())
                     .setColor('#4E373B')
                     .setFooter(`Press F to pay your respects.`)
                 message.channel.send({embed}).then(m=>m.react("🇫"))

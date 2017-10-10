@@ -8,7 +8,7 @@ module.exports = class SayCommand extends Command {
             group: 'fun',
             memberName: 'say',
             description: 'Makes Komugari say something for you.',
-            examples: ['say Hello!'],
+            examples: ['~say [sentence]'],
             throttling: {
                 usages: 1,
                 duration: 5

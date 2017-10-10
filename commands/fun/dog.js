@@ -10,7 +10,7 @@ module.exports = class DogCommand extends Command {
             group: 'fun',
             memberName: 'dog',
             description: 'Sends a random picture of a dog!',
-            examples: ['dog'],
+            examples: ['~dog'],
             throttling: {
                 usages: 1,
                 duration: 5

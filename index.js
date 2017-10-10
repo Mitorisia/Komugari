@@ -23,6 +23,7 @@ const Discord = require('discord.js')
 const auth = require("./auth.json");
 const prefix = '~';
 
+
 client.registry
 	.registerDefaultTypes()
 	.registerGroups([
@@ -38,9 +39,9 @@ client.registry
 	])
 	.registerCommandsIn(__dirname + "/commands");
 
+
 //ready and game status, message ready to main server
 client.on("ready", () => {
-	client.consts = require('./consts.js');
 	client.user.setPresence({ game: { name: 'with you | ~help', type: 0 } });
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
@@ -48,6 +49,7 @@ client.on("ready", () => {
 	var channel = client.channels.get('198399488614727680');
 	channel.send(`Ding`);
 });
+
 
 client.on('guildCreate', guild => {
 	var channel = client.channels.get('198399488614727680')
@@ -58,6 +60,7 @@ client.on('guildDelete', guild => {
 		channel.send(`Komugari was removed from ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`);
 });
 
+
 //removes bot's message if reacted with card thing
 client.on("messageReactionAdd", (messageReaction, user) => {
 	if(messageReaction.message.author.id !== '365907645795794946') return;
@@ -66,6 +69,7 @@ client.on("messageReactionAdd", (messageReaction, user) => {
         messageReaction.message.delete();
       }
 })
+
 
 //basic message replies
 client.on("message", message => {
@@ -124,5 +128,6 @@ client.on("message", message => {
 			console.log(err)
 		}
 });
+
 
 client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');

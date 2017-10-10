@@ -9,7 +9,7 @@ module.exports = class RateCommand extends Command {
             group: 'fun',
             memberName: 'rate',
             description: 'Gives the item you specify a rating out of 10!',
-            examples: ['rate '],
+            examples: ['~rate [item to be rated]'],
         });
     }
 

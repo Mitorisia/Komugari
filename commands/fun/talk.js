@@ -9,10 +9,11 @@ module.exports = class TalkCommand extends Command {
             group: 'fun',
             memberName: 'talk',
             description: 'Talk to Komugari using the Cleverbot API!',
-            examples: ['talk Hello!'],
+            examples: ['~talk [sentence]'],
+            guildOnly: true,
             throttling: {
               usages: 1,
-              duration: 5
+              duration: 3
           }
         });
     }

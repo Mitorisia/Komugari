@@ -10,7 +10,7 @@ module.exports = class EightBallCommand extends Command {
             group: 'fun',
             memberName: '8ball',
             description: 'Ask the magic 8ball a question!',
-            examples: ['8ball will I ever be the very best?'],
+            examples: ['~8ball [question]'],
             throttling: {
                 usages: 1,
                 duration: 5
