@@ -20,7 +20,7 @@ module.exports = class DisgustCommand extends Command {
 
     run (message) {
         const embed = new Discord.MessageEmbed()
-            .setColor('#F2B8A4')
+            .setColor('#FBCFCF')
             .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))])
         return message.channel.send({embed})
 	}

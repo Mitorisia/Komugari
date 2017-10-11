@@ -24,16 +24,39 @@ module.exports = class SpeakCommand extends Command {
 	
 		} else {
 			try {
-				var voiceChannel = message.member.voiceChannel;
-				var file = Math.floor(Math.random() * 42 + 1);
 			
 				if (!this.client.voiceConnections.get(message.guild.id)) {
+
+					var file = Math.floor(Math.random() * 42 + 1);
+
+					const channel = message.member.voiceChannel;
+
+					channel.join().then(connection => { 
+						const VCLog = this.client.channels.get('367797481544613889')	
+						var embed = new Discord.MessageEmbed()
+							.setAuthor('Joined Voice Channel', this.client.user.displayAvatarURL())
+							.setColor('#ABBB9F')
+							.setDescription(`Joined **${channel.name}** in **${message.guild.name}**`)
+							.setFooter(`${this.client.voiceConnections.size} voice connections | Speak`)
+							.setTimestamp();			
+						VCLog.send({embed})
+					  const dispatcher = connection.playFile(`assets/sounds/anime/${file}.opus`);
+
+					  dispatcher.on("end",  () => {
+						  channel.leave()
+						  var embed = new Discord.MessageEmbed()
+							.setAuthor('Left Voice Channel', this.client.user.displayAvatarURL())
+							.setColor('#706482')
+							.setDescription(`Left **${channel.name}** in **${message.guild.name}**`)
+						  	.setFooter(`${this.client.voiceConnections.size} voice connections | Speak`)
+						  	.setTimestamp();			
+					  	VCLog.send({embed})
+						});
+
+					}).catch(err => console.log(err));
+
 					message.react('🐱');
-					const conn = await message.member.voiceChannel.join();
-					conn.playFile(`../../assets/sounds/anime/${file}.opus`);
-					conn.player.dispatcher.once('end', () => {
-						return conn.channel.leave();
-					})
+
 				} else {
 					message.react('‼');
 					return message.channel.send('Hold on... I\'m already playing in a voice channel!');

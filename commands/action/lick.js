@@ -1,15 +1,17 @@
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
+const snekfetch = require('snekfetch');
 const actions = require('../../assets/json/actions.json');
 
-module.exports = class GropeCommand extends Command {
+module.exports = class LickCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'grope',
+            name: 'lick',
+            aliases: ['slurp'],
             group: 'action',
-            memberName: 'grope',
-            description: 'Gropes..? the user you mentioned...?',
-            examples: ['~grope <user>'],
+            memberName: 'lick',
+            description: 'Licks the user you mentioned!',
+            examples: ['~lick <user>'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -17,26 +19,38 @@ module.exports = class GropeCommand extends Command {
         });
     }
 
-    run (message) {
-        var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+    async run (message) {
+        var recipient = message.content.split(/\s+/g).slice(1).join(" ");        
         if(!recipient) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
-            return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed});
+            return message.channel.send(`${message.author} licks... themselves..?`, {embed: embed});
     
         } else if(message.mentions.users.first() == message.author) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
-            return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed});
+            return message.channel.send(`${message.author} licks... themselves..?`, {embed: embed});
             
         } else {
+    
+        var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=lick`);
+        var body = JSON.parse(text.text);
+    
+        try{
             var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.gropeP[Math.round(Math.random() * (actions.gropeP.length - 1))]);
-            return message.channel.send(`${message.author} has started... groping ${recipient}?`, {embed: embed});
-            }
+                .setImage(`https://rra.ram.moe${body.path}`);
+            return message.channel.send(`${message.author} licks ${recipient}!`, {embed:embed});
+    
+        } catch(err) {
+            console.log(err);
+            message.react('✖');
+
+            return null;
+        }
+    }
 	}
 }

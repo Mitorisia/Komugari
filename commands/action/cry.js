@@ -20,7 +20,7 @@ module.exports = class CryCommand extends Command {
 
     run (message) {
         const embed = new Discord.MessageEmbed()
-            .setColor('#F2B8A4')
+            .setColor('#FBCFCF')
             .setImage(actions.cryP[Math.round(Math.random() * (actions.cryP.length - 1))])
         return message.channel.send(`${message.author} has started crying!`, {embed: embed})
 	}
