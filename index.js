@@ -27,8 +27,9 @@ const prefix = '~';
 client.registry
 	.registerDefaultTypes()
 	.registerGroups([
-		['action', 'Action'],
+		['action', 'Action'], 
 		['anime', 'Anime'],
+		['voice', 'Voice'],
 		['fun', 'Fun'],
 		['info', 'Info'],
 		['memes', 'Memes'],
@@ -66,10 +67,9 @@ client.on("messageReactionAdd", (messageReaction, user) => {
 	if(messageReaction.message.author.id !== '365907645795794946') return;
 	if(user.bot) return;
 	if(messageReaction.emoji == '🎴') {
-        messageReaction.message.delete();
+		messageReaction.message.delete();
       }
 })
-
 
 //basic message replies
 client.on("message", message => {

@@ -2,7 +2,7 @@ const Jimp = require('jimp')
 
 exports.run = async (client, message, Discord, args) => {
 	if (!message.channel.permissionsFor(client.user.id).has('ATTACH_FILES')) {
-		return message.reply('I can\'t attach messages!').then(m => m.delete(5000));
+		return message.reply('I can\'t attach messages!')
 	}
 
 	let avatarurl = (message.mentions.users.size > 0 ? message.mentions.users.first().displayAvatarURL : message.author.displayAvatarURL).replace('gif', 'png')
@@ -25,7 +25,7 @@ exports.run = async (client, message, Discord, args) => {
 				}]
 			})
 		} catch (e) {
-			return message.channel.send(`Something went wrong while executing that function.`).then(m => m.delete(5000));
+			return message.channel.send(`Something went wrong while executing that function.`)
 		}
 
 	})

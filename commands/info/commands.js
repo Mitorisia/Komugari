@@ -10,7 +10,7 @@ module.exports = class CommandsCommand extends Command {
             description: 'Sends a list of all commands!',
             examples: ['~commands']
         });
-    }
+    };
 
     async run (message) {
         const embed = new Discord.MessageEmbed()
@@ -30,7 +30,9 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Action:__", "`cry` `disgust` `grope` `hand` `hug` `kiss` `lewd` `nobully` `nom` `nyan` `pat` `pout` `slap` `smug` `slap` `stare` `tickle`", true)
             .addField("__2D NSFW:__", "`hentai` `hentaiirl` `neko` `trap`", true)
             .addField("__3D NSFW:__", "`ass` `boobs` `nsfw` `nsfwgif` `pornhub`", true)
-            .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `yandere` `e621`")
-        message.channel.send({embed}).then(m=> {m.react('🎴')})
+            .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `yandere` `e621`");
+        message.channel.send({embed}).then(m=> {m.react('🎴')});
+
+        return null; 
 	}
 }

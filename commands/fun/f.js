@@ -23,8 +23,8 @@ module.exports = class FCommand extends Command {
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.author.username} has paid their respects.`, message.author.displayAvatarURL())
                 .setColor('#4E373B')
-                .setFooter(`Press F to pay your respects.`)
-            message.channel.send({embed}).then(m=>m.react("🇫"))
+                .setFooter(`Press F to pay your respects.`);
+            message.channel.send({embed}).then(m=>m.react("🇫"));
             return
             
             } else {
@@ -32,8 +32,8 @@ module.exports = class FCommand extends Command {
                 const embed = new Discord.MessageEmbed()
                     .setAuthor(`${message.author.username} has paid their respects to ${respect}.`, message.author.displayAvatarURL())
                     .setColor('#4E373B')
-                    .setFooter(`Press F to pay your respects.`)
-                message.channel.send({embed}).then(m=>m.react("🇫"))
+                    .setFooter(`Press F to pay your respects.`);
+                message.channel.send({embed}).then(m=>m.react("🇫"));
                 return
             }
 	}

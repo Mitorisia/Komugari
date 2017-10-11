@@ -10,7 +10,7 @@ module.exports = class HoroscopeCommand extends Command {
             group: 'fun',
             memberName: 'horoscope',
             description: 'Gets your daily horoscope!',
-            examples: ['~horoscope <sign>'],
+            examples: ['~horoscope [sign]'],
             throttling: {
                 usages: 1,
                 duration: 10
@@ -20,9 +20,9 @@ module.exports = class HoroscopeCommand extends Command {
 
     async run (message, args) {
         const sign = message.content.split(/\s+/g).slice(1).join(" ");
-        if(!sign) return message.channel.send("Please give me a sign to get the horoscope of!")
+        if(!sign) return message.channel.send("Please give me a sign to get the horoscope of!");
 
-        if (!signs.includes(sign.toLowerCase())) return message.channel.send('That is not a valid sign!')
+        if (!signs.includes(sign.toLowerCase())) return message.channel.send('That is not a valid sign!');
 
         const text = await snekfetch
             .get(`http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today`);
@@ -36,12 +36,12 @@ module.exports = class HoroscopeCommand extends Command {
                 .setTimestamp()
                 .setFooter(`${message.author.username}'s Horoscope`)
                 .addField('Mood', body.meta.mood, true)
-                .addField("Intensity", body.meta.intensity, true)
-            return message.channel.send({embed})
+                .addField("Intensity", body.meta.intensity, true);
+            return message.channel.send({embed});
     
         } catch(err) {
-            message.react('✖')
-            return console.log(err)
+            message.react('✖');
+            return console.log(err);
         }
 	}
 }

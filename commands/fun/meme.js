@@ -11,6 +11,7 @@ module.exports = class MemeCommand extends Command {
             memberName: 'meme',
             description: 'Sends a random meme from selected subreddits!',
             examples: ['~meme'],
+            details: "There is no NSFW filter on this! \n\If there is an NSFW meme, please remove it by reacting with a '🎴' emoji!",
             throttling: {
                 usages: 2,
                 duration: 10
