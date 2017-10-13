@@ -8,7 +8,7 @@ module.exports = class ImgCommand extends Command {
         super(client, {
             name: 'img',
             aliases: ['google', 'image', 'googleimage'],
-            group: 'search',
+            group: 'utility',
             memberName: 'img',
             description: 'Searches for your query on google images!',
             examples: ['~img [query]'],

@@ -18,10 +18,10 @@ const client = new CommandoClient({
 	disableEveryone: true,
 	unknownCommandResponse: false
 });
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
 const auth = require("./auth.json");
-const prefix = '~';
+const PREFIX = '~';
 
 
 client.registry
@@ -36,10 +36,14 @@ client.registry
 		['memes', 'Memes'],
 		['moderation', 'Moderation'],
 		['nsfw', 'NSFW'],
-		['search', 'search'],
 		['utility', 'Utility']
 	])
 	.registerCommandsIn(__dirname + "/commands");
+
+
+client.on('disconnect', () => console.log('Disconnected!! Trying to reconnect...'));
+	
+client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 
 //ready and game status, message ready to main server
@@ -92,8 +96,8 @@ client.on('guildDelete', guild => {
 
 //removes bot's message if reacted with card thing
 client.on("messageReactionAdd", (messageReaction, user) => {
-	if(messageReaction.message.author.id !== '365907645795794946') return;
-	if(user.bot) return;
+	if(messageReaction.message.author.id !== '365907645795794946') return undefined;
+	if(user.bot) return undefined;
 	if(messageReaction.emoji == '🎴') {
 		messageReaction.message.delete();
       }
@@ -101,12 +105,11 @@ client.on("messageReactionAdd", (messageReaction, user) => {
 
 
 //basic message replies
-client.on("message", message => {
-	if(message.channel.type == "dm" || message.author.bot) return;
+client.on("message", async message => {
+	if(message.channel.type == "dm" || message.author.bot) return undefined;
 	
-	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) {
-		return message.react('😖')
-	}
+	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) return undefined;
+
 		try {
 			if(message.content.includes('press f')) {
 				message.react('🇫');
@@ -155,7 +158,9 @@ client.on("message", message => {
 					
 		} catch(err) {
 			console.log(err)
+			return message.channel.send("Something went wrong while executing that function!")
 		}
+
 });
 
 

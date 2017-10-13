@@ -20,11 +20,11 @@ module.exports = class NSFWCommandsCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("Any message from me can be removed by reacting with a 🎴 emoji.")
-            .addField("__2D NSFW:__", "`ecchi` `hentai` `hentaigif` `hentaiirl`\n\`neko` `pantsu` `tiddy` `yaoi` `yuri`", true)
-            .addField("__2D Fetish:__", "`ahegao` `futa` `hentaibondage` `hentiny`\n\`monstergirl` `sukebei` `tentacle` `trap`", true)
-            .addField("__3D NSFW:__", "`4knsfw` `artsyporn` `ass` `boobs` `cleavage`\n\`nsfw` `nsfwgif` `pornhub` `pussy`", true)
+            .addField("__2D NSFW:__", "`ecchi` `hentai` `hentaigif`\n\`hentaiirl` `neko` `pantsu`\n\`oppai` `yaoi` `yuri`", true)
+            .addField("__2D Fetish:__", "`ahegao` `futa` `hentaibondage`\n\`hentiny` `monstergirl` `paizuri`\n\`sukebei` `tentacle` `trap`", true)
+            .addField("__3D NSFW:__", "`4knsfw` `artsyporn` `ass` `boobs`\n\`nsfw` `nsfwgif` `pornhub` `pussy`", true)
             .addField("__3D Fetish:__", "`asian` `amateur` `bdsm`\n\`cosplay` `grool` `lingerie`", true)
-            .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `yandere` `e621`");
+            .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `tbib` `yandere` `e621`");
         message.channel.send({embed}).then(m=> {m.react('🎴')});
 
         return null;

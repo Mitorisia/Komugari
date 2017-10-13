@@ -10,7 +10,7 @@ module.exports = class YouTubeCommand extends Command {
         super(client, {
             name: 'youtube',
             aliases: ['yt', 'video'],
-            group: 'search',
+            group: 'utility',
             memberName: 'youtube',
             description: 'Searches for your query on YouTube!',
             examples: ['~youtube [query]'],

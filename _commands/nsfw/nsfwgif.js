@@ -7,7 +7,7 @@ exports.run = async (client, message, Discord) => {
         return message.react('💢')
     }
     
-    var randSubreddit = client.consts.nsfwGifSubreddits[Math.round(Math.random() * (client.consts.nsfwGifSubreddits.length - 1))]
+    var randSubreddit = subreddits.nsfwGifSubreddits[Math.round(Math.random() * (subreddits.nsfwGifSubreddits.length - 1))]
 
     try {
         randomPuppy(randSubreddit)
@@ -39,6 +39,7 @@ module.exports = class /*CommandName*/Command extends Command {
             group: '',
             memberName: '',
             description: '',
+            details: 'This command can only be used in NSFW channels!',
             examples: [''],
             throttling: {
                 usages: 0,

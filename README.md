@@ -18,3 +18,5 @@
 If you want to help develop the bot or add anything, please feel free to! 
 
 Simply submit a pull request!! Or even contact me on Discord: **Mako#8739** !!
+
+### If it's stupid, but it works, then it's not stupid.

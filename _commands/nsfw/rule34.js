@@ -42,6 +42,7 @@ module.exports = class /*CommandName*/Command extends Command {
             group: '',
             memberName: '',
             description: '',
+            details: 'This command can only be used in NSFW channels!',
             examples: [''],
             throttling: {
                 usages: 0,

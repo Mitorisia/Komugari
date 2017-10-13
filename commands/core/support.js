@@ -10,6 +10,7 @@ module.exports = class SupportCommand extends Command {
             memberName: 'support',
             description: 'Sends a support message to Komugari\'s main server!',
             examples: ['~support [bugs, issues, etc]'],
+            details: 'Komugari might reply back in the channel you asked for support in!',
             throttling: {
                 usages: 1,
                 duration: 30
@@ -27,18 +28,20 @@ module.exports = class SupportCommand extends Command {
         }
     
         try {
-            await message.react("🇸").catch(console.error);
-            await message.react("🇪").catch(console.error);
-            await message.react("🇳").catch(console.error);
-            await message.react("🇹").catch(console.error);
-
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.member.user.tag}`, message.member.user.displayAvatarURL({ format: 'png' }))
                 .setColor('48886D')
                 .setTimestamp()
                 .setFooter(`Channel ID: ${message.channel.id}`)
                 .addField(message.guild.name + ', ' + message.channel.name, supportMessage);
-            return channel.send({embed});
+            channel.send({embed});
+
+            await message.react("🇸").catch(console.error);
+            await message.react("🇪").catch(console.error);
+            await message.react("🇳").catch(console.error);
+            await message.react("🇹").catch(console.error);
+
+            return null;
     
         } catch(err) {
             message.channel.send("There was an issue sending your support message, please try again at a later time.");
