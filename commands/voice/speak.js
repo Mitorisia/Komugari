@@ -34,7 +34,7 @@ module.exports = class SpeakCommand extends Command {
 					channel.join().then(connection => { 
 						const VCLog = this.client.channels.get('367797481544613889')	
 						var embed = new Discord.MessageEmbed()
-							.setAuthor('Joined Voice Channel', this.client.user.displayAvatarURL())
+							.setAuthor('Joined Voice Channel', this.client.user.displayAvatarURL({ format: 'png' }))
 							.setColor('#ABBB9F')
 							.setDescription(`Joined **${channel.name}** in **${message.guild.name}**`)
 							.setFooter(`${this.client.voiceConnections.size} voice connections | Speak`)
@@ -45,12 +45,12 @@ module.exports = class SpeakCommand extends Command {
 					  dispatcher.on("end",  () => {
 						  channel.leave()
 						  var embed = new Discord.MessageEmbed()
-							.setAuthor('Left Voice Channel', this.client.user.displayAvatarURL())
+							.setAuthor('Left Voice Channel', this.client.user.displayAvatarURL({ format: 'png' }))
 							.setColor('#706482')
 							.setDescription(`Left **${channel.name}** in **${message.guild.name}**`)
 						  	.setFooter(`${this.client.voiceConnections.size} voice connections | Speak`)
 						  	.setTimestamp();			
-					  	VCLog.send({embed})
+					  	return VCLog.send({embed})
 						});
 
 					}).catch(err => console.log(err));

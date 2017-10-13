@@ -31,6 +31,7 @@ client.registry
 		['anime', 'Anime'],
 		['voice', 'Voice'],
 		['fun', 'Fun'],
+		['core', 'Core'],
 		['info', 'Info'],
 		['memes', 'Memes'],
 		['moderation', 'Moderation'],
@@ -47,18 +48,45 @@ client.on("ready", () => {
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
-	var channel = client.channels.get('198399488614727680');
-	channel.send(`Ding`);
+	var channel = client.channels.get('367828468366573570');
+	const embed = new Discord.MessageEmbed()
+		.setAuthor('Komugari is live and ready!', client.user.displayAvatarURL({ format: 'png' }))
+		.setColor('#727293')
+		.setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!`);
+	channel.send({embed});
 });
 
 
 client.on('guildCreate', guild => {
-	var channel = client.channels.get('198399488614727680')
-		channel.send(`Komugari was added to ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`);
+	var channel = client.channels.get('367828773426429953')
+	const embed = new Discord.MessageEmbed()
+		.setAuthor('Added to a Server!', client.user.displayAvatarURL())
+		.setColor('#78AEE8')
+		.setThumbnail(guild.iconURL())
+		.setDescription(`[${guild.name}](${guild.id})`)
+		.addField('Members', `${guild.members.size} members | ${guild.members.filter(m => m.user.bot).size} bots`, true)
+		.addField('Channels', guild.channels.size, true)
+		.addField('Owner', guild.owner.user, true)
+		.addField('Created on', `${moment.utc(guild.createdAt).format('Do MMM YYYY')} by ${guild.owner.user.tag}`, true)		
+		.setTimestamp()
+		.setFooter(`(${client.guilds.size})`);
+		return channel.send({embed});
 });
+
 client.on('guildDelete', guild => {
-	var channel = client.channels.get('198399488614727680');
-		channel.send(`Komugari was removed from ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`);
+	var channel = client.channels.get('367828773426429953');
+	const embed = new Discord.MessageEmbed()
+	.setAuthor('Removed from a Server!', client.user.displayAvatarURL())
+	.setColor('#898276')
+	.setThumbnail(guild.iconURL())
+	.setDescription(`[${guild.name}](${guild.id})`)
+	.addField('Members', `${guild.members.size} members | ${guild.members.filter(m => m.user.bot).size} bots`, true)
+	.addField('Channels', guild.channels.size, true)
+	.addField('Owner', guild.owner.user, true)
+	.addField('Created on', `${moment.utc(guild.createdAt).format('Do MMM YYYY')} by ${guild.owner.user.tag}`, true)
+	.setTimestamp()
+	.setFooter(`(${client.guilds.size})`);
+	return channel.send({embed});
 });
 
 
@@ -70,6 +98,7 @@ client.on("messageReactionAdd", (messageReaction, user) => {
 		messageReaction.message.delete();
       }
 })
+
 
 //basic message replies
 client.on("message", message => {
@@ -93,7 +122,7 @@ client.on("message", message => {
     				.setColor('#727293')
        				.setThumbnail(client.user.displayAvatarURL)
 				    .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
-					.setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
+					.setDescription('Hi! I\'m Komugari and I am a bot based around anime and NSFW!')
 					.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
 					.addField(`__Support:__`, `\`~support [message]\``, true)					
         			.addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
@@ -102,7 +131,7 @@ client.on("message", message => {
 
 			//time formatting for private use
 
-			var serverIDs = ['198399488614727680', '202075400225030144']
+			var serverIDs = ['367828773426429953', '202075400225030144']
 
 			if(message.content.startsWith('<@365907645795794946> time') || message.content.startsWith('<@!365907645795794946> time')) {
 				if (serverIDs.indexOf(message.guild.id) > -1) {

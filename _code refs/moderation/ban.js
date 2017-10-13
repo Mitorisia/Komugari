@@ -68,7 +68,7 @@ module.exports = class BanCommand extends Command {
 			return msg.say('Could not log the ban to the mod logs.');
 		} else if (modlogs.permissionsFor(this.client.user).has('EMBED_LINKS')) {
 			const embed = new MessageEmbed()
-				.setAuthor(msg.author.tag, msg.author.displayAvatarURL())
+				.setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
 				.setColor(0xFF0000)
 				.setTimestamp()
 				.setDescription(stripIndents`

@@ -1,10 +1,10 @@
 const snekfetch = require('snekfetch')
 
 exports.run = async (client, message, Discord) => {
-    var errMessage = client.consts.nsfwError[Math.round(Math.random() * (client.consts.nsfwError.length - 1))]
+    var errMessage = errors[Math.round(Math.random() * (errors.length - 1))]
     if(!message.channel.nsfw) {
         message.channel.send(errMessage)
-        return message.react('✖')
+        return message.react('💢')
     }
     
     const id = [Math.floor(Math.random() * 10930)]
@@ -16,4 +16,31 @@ exports.run = async (client, message, Discord) => {
             .setImage(image)
             .setColor('#CEA0A6')
     return message.channel.send({embed})
+}
+
+const { Command } = require('discord.js-commando');
+const Discord = require('discord.js');
+const snekfetch = require('snekfetch');
+const errors = require('../../assets/json/errors');
+
+//remember to return before every promise
+module.exports = class /*CommandName*/Command extends Command {
+    constructor(client) {
+        super(client, {
+            name: '',
+            aliases: ['', ''],
+            group: '',
+            memberName: '',
+            description: '',
+            examples: [''],
+            throttling: {
+                usages: 0,
+                duration: 0
+            }
+        });
+    }
+
+    run (message) {
+        //code here
+	}
 }

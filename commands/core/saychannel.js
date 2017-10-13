@@ -6,7 +6,7 @@ module.exports = class SayChannelCommand extends Command {
         super(client, {
             name: 'saychannel',
             aliases: ['sc', 'send', 'portal', 'announce'],
-            group: 'info',
+            group: 'core',
             memberName: 'saychannel',
             description: 'This is an admin-only command',
             examples: ['none'],

@@ -6,7 +6,7 @@ module.exports = class SupportCommand extends Command {
         super(client, {
             name: 'support',
             aliases: ['bug', 'bother'],
-            group: 'info',
+            group: 'core',
             memberName: 'support',
             description: 'Sends a support message to Komugari\'s main server!',
             examples: ['~support [bugs, issues, etc]'],
@@ -33,7 +33,7 @@ module.exports = class SupportCommand extends Command {
             await message.react("🇹").catch(console.error);
 
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`${message.member.user.tag}`, message.member.user.displayAvatarURL())
+                .setAuthor(`${message.member.user.tag}`, message.member.user.displayAvatarURL({ format: 'png' }))
                 .setColor('48886D')
                 .setTimestamp()
                 .setFooter(`Channel ID: ${message.channel.id}`)

@@ -24,6 +24,6 @@ module.exports = class ListenCommand extends Command {
     }
 
     run (message) {
-        return message.channel.send('This command is not yet avaliable to the public!')
+        return message.channel.send('This command is not yet avaliable to the public!');
 	}
 }
