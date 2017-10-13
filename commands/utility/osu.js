@@ -30,7 +30,7 @@ module.exports = class OsuCommand extends Command {
     
         } catch(err) {
             message.channel.send(`Something went wrong while executing that function.`);
-            return message.react('✖');
+            return message.channel.send('Something went wrong while executing that function!');
         }
 	}
 }

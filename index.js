@@ -48,7 +48,7 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
-	client.user.setPresence({ game: { name: 'with you | ~help', type: 0 } });
+	client.user.setGame("With you | ~help");
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
