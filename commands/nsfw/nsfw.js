@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 const subreddits = require('../../assets/json/subreddits');
 
-//remember to return before every promise
+
 module.exports = class NSFWCommand extends Command {
     constructor(client) {
         super(client, {

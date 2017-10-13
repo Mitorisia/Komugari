@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const booru = require('booru');
 const errors = require('../../assets/json/errors');
 
+
 module.exports = class DanbooruCommand extends Command {
     constructor(client) {
         super(client, {
@@ -33,16 +34,16 @@ module.exports = class DanbooruCommand extends Command {
              .then(images => {
                  for(let image of images) {
                      const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Danbooru ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`Danbooru **${query}**`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
                         .setColor('#C597B8');
                      return message.channel.send({embed});
                  }
              }).catch(err => {
                  if(err.name === 'booruError') {
-                     return message.channel.send(`No results found for ${query}.`);
+                     return message.channel.send(`No results found for **${query}**.`);
                  } else {
-                     return message.channel.send(`No results found for ${query}.`);
+                     return message.channel.send(`No results found for **${query}**.`);
                  }
              })
 	}

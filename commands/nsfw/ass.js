@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 const errors = require('../../assets/json/errors');
 
-//remember to return before every promise
+
 module.exports = class AssCommand extends Command {
     constructor(client) {
         super(client, {

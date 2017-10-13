@@ -2,19 +2,18 @@ const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
-const subreddits = require('../../assets/json/subreddits');
 
 
-module.exports = class NSFWGifCommand extends Command {
+module.exports = class YuriCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'nsfwgif',
-            aliases: ['nsfwg', 'porngif'],
+            name: 'yuri',
+            aliases: ['gl'],
             group: 'nsfw',
-            memberName: 'nsfwgif',
-            description: 'Finds NSFW gifs for you!',
+            memberName: 'yuri',
+            description: 'Finds yuri for you!',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~nsfwgif'],
+            examples: ['~yuri'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -29,20 +28,18 @@ module.exports = class NSFWGifCommand extends Command {
             return message.channel.send(errMessage);
         }
         
-        var randSubreddit = subreddits.nsfwGifSubreddits[Math.round(Math.random() * (subreddits.nsfwGifSubreddits.length - 1))];
-    
         try {
-            randomPuppy(randSubreddit)
+            randomPuppy('yuri')
                 .then(url => {
                     const embed = new Discord.MessageEmbed()
-                        .setFooter('NSFW.gif', 'https://a.safe.moe/O8TDd.png')
+                        .setFooter(`yuri`)
                         .setImage(url)
-                        .setColor('#CEA0A6');
+                        .setColor('#A187E0');
                     return message.channel.send({embed});
                 })
     
             } catch(err) {
                 return message.channel.send('Something went wrong while executing that function!');
         }
-	}
+    }
 }

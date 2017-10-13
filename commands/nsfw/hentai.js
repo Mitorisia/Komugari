@@ -4,6 +4,7 @@ const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 const subreddits = require('../../assets/json/subreddits');
 
+
 module.exports = class HentaiCommand extends Command {
     constructor(client) {
         super(client, {

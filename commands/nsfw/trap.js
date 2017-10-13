@@ -2,19 +2,18 @@ const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
-const subreddits = require('../../assets/json/subreddits');
 
 
-module.exports = class NSFWGifCommand extends Command {
+module.exports = class TrapCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'nsfwgif',
-            aliases: ['nsfwg', 'porngif'],
+            name: 'trap',
+            aliases: ['traps'],
             group: 'nsfw',
-            memberName: 'nsfwgif',
-            description: 'Finds NSFW gifs for you!',
+            memberName: 'trap',
+            description: 'Finds...traps? for...you?',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~nsfwgif'],
+            examples: ['~trap'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -29,15 +28,13 @@ module.exports = class NSFWGifCommand extends Command {
             return message.channel.send(errMessage);
         }
         
-        var randSubreddit = subreddits.nsfwGifSubreddits[Math.round(Math.random() * (subreddits.nsfwGifSubreddits.length - 1))];
-    
         try {
-            randomPuppy(randSubreddit)
+            randomPuppy('traphentai')
                 .then(url => {
                     const embed = new Discord.MessageEmbed()
-                        .setFooter('NSFW.gif', 'https://a.safe.moe/O8TDd.png')
+                        .setFooter(`traphentai`)
                         .setImage(url)
-                        .setColor('#CEA0A6');
+                        .setColor('#A187E0');
                     return message.channel.send({embed});
                 })
     

@@ -4,16 +4,16 @@ const booru = require('booru');
 const errors = require('../../assets/json/errors');
 
 
-module.exports = class GelbooruCommand extends Command {
+module.exports = class Rule34Command extends Command {
     constructor(client) {
         super(client, {
-            name: 'gelbooru',
-            aliases: ['gb'],
+            name: 'rule34',
+            aliases: ['r34'],
             group: 'nsfw',
-            memberName: 'gelbooru',
-            description: 'Searches for images on Gelbooru!',
+            memberName: 'rule34',
+            description: 'Searches for images on rule34!',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~gelbooru <search>'],
+            examples: ['~rule34 <search>'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -29,16 +29,17 @@ module.exports = class GelbooruCommand extends Command {
         }
         
          var query = message.content.split(/\s+/g).slice(1).join(" ");
-            booru.search('gelbooru', [query], {limit: 1, random: true})
+            booru.search('r34', [query], {limit: 1, random: true})
              .then(booru.commonfy)
              .then(images => {
                  for(let image of images) {
                      const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Gelbooru **${query}**`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`Rule34 **${query}**`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
                         .setColor('#C597B8');
                      return message.channel.send({embed});
                  }
+    
              }).catch(err => {
                  if(err.name === 'booruError') {
                      return message.channel.send(`No results found for **${query}**.`);

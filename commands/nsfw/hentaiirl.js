@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 
+
 module.exports = class HentaiIrlCommand extends Command {
     constructor(client) {
         super(client, {
