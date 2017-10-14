@@ -28,7 +28,7 @@ module.exports = class UserCommand extends Command {
     run (message, args) {
         const member = args.member || message.member;
 
-        const status = member.user.presence.game ? (membser.user.presence.game.type ? 'Streaming' : 'Playing') + ` **${user.presence.game.name}**` : `*${user === this.client.user ? 'I am' : 'This user is'} not playing/streaming anything\u2026*`;
+        const status = member.user.presence.activity ? (member.user.presence.activity.type ? 'Playing' : 'Playing') + ` **${member.user.presence.activity.name}**` : `*${member.user === this.client.user ? 'I am' : 'This user is'} not playing/streaming anything!*`;
         
         function fromNow(date) {
 			    if (!date) {
@@ -46,9 +46,15 @@ module.exports = class UserCommand extends Command {
           } 
 
         if (member.user.bot) {
-          var author = member.user.tag + '[BOT]'
+          var author = member.user.tag + ' [BOT]'
         } else {
           var author = member.user.tag 
+        }
+
+        if(!member.nickname) {
+          var nickname = 'N/A'
+        } else {
+          var nickname = member.nickname 
         }
 
         const allowed = Object.entries(member.permissions.serialize()).filter(([perm, allowed]) => allowed).map(([perm]) => perms[perm]).join(', ');    
@@ -63,11 +69,11 @@ module.exports = class UserCommand extends Command {
 			      .setColor(member.displayHexColor)
             .setThumbnail(member.user.displayAvatarURL())
             .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
-            .addField('❯\u2000\Information', `•\u2000\**ID** ${member.user.id}\n\•\u2000\**Status:** ${member.user.presence.status}\n\•\u2000\**Created:** ${moment(member.user.createdAt).format('MMMM Do YYYY')} (${fromNow(member.user.createdAt)})`)         
-            .addField('❯\u2000\Server Membership', `•\u2000\**Nickname:** ${member.nickname}\n\•\u2000\**Joined:** ${moment(member.joinedAt).format('MMMM Do YYYY')} (${fromNow(member.joinedAt)})`, true)
-            .addField('•\u2000\**Role Infomation**', `•\u2000\**Highest Role:** ${member.highestRole.name !== '@everyone' ? member.highestRole.name : 'None'}\n\•\u2000\**Hoist Role:** ${member.hoistRole ? member.hoistRole.name : 'None'}`, true)
-            .addField(`•\u2000\**Roles** [${roles.length}]`, roles.length ? roles.join(', ') : 'N/A', true)
-            .addField(`•\u2000\**Permissions**`, allowed)
-		    return message.channel.send(`User information for **${member.user.name}**#${member.user.discriminator}`, {embed: embed});
+            .addField('❯\u2000\Information', `•\u2000\**ID:** ${member.user.id}\n\•\u2000\**Status:** ${member.user.presence.status}\n\•\u2000\**Created:** ${moment(member.user.createdAt).format('MMMM Do YYYY')} (${fromNow(member.user.createdAt)})`)         
+            .addField('❯\u2000\Server Membership', `•\u2000\**Nickname:** ${nickname}\n\•\u2000\**Joined:** ${moment(member.joinedAt).format('MMMM Do YYYY')} (${fromNow(member.joinedAt)})`, true)
+            .addField('❯\u2000\**Role Infomation**', `•\u2000\**Highest Role:** ${member.highestRole.name !== '@everyone' ? member.highestRole.name : 'None'}\n\•\u2000\**Hoist Role:** ${member.hoistRole ? member.hoistRole.name : 'None'}`, true)
+            .addField(`❯\u2000\**Roles** [${roles.length}]`, roles.length ? '•\u2000' + roles.join(', ') : '•\u2000\None', true)
+            .addField(`❯\u2000\**Permissions**`, allowed)
+		    return message.channel.send(`User information for **${member.user.username}**#${member.user.discriminator}`, {embed: embed});
       }
 }

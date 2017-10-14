@@ -32,7 +32,12 @@ module.exports = class EmojiCommand extends Command {
             const emojis = message.guild.emojis;
             if (!emojis.size) return message.channel.send('You have no custom emoji.');
 
-            return message.channel.send(`**Here's all the custom emojis in ${message.guild.name}[${emojis.size}]!**\n${emojis.map(e => e).join('')}`);
+            const embed = new Discord.MessageEmbed()
+              .setAuthor(`Emojis in ${message.guild.name}! [${emojis.size}]`, message.guild.iconURL())
+              .setDescription(emojis.map(e => e).join(''))
+              .setColor('#A5A3BB')
+              .setFooter("Emojis are mapped by order of upload!")
+            return message.channel.send(`Here's all your custom emojis!`, {embed: embed});
 
         } else {
           const args = message.content.split(" "); 
@@ -62,7 +67,7 @@ module.exports = class EmojiCommand extends Command {
           })
         
           if (!files.length) {
-            return message.channel.send('That emoji is not a custom emoji in this server!');
+            return message.channel.send('That\'s not a valid emoji!\n\Emojis must be from this server!');
           }
         
           return message.channel.send({ files });
