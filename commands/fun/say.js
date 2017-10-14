@@ -7,6 +7,7 @@ module.exports = class SayCommand extends Command {
             aliases: ['copycat', 'repeat', 'echo', 'parrot'],
             group: 'fun',
             memberName: 'say',
+            guildOnly: true,
             description: 'Makes Komugari say something for you.',
             examples: ['~say [sentence]'],
             throttling: {

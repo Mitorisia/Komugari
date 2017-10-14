@@ -8,6 +8,7 @@ module.exports = class WeatherCommand extends Command {
             name: 'weather',
             group: 'utility',
             memberName: 'weather',
+            guildOnly: true,
             description: 'Shows the weather for a specified location!',
             examples: ['~weather [location]'],
             throttling: {

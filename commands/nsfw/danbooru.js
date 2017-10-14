@@ -11,6 +11,7 @@ module.exports = class DanbooruCommand extends Command {
             aliases: ['db'],
             group: 'nsfw',
             memberName: 'danbooru',
+            guildOnly: true,
             description: 'Searches for images on Danbooru!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~danbooru <query>'],

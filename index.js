@@ -14,7 +14,8 @@ const tz = require('moment-timezone');
 const { CommandoClient } = require('discord.js-commando');
 const client = new CommandoClient({
     commandPrefix: '~',
-    owner: '180050347589369856',
+	owner: '180050347589369856',
+	invite: 'https://discord.gg/dHqWWSS',
 	disableEveryone: true,
 	unknownCommandResponse: false
 });

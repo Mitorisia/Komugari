@@ -9,6 +9,7 @@ module.exports = class LewdCommand extends Command {
             aliases: ['thatslewd'],
             group: 'action',
             memberName: 'lewd',
+            guildOnly: true,
             description: 'That\'s lewd!',
             examples: ['~lewd'],
             throttling: {

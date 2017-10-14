@@ -9,6 +9,7 @@ module.exports = class DisgustCommand extends Command {
             aliases: ['gross', 'eww'],
             group: 'action',
             memberName: 'disgust',
+            guildOnly: true,
             description: 'Absolutely **disgusting**, now which one of you likes handholding?',
             examples: ['~disgust'],
             throttling: {

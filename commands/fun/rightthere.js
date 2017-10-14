@@ -8,6 +8,7 @@ module.exports = class RightThereCommand extends Command {
             aliases: ['goodshit'],
             group: 'fun',
             memberName: 'rightthere',
+            guildOnly: true,
             description: 'Sends a random right there copypasta!',
             details: 'May include NSFW language and elements or considered as spam.',
             examples: ["~rightthere"],

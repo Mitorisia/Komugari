@@ -9,6 +9,7 @@ module.exports = class CatCommand extends Command {
             aliases: ['kitty', 'meow', 'cate'],
             group: 'fun',
             memberName: 'cat',
+            guildOnly: true,
             description: 'Sends a random picture of a cat!',
             examples: ['~cat'],
             throttling: {

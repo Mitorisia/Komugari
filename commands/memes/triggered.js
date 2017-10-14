@@ -13,7 +13,8 @@ module.exports = class TriggeredCommand extends Command {
         super(client, {
             name: 'triggered',
             group: 'memes',
-            memberName: 'triggered',
+			memberName: 'triggered',
+			guildOnly: true,
             description: 'T R I G G E R E D',
             examples: ['~triggered <mention>'],
             throttling: {

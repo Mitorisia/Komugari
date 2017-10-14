@@ -10,6 +10,7 @@ module.exports = class LickCommand extends Command {
             aliases: ['slurp'],
             group: 'action',
             memberName: 'lick',
+            guildOnly: true,
             description: 'Licks the user you mentioned!',
             examples: ['~lick <user>'],
             throttling: {

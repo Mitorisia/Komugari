@@ -12,6 +12,7 @@ module.exports = class NSFWGifCommand extends Command {
             aliases: ['nsfwg', 'porngif'],
             group: 'nsfw',
             memberName: 'nsfwgif',
+            guildOnly: true,
             description: 'Finds NSFW gifs for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~nsfwgif'],

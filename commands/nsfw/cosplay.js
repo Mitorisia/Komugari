@@ -10,6 +10,7 @@ module.exports = class CosplayCommand extends Command {
             name: 'cosplay',
             group: 'nsfw',
             memberName: 'cosplay',
+            guildOnly: true,
             description: 'Finds NSFW cosplay for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~cosplay'],

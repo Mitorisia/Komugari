@@ -11,6 +11,7 @@ module.exports = class Rule34Command extends Command {
             aliases: ['r34'],
             group: 'nsfw',
             memberName: 'rule34',
+            guildOnly: true,
             description: 'Searches for images on rule34!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~rule34 <search>'],

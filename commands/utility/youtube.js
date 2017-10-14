@@ -11,7 +11,8 @@ module.exports = class YouTubeCommand extends Command {
             name: 'youtube',
             aliases: ['yt', 'video'],
             group: 'utility',
-            memberName: 'youtube',
+			memberName: 'youtube',
+			guildOnly: true,
             description: 'Searches for your query on YouTube!',
             examples: ['~youtube [query]'],
             throttling: {

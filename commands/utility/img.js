@@ -10,6 +10,7 @@ module.exports = class ImgCommand extends Command {
             aliases: ['google', 'image', 'googleimage'],
             group: 'utility',
             memberName: 'img',
+            guildOnly: true,
             description: 'Searches for your query on google images!',
             examples: ['~img [query]'],
             details: 'Safe search is off for this command, please be considerate!',

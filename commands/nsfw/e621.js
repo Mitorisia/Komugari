@@ -11,6 +11,7 @@ module.exports = class E621Command extends Command {
             aliases: ['e6'],
             group: 'nsfw',
             memberName: 'e621',
+            guildOnly: true,
             description: 'Searches for images on e621!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~e621 <search>'],

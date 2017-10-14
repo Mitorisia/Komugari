@@ -9,6 +9,7 @@ module.exports = class HoroscopeCommand extends Command {
             name: 'horoscope',
             group: 'fun',
             memberName: 'horoscope',
+            guildOnly: true,
             description: 'Gets your daily horoscope!',
             examples: ['~horoscope [sign]'],
             throttling: {

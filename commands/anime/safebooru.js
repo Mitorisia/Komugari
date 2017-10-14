@@ -10,6 +10,7 @@ module.exports = class SafeBooruCommand extends Command {
             aliases: ['sb', 'safe'],
             group: 'anime',
             memberName: 'safebooru',
+            guildOnly: true,
             description: 'Searches for images on Safebooru!',
             details: 'Keep in mind Safebooru\'s definition of safe!',
             examples: ['~safebooru [search]'],

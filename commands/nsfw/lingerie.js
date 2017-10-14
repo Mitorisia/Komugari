@@ -4,14 +4,15 @@ const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 
 
-module.exports = class /*CommandName*/Command extends Command {
+module.exports = class LingerieCommand extends Command {
     constructor(client) {
         super(client, {
-            name: '',
-            aliases: [''],
+            name: 'lingerie',
+            aliases: ['thighhighs', 'stockings'],
             group: 'nsfw',
-            memberName: '',
-            description: 'Finds  for you!',
+            memberName: 'lingerie',
+            guildOnly: true,
+            description: 'Finds...girls wearing..lingerie? ...For you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~'],
             throttling: {

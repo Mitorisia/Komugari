@@ -8,6 +8,7 @@ module.exports = class GropeCommand extends Command {
             name: 'grope',
             group: 'action',
             memberName: 'grope',
+            guildOnly: true,
             description: 'Gropes..? the user you mentioned...?',
             examples: ['~grope <user>'],
             throttling: {

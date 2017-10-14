@@ -9,6 +9,7 @@ module.exports = class MoeCommand extends Command {
             aliases: ['awwnime', 'loli'],
             group: 'anime',
             memberName: 'moe',
+            guildOnly: true,
             description: 'Cute anime girls!',
             examples: ['~moe'],
             throttling: {

@@ -8,7 +8,8 @@ module.exports = class AvatarCommand extends Command {
             name: 'avatar',
             aliases: ['dp'],
             group: 'info',
-            memberName: 'avatar',
+			memberName: 'avatar',
+			guildOnly: true,
             description: 'Shows the avatar of the specified user or yourself!',
             examples: ['~avatar <mention>'],
             args: [
@@ -29,6 +30,10 @@ module.exports = class AvatarCommand extends Command {
 			format: user.avatar.startsWith('a_') ? 'gif' : 'png',
 			size: 2048
 		});
-		return message.channel.send(avatar);
+
+		const embed = new Discord.RichEmbed()
+			.setAuthor(`${user.username}'s avatar!`, avatar)
+			.setImage(avatar)
+		return message.channel.send({embed});
 	}
 }

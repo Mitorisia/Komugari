@@ -10,6 +10,7 @@ module.exports = class BaraCommand extends Command {
             name: 'bara',
             group: 'nsfw',
             memberName: 'bara',
+            guildOnly: true,
             description: 'Finds bara...? For you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~bara'],

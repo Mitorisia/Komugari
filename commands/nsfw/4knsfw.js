@@ -11,6 +11,7 @@ module.exports = class FourKNSFWCommand extends Command {
             aliases: ['hdnsfw', 'hqnsfw'],
             group: 'nsfw',
             memberName: '4knsfw',
+            guildOnly: true,
             description: 'Finds high quality NSFW content for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~4knsfw'],

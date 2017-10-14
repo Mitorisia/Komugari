@@ -10,6 +10,7 @@ module.exports = class GroolCommand extends Command {
             name: 'grool',
             group: 'nsfw',
             memberName: 'grool',
+            guildOnly: true,
             description: 'Finds..grool?? For you...??',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~grool'],

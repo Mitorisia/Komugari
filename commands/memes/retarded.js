@@ -7,7 +7,8 @@ module.exports = class RetardedCommand extends Command {
         super(client, {
             name: 'retarded',
             group: 'memes',
-            memberName: 'retarded',
+			memberName: 'retarded',
+			guildOnly: true,
             description: 'A cute(???) little dog???',
             examples: ['~retarded [message]'],
             throttling: {

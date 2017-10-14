@@ -11,6 +11,7 @@ module.exports = class YaoiCommand extends Command {
             aliases: ['bl'],
             group: 'nsfw',
             memberName: 'yaoi',
+            guildOnly: true,
             description: 'Finds yaoi for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~yaoi'],

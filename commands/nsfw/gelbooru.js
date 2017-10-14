@@ -11,6 +11,7 @@ module.exports = class GelbooruCommand extends Command {
             aliases: ['gb'],
             group: 'nsfw',
             memberName: 'gelbooru',
+            guildOnly: true,
             description: 'Searches for images on Gelbooru!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~gelbooru <search>'],

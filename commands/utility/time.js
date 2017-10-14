@@ -13,6 +13,7 @@ module.exports = class TimeCommand extends Command {
             aliases: ['clock'],
             group: 'utility',
             memberName: 'time',
+            guildOnly: true,
             description: 'Shows the time for the given location!',
             examples: ['~time [city/country]'],
             throttling: {

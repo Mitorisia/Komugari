@@ -9,6 +9,7 @@ module.exports = class PoutCommand extends Command {
             name: 'pout',
             group: 'action',
             memberName: 'pout',
+            guildOnly: true,
             description: 'uWaa??',
             examples: ['~pout'],
             throttling: {

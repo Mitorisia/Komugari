@@ -10,6 +10,7 @@ module.exports = class AhegaoCommand extends Command {
             name: 'ahegao',
             group: 'nsfw',
             memberName: 'ahegao',
+            guildOnly: true,
             description: 'Finds ahegao for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~ahegao'],

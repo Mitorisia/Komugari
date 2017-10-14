@@ -11,6 +11,7 @@ module.exports = class YandereCommand extends Command {
             aliases: ['yd'],
             group: 'nsfw',
             memberName: 'yandere',
+            guildOnly: true,
             description: 'Searches for images on Yandere!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~yandere <search>'],

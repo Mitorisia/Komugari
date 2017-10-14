@@ -8,7 +8,8 @@ module.exports = class TheSearchCommand extends Command {
         super(client, {
             name: 'thesearch',
             group: 'memes',
-            memberName: 'thesearch',
+			memberName: 'thesearch',
+			guildOnly: true,
             description: 'What if there\'s intelligible life on Earth?',
             examples: ['~thesearch [message]'],
             throttling: {

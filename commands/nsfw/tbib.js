@@ -10,6 +10,7 @@ module.exports = class YandereCommand extends Command {
             name: 'tbib',
             group: 'nsfw',
             memberName: 'tbib',
+            guildOnly: true,
             description: 'Searches for images on TBIB!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~tbib <search>'],

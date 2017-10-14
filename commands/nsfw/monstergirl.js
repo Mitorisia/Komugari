@@ -11,6 +11,7 @@ module.exports = class MonsterGirlCommand extends Command {
             aliases: ['mg'],
             group: 'nsfw',
             memberName: 'monstergirl',
+            guildOnly: true,
             description: 'Finds monstergirls for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~monstergirl'],

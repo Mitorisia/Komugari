@@ -9,6 +9,7 @@ module.exports = class SlapCommand extends Command {
             aliases: ['punch', 'hit'],
             group: 'action',
             memberName: 'slap',
+            guildOnly: true,
             description: 'Slaps the user you mentioned!',
             examples: ['~slap <user>'],
             throttling: {

@@ -9,6 +9,7 @@ module.exports = class NyanCommand extends Command {
             aliases: ['nya'],
             group: 'action',
             memberName: 'nyan',
+            guildOnly: true,
             description: 'Nya!',
             examples: ['~nyan'],
             throttling: {

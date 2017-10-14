@@ -8,7 +8,8 @@ module.exports = class ShitsCommand extends Command {
         super(client, {
             name: 'shits',
             group: 'memes',
-            memberName: 'shits',
+			memberName: 'shits',
+			guildOnly: true,
             description: 'It\'s shit!!!',
             examples: ['~shits [message]'],
             throttling: {

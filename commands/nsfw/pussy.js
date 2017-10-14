@@ -10,6 +10,7 @@ module.exports = class PussyCommand extends Command {
             name: 'pussy',
             group: 'nsfw',
             memberName: 'pussy',
+            guildOnly: true,
             description: 'Finds... pussy?? For..you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~pussy'],

@@ -11,6 +11,7 @@ module.exports = class HentaiIrlCommand extends Command {
             aliases: ['irl', 'hirl'],
             group: 'nsfw',
             memberName: 'hentaiirl',
+            guildOnly: true,
             description: 'Hentai! But depicts of real situations!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~hentaiirl'],

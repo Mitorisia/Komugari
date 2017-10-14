@@ -11,6 +11,7 @@ module.exports = class BDSMCommand extends Command {
             aliases: ['bondage'],
             group: 'nsfw',
             memberName: 'bdsm',
+            guildOnly: true,
             description: 'Finds....BDSM????? For you...!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~bdsm'],

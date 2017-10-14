@@ -8,6 +8,7 @@ module.exports = class CatGirlCommand extends Command {
             name: 'catgirl',
             group: 'anime',
             memberName: 'catgirl',
+            guildOnly: true,
             description: 'Shows a random catgirl!',
             examples: ['~catgirl']
         });

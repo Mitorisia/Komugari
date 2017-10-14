@@ -11,6 +11,7 @@ module.exports = class YuriCommand extends Command {
             aliases: ['gl'],
             group: 'nsfw',
             memberName: 'yuri',
+            guildOnly: true,
             description: 'Finds yuri for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~yuri'],

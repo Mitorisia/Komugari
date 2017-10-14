@@ -11,6 +11,7 @@ module.exports = class AssCommand extends Command {
             aliases: ['butt', 'booty'],
             group: 'nsfw',
             memberName: 'ass',
+            guildOnly: true,
             description: 'A random picture of...ASS!!',
             examples: ['~ass'],
             details: 'This command can only be used in NSFW channels!',

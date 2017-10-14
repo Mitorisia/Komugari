@@ -11,6 +11,7 @@ module.exports = class TrapCommand extends Command {
             aliases: ['traps'],
             group: 'nsfw',
             memberName: 'trap',
+            guildOnly: true,
             description: 'Finds...traps? for...you?',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~trap'],

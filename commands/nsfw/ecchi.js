@@ -10,6 +10,7 @@ module.exports = class EcchiCommand extends Command {
             name: 'ecchi',
             group: 'nsfw',
             memberName: 'ecchi',
+            guildOnly: true,
             description: 'Finds ecchi for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~ecchi'],

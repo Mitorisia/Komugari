@@ -8,6 +8,7 @@ module.exports = class SupportCommand extends Command {
             aliases: ['bug', 'bother'],
             group: 'core',
             memberName: 'support',
+            guildOnly: true,
             description: 'Sends a support message to Komugari\'s main server!',
             examples: ['~support [bugs, issues, etc]'],
             details: 'Komugari might reply back in the channel you asked for support in!',

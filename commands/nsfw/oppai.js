@@ -11,6 +11,7 @@ module.exports = class OppaiCommand extends Command {
             aliases: ['tiddy', 'animetiddy'],
             group: 'nsfw',
             memberName: 'oppai',
+            guildOnly: true,
             description: 'Finds oppai for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~oppai'],

@@ -11,6 +11,7 @@ module.exports = class KonachanCommand extends Command {
             aliases: ['kona', 'kc'],
             group: 'nsfw',
             memberName: 'konachan',
+            guildOnly: true,
             description: 'Searches for images on Konachan!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~konachan <search>'],

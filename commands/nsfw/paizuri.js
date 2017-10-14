@@ -10,6 +10,7 @@ module.exports = class PaizuriCommand extends Command {
             name: 'paizuri',
             group: 'nsfw',
             memberName: 'paizuri',
+            guildOnly: true,
             description: 'Anime tiddy fuck...?',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~paizuri'],

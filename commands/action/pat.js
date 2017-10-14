@@ -9,6 +9,7 @@ module.exports = class PatCommand extends Command {
             aliases: ['pet'],
             group: 'action',
             memberName: 'pat',
+            guildOnly: true,
             description: 'Pats the user you mentioned on the head!',
             examples: ['~pat <user>'],
             throttling: {

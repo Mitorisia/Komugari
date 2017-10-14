@@ -11,6 +11,7 @@ module.exports = class ArtsyPornCommand extends Command {
             aliases: ['artsy'],
             group: 'nsfw',
             memberName: 'artsyporn',
+            guildOnly: true,
             description: 'Finds artsy..? Porn?? For you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~artsyporn'],

@@ -30,7 +30,7 @@
     "booru": "^0.3.3",
     "cleverbot-node": "^0.3.11",
     "discord.js": "github:hydrabolt/discord.js#master",
-    "discord.js-commando": "github:gawdl3y/discord.js-commando#master",
+    "discord.js-commando": "github:DysphoriAlluka/discord.js-commando#master",
     "ffmpeg-binaries": "^3.2.2-3",
     "gifencoder": "^1.1.0",
     "google-images": "^2.1.0",

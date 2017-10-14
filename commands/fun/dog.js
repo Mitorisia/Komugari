@@ -9,6 +9,7 @@ module.exports = class DogCommand extends Command {
             aliases: ['puppy', 'doggo', 'pupper'],
             group: 'fun',
             memberName: 'dog',
+            guildOnly: true,
             description: 'Sends a random picture of a dog!',
             examples: ['~dog'],
             throttling: {

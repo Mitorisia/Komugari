@@ -10,6 +10,7 @@ module.exports = class AnimeCommand extends Command {
             name: 'anime',
             group: 'anime',
             memberName: 'anime',
+            guildOnly: true,
             description: 'Searches for an anime on MyAnimeList!',
             examples: ['~anime <anime name>'],
             throttling: {
@@ -23,7 +24,6 @@ module.exports = class AnimeCommand extends Command {
       var search = message.content.split(/\s+/g).slice(1).join(" ");
       if(!search) {
         Anime.fromName(aq().quoteanime).then(anime => {
-          console.log(anime)
           var embed = new Discord.MessageEmbed()
             .setColor('#FF9D6E')
             .setAuthor(`${anime.title} | ${anime.type}`, 'https://myanimelist.cdn-dena.com/img/sp/icon/apple-touch-icon-256.png')

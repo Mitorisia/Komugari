@@ -11,6 +11,7 @@ module.exports = class PornHubCommand extends Command {
             aliases: ['ph'],
             group: 'nsfw',
             memberName: 'pornhub',
+            guildOnly: true,
             description: 'Searches for videos on Pornhub!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~pornhub [search]'],

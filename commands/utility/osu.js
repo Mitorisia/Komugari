@@ -8,6 +8,7 @@ module.exports = class OsuCommand extends Command {
             aliases: ['osustats', 'osuuser'],
             group: 'utility',
             memberName: 'osu',
+            guildOnly: true,
             description: 'searches for an user on osu!',
             examples: ['~osu [username]'],
             throttling: {

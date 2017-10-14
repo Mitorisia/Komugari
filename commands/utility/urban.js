@@ -9,6 +9,7 @@ module.exports = class UrbanCommand extends Command {
             aliases: ['ud', 'urbandictionary'],
             group: 'utility',
             memberName: 'urban',
+            guildOnly: true,
             description: 'Searches for your query on Urban Dictionary!',
             examples: ['~urban [term]'],
             details: 'Say `~urban` for a random definition!',

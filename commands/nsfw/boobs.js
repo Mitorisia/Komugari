@@ -11,6 +11,7 @@ module.exports = class BoobsCommand extends Command {
             aliases: ['boobies', 'bobs'],
             group: 'nsfw',
             memberName: 'boobs',
+            guildOnly: true,
             description: 'Show a picture of boobs!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~boobs'],

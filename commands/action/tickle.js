@@ -9,6 +9,7 @@ module.exports = class TickleCommand extends Command {
             name: 'tickle',
             group: 'action',
             memberName: 'tickle',
+            guildOnly: true,
             description: 'Tickles the user you mentioned!',
             examples: ['~tickle <user>'],
             throttling: {

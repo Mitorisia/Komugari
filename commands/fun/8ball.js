@@ -9,6 +9,7 @@ module.exports = class EightBallCommand extends Command {
             aliases: ['8b', 'ball'],
             group: 'fun',
             memberName: '8ball',
+            guildOnly: true,
             description: 'Ask the magic 8ball a question!',
             examples: ['~8ball [question]'],
             throttling: {

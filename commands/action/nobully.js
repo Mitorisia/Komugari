@@ -9,6 +9,7 @@ module.exports = class NoBullyCommand extends Command {
             aliases: ['antibully'],
             group: 'action',
             memberName: 'nobully',
+            guildOnly: true,
             description: 'Absolutely no bullying allowed!',
             examples: ['~nobully <user>'],
             throttling: {

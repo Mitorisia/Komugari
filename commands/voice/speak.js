@@ -6,7 +6,8 @@ module.exports = class SpeakCommand extends Command {
         super(client, {
             name: 'speak',
             group: 'voice',
-            memberName: 'speak',
+			memberName: 'speak',
+			guildOnly: true,
             description: 'I\'ll say a random phrase in the voice chat!',
             examples: ['~speak'],
         });

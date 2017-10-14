@@ -11,6 +11,7 @@ module.exports = class TentacleCommand extends Command {
             aliases: ['shokushu', 'tentai', 'tentacles'],
             group: 'nsfw',
             memberName: 'tentacle',
+            guildOnly: true,
             description: 'Finds...tentacle..porn?? For...?? You!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~tentacle'],

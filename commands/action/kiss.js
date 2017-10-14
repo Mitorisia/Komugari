@@ -9,6 +9,7 @@ module.exports = class KissCommand extends Command {
             aliases: ['smooch'],
             group: 'action',
             memberName: 'kiss',
+            guildOnly: true,
             description: 'Kisses the user you mentioned!',
             examples: ['~kiss <user>'],
             throttling: {

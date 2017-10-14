@@ -10,6 +10,7 @@ module.exports = class AsianCommand extends Command {
             name: 'asian',
             group: 'nsfw',
             memberName: 'asian',
+            guildOnly: true,
             description: 'Finds...asians?????...for??? you?!?!?!!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~asian'],

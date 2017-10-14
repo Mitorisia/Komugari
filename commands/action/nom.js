@@ -10,6 +10,7 @@ module.exports = class NomCommand extends Command {
             aliases: ['eat', 'munch'],
             group: 'action',
             memberName: 'nom',
+            guildOnly: true,
             description: 'Noms on the user you mentioned!',
             examples: ['~nom <user>'],
             throttling: {

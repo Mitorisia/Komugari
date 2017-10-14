@@ -10,6 +10,7 @@ module.exports = class SukebeiCommand extends Command {
             name: 'sukebei',
             group: 'nsfw',
             memberName: 'sukebei',
+            guildOnly: true,
             description: 'Anime girls who\'ve lost their clothing..?',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~sukebei'],

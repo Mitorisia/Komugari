@@ -10,6 +10,7 @@ module.exports = class PantsuCommand extends Command {
             name: 'pantsu',
             group: 'nsfw',
             memberName: 'pantsu',
+            guildOnly: true,
             description: 'Finds pantsu for you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~pantsu'],

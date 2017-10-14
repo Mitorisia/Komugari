@@ -9,6 +9,7 @@ module.exports = class CryCommand extends Command {
             aliases: ['sob', 'waa'],
             group: 'action',
             memberName: 'cry',
+            guildOnly: true,
             description: 'UWAA~',
             examples: ['~cry'],
             throttling: {

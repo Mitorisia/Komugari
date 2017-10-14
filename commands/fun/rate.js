@@ -8,6 +8,7 @@ module.exports = class RateCommand extends Command {
             aliases: ['ratewaifu'],
             group: 'fun',
             memberName: 'rate',
+            guildOnly: true,
             description: 'Gives the item you specify a rating out of 10!',
             examples: ['~rate [item to be rated]'],
         });

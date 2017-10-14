@@ -14,6 +14,7 @@ module.exports = class ListenCommand extends Command {
             aliases: ['listenmoe', 'radio'],
             group: 'voice',
             memberName: 'listen',
+            guildOnly: true,
             description: 'Plays the Listen.moe radio!',
             examples: ['~listen [play/stop/np]'],
             throttling: {

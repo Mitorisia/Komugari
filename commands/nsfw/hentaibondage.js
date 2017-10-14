@@ -11,6 +11,7 @@ module.exports = class HentaiBondageCommand extends Command {
             aliases: ['hbondage'],
             group: 'nsfw',
             memberName: 'hentaibondage',
+            guildOnly: true,
             description: 'Finds...hentai..bondage??..For...you!',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~hentaibondage'],

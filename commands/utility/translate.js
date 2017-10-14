@@ -9,6 +9,7 @@ module.exports = class TranslateCommand extends Command {
             aliases: ['tl'],
             group: 'utility',
             memberName: 'translate',
+            guildOnly: true,
             description: 'Translates your text into the desired language!',
             examples: ['~translate [language] [text]'],
             throttling: {
