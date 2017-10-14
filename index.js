@@ -1,11 +1,8 @@
-/* for fuck's sake this shit isn't done of course the token's still in here have some sense of morality
-*  Yes I know this is very ugly and underdeveloped coding
-*  can't say much more than sHUT tHE HECK UP this is my first time coding 
-*  hecking hell coding is the hardest thing 
-*  i did reference off of other open-sourced discord.js bots
-*  code my Mako#8739 with the help of many other open-sourced Discord.js bots.
-*  if you'd like me to credit you for any code that I've used of yours or has referenced off of, just submit a pull request or ask me personally!!
-*/
+/* Code by Mako#8739 with the help of many other open sourced discord.js bots!!
+*  A GREAT BIG thank you to the discord.js community for answering all my dumb questions!!!
+*  if you see any similarities in my code that was clearly references off of yours, please do tell, I'll give as much credit as I can for your help!!
+*  ^^ i can't really give credits as of now (near completion), as I don't remember the specific repositories that I referenced off of QwQ
+*/ 
 //botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782
 
 const moment = require('moment');

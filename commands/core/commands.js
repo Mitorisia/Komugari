@@ -22,7 +22,7 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Core:__", "`commands` `nsfwcommands` `help` `support`", true)
             .addField("__Moderation:__", "`ban` `kick` `prune` `warn`", true) //debating whether or not i want these aaasdasdasdfasdf
             .addField("__Utility:__", "`color` `time` `translate` `weather`\n\`img` `osu` `wiki` `urban` `youtube`", true)
-            .addField("__Info:__", "`avatar` `emoji`\n\`role` `server` `user`", true)
+            .addField("__Info:__", "`avatar` `emoji` `channel` `inrole`\n\`role` `server` `user`", true)
             .addField("__Fun:__", "`8ball` `cat` `dog` `f` `horoscope` `meme` `rate` `rightthere` `say` `talk`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
             .addField("__Anime:__", "`anime` `catgirl` `moe` `safebooru` `zr`", true)
             .addField("__Voice:__", "`listen` `speak`", true)
