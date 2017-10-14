@@ -12,7 +12,8 @@ module.exports = class PornHubCommand extends Command {
             group: 'nsfw',
             memberName: 'pornhub',
             description: 'Searches for videos on Pornhub!',
-            details: ['~pornhub [search]'],
+            details: 'This command can only be used in NSFW channels!',
+            examples: ['~pornhub [search]'],
             throttling: {
                 usages: 1,
                 duration: 3

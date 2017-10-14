@@ -4,16 +4,16 @@ const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 
 
-module.exports = class /*CommandName*/Command extends Command {
+module.exports = class ArtsyPornCommand extends Command {
     constructor(client) {
         super(client, {
-            name: '',
-            aliases: [''],
+            name: 'artsyporn',
+            aliases: ['artsy'],
             group: 'nsfw',
-            memberName: '',
-            description: 'Finds  for you!',
+            memberName: 'artsyporn',
+            description: 'Finds artsy..? Porn?? For you!',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~'],
+            examples: ['~artsyporn'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -28,21 +28,11 @@ module.exports = class /*CommandName*/Command extends Command {
             return message.channel.send(errMessage);
         }
         
-        var subreddits = [
-            '',
-            '',
-            '',
-            '',
-            ''
-        ]
-
-        var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
-
         try {
-            randomPuppy(sub)
+            randomPuppy('SexyButNotPorn')
                 .then(url => {
                     const embed = new Discord.MessageEmbed()
-                        .setFooter(``)
+                        .setFooter(`ArtsyPorn`)
                         .setImage(url)
                         .setColor('#A187E0');
                     return message.channel.send({embed});

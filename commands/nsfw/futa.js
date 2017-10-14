@@ -10,7 +10,7 @@ module.exports = class FutaCommand extends Command {
             name: 'futa',
             aliases: ['futarani'],
             group: 'nsfw',
-            memberName: '',
+            memberName: 'futa',
             description: 'Finds... futas...? For...you?',
             details: 'This command can only be used in NSFW channels!',
             examples: ['~futa'],

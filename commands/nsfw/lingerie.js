@@ -29,11 +29,10 @@ module.exports = class /*CommandName*/Command extends Command {
         }
         
         var subreddits = [
-            '',
-            '',
-            '',
-            '',
-            ''
+            'lingerie',
+            'stockings',
+            'pantyfetish',
+            'panties'
         ]
 
         var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
@@ -42,7 +41,7 @@ module.exports = class /*CommandName*/Command extends Command {
             randomPuppy(sub)
                 .then(url => {
                     const embed = new Discord.MessageEmbed()
-                        .setFooter(``)
+                        .setFooter(`Lingerie`)
                         .setImage(url)
                         .setColor('#A187E0');
                     return message.channel.send({embed});

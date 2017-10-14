@@ -41,14 +41,14 @@ client.registry
 	.registerCommandsIn(__dirname + "/commands");
 
 
-client.on('disconnect', () => console.log('Disconnected!! Trying to reconnect...'));
+client.on('disconnect', () => console.log('Disconnected from the server...just thought I\'d let you know!'));
 	
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
-	client.user.setGame("With you | ~help");
+	client.user.setPresence({ game: { name: 'with you | ~help', type: 0 }});
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
