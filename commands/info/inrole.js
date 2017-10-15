@@ -6,7 +6,7 @@ module.exports = class InRoleCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'inrole',
-            aliases: ['rolecount'],
+            aliases: ['rolecount', 'membercount'],
             group: 'info',
             memberName: 'inrole',
             description: 'Gets all the members from a given role!',
@@ -34,14 +34,20 @@ module.exports = class InRoleCommand extends Command {
         }
         
         const { role } = args;
-        let members = role.members
+        let members = role.members;
+
+        var allMembers = members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
+            return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
+        }).join(', ')
+
+        if(allMembers.length > 2048) return message.channel.send('Too much members in that role! I couldn\'t send the information!');
         
         const embed = new Discord.MessageEmbed()
-            .setAuthor(`All members with the ${role.name} role in ${message.guild.name}`, message.guild.iconURL())
+            .setAuthor(`${role.name}`, message.guild.iconURL())
             .setColor(role.hexColor)
-            .setDescription(members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
-                return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : (m.user === this.client.user ? ' **`Komugari`**' : ''))}`
-              }))
+            .setDescription(allMembers)
+            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());         
+        return message.channel.send(`Here's all the members with the ${role.name} role!`, {embed: embed});
 	}
 }
 

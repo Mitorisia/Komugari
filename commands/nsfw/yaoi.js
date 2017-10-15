@@ -32,7 +32,6 @@ module.exports = class YaoiCommand extends Command {
         try {
             randomPuppy('yaoi')
                 .then(url => {
-                    console.log(url)
                     const embed = new Discord.MessageEmbed()
                         .setFooter(`yaoi`)
                         .setImage(url)
