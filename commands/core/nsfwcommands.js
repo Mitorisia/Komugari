@@ -1,7 +1,7 @@
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
 
-//remember to return before every promise
+
 module.exports = class NSFWCommandsCommand extends Command {
     constructor(client) {
         super(client, {
@@ -21,7 +21,7 @@ module.exports = class NSFWCommandsCommand extends Command {
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("Any message from me can be removed by reacting with a 🎴 emoji.")
             .addField("__2D NSFW:__", "`ecchi` `hentai` `hentaigif`\n\`hentaiirl` `neko` `pantsu`\n\`oppai` `yaoi` `yuri`", true)
-            .addField("__2D Fetish:__", "`ahegao` `bara` `futa`\n\`hentaibondage` `monstergirl` `paizuri`\n\`sukebei` `tentacle` `trap`", true)
+            .addField("__2D Fetish:__", "`ahegao` `bara` `bondage`\n\`futa` `monstergirl` `paizuri`\n\`sukebei` `tentacle` `trap`", true)
             .addField("__3D NSFW:__", "`4knsfw` `artsyporn` `ass` `boobs`\n\`nsfw` `nsfwgif` `pornhub` `pussy`", true)
             .addField("__3D Fetish:__", "`asian` `amateur` `bdsm`\n\`cosplay` `grool` `lingerie`", true)
             .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `tbib` `yandere` `e621`");

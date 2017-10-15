@@ -36,7 +36,6 @@ module.exports = class EmojiCommand extends Command {
               .setAuthor(`Emojis in ${message.guild.name}! [${emojis.size}]`, message.guild.iconURL())
               .setDescription(emojis.map(e => e).join(''))
               .setColor('#A5A3BB')
-              .setFooter("Emojis are mapped by order of upload!")
             return message.channel.send(`Here's all your custom emojis!`, {embed: embed});
 
         } else {

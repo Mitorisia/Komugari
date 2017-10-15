@@ -31,8 +31,10 @@ module.exports = class AvatarCommand extends Command {
 			size: 2048
 		});
 
-		const embed = new Discord.RichEmbed()
+		const embed = new Discord.MessageEmbed()
 			.setAuthor(`${user.username}'s avatar!`, avatar)
+			.setColor('#D0C7FF')
+			.setDescription(`[https://cdn.discordapp.com/avatars](${avatar})`)
 			.setImage(avatar)
 		return message.channel.send({embed});
 	}

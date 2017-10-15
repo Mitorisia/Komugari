@@ -8,7 +8,7 @@ module.exports = class AssCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'ass',
-            aliases: ['butt', 'booty'],
+            aliases: ['butt', 'booty', 'butts'],
             group: 'nsfw',
             memberName: 'ass',
             guildOnly: true,

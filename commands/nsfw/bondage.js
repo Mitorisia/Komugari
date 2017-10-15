@@ -7,14 +7,14 @@ const errors = require('../../assets/json/errors');
 module.exports = class HentaiBondageCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'hentaibondage',
-            aliases: ['hbondage'],
+            name: 'bondage',
+            aliases: ['hbondage', 'hentaibondage'],
             group: 'nsfw',
-            memberName: 'hentaibondage',
+            memberName: 'bondage',
             guildOnly: true,
             description: 'Finds...hentai..bondage??..For...you!',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~hentaibondage'],
+            examples: ['~bondage'],
             throttling: {
                 usages: 1,
                 duration: 3

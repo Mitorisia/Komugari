@@ -8,7 +8,6 @@ module.exports = class BDSMCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'bdsm',
-            aliases: ['bondage'],
             group: 'nsfw',
             memberName: 'bdsm',
             guildOnly: true,
