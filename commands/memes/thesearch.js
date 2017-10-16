@@ -24,7 +24,7 @@ module.exports = class TheSearchCommand extends Command {
 			return message.channel.send('I can\'t attach messages!');
 		}
 	
-		const args = message.content.split(" "); 
+		const args = message.content.split(/\s+/g).slice(1).join(" ");
 		
 		if (args.length < 1) {
 			return message.channel.send('Please provide some text!');

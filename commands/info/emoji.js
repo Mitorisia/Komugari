@@ -41,36 +41,19 @@ module.exports = class EmojiCommand extends Command {
 
         } else {
           const args = message.content.split(" "); 
-          
-          emoji = args.join(' ').replace(/(<:\w+?:\d+?>)/g, '|$1|').split('|')
-        
-          if (emoji.length < 1) {
-            message.channel.send('You must enter at least one emoji!');
-          }
-        
-          let files = emoji.map(a => {
-            const emoji = this.client.emojis.find(e => e.toString() === a)
-        
-            if (!emoji) {
-              return null;
-            }
-        
-            return emoji;
-          }).filter(e => e);
-        
-          files.length = Math.min(10, files.length);
-          files = files.map(e => {      
-            return {
-              attachment: e.url,
-              name: `${e.name}-${e.id}.png`
-            }
-          })
-        
-          if (!files.length) {
-            return message.channel.send('That\'s not a valid emoji!\n\Emojis must be from this server!');
-          }
-        
-          return message.channel.send({ files });
+
+          if (!args[1].startsWith('<:')) return message.channel.send('That\'s not a valid emoji!')
+          let id = args[1].substring(args[1].lastIndexOf(':') + 1, args[1].lastIndexOf('>'))
+
+          let emoteInfo = this.client.emojis.get(id)
+          if (!emoteInfo) return message.channel.send('That\'s not a valid emoji!')
+
+          const embed = new Discord.MessageEmbed()
+            .setAuthor(emoteInfo.name)
+            .setImage(`https://cdn.discordapp.com/emojis/${emoteInfo.id}.png`)
+            .setFooter(emoteInfo.identifier)     
+            .setColor('#D5BEC6') 
+          return message.channel.send({embed});
       }
     }
 }

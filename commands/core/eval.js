@@ -28,10 +28,11 @@ module.exports = class EvalCommand extends Command {
 		this.lastResult = null;
 	}
 
+	hasPermission(msg) {
+		return this.client.isOwner(msg.author);
+	}
+
 	run(msg, args) {
-		if(!this.client.isOwner(msg.author)) {
-			return message.channel.send('This command can only be used by the bot owner!')
-		}
 		// Make a bunch of helpers
 		/* eslint-disable no-unused-vars */
 		const message = msg;

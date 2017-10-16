@@ -22,8 +22,6 @@ module.exports = class DisabledCommand extends Command {
 			return message.channel.send('I can\'t attach messages!');
 		}
 		
-		const args = message.content.split(" "); 
-		
 		let avatarurl = (message.mentions.users.size > 0 ? message.mentions.users.first().displayAvatarURL({ format: 'png' }) : message.author.displayAvatarURL({ format: 'png' })).replace('gif', 'png');
 
 		var avatar = await Jimp.read(avatarurl);

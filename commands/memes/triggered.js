@@ -29,7 +29,6 @@ module.exports = class TriggeredCommand extends Command {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 		
-		const args = message.content.split(" "); 
 		
 		if (!message.channel.permissionsFor(this.client.user.id).has('ATTACH_FILES')) {
 			return message.channel.send('I can\'t attach messages!');

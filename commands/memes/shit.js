@@ -24,7 +24,7 @@ module.exports = class ShitCommand extends Command {
 			return message.channel.send('I can\'t attach messages!');
 		}
 	
-		const args = message.content.split(" "); 
+		const args = message.content.split(/\s+/g).slice(1).join(" ");
 
 		if (message.mentions.users.size > 0) {
 			args = message.mentions.users.first().username;
