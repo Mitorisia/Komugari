@@ -30,7 +30,16 @@ module.exports = class InRoleCommand extends Command {
         let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
                 
         if(!somethingThere) {
-            return message.channel.send('Please give me a role to get the information of!\n\Please say `~roles` to get all the roles in this server!')        
+            var guildMembers = message.guild.members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
+                return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
+            }).join(', ')
+
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`All Members`, message.guild.iconURL())
+                .setDescription(guildMembers)
+                .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setColor('#9473DB');
+            return message.channel.send({embed})        
         }
         
         const { role } = args;
@@ -46,7 +55,7 @@ module.exports = class InRoleCommand extends Command {
             .setAuthor(`${role.name}`, message.guild.iconURL())
             .setColor(role.hexColor)
             .setDescription(allMembers)
-            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL());         
+            .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());         
         return message.channel.send(`Here's all the members with the ${role.name} role!`, {embed: embed});
 	}
 }

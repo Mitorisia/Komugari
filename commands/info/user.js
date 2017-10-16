@@ -68,7 +68,7 @@ module.exports = class UserCommand extends Command {
             .setDescription(status)
 			      .setColor(member.displayHexColor)
             .setThumbnail(member.user.displayAvatarURL())
-            .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+            .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
             .addField('❯\u2000\Information', `•\u2000\**ID:** ${member.user.id}\n\•\u2000\**Status:** ${member.user.presence.status}\n\•\u2000\**Created:** ${moment(member.user.createdAt).format('MMMM Do YYYY')} (${fromNow(member.user.createdAt)})`)         
             .addField('❯\u2000\Server Membership', `•\u2000\**Nickname:** ${nickname}\n\•\u2000\**Joined:** ${moment(member.joinedAt).format('MMMM Do YYYY')} (${fromNow(member.joinedAt)})`, true)
             .addField('❯\u2000\**Role Infomation**', `•\u2000\**Highest Role:** ${member.highestRole.name !== '@everyone' ? member.highestRole.name : 'None'}\n\•\u2000\**Hoist Role:** ${member.hoistRole ? member.hoistRole.name : 'None'}`, true)

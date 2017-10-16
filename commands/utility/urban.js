@@ -20,7 +20,7 @@ module.exports = class UrbanCommand extends Command {
         });
     }
 
-    run (message) {
+    async run (message) {
       const query = message.content.split(/\s+/g).slice(1).join(" ");
       
         const defs = await (query.length ? urban(query) : urban.random());

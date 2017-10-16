@@ -1,5 +1,8 @@
+//powered by smugs.safe.moe!!
+
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
+const snekfetch =  require('snekfetch');
 
 module.exports = class SmugCommand extends Command {
     constructor(client) {
@@ -17,11 +20,21 @@ module.exports = class SmugCommand extends Command {
         });
     }
 
-    run (message) {
-        var randomNumber = Math.floor(Math.random() * 58) + 1;
-        const embed = new Discord.MessageEmbed()
-            .setImage(`http://smug.moe/smg/${randomNumber}.png`)
-            .setColor('#9D9DBD');
-        return message.channel.send({embed});
+    async run (message) {
+        var text = await snekfetch.get(`http://smugs.safe.moe/api/v1/i/r`);
+        var body = JSON.parse(text.text);
+
+        try{
+            var embed = new Discord.MessageEmbed()
+                .setColor('#727293')
+                .setImage(`https://smugs.safe.moe/${body.url}`);
+            return message.channel.send({embed});
+    
+        } catch(err) {
+            console.log(err);
+            message.react('✖');
+
+            return null;
+        }
 	}
 }

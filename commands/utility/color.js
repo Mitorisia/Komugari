@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
-var randomHex = require('random-hex');
 
 module.exports = class ColorCommand extends Command {
     constructor(client) {
@@ -19,7 +18,7 @@ module.exports = class ColorCommand extends Command {
       var color = message.content.split(/\s+/g).slice(1).join(" ");
       
       if(!color){
-        var genColour = randomHex.generate();
+        var genColour = '#' + Math.floor(Math.random()*16777215).toString(16);
         const embed = new Discord.MessageEmbed()
           .setColor(genColour)
           .setImage(`https://dummyimage.com/50/${genColour.slice(1)}/&text=%20`)

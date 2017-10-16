@@ -46,7 +46,9 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
-	client.user.setPresence({ game: { name: 'with you | ~help', type: 0 }});
+	//client.user.setActivity('with you | ~help')
+
+	client.user.setActivity('I am still incomplete! Take caution!')
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
@@ -54,22 +56,48 @@ client.on("ready", () => {
 	const embed = new Discord.MessageEmbed()
 		.setAuthor('Komugari is live and ready!', client.user.displayAvatarURL({ format: 'png' }))
 		.setColor('#727293')
-		.setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!`);
+		.setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!`)
+		.setTimestamp();
 	channel.send({embed});
 });
 
 
 client.on('guildCreate', guild => {
 	var channel = client.channels.get('367828773426429953')
+
+	var online = guild.members.filter(m => m.user.presence.status === "online").size
+	var bots = guild.members.filter(m => m.user.bot).size	
+	var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
+
+	var textChannels = guild.channels.filter(c => c.type === 'text');
+	var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+
+	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
+	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
+
+	function fromNow(date) {
+		if (!date) {
+			return false;
+		  }
+		
+		  const ms = new Date().getTime() - date.getTime();
+		
+		  if (ms >= 86400000) {
+			const days = Math.floor(ms / 86400000);
+			return `${days} day${days !== 1 ? 's' : ''} ago`;
+		  }
+		
+		  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
+	} 
+
 	const embed = new Discord.MessageEmbed()
-		.setAuthor('Added to a Server!', client.user.displayAvatarURL())
+		.setAuthor(`Added to ${guild.name}!`, guild.iconURL())
+		.setDescription(`Server infomation for **${guild.name}**`)
 		.setColor('#78AEE8')
 		.setThumbnail(guild.iconURL())
-		.setDescription(`[${guild.name}](${guild.id})`)
-		.addField('Members', `${guild.members.size} members | ${guild.members.filter(m => m.user.bot).size} bots`, true)
-		.addField('Channels', guild.channels.size, true)
-		.addField('Owner', guild.owner.user, true)
-		.addField('Created on', `${moment.utc(guild.createdAt).format('Do MMM YYYY')} by ${guild.owner.user.tag}`, true)		
+		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
+		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)            
 		.setTimestamp()
 		.setFooter(`(${client.guilds.size})`);
 		return channel.send({embed});
@@ -77,17 +105,42 @@ client.on('guildCreate', guild => {
 
 client.on('guildDelete', guild => {
 	var channel = client.channels.get('367828773426429953');
+
+	var online = guild.members.filter(m => m.user.presence.status === "online").size
+	var bots = guild.members.filter(m => m.user.bot).size	
+	var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
+
+	var textChannels = guild.channels.filter(c => c.type === 'text');
+	var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+
+	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
+	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
+
+	function fromNow(date) {
+		if (!date) {
+			return false;
+		  }
+		
+		  const ms = new Date().getTime() - date.getTime();
+		
+		  if (ms >= 86400000) {
+			const days = Math.floor(ms / 86400000);
+			return `${days} day${days !== 1 ? 's' : ''} ago`;
+		  }
+		
+		  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
+	} 
+
 	const embed = new Discord.MessageEmbed()
-	.setAuthor('Removed from a Server!', client.user.displayAvatarURL())
-	.setColor('#898276')
-	.setThumbnail(guild.iconURL())
-	.setDescription(`[${guild.name}](${guild.id})`)
-	.addField('Members', `${guild.members.size} members | ${guild.members.filter(m => m.user.bot).size} bots`, true)
-	.addField('Channels', guild.channels.size, true)
-	.addField('Owner', guild.owner.user, true)
-	.addField('Created on', `${moment.utc(guild.createdAt).format('Do MMM YYYY')} by ${guild.owner.user.tag}`, true)
-	.setTimestamp()
-	.setFooter(`(${client.guilds.size})`);
+		.setAuthor('Removed from a Server!', guild.iconURL())
+		.setColor('#898276')
+		.setThumbnail(guild.iconURL())
+		.setDescription(`Server infomation for **${guild.name}**`)
+		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
+		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)   
+		.setTimestamp()
+		.setFooter(`(${client.guilds.size})`);
 	return channel.send({embed});
 });
 
