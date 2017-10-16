@@ -13,7 +13,7 @@ module.exports = class MangaCommand extends Command {
             examples: ['~manga [manga name]'],
             throttling: {
                 usages: 1,
-                duration: 10
+                duration: 5
             }
         });
     }

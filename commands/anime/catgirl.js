@@ -10,7 +10,11 @@ module.exports = class CatGirlCommand extends Command {
             memberName: 'catgirl',
             guildOnly: true,
             description: 'Shows a random catgirl!',
-            examples: ['~catgirl']
+            examples: ['~catgirl'],
+            throttling: {
+                usages: 1,
+                duration: 3
+            }
         });
     }
 

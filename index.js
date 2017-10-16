@@ -48,7 +48,7 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 client.on("ready", () => {
 	//client.user.setActivity('with you | ~help')
 
-	client.user.setActivity('I am still incomplete! Take caution!')
+	client.user.setActivity('I am still incomplete! Take caution, uptime is never guaranteed!')
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
