@@ -34,12 +34,17 @@ module.exports = class TriggeredCommand extends Command {
 			return message.channel.send('I can\'t attach messages!');
 		}
 	
+		const args = message.content.split(" ").slice(1)		
+		
 		let avatarurl = (message.mentions.users.size > 0 ? message.mentions.users.first().displayAvatarURL({ format: 'png' }) : message.author.displayAvatarURL({ format: 'png' }));
-	
+		if (['jpg', 'jpeg', 'gif', 'png', 'webp'].some(x => args.join(' ').includes(x))) {
+			avatarurl = args.join(' ').replace(/gif|webp/g, 'png')
+		}
+
 		const base = new Jimp(options.size, options.size);
 		const avatar = await Jimp.read(avatarurl);
-		const text = await Jimp.read('assets/images//triggered/triggered.jpg');
-		const tint = await Jimp.read('assets/images/triggered/red.png');
+		const text = await Jimp.read('assets/images/triggered.jpg');
+		const tint = await Jimp.read('assets/images/red.png');
 	
 		avatar.resize(320, 320);
 		tint.scaleToFit(base.bitmap.width, base.bitmap.height)

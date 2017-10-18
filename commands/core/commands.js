@@ -18,7 +18,7 @@ module.exports = class CommandsCommand extends Command {
             .setDescription(`Use \`~help [command]\` for more details.`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
-            .setFooter("Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setFooter("Any message from me can be removed by reacting with a 🎴 emoji!")
             .addField("__Core:__", "`commands` `nsfwcommands` `help` `support`", true)
             .addField("__Moderation:__", "`ban` `kick` `prune`", true) //debating whether or not i want these aaasdasdasdfasdf
             .addField("__Utility:__", "`color` `time` `translate` `weather`\n\`img` `osu` `wiki` `urban` `youtube`", true)

@@ -49,6 +49,8 @@ module.exports = class InRoleCommand extends Command {
             return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
         }).join(', ')
 
+        if(!allMembers) return message.channel.send('There are no members in that role!')
+
         if(allMembers.length > 2048) return message.channel.send('Too much members in that role! I couldn\'t send the information!');
         
         const embed = new Discord.MessageEmbed()

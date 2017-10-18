@@ -21,9 +21,14 @@ module.exports = class DisabledCommand extends Command {
         if (!message.channel.permissionsFor(this.client.user.id).has('ATTACH_FILES')) {
 			return message.channel.send('I can\'t attach messages!');
 		}
+
+		const args = message.content.split(" ").slice(1)		
 		
 		let avatarurl = (message.mentions.users.size > 0 ? message.mentions.users.first().displayAvatarURL({ format: 'png' }) : message.author.displayAvatarURL({ format: 'png' })).replace('gif', 'png');
-
+		if (['jpg', 'jpeg', 'gif', 'png', 'webp'].some(x => args.join(' ').includes(x))) {
+			avatarurl = args.join(' ').replace(/gif|webp/g, 'png')
+		}
+		
 		var avatar = await Jimp.read(avatarurl);
 		const disabled = await Jimp.read('assets/images/disabled.png');
 	

@@ -34,7 +34,7 @@ module.exports = class ChannelCommand extends Command {
             const textChannels = message.guild.channels.filter(c => c.type === 'text')
             const voiceChannels = message.guild.channels.filter(c => c.type === 'voice')
 
-            const hasPerm = (c, perms) => c.permissionsFor().has(perms)
+            const hasPerm = (c, perms) => c.permissionsFor(message.member).has(perms)
             const f = t => ` **\`[${t}]\`**`
             const displayPerms = c => `${!hasPerm(c, 'SEND_MESSAGES') && c instanceof Discord.TextChannel ? f('NO SEND') : ''}${!hasPerm(c, 'CONNECT') && c instanceof Discord.VoiceChannel ? f('NO CONNECT') : ''}${!hasPerm(c, 'VIEW_CHANNEL') ? f('NO VIEW') : ''}`      
             const isAFK = c => c.id === message.guild.afkChannelID;
@@ -45,8 +45,8 @@ module.exports = class ChannelCommand extends Command {
 
                 `**❯\u2000\Text channels [${textChannels.size}]:**`,
                 channelCategory.sort(sortPos).map(c => `•\u2000**${c.name}** [${c.children.size}]\n${textChannels.filter(d => d.parentID === c.id).sort(sortPos).map(d => (`#\u2000${d.name}${displayPerms(d)}\n`)).join("")}`),
-
-                '\n',
+                textChannels.filter(e => e.parentID === null).sort(sortPos).map(c => c ? `#\u2000${c.name}${displayPerms(c)}` : ""),
+                
                 `**❯\u2000\Voice channels [${voiceChannels.size}]:**`,
                 
                 voiceChannels.sort(sortPos).map(c => `•\u2000${c.name}${displayPerms(c)}${isAFK(c) ? ' **`[AFK]`**' : ''}`)
@@ -59,9 +59,11 @@ module.exports = class ChannelCommand extends Command {
                 .setAuthor(`Channels in ${message.guild.name}! [${message.guild.channels.size}]`, message.guild.iconURL())
                 .setDescription(description)
                 .setThumbnail(message.guild.iconURL())
-                .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+                .setFooter(`Permissions shown for ${message.author.tag}`, message.author.displayAvatarURL())
                 .setColor('#8B9EB7');         
             return message.channel.send({embed});
+        } else if (message.mentions.users.first()) {
+
         }
 
         var { channel } = args;
@@ -83,7 +85,7 @@ module.exports = class ChannelCommand extends Command {
         
         const embed = new Discord.MessageEmbed()
             .setAuthor(channel.name, message.guild.iconURL())
-            .setDescription(channel.topic)
+            .setDescription(`❯\u2000${channel.topic}`)
             .setThumbnail(message.guild.iconURL())
             .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
             .setColor('#846B86')            

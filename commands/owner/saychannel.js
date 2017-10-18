@@ -6,7 +6,7 @@ module.exports = class SayChannelCommand extends Command {
         super(client, {
             name: 'saychannel',
             aliases: ['sc', 'send', 'portal', 'announce'],
-            group: 'core',
+            group: 'owner',
             memberName: 'saychannel',
             description: 'This is an admin-only command',
             examples: ['none'],
@@ -20,7 +20,7 @@ module.exports = class SayChannelCommand extends Command {
 
     async run (message) {
       if(message.guild.id !== '198399488614727680') return message.channel.send(`This command can only be used in the owner's server.`);
-      if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('You cannot use this command! (Missing Permissions!)');
+      if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('You cannot use this command!');
       
       try {
         let channelMessage = message.content.split(/\s+/g).slice(2).join(" ");

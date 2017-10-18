@@ -34,7 +34,8 @@ client.registry
 		['memes', 'Memes'],
 		['moderation', 'Moderation'],
 		['nsfw', 'NSFW'],
-		['utility', 'Utility']
+		['utility', 'Utility'],
+		['owner','Owner']
 	])
 	.registerCommandsIn(__dirname + "/commands");
 

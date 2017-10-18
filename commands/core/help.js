@@ -31,7 +31,7 @@ module.exports = class HelpCommand extends Command {
 					.setDescription(`${commands[0].description}\n${commands[0].details || ''}`)
 					.addField('__Usage:__', commands[0].examples[0], true)
 					.addField('__Aliases:__', commands[0].aliases.join(', ') || 'None', true)
-					.setFooter(`${commands[0].group.name} | Any message from me can be removed by reacting with a 🎴 emoji.`);
+					.setFooter(`${commands[0].group.name} | Any message from me can be removed by reacting with a 🎴 emoji!`);
 				return message.channel.send({embed});  
 				
 			} else if (commands.length > 1) {
@@ -41,7 +41,7 @@ module.exports = class HelpCommand extends Command {
                 	.setAuthor(`Komugari`, this.client.user.displayAvatarURL({ format: 'png' }))
                 	.setColor('#727293')
                 	.setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
-                	.setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
+                	.setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji!`)
                 	.setDescription('Hi! I\'m Komugari and I am a bot based around anime and NSFW!\n\All my commands start with the prefix "~"!')
                 	.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
                 	.addField(`__Support:__`, `[\`~support [message]\`](https://discord.gg/dHqWWSS)`, true)
@@ -53,7 +53,7 @@ module.exports = class HelpCommand extends Command {
 				.setAuthor(`Komugari`, this.client.user.displayAvatarURL({ format: 'png' }))
 				.setColor('#727293')
 				.setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
-				.setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
+				.setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji!`)
 				.setDescription('Hi! I\'m Komugari and I am a bot based around anime and NSFW!\n\All my commands start with the prefix "~"!')
 				.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
 				.addField(`__Support:__`, `[\`~support [message]\`](https://discord.gg/dHqWWSS)`, true)

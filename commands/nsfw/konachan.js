@@ -28,14 +28,16 @@ module.exports = class KonachanCommand extends Command {
             message.react('💢');
             return message.channel.send(errMessage);
         }
+
+        if(message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
         
-         var query = message.content.split(/\s+/g).slice(1).join(" ");
+        var query = message.content.split(/\s+/g).slice(1).join(" ");
             booru.search('konac', [query], {limit: 1, random: true})
              .then(booru.commonfy)
              .then(images => {
                  for(let image of images) {
                      const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Konachan **${query}**`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`Konachan ${query}`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
                         .setColor('#C597B8');
                      return message.channel.send({embed});

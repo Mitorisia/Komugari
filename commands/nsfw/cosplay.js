@@ -41,7 +41,7 @@ module.exports = class CosplayCommand extends Command {
             randomPuppy(sub)
                 .then(url => {
                     const embed = new Discord.MessageEmbed()
-                        .setFooter(cosplay)
+                        .setFooter('cosplay')
                         .setImage(url)
                         .setColor('#A187E0');
                     return message.channel.send({embed});

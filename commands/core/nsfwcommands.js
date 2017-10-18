@@ -19,7 +19,7 @@ module.exports = class NSFWCommandsCommand extends Command {
             .setDescription(`Use \`~help [command]\` for more details.`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
-            .setFooter("Any message from me can be removed by reacting with a 🎴 emoji.")
+            .setFooter("Any message from me can be removed by reacting with a 🎴 emoji!")
             .addField("__2D NSFW:__", "`ecchi` `hentai` `hentaigif`\n\`hentaiirl` `neko` `pantsu`\n\`oppai` `yaoi` `yuri`", true)
             .addField("__2D Fetish:__", "`ahegao` `bara` `bondage`\n\`futa` `monstergirl` `paizuri`\n\`sukebei` `tentacle` `trap`", true)
             .addField("__3D NSFW:__", "`4knsfw` `artsyporn` `ass` `boobs`\n\`nsfw` `nsfwgif` `pornhub` `pussy`", true)

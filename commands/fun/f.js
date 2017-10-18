@@ -5,7 +5,7 @@ module.exports = class FCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'f',
-            aliases: ['respect', 'respects'],
+            aliases: ['respect', 'respects', 'rip'],
             group: 'fun',
             memberName: 'f',
             guildOnly: true,

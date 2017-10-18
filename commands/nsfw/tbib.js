@@ -22,20 +22,22 @@ module.exports = class YandereCommand extends Command {
     }
 
     run (message) {
-        var errMessage = errors.nsfwError[Math.round(Math.random() * (errors.nsfwError.length - 1))];
+        var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
         if(!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
         
-         var query = message.content.split(/\s+/g).slice(1).join(" ");
+        if(message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
+        
+        var query = message.content.split(/\s+/g).slice(1).join(" ");
     
             booru.search('tbib', [query], {limit: 1, random: true})
              .then(booru.commonfy)
              .then(images => {
                  for(let image of images) {
                      const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Yandere **${query}**`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`TBIB ${query}`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
                         .setColor('#C597B8');
                      message.channel.send({embed});

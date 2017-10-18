@@ -32,7 +32,7 @@ module.exports = class GroolCommand extends Command {
             randomPuppy('grool')
                 .then(url => {
                     const embed = new Discord.MessageEmbed()
-                        .setFooter(grool)
+                        .setFooter(`grool`)
                         .setImage(url)
                         .setColor('#A187E0');
                     return message.channel.send({embed});
