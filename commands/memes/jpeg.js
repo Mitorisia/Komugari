@@ -2,14 +2,15 @@ const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
 const Jimp = require('jimp');
 
-module.exports = class DisabledCommand extends Command {
+module.exports = class JpegCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'disabled',
+            name: 'jpeg',
             group: 'memes',
-            memberName: 'disabled',
-            description: 'The public should know what disability looks like!',
-            examples: ['~disabled <mention/url>'],
+			memberName: 'jpeg',
+			guildOnly: true,
+            description: 'Who needs quality?',
+            examples: ['~jpeg <mention/URL>'],
             throttling: {
                 usages: 1,
                 duration: 10
@@ -30,16 +31,18 @@ module.exports = class DisabledCommand extends Command {
 		}
 		
 		var avatar = await Jimp.read(avatarurl);
-		const disabled = await Jimp.read('assets/images/disabled.png');
 	
 		avatar.resize(157, 157);
 	
-		disabled.composite(avatar, 390, 252);
-		disabled.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
+        avatar.convolution([0, -0.2, 0,
+            -0.2, 1.8, -0.2,
+            0, -0.2, 0]
+        )
+		avatar.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
 			try {
 				return await message.channel.send({
 					files: [{
-						name: 'disabled.png',
+						name: 'jpeg.png',
 						attachment: buffer
 					}]
 				})

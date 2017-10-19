@@ -16,7 +16,7 @@ module.exports = class TriggeredCommand extends Command {
 			memberName: 'triggered',
 			guildOnly: true,
             description: 'T R I G G E R E D',
-            examples: ['~triggered <mention>'],
+            examples: ['~triggered <mention/url>'],
             throttling: {
                 usages: 1,
                 duration: 10

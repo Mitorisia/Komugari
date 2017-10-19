@@ -5,7 +5,7 @@ module.exports = class TalkCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'talk',
-            aliases: ['komugari', '!'],
+            aliases: ['chat', 'cleverbot', '!', 'komugari'],
             group: 'fun',
             memberName: 'talk',
             description: 'Talk to Komugari using the Cleverbot API!',
