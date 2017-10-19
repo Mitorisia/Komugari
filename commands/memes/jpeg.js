@@ -32,12 +32,12 @@ module.exports = class JpegCommand extends Command {
 		
 		var avatar = await Jimp.read(avatarurl);
 	
-		avatar.resize(157, 157);
-	
-        avatar.convolution([0, -0.2, 0,
-            -0.2, 1.8, -0.2,
-            0, -0.2, 0]
-        )
+		avatar.convolute([
+            [0,-1, 0],
+            [-1, 5, -1],
+            [ 0, -1, 0]
+          ])
+
 		avatar.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
 			try {
 				return await message.channel.send({
