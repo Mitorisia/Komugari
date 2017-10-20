@@ -40,7 +40,7 @@ module.exports = class HentaiIrlCommand extends Command {
                 })
                 
             } catch(err) {
-                return message.channel.send('Something went wrong while executing that function!');
+                return message.channel.send('✖ Something went wrong while executing that function!');
             }
 	}
 }

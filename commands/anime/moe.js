@@ -31,7 +31,7 @@ module.exports = class MoeCommand extends Command {
                 })
     
             } catch(err) {
-                message.channel.send('Something went wrong while executing that command!')
+                message.channel.send('✖ Something went wrong while executing that command!')
                 return console.log(err)
         }
 	}

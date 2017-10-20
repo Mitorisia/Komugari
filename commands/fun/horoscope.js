@@ -28,12 +28,15 @@ module.exports = class HoroscopeCommand extends Command {
         const text = await snekfetch
             .get(`http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today`);
         const body = JSON.parse(text.body);
+
+        var horoscope = body.horoscope
+        var replaced = horoscope.replace('(c) Kelli Fox, The Astrologer, http://new.theastrologer.com', "")
     
         try{
             const embed = new Discord.MessageEmbed()
-                .setColor('#074288')
+                .setColor('#5D7B9D')
                 .setAuthor(`Horoscope for ${body.sunsign} on ${body.date}`, 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
-                .setDescription(body.horoscope)
+                .setDescription(replaced)
                 .setTimestamp()
                 .setFooter(`${message.author.username}'s Horoscope`)
                 .addField('Mood', body.meta.mood, true)

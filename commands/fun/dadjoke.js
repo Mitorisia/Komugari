@@ -38,13 +38,3 @@ module.exports = class EightBallCommand extends Command {
         }
 	}
 }
-
-exports.run = async (client, msg) => {
-    const snek = require("snekfetch");
-    const joek = await snek
-      .get("https://icanhazdadjoke.com/")
-      .set("Accept", "application/json");
-    msg.channel.send(joek.body.joke);
-  };
-
-  

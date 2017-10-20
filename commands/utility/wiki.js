@@ -50,7 +50,7 @@ module.exports = class WikiCommand extends Command {
           
         } catch(err) {
           message.react('✖');
-          return message.channel.send('Something went wrong while executing that command!');
+          return message.channel.send('✖ Something went wrong while executing that command!');
         }
 	}
 }

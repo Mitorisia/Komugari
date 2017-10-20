@@ -21,27 +21,19 @@ module.exports = class EightBallCommand extends Command {
 
     async run (message) {
         var res = await snekfetch.get("http://api.adviceslip.com/advice");
-        
+        var advice = JSON.parse(res.body)
+
         try {
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`Here's a dad joke!`, 'https://a.safe.moe/X1gKJ.png')
-                .setDescription(joke.body.joke)
+                .setAuthor(`Here's some advice!`, 'https://a.safe.moe/BVBr9.png')
+                .setDescription(advice.slip.advice)
                 .setColor('#727684');
           return message.channel.send({embed});
         
         } catch(err) {
           message.react('✖');
-          return message.channel.send(`Consult your dad! My API isn't working!`)
+          return message.channel.send(`✖ Sorry! My API isn't working!`)
         }
 	}
 }
-
-exports.run = async (client, msg) => {
-    const snek = require("snekfetch");
-    const joek = await snek
-      .get("https://icanhazdadjoke.com/")
-      .set("Accept", "application/json");
-    msg.channel.send(joek.body.joke);
-  };
-
   

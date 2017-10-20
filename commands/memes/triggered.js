@@ -68,7 +68,7 @@ module.exports = class TriggeredCommand extends Command {
 				})
 				
 			} catch (e) {
-				return message.channel.send(`Something went wrong while executing that function.`);
+				return message.channel.send(`✖ Something went wrong while executing that function.`);
 			}
 	
 		})
