@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const osu = require('node-osu');
 
 var osuApi = new osu.Api('f316a5a29f4b0da2712b4fb68422f083f3fdb931', {
-    notFoundAsError: true, 
+    notFoundAsError: false, 
     completeScores: false
 })
 
@@ -31,6 +31,9 @@ module.exports = class OsuCommand extends Command {
         
         try {
             osuApi.getUser({u: query}).then(user => {
+
+                if(!user.plays) return message.channel.send(`The user **${query}** was not found!`);
+                
                 const embed = new Discord.MessageEmbed()
                     .setAuthor(user.name, `https://a.ppy.sh/${user.id}`)
                     .addField('❯\u2000\Stats', `•\u2000\**Level:** ${user.level}\n\•\u2000\**Play Count:** ${user.counts.plays}\n\•\u2000\**Accuracy:** ${user.accuracyFormatted}`, true)            

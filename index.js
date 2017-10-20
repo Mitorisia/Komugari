@@ -188,7 +188,7 @@ client.on("message", async message => {
 			var serverIDs = ['367828773426429953', '202075400225030144']
 
 			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen') || message.content.startsWith('<@365907645795794946> kodick') || message.content.startsWith('<@!365907645795794946> kodick') || message.content.startsWith('<@365907645795794946> spet') || message.content.startsWith('<@!365907645795794946> spet')) {
-				if (serverIDs.indexOf(message.guild.id) > -1) {
+				if (serverIDs.indexOf(message.guild.id) > -1) { 
 
 					var timeZone = moment(moment().format());
 					var spetTime = timeZone.tz('America/Toronto').format('MMM Do, HH:mm');

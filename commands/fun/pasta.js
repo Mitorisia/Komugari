@@ -5,7 +5,7 @@ module.exports = class EasterEggCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'pasta',
-			aliases: ['tag'],
+			aliases: ['tag', 'tags'],
 			group: 'fun',
             memberName: 'pasta',
             guildOnly: true,
