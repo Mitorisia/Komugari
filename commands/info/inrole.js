@@ -28,14 +28,15 @@ module.exports = class InRoleCommand extends Command {
 
     run (message, args) {
         let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
-                
+        console.log(message.guild.members.filter(m => m.roles.length > 1).map(m => m.user.tag))
+
         if(!somethingThere) {
-            var guildMembers = message.guild.members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
+            var guildMembers = message.guild.members.filter(m => roles == null).sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
                 return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
             }).join(', ')
 
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`All Members`, message.guild.iconURL())
+                .setAuthor(`Members with no Role`, message.guild.iconURL())
                 .setDescription(guildMembers)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
                 .setColor('#9473DB');

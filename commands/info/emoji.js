@@ -50,9 +50,8 @@ module.exports = class EmojiCommand extends Command {
 
           const embed = new Discord.MessageEmbed()
             .setAuthor(emoteInfo.name)
-            .setImage(`https://cdn.discordapp.com/emojis/${emoteInfo.id}.png`)
-            .setFooter(emoteInfo.identifier)     
-            .setColor('#D5BEC6') 
+            .setImage(`https://cdn.discordapp.com/emojis/${emoteInfo.id}.png`)  
+            .setColor('#D5BEC6');
           return message.channel.send({embed});
       }
     }

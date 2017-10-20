@@ -5,7 +5,7 @@ module.exports = class RightThereCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'rightthere',
-            aliases: ['goodshit'],
+            aliases: ['goodshit', "rthere"],
             group: 'fun',
             memberName: 'rightthere',
             guildOnly: true,

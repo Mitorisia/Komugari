@@ -45,7 +45,7 @@ module.exports = class ChannelCommand extends Command {
 
                 `**❯\u2000\Text channels [${textChannels.size}]:**`,
                 channelCategory.sort(sortPos).map(c => `•\u2000**${c.name}** [${c.children.size}]\n${textChannels.filter(d => d.parentID === c.id).sort(sortPos).map(d => (`#\u2000${d.name}${displayPerms(d)}\n`)).join("")}`),
-                textChannels.filter(e => e.parentID === null).sort(sortPos).map(c => c ? `#\u2000${c.name}${displayPerms(c)}` : ""),
+                textChannels.filter(e => e.parentID === null || e.parentID === undefined).sort(sortPos).map(c => c ? `#\u2000${c.name}${displayPerms(c)}` : ""),
                 
                 `**❯\u2000\Voice channels [${voiceChannels.size}]:**`,
                 

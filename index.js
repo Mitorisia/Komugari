@@ -158,8 +158,20 @@ client.on("messageReactionAdd", (messageReaction, user) => {
 
 //basic message replies
 client.on("message", async message => {
-	if(message.channel.type == "dm" || message.author.bot) return undefined;
+	if(message.author.bot) return undefined;
 	
+	if(message.channel.type == "dm") {
+		var channel = client.channels.get('370719709110468609');
+
+		const embed = new Discord.MessageEmbed()
+			.setAuthor(message.author.tag, message.author.displayAvatarURL())
+			.setDescription(message.content)
+			.setColor('#D48AD8')
+			.setTimestamp();
+		channel.send({embed});
+		return message.channel.send('Your message has been sent to the support server! https://discord.gg/dHqWWSS');
+	}
+
 	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) return undefined;
 
 		try {
@@ -175,7 +187,7 @@ client.on("message", async message => {
 
 			var serverIDs = ['367828773426429953', '202075400225030144']
 
-			if(message.content.startsWith('<@365907645795794946> time') || message.content.startsWith('<@!365907645795794946> time')) {
+			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen') || message.content.startsWith('<@365907645795794946> kodick') || message.content.startsWith('<@!365907645795794946> kodick') || message.content.startsWith('<@365907645795794946> spet') || message.content.startsWith('<@!365907645795794946> spet')) {
 				if (serverIDs.indexOf(message.guild.id) > -1) {
 
 					var timeZone = moment(moment().format());
