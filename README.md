@@ -1,6 +1,6 @@
 <html>
     <header>
-        <img align="right" src="https://a.safe.moe/vIEnD.png" height="300" >
+        <img align="right" src="https://a.safe.moe/hu4ry.png" height="300" >
         <h1>Komugari</h1>
         <p><b>A simple, multifunctional Discord bot with a focus on anime and NSFW!</b></p>
         who am I kidding no one asks me any questions
