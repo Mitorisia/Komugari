@@ -65,7 +65,7 @@ module.exports = class KickCommand extends Command {
 			return msg.say('Could not log the kick to the mod logs.');
 		} else if (modlogs.permissionsFor(this.client.user).has('EMBED_LINKS')) {
 			const embed = new MessageEmbed()
-				.setAuthor(msg.author.tag, msg.author.displayAvatarURL())
+				.setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
 				.setColor(0xFFA500)
 				.setTimestamp()
 				.setDescription(stripIndents`

@@ -1,0 +1,21 @@
+{
+    "kick-noMention": "Please mention at least one user to kick.",
+    "kick-insufficientPerm": "Unable to kick **{{user}}** due to insufficient permission.",
+    "kick-error": "Unable to kick **{{user}}**\n",
+    "mod-authorSkip": "Skipping over author mention.",
+    "mod-selfSkip": "Skipping over self mention.",
+    "kick-finish": "Kicked {{amt}} users.",
+    "ban-noMention": "Please mention at least one user to ban.",
+    "ban-insufficientPerm": "Unable to ban **{{user}}** due to insufficient permission.",
+    "ban-error": "Unable to ban **{{user}}**\n",
+    "ban-finish": "Banned {{amt}} users.",
+    "purge-finish": "Purged {{amt}} messages.",
+    "purge-limit": "Woah there, way too spicy. I only accept numbers between `1` and `100`",
+    "purge-userNotFound": "That user could not be found.",
+    "purge-finishUser": "Purged {{amt}} messages from **{{user}}**.",
+    "purge-finishBots": "Purged {{amt}} bot messages.",
+    "purge-finishEmbeds": "Purged {{amt}} embeds.",
+    "purge-finishAttachments": "Purged {{amt}} attachments.",
+    "purge-finishImages": "Purged {{amt}} images.",
+    "purge-badRegex": "Invalid or unsafe regex."
+}

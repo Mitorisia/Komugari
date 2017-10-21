@@ -1,84 +1,208 @@
-/* for fuck's sake this shit isn't done of course the token's still in here have some sense of morality
-*  Yes I know this is very ugly and underdeveloped coding
-*  can't say much more than sHUT tHE HECK UP this is my first time coding 
-*  hecking hell coding is the hardest thing 
-*  i did reference off of other open-sourced discord.js bots
-*  code my Mako#8739 with the help of many other open-sourced Discord.js bots.
-*  if you'd like me to credit you for any code that I've used of yours or has referenced off of, just submit a pull request or ask me personally!!
-*/
+/* Code by Mako#8739 with the help of many other open sourced discord.js bots!!
+*  A GREAT BIG thank you to the discord.js community for answering all my dumb questions!!!
+*  if you see any similarities in my code that was clearly references off of yours, please do tell, I'll give as much credit as I can for your help!!
+*  ^^ i can't really give credits as of now (near completion), as I don't remember the specific repositories that I referenced off of QwQ
+*/ 
 //botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782
 
-const moment = require('moment')
-const tz = require('moment-timezone')
-const Discord = require("discord.js");
-const client = new Discord.Client({disableEveryone: true});
-const auth = require("./auth.json");
-const prefix = '~'
+const moment = require('moment');
+const tz = require('moment-timezone');
 
-client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');
+const { CommandoClient } = require('discord.js-commando');
+const client = new CommandoClient({
+    commandPrefix: '~',
+	owner: '180050347589369856',
+	invite: 'https://discord.gg/dHqWWSS',
+	disableEveryone: true,
+	unknownCommandResponse: false
+});
+const Discord = require('discord.js');
+
+const auth = require("./auth.json");
+const PREFIX = '~';
+
+
+client.registry
+	.registerDefaultTypes()
+	.registerGroups([
+		['action', 'Action'], 
+		['anime', 'Anime'],
+		['voice', 'Voice'],
+		['fun', 'Fun'],
+		['core', 'Core'],
+		['info', 'Info'],
+		['memes', 'Memes'],
+		['moderation', 'Moderation'],
+		['nsfw', 'NSFW'],
+		['utility', 'Utility'],
+		['owner','Owner']
+	])
+	.registerCommandsIn(__dirname + "/commands");
+
+
+client.on('disconnect', () => console.log('Disconnected from the server...just thought I\'d let you know!'));
+	
+client.on('reconnecting', () => console.log('I am reconnecting now!'));
+
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
-	client.consts = require('./consts.js');
-	client.user.setPresence({ game: { name: 'with you | ~help', type: 0 } });
+	//client.user.setActivity('with you | ~help')
+
+	client.user.setActivity('I am still incomplete! Take caution, uptime is never guaranteed!')
 
 	console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
-	var channel = client.channels.get('198399488614727680');
-	channel.send(`Ding`);
+	var channel = client.channels.get('367828468366573570');
+	const embed = new Discord.MessageEmbed()
+		.setAuthor('Komugari is live and ready!', client.user.displayAvatarURL({ format: 'png' }))
+		.setColor('#727293')
+		.setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!`)
+		.setTimestamp();
+	channel.send({embed});
 });
+
 
 client.on('guildCreate', guild => {
-	var channel = client.channels.get('198399488614727680')
-		channel.send(`Komugari was added to ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`)
+	var channel = client.channels.get('367828773426429953')
+
+	var online = guild.members.filter(m => m.user.presence.status === "online").size
+	var bots = guild.members.filter(m => m.user.bot).size	
+	var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
+
+	var textChannels = guild.channels.filter(c => c.type === 'text');
+	var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+
+	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
+	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
+
+	function fromNow(date) {
+		if (!date) {
+			return false;
+		  }
+		
+		  const ms = new Date().getTime() - date.getTime();
+		
+		  if (ms >= 86400000) {
+			const days = Math.floor(ms / 86400000);
+			return `${days} day${days !== 1 ? 's' : ''} ago`;
+		  }
+		
+		  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
+	} 
+
+	const embed = new Discord.MessageEmbed()
+		.setAuthor(`Added to ${guild.name}!`, guild.iconURL())
+		.setDescription(`Server infomation for **${guild.name}**`)
+		.setColor('#78AEE8')
+		.setThumbnail(guild.iconURL())
+		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
+		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)            
+		.setTimestamp()
+		.setFooter(`(${client.guilds.size})`);
+		return channel.send({embed});
 });
+
 client.on('guildDelete', guild => {
-	var channel = client.channels.get('198399488614727680')
-		channel.send(`Komugari was removed from ${guild.name}, it has a total of ${guild.members.size} members, and ${guild.channels.size} channels. It is owned by ${guild.owner.user}. (ID: ${guild.id})`)
+	var channel = client.channels.get('367828773426429953');
+
+	var online = guild.members.filter(m => m.user.presence.status === "online").size
+	var bots = guild.members.filter(m => m.user.bot).size	
+	var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
+
+	var textChannels = guild.channels.filter(c => c.type === 'text');
+	var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+
+	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
+	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
+
+	function fromNow(date) {
+		if (!date) {
+			return false;
+		  }
+		
+		  const ms = new Date().getTime() - date.getTime();
+		
+		  if (ms >= 86400000) {
+			const days = Math.floor(ms / 86400000);
+			return `${days} day${days !== 1 ? 's' : ''} ago`;
+		  }
+		
+		  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
+	} 
+
+	const embed = new Discord.MessageEmbed()
+		.setAuthor('Removed from a Server!', guild.iconURL())
+		.setColor('#898276')
+		.setThumbnail(guild.iconURL())
+		.setDescription(`Server infomation for **${guild.name}**`)
+		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
+		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)   
+		.setTimestamp()
+		.setFooter(`(${client.guilds.size})`);
+	return channel.send({embed});
 });
+
+
+//removes bot's message if reacted with card thing
+client.on("messageReactionAdd", (messageReaction, user) => {
+	if(messageReaction.message.author.id !== '365907645795794946') return undefined;
+	if(user.bot) return undefined;
+	if(messageReaction.emoji == '🎴') {
+		messageReaction.message.delete();
+      }
+})
+
 
 //basic message replies
-client.on("message", message => {
-	if(message.author.bot)return; 
+client.on("message", async message => {
+	if(message.author.bot) return undefined;
 	
-	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) {
-		return message.react('')
+	if(message.channel.type == "dm") {
+		var channel = client.channels.get('370719709110468609');
+
+		const embed = new Discord.MessageEmbed()
+			.setAuthor(message.author.tag, message.author.displayAvatarURL())
+			.setDescription(message.content)
+			.setColor('#D48AD8')
+			.setTimestamp();
+		channel.send({embed});
+		return message.channel.send('Your message has been sent to the support server! https://discord.gg/dHqWWSS');
 	}
+
+	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) return undefined;
+
 		try {
-			if(message.content.includes('press f')) {
+			if(message.content.toUpperCase().includes('PRESS F')) {
 				message.react('🇫');
+				return null;
 			}
 
-			if(message.content.includes('nya')) {
+			if(message.content.toUpperCase().includes('NYA')) {
 				message.react('🐱');
+				return null;
 			}
 
-			if(message.content == '<@365907645795794946> help' || message.content == '<@!365907645795794946> help') {
-				const embed = new Discord.RichEmbed()
-					.setAuthor(`Komugari`, client.user.displayAvatarURL)
-    				.setColor('#727293')
-       				.setThumbnail(client.user.displayAvatarURL)
-				    .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji.`)
-					.setDescription('Hi! I\'m Komugari and I am a bot based around anime, memes, and NSFW!')
-					.addField(`__Invite Me!:__`, `[Invite Link](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)`, true)
-					.addField(`__Support:__`, `\`~support [message]\``, true)					
-        			.addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`)
-     			return message.channel.send({embed}).then(m=>m.react("🎴"))
+			if(message.content.toUpperCase().includes('BAKA')) {
+				message.react('💢');
+				return null;
 			}
 
 			//time formatting for private use
 
-			var serverIDs = ['198399488614727680', '202075400225030144']
+			var serverIDs = ['367828773426429953', '202075400225030144']
 
-			if(message.content.startsWith('<@365907645795794946> time') || message.content.startsWith('<@!365907645795794946> time')) {
-				if (serverIDs.indexOf(message.guild.id) > -1) {
+			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen')) {
+				if (serverIDs.indexOf(message.guild.id) > -1) { 
 
 					var timeZone = moment(moment().format());
 					var spetTime = timeZone.tz('America/Toronto').format('MMM Do, HH:mm');
 					var keyreenTime = timeZone.tz('Europe/Kiev').format('MMM Do, HH:mm');
 					var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm'); 
 
-					var embed = new Discord.RichEmbed()
+					var embed = new Discord.MessageEmbed()
 						.setColor('#8FB3C3')
 						.addField('keyreen', keyreenTime)
 						.addField('kodicks', kodicksTime)
@@ -92,64 +216,10 @@ client.on("message", message => {
 					
 		} catch(err) {
 			console.log(err)
+			return message.channel.send("<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!")
 		}
 
-		  const args = message.content.split(" "); 
-		
-		  if (!message.content.startsWith(prefix)) return;
-		
-		  //COMMAND Handler wow this is really simple
-		  const org = args.shift().slice(prefix.length);
-		  const command = org.toLowerCase()
-
-		  try {
-			let commandFile = require(`./commands/memes/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch (err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/nsfw/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch (err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/search/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			  let commandFile = require(`./commands/anime/${command}.js`)
-			  commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/action/${command}.js`)
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/utility/${command}.js`);
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			  let commandFile = require(`./commands/fun/${command}.js`)
-			  commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  } try {
-			let commandFile = require(`./commands/info/${command}.js`)
-			commandFile.run(client, message, Discord, args);
-		  } catch(err) {
-			  //intentionally blank because I'm too lazy to use discord.js-commando also too dumb to use anything else
-		  }
 });
 
-//removes bot's message if reacted with card thing
-client.on("messageReactionAdd", (messageReaction, user) => {
-	if(messageReaction.message.author.id !== '365907645795794946') return;
-	if(user.bot) return;
-	if(messageReaction.emoji == '🎴') {
-        messageReaction.message.delete();
-      }
-})
+
+client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');

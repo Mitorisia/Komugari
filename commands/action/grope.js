@@ -1,22 +1,43 @@
-exports.run = async (client, message, Discord, args) => {
-    if(args.length < 1) {
-        const embed = new Discord.RichEmbed()
-            .setColor('#F2B8A4')
-            .setImage(client.consts.disgustP[Math.round(Math.random() * (client.consts.disgustP.length - 1))])
-        return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed})
+const { Command } = require('discord.js-commando');
+const Discord = require('discord.js');
+const actions = require('../../assets/json/actions.json');
 
-    } else if(message.mentions.users.first() == message.author) {
-        const embed = new Discord.RichEmbed()
-            .setColor('#F2B8A4')
-            .setImage(client.consts.disgustP[Math.round(Math.random() * (client.consts.disgustP.length - 1))])
-        return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed})
-        
-    } else {
-        const recipient = message.content.split(/\s+/g).slice(1).join(" ");
-        const embed = new Discord.RichEmbed()
-            .setColor('#F2B8A4')
-            .setImage(client.consts.gropeP[Math.round(Math.random() * (client.consts.gropeP.length - 1))])
-        return message.channel.send(`${message.author} has started... groping ${recipient}?`, {embed: embed})
-        }
+module.exports = class GropeCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'grope',
+            group: 'action',
+            memberName: 'grope',
+            guildOnly: true,
+            description: 'Gropes..? the user you mentioned...?',
+            examples: ['~grope <user>'],
+            throttling: {
+                usages: 1,
+                duration: 3
+            }
+        });
+    }
+
+    run (message) {
+        var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        if(!recipient) {
+            var embed = new Discord.MessageEmbed()
+                .setColor('#FBCFCF')
+                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
+            return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed});
+    
+        } else if(message.mentions.users.first() == message.author) {
+            var embed = new Discord.MessageEmbed()
+                .setColor('#FBCFCF')
+                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
+            return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed});
+            
+        } else {
+            var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+            var embed = new Discord.MessageEmbed()
+                .setColor('#FBCFCF')
+                .setImage(actions.gropeP[Math.round(Math.random() * (actions.gropeP.length - 1))]);
+            return message.channel.send(`${message.author} has started... groping ${recipient}?`, {embed: embed});
+            }
+	}
 }
-
