@@ -17,8 +17,10 @@
 
 ## Additonal Info! 
 If you want to help develop the bot or add anything, please feel free to! 
-
 Simply submit a pull request! Or even contact me on Discord: **Mako#8739**
 
 ### If it's stupid, but it works, then it's not stupid.
+There are some API keys in here!! Please have some sense of morality!!
+
+[Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
 There are some API keys in here!! Please have some sense of morality!!
