@@ -4,17 +4,17 @@ const booru = require('booru');
 const errors = require('../../assets/json/errors');
 
 
-module.exports = class DanbooruCommand extends Command {
+module.exports = class XBooruCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'danbooru',
-            aliases: ['db'],
+            name: 'xbooru',
+            aliases: ['xb'],
             group: 'nsfw',
-            memberName: 'danbooru',
+            memberName: 'xbooru',
             guildOnly: true,
-            description: 'Searches for images on Danbooru!',
+            description: 'Searches for images on xbooru!',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~danbooru <query>'],
+            examples: ['~xbooru <search>'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -23,7 +23,7 @@ module.exports = class DanbooruCommand extends Command {
     }
 
     run (message) {
-        var errMessage = errors[Math.round(Math.random() * (errors.length - 1))]
+        var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
         if(!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
@@ -32,12 +32,13 @@ module.exports = class DanbooruCommand extends Command {
         if(message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');        
         
         var query = message.content.split(/\s+/g).slice(1).join(" ");
-            booru.search('danbooru', [query], {limit: 1, random: true})
+        
+            booru.search('xbooru', [query], {limit: 1, random: true})
              .then(booru.commonfy)
              .then(images => {
                  for(let image of images) {
                      const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Danbooru ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`xbooru ${query}`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
                         .setColor('#E89F3E');
                      return message.channel.send({embed});

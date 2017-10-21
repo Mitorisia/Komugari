@@ -147,11 +147,13 @@ client.on('guildDelete', guild => {
 
 
 //removes bot's message if reacted with card thing
-client.on("messageReactionAdd", (messageReaction, user) => {
-	if(messageReaction.message.author.id !== '365907645795794946') return undefined;
+client.on("messageReactionAdd", async (messageReaction, user) => {
+	if(messageReaction.message.author.id !== client.user.id) return undefined;
 	if(user.bot) return undefined;
 	if(messageReaction.emoji == '🎴') {
-		messageReaction.message.delete();
+		await messageReaction.message.react('🆗');
+		await messageReaction.message.react('🇰');
+		return messageReaction.message.delete();
       }
 })
 

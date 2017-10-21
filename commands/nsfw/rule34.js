@@ -39,7 +39,7 @@ module.exports = class Rule34Command extends Command {
                      const embed = new Discord.MessageEmbed()
                         .setAuthor(`Rule34 ${query}`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
-                        .setColor('#C597B8');
+                        .setColor('#E89F3E');
                      return message.channel.send({embed});
                  }
     
