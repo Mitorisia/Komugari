@@ -28,7 +28,6 @@ module.exports = class InRoleCommand extends Command {
 
     run (message, args) {
         let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
-        console.log(message.guild.members.filter(m => m.roles.length > 1).map(m => m.user.tag))
 
         if(!somethingThere) {
             var guildMembers = message.guild.members.filter(m => roles == null).sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
