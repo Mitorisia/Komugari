@@ -1,0 +1,21 @@
+{
+    "kick-noMention": "Mentionnes au moins un utilisateur à expulser.",
+    "kick-insufficientPerm": "Impossible d'expulser **{{user}}**, Je n'ai pas la permission.",
+    "kick-error": "Impossible d'expulser l'utilisateur **{{user}}**",
+    "mod-authorSkip": "Commande rejetée puisqu'elle mentionne celui qui l\"a postée.",
+    "mod-selfSkip": "Commande rejetée puisqu'elle me mentionne.",
+    "kick-finish": "{{amt}} utilisateurs ont été expulsés.",
+    "ban-noMention": "Mnetionnes au moins un utilisateur à bannir.",
+    "ban-insufficientPerm": "Les permission sont insuffisantes pour bannir **{{user}}**.",
+    "ban-error": "Impossible bannir **{{user}}**.",
+    "ban-finish": "{{amt}} utilisateurs ont été bannis.",
+    "purge-finish": "J'ai nettoyé {{amt}} messages.",
+    "purge-limit": "Yo dude, calme la patate. Réessaie avec un nombre entre 1 et 100.",
+    "purge-userNotFound": "Je n'ai pas trouvé l'utilisateur.",
+    "purge-finishUser": "Nettoyé {{amt}} messages de **{{user}}**.",
+    "purge-finishBots": "Nettoyé {{amt}} messages provenant de bots.",
+    "purge-finishEmbeds": "Nettoyé {{amt}} messages contenant des embeds.",
+    "purge-finishAttachments": "Nettoyé {{amt}} messages contenant des fichiers.",
+    "purge-finishImages": "Nettoyé {{amt}} messages avec des images.",
+    "purge-badRegex": "Expression régulière invalide ou dangereuse."
+}

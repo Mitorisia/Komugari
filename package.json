@@ -1,11 +1,25 @@
 {
   "name": "komugari",
   "version": "1.0.0",
-  "description": "Bongs every full hour, written in discord.js",
+  "description": "A simple, multi-functional Discord bot with a focus around anime and NSFW!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DysphoriAlluka/Komugari.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "hentai",
+    "discord.js-commando",
+    "discord.js",
+    "booru",
+    "nsfw",
+    "porn"
+  ],
   "engines": {
     "node": ">= 8.1.2"
   },
@@ -14,28 +28,37 @@
   "dependencies": {
     "animequote": "^1.1.1",
     "booru": "^0.3.3",
+    "bufferutil": "^3.0.2",
     "cleverbot-node": "^0.3.11",
-    "discord.js": "^11.1.0",
+    "common-tags": "^1.4.0",
+    "discord.js": "github:hydrabolt/discord.js",
+    "discord.js-commando": "github:DysphoriAlluka/discord.js-commando#master",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "escape-string-regexp": "^1.0.5",
     "ffmpeg-binaries": "^3.2.2-3",
     "gifencoder": "^1.1.0",
     "google-images": "^2.1.0",
     "google-translate-api": "^2.3.0",
     "got": "^7.1.0",
-    "he": "^1.1.1",
     "jimp": "^0.2.28",
-    "malapi": "0.0.3",
+    "kitsu.js": "^2.0.0",
+    "libsodium-wrappers": "^0.7.0",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "node-opus": "^0.2.7",
     "node-osu": "^1.3.0",
     "pornsearch": "^2.2.5",
-    "random-hex": "^1.0.2",
     "random-puppy": "^1.1.0",
     "relevant-urban": "^2.0.0",
-    "request": "^2.83.0",
     "snekfetch": "^3.2.4",
+    "util": "^0.10.3",
+    "uws": "^8.14.1",
     "wikijs": "^3.1.4",
     "youtube-node": "^1.3.2"
   },
-  "false": {}
+  "false": {},
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-google": "^0.9.1"
+  }
 }

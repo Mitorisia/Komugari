@@ -1,19 +1,42 @@
-const snekfetch = require('snekfetch')
+const { Command } = require('discord.js-commando');
+const Discord = require('discord.js');
+const snekfetch = require('snekfetch');
+const errors = require('../../assets/json/errors');
 
-exports.run = async (client, message, Discord) => {
-    var errMessage = client.consts.nsfwError[Math.round(Math.random() * (client.consts.nsfwError.length - 1))]
-    if(!message.channel.nsfw) {
-        message.channel.send(errMessage).then(m => m.delete(5000));
-        return message.react('✖')
+
+module.exports = class BoobsCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'boobs',
+            aliases: ['boobies', 'bobs'],
+            group: 'nsfw',
+            memberName: 'boobs',
+            guildOnly: true,
+            description: 'Show a picture of boobs!',
+            details: 'This command can only be used in NSFW channels!',
+            examples: ['~boobs'],
+            throttling: {
+                usages: 1,
+                duration: 3
+            }
+        });
     }
-    
-    const id = [Math.floor(Math.random() * 10930)]
-    const res = await snekfetch.get(`http://api.oboobs.ru/boobs/${id}`)
-    const preview = res.body[0]["PREVIEW".toLowerCase()]
-    const image = `http://media.oboobs.ru/${preview}`
-        const embed = new Discord.RichEmbed()
-            .setFooter('http://oboobs.ru/')
-            .setImage(image)
-            .setColor('#CEA0A6')
-    return message.channel.send({embed})
+
+    async run (message) {
+        var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
+        if(!message.channel.nsfw) {
+            message.react('💢');
+            return message.channel.send(errMessage);
+        }
+        
+        const id = [Math.floor(Math.random() * 10930)];
+        const res = await snekfetch.get(`http://api.oboobs.ru/boobs/${id}`);
+        const preview = res.body[0]["PREVIEW".toLowerCase()];
+        const image = `http://media.oboobs.ru/${preview}`;
+            const embed = new Discord.MessageEmbed()
+                .setFooter('http://oboobs.ru/')
+                .setImage(image)
+                .setColor('#CEA0A6');
+        return message.channel.send({embed});
+	}
 }

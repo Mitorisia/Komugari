@@ -63,7 +63,7 @@ module.exports = class WarnCommand extends Command {
 			return msg.say('Could not log the warn to the mod logs.');
 		} else if (modlogs.permissionsFor(this.client.user).has('EMBED_LINKS')) {
 			const embed = new MessageEmbed()
-				.setAuthor(msg.author.tag, msg.author.displayAvatarURL())
+				.setAuthor(msg.author.tag, msg.author.displayAvatarURL({ format: 'png' }))
 				.setColor(0xFFFF00)
 				.setTimestamp()
 				.setDescription(stripIndents`
