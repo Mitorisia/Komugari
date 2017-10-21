@@ -31,8 +31,8 @@ module.exports = class EightBallCommand extends Command {
           return message.channel.send({embed});
         
         } catch(err) {
-          message.react('✖');
-          return message.channel.send(`✖ Sorry! My API isn't working!`)
+          message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
+          return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Sorry! My API isn't working!`)
         }
 	}
 }

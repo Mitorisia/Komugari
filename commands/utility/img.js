@@ -46,7 +46,7 @@ module.exports = class ImgCommand extends Command {
           }
     
         } catch (err) {
-          message.channel.send("✖ Something went wrong with the search.");
+          message.channel.send("<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong with the search.");
           return console.error(err);
         }
       } else {

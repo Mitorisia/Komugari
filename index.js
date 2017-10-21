@@ -175,19 +175,26 @@ client.on("message", async message => {
 	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) return undefined;
 
 		try {
-			if(message.content.includes('press f')) {
+			if(message.content.toUpperCase().includes('PRESS F')) {
 				message.react('🇫');
+				return null;
 			}
 
-			if(message.content.includes('nya')) {
+			if(message.content.toUpperCase().includes('NYA')) {
 				message.react('🐱');
+				return null;
+			}
+
+			if(message.content.toUpperCase().includes('BAKA')) {
+				message.react('💢');
+				return null;
 			}
 
 			//time formatting for private use
 
 			var serverIDs = ['367828773426429953', '202075400225030144']
 
-			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen') || message.content.startsWith('<@365907645795794946> kodick') || message.content.startsWith('<@!365907645795794946> kodick') || message.content.startsWith('<@365907645795794946> spet') || message.content.startsWith('<@!365907645795794946> spet')) {
+			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen')) {
 				if (serverIDs.indexOf(message.guild.id) > -1) { 
 
 					var timeZone = moment(moment().format());
@@ -209,7 +216,7 @@ client.on("message", async message => {
 					
 		} catch(err) {
 			console.log(err)
-			return message.channel.send("✖ Something went wrong while executing that function!")
+			return message.channel.send("<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!")
 		}
 
 });

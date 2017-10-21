@@ -49,8 +49,8 @@ module.exports = class WikiCommand extends Command {
           return message.channel.send(`First search result of \`${query}\` on Wikipedia:`, {embed});
           
         } catch(err) {
-          message.react('✖');
-          return message.channel.send('✖ Something went wrong while executing that command!');
+          message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
+          return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!');
         }
 	}
 }

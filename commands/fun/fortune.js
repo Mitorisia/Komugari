@@ -29,7 +29,7 @@ module.exports = class EightBallCommand extends Command {
           return message.channel.send({embed});
         
         } catch(err) {
-          message.react('✖');
+          message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
           return message.channel.send(err)
         }
 	}

@@ -39,7 +39,7 @@ module.exports = class PaizuriCommand extends Command {
                 })
     
             } catch(err) {
-                return message.channel.send('✖ Something went wrong while executing that function!');
+                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
         }
     }
 }

@@ -40,7 +40,7 @@ module.exports = class TranslateCommand extends Command {
         })
         
       } catch(err) {
-        return message.channel.send('✖ Something went wrong while executing that command!');
+        return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!');
       }
 	}
 }

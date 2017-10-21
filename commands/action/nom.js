@@ -47,7 +47,7 @@ module.exports = class NomCommand extends Command {
     
         } catch(err) {
             console.log(err)
-            message.react('✖')
+            message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>')
 
             return null;
         }
