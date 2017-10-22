@@ -19,7 +19,7 @@ module.exports = class FCommand extends Command {
     }
 
     run (message) {
-        const respect = message.content.split(/\s+/g).slice(1).join(" ");
+        var respect = message.content.split(/\s+/g).slice(1).join(" ");
         if(!respect) {
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.author.username} has paid their respects.`, message.author.displayAvatarURL({ format: 'png' }))
@@ -29,10 +29,11 @@ module.exports = class FCommand extends Command {
             return
             
             } else {
-                const respect = message.content.split(/\s+/g).slice(1).join(" ");
+                var respect = message.content.split(/\s+/g).slice(1).join(" ");
                 const embed = new Discord.MessageEmbed()
-                    .setAuthor(`${message.author.username} has paid their respects to ${respect}.`, message.author.displayAvatarURL({ format: 'png' }))
+                    .setAuthor(`\u2000`, message.author.displayAvatarURL({ format: 'png' }))
                     .setColor('#4E373B')
+                    .setDescription(`${message.author} has paid their respects to ${respect}`)
                     .setFooter(`Press F to pay your respects.`);
                 message.channel.send({embed}).then(m=>m.react("🇫"));
                 return

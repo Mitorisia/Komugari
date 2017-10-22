@@ -43,6 +43,7 @@
     "jimp": "^0.2.28",
     "kitsu.js": "^2.0.0",
     "libsodium-wrappers": "^0.7.0",
+    "mathjs": "^3.16.5",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "node-opus": "^0.2.7",

@@ -6,7 +6,7 @@ module.exports = class TranslateCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'translate',
-            aliases: ['tl'],
+            aliases: ['tl', 'translate'],
             group: 'utility',
             memberName: 'translate',
             guildOnly: true,
