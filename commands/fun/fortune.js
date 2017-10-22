@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const fortune = require('../../assets/json/fortune.json');
 
 
-module.exports = class EightBallCommand extends Command {
+module.exports = class FortuneCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'fortune',

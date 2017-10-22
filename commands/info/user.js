@@ -8,7 +8,7 @@ module.exports = class UserCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'user',
-            aliases: ['info', 'userinfo', 'member', 'whois'],
+            aliases: ['info', 'userinfo', 'member', 'whois', 'profile'],
             group: 'info',
             memberName: 'user',
             guildOnly: true,

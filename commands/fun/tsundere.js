@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const tsun = require('../../assets/json/tsundere.json');
 
 
-module.exports = class EightBallCommand extends Command {
+module.exports = class TsundereCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'tsundere',

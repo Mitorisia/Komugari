@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 
 
-module.exports = class EightBallCommand extends Command {
+module.exports = class DadJokeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'dadjoke',

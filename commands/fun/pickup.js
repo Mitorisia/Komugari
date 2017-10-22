@@ -1,18 +1,18 @@
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
-const line = require('../../assets/json/skyrim.json');
+const line = require('../../assets/json/pickuplines.json');
 
 
-module.exports = class SkyrimCommand extends Command {
+module.exports = class PickUpCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'skyrim',
-            aliases: ['guard', 'skyrimguard', 'guardline'],
+            name: 'pickup',
+            aliases: ['pickupline'],
             group: 'fun',
-            memberName: 'skyrim',
+            memberName: 'pickup',
             guildOnly: true,
-            description: 'Get a random guard quote from skyrim!',
-            examples: ['~skyrim'],
+            description: 'Get a random pick up line!',
+            examples: ['~pickup'],
             throttling: {
                 usages: 1,
                 duration: 3

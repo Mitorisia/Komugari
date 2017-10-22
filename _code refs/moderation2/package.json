@@ -1,6 +1,0 @@
-{
-    "main": "moderation.js",
-    "dependencies": {
-        "safe-regex" : "1.1.0"
-    }
-}
