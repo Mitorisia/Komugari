@@ -1,12 +1,11 @@
-//WILL TRASH IF NOT WORKING AFTER THIS, AND DIRECT ALL VOICE INTO A BROADCAST FOR LISTEN.MOE
-
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
 
 module.exports = class SpeakCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'speak',
+			name: 'speak',
+			aliases: ['play', 'soundboard', 'sound'],
             group: 'voice',
 			memberName: 'speak',
 			guildOnly: true,
@@ -29,10 +28,9 @@ module.exports = class SpeakCommand extends Command {
 					var file = Math.floor(Math.random() * 49 + 1);
 
 					const channel = message.member.voiceChannel;
-					message.channel.send({ files: [`./assets/sounds/anime/${file}.opus`, `./assets/sounds/anime/${file}.opus`]})
 
 					channel.join().then(connection => { 
-					  const dispatcher = await connection.playFile(`./assets/sounds/anime/${file}.opus`);
+					  const dispatcher = connection.playFile(`./assets/sounds/anime/${file}.opus`);
 
 					  dispatcher.on("end",  () => {
 						  return channel.leave()
