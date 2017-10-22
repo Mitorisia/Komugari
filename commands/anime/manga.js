@@ -9,6 +9,7 @@ module.exports = class MangaCommand extends Command {
             name: 'manga',
             group: 'anime',
             memberName: 'manga',
+            guildOnly: true,
             description: 'Searches for a manga with Kitsu.io!',
             examples: ['~manga [manga name]'],
             throttling: {

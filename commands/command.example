@@ -6,6 +6,7 @@ module.exports = class /*CommandName*/Command extends Command {
     constructor(client) {
         super(client, {
             name: '',
+            guildOnly: true,
             aliases: ['', ''],
             group: '',
             memberName: '',

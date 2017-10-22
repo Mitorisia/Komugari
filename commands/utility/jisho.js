@@ -9,6 +9,7 @@ module.exports = class JishoCommand extends Command {
             aliases: ['japanese', 'define', 'kanji'],
             group: 'utility',
             memberName: 'jisho',
+            guildOnly: true,
             description: 'Searches for Japanese words and kanji on Jisho!',
             examples: ['~jisho [word/kanji/japanese/romaji]'],
             throttling: {

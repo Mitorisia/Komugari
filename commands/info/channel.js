@@ -8,6 +8,7 @@ module.exports = class ChannelCommand extends Command {
             name: 'channel',
             aliases: ['channels', 'channelinfo'],
             group: 'info',
+            guildOnly: true,
             memberName: 'channel',
             description: 'Displays all channels of the server, or gives information on a channel!',
             examples: ['~channel <channel name>'],

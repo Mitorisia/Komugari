@@ -8,6 +8,7 @@ module.exports = class InRoleCommand extends Command {
             name: 'inrole',
             aliases: ['rolecount', 'membercount'],
             group: 'info',
+            guildOnly: true,
             memberName: 'inrole',
             description: 'Gets all the members from a given role!',
             examples: ['~inrole [role]'],
