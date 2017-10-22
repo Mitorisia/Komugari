@@ -19,7 +19,7 @@ module.exports = class LeaveCommand extends Command {
     }
 
     async run (message) {
-        if (!message.channel.permissionsFor(this.message.author.member).has('MANAGE_MESSAGES')) {
+        if (!message.channel.permissionsFor(this.message.member).has('MANAGE_MESSAGES')) {
             return message.channel.send('You can\'t use this command! It requires the `manage messages` permission!')
         }
 

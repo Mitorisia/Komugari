@@ -14,7 +14,7 @@ module.exports = class SpeakCommand extends Command {
     }
 
     async run (message) {
-		if (!message.channel.permissionsFor(this.client.user).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
+		if (!message.channel.permissionsFor(this.client.member).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
 			message.react('❓');
 			return message.channel.send('I don\'t have the permissions to do this!');
 		}
