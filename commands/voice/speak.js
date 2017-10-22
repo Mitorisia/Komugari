@@ -1,3 +1,5 @@
+//WILL TRASH IF NOT WORKING AFTER THIS, AND DIRECT ALL VOICE INTO A BROADCAST FOR LISTEN.MOE
+
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
 
