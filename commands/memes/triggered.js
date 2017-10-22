@@ -30,7 +30,7 @@ module.exports = class TriggeredCommand extends Command {
 		}
 		
 		
-		if (!message.channel.permissionsFor(this.client.user.id).has('ATTACH_FILES')) {
+		if (!message.channel.permissionsFor(this.client.user).has('ATTACH_FILES')) {
 			return message.channel.send('I can\'t attach messages!');
 		}
 	

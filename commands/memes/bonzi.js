@@ -8,7 +8,8 @@ module.exports = class BonziCommand extends Command {
         super(client, {
             name: 'bonzi',
             aliases: ['fact'],
-            group: 'memes',
+			group: 'memes',
+			guildOnly: true,
             memberName: 'bonzi',
             description: 'Makes Bonzi tell an interesting fact!',
             examples: ['~bonzi [message]'],
@@ -20,7 +21,7 @@ module.exports = class BonziCommand extends Command {
     }
 
     async run (message) {
-        if (!message.channel.permissionsFor(this.client.user.id).has('ATTACH_FILES')) {
+        if (!message.channel.permissionsFor(this.client.user).has('ATTACH_FILES')) {
 			return message.channel.send('I can\'t attach messages!');
 		}
 	

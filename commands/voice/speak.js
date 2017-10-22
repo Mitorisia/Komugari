@@ -14,10 +14,6 @@ module.exports = class SpeakCommand extends Command {
     }
 
     async run (message) {
-		if (!message.channel.permissionsFor(this.client.member).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
-			message.react('❓');
-			return message.channel.send('I don\'t have the permissions to do this!');
-		}
 	
 		if (!message.member.voiceChannel) {
 			message.react('💢');
@@ -31,9 +27,10 @@ module.exports = class SpeakCommand extends Command {
 					var file = Math.floor(Math.random() * 49 + 1);
 
 					const channel = message.member.voiceChannel;
+					message.channel.send({ files: [`./assets/sounds/anime/${file}.opus`, `./assets/sounds/anime/${file}.opus`]})
 
 					channel.join().then(connection => { 
-					  const dispatcher = connection.playFile(`assets/sounds/anime/${file}.opus`);
+					  const dispatcher = connection.playFile(`./assets/sounds/anime/${file}.opus`);
 
 					  dispatcher.on("end",  () => {
 						  return channel.leave()
