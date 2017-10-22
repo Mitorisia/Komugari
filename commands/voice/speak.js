@@ -30,7 +30,7 @@ module.exports = class SpeakCommand extends Command {
 					message.channel.send({ files: [`./assets/sounds/anime/${file}.opus`, `./assets/sounds/anime/${file}.opus`]})
 
 					channel.join().then(connection => { 
-					  const dispatcher = connection.playFile(`./assets/sounds/anime/${file}.opus`);
+					  const dispatcher = await connection.playFile(`./assets/sounds/anime/${file}.opus`);
 
 					  dispatcher.on("end",  () => {
 						  return channel.leave()
