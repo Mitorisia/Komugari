@@ -6,7 +6,7 @@ module.exports = class TranslateCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'translate',
-            aliases: ['tl', 'translate'],
+            aliases: ['tl', 'translate', 'trans'],
             group: 'utility',
             memberName: 'translate',
             guildOnly: true,
@@ -34,13 +34,13 @@ module.exports = class TranslateCommand extends Command {
               .setDescription(`**From:** __\`[auto]\`\n\__**To:** __\`${lang}\`__`)
               .setColor('#4c8bf5')
               .setFooter('Google Translate', 'https://a.safe.moe/2jXgX.png')
-              .addField('Input', input)
-              .addField('Output', res.text);
+              .addField('📥 Input', `\`\`\`${input}\`\`\``)
+              .addField('📤 Output', `\`\`\`${res.text}\`\`\``);
           return message.channel.send({embed});
         })
         
       } catch(err) {
-        return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!');
+        return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command! \`${err}\``);
       }
 	}
 }

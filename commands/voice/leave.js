@@ -7,6 +7,7 @@ module.exports = class LeaveCommand extends Command {
             name: 'leave',
             aliases: ['stop'],
             group: 'voice',
+            guildOnly: true,
             memberName: 'leave',
             description: 'Leaves the voice chat!',
             examples: ['~leave'],
@@ -18,8 +19,8 @@ module.exports = class LeaveCommand extends Command {
     }
 
     async run (message) {
-        if (!message.channel.permissionsFor(this.client.user.id).has('MANAGE_MESSAGES')) {
-            return message.channel.send('You can\'t use this command! It requires the "manage messages" permission!')
+        if (!message.channel.permissionsFor(this.message.author.member).has('MANAGE_MESSAGES')) {
+            return message.channel.send('You can\'t use this command! It requires the `manage messages` permission!')
         }
 
         if (!message.guild.voiceConnection) {

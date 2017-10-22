@@ -31,13 +31,12 @@ module.exports = class MathCommand extends Command {
             try {
                 var solution = math.eval(equation)
             } catch(err) {
-                console.log(err)
-                return message.channel.send(`I couldn\'t solve that equation! \`${err}\``)
+                return message.channel.send(`❎ | I couldn\'t solve that equation! \`${err}\``)
             } 
             const embed = new Discord.MessageEmbed()
-                .setColor('')
+                .setColor('#767CC1')
                 .setAuthor(equation, this.client.user.displayAvatarURL({format: 'png'}))
-                .setDescription(solution) 
+                .setDescription(solution);
             return message.channel.send({embed})
         
 	}

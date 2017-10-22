@@ -14,7 +14,7 @@ module.exports = class SpeakCommand extends Command {
     }
 
     async run (message) {
-		if (!message.channel.permissionsFor(this.client.user.id).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
+		if (!message.channel.permissionsFor(this.client.user).has(['CONNECT', 'SPEAK', 'ADD_REACTIONS'])) {
 			message.react('❓');
 			return message.channel.send('I don\'t have the permissions to do this!');
 		}
@@ -28,30 +28,15 @@ module.exports = class SpeakCommand extends Command {
 			
 				if (!this.client.voiceConnections.get(message.guild.id)) {
 
-					var file = Math.floor(Math.random() * 42 + 1);
+					var file = Math.floor(Math.random() * 49 + 1);
 
 					const channel = message.member.voiceChannel;
 
 					channel.join().then(connection => { 
-						const VCLog = this.client.channels.get('367797481544613889')	
-						var embed = new Discord.MessageEmbed()
-							.setAuthor('Joined Voice Channel', this.client.user.displayAvatarURL({ format: 'png' }))
-							.setColor('#ABBB9F')
-							.setDescription(`Joined **${channel.name}** in **${message.guild.name}**`)
-							.setFooter(`${this.client.voiceConnections.size} voice connections | Speak`)
-							.setTimestamp();			
-						VCLog.send({embed})
 					  const dispatcher = connection.playFile(`assets/sounds/anime/${file}.opus`);
 
 					  dispatcher.on("end",  () => {
-						  channel.leave()
-						  var embed = new Discord.MessageEmbed()
-							.setAuthor('Left Voice Channel', this.client.user.displayAvatarURL({ format: 'png' }))
-							.setColor('#706482')
-							.setDescription(`Left **${channel.name}** in **${message.guild.name}**`)
-						  	.setFooter(`${this.client.voiceConnections.size} voice connections | Speak`)
-						  	.setTimestamp();			
-					  	return VCLog.send({embed})
+						  return channel.leave()
 						});
 
 					}).catch(err => console.log(err));
