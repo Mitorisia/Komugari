@@ -23,4 +23,3 @@ Simply submit a pull request! Or even contact me on Discord: **Mako#8739**
 There are some API keys in here!! Please have some sense of morality!!
 
 [Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
-There are some API keys in here!! Please have some sense of morality!!
