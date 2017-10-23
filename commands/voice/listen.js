@@ -4,7 +4,7 @@
 *  leave if there isn't anyone in the vc
 */
 
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 
 module.exports = class ListenCommand extends Command {

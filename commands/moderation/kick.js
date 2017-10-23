@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 
 
@@ -46,7 +46,7 @@ module.exports = class KickCommand extends Command {
         }
         if (!member.kickable) return message.channel.send(`❎ | I can't kick **${member}**! Their role is higher than mine!`);
         
-        await message.channel.send(`Are you sure you want to kick **${member.user.tag}**? (y/n)`);
+        await message.channel.send(`Are you sure you want to kick **${member.user.tag}**? \`(y/n)\``);
         const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
 			max: 1,
 			time: 30000

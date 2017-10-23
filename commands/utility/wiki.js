@@ -1,5 +1,5 @@
 
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const wiki = require('wikijs').default;
 

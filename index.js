@@ -8,7 +8,7 @@
 const moment = require('moment');
 const tz = require('moment-timezone');
 
-const { CommandoClient } = require('discord.js-commando');
+const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
     commandPrefix: '~',
 	owner: '180050347589369856',

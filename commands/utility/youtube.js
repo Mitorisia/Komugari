@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 var youtube_node = require('youtube-node');
 youtube = new youtube_node();

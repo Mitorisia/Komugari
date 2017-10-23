@@ -13,12 +13,8 @@
   "keywords": [
     "discord",
     "bot",
-    "hentai",
     "discord.js-commando",
-    "discord.js",
-    "booru",
-    "nsfw",
-    "porn"
+    "discord.js"
   ],
   "engines": {
     "node": ">= 8.1.2"
@@ -32,7 +28,6 @@
     "cleverbot-node": "^0.3.11",
     "common-tags": "^1.4.0",
     "discord.js": "github:hydrabolt/discord.js",
-    "discord.js-commando": "github:DysphoriAlluka/discord.js-commando#master",
     "erlpack": "github:hammerandchisel/erlpack",
     "escape-string-regexp": "^1.0.5",
     "ffmpeg-binaries": "^3.2.2-3",
