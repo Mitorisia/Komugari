@@ -47,6 +47,8 @@ module.exports = class WaifuCommand extends Command {
           var ms = await message.channel.send(`💝 **${waifu.name}**? `, {embed: embed})
           await ms.react('👍')
           await ms.react('👎')
+
+          return null;
         
         } else {
             const waifuNumber = args.number
