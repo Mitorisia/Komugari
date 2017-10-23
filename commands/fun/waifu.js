@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const waifus = require('../../assets/json/waifus.json');
 const total = Object.keys(waifus).length

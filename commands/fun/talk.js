@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const cleverbot = require("cleverbot-node");
 
 module.exports = class TalkCommand extends Command {

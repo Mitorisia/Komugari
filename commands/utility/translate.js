@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const translate = require('google-translate-api');
 

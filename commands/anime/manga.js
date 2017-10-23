@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const Kitsu = require('kitsu.js');
 const kitsu = new Kitsu();

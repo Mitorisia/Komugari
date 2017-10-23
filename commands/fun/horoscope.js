@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 const signs = require('../../assets/json/horoscope');
