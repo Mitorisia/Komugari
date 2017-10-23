@@ -55,7 +55,7 @@ client.on("ready", () => {
 
 	var channel = client.channels.get('367828468366573570');
 	const embed = new Discord.MessageEmbed()
-		.setAuthor('Komugari is live and ready!', client.user.displayAvatarURL({ format: 'png' }))
+		.setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
 		.setColor('#727293')
 		.setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!`)
 		.setTimestamp();

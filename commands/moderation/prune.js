@@ -24,7 +24,7 @@ module.exports = class PruneCommand extends Command {
 					type: 'integer',
 					validate: count => {
 						if (count < 100 && count > 0) return true;
-						return 'I can\'t delete more than 99 messages!';
+						return 'I can\'t delete more than 100 messages at once!';
 					}
 				}
 			]
@@ -36,10 +36,11 @@ module.exports = class PruneCommand extends Command {
         const { count } = args;
         
 		try {
-			const messages = await message.channel.fetchMessages({ limit: count + 1 });
-			await message.channel.bulkDelete(messages, true);
-			return message.channel.send(`Successfully deleted ${messages.size} messages! `)
+			const messages = await message.channel.messages.fetch({ limit: count });
+			await message.channel.bulkDelete(messages.size, true);
+			return message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${messages.size} ${messages.size == 1 ? 'message!' : 'messages!'}`)
 		} catch (err) {
+			console.log(err)
 			return message.channel.send('These messages are too old to be deleted! I can only delete messages within two weeks!');
 		}
 	}
