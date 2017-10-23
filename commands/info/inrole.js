@@ -31,12 +31,12 @@ module.exports = class InRoleCommand extends Command {
         let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
 
         if(!somethingThere) {
-            var guildMembers = message.guild.members.filter(m => roles == null).sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
+            var guildMembers = message.guild.members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
                 return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
             }).join(', ')
 
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`Members with no Role`, message.guild.iconURL())
+                .setAuthor(`All Members in ${message.guild.name}`, message.guild.iconURL())
                 .setDescription(guildMembers)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
                 .setColor('#9473DB');
