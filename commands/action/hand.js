@@ -24,14 +24,14 @@ module.exports = class HandCommand extends Command {
         if(!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))])
-            return message.channel.send(`${message.author} holds hands with... themselves..?`, {embed: embed})
+                .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
+            return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, {embed: embed})
     
         } else if(message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))])
-            return message.channel.send(`${message.author} holds hands with... themselves..?`, {embed: embed})
+                .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
+            return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, {embed: embed})
             
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");

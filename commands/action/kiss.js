@@ -24,14 +24,14 @@ module.exports = class KissCommand extends Command {
         if(!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
-            return message.channel.send(`${message.author} kisses... themselves..?`, {embed: embed});
+                .setImage(actions.kissP[Math.round(Math.random() * (actions.kissP.length - 1))]);
+            return message.channel.send(`You can't kiss yourself, but I'll kiss you, ${message.author}!`, {embed: embed});
     
         } else if(message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
-            return message.channel.send(`${message.author} kisses... themselves..?`, {embed: embed});
+                .setImage(actions.kissP[Math.round(Math.random() * (actions.kissP.length - 1))]);
+            return message.channel.send(`You can't kiss yourself, but I'll kiss you, ${message.author}!`, {embed: embed});
             
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");

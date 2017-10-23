@@ -30,13 +30,13 @@ module.exports = class SlapCommand extends Command {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(selfSlap());
-            return message.channel.send(`${message.author} slaps... themselves..?`, {embed: embed});
+            return message.channel.send(`${message.author}, please don't slap yourself!`, {embed: embed});
     
         } else if(message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(selfSlap());
-            return message.channel.send(`${message.author} slaps... themselves..?`, {embed: embed});
+            return message.channel.send(`${message.author}, please don't slap yourself!`, {embed: embed});
             
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");
