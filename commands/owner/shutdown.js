@@ -4,13 +4,13 @@ const Discord = require('discord.js');
 module.exports = class RestartCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'restart',
+            name: 'shutdown',
             guildOnly: true,
-            aliases: ['reboot'],
+            aliases: ['die'],
             group: 'owner',
-            memberName: 'restart',
-            description: 'Restarts Komugari!',
-            examples: ['~restart'],
+            memberName: 'die',
+            description: 'Shuts down Komugari....',
+            examples: ['~shutdown'],
         });
     }
 
@@ -20,6 +20,6 @@ module.exports = class RestartCommand extends Command {
     
     async run (message) {
         await message.channel.send('👋\u2000Restarting, see you!')
-        return process.exit(42)
+        return this.client.destroy()
 	}
 }
