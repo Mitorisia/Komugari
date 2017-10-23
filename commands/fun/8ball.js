@@ -1,6 +1,7 @@
 const { Command } = require('discord.js-commando');
 const Discord = require('discord.js');
-const snekfetch = require('snekfetch');
+const answer = require('../../assets/json/eightball.json')
+
 
 module.exports = class EightBallCommand extends Command {
     constructor(client) {
@@ -14,29 +15,22 @@ module.exports = class EightBallCommand extends Command {
             examples: ['~8ball [question]'],
             throttling: {
                 usages: 1,
-                duration: 5
+                duration: 3
             }
         });
     }
 
-    async run (message) {
-      let question = message.content.split(/\s+/g).slice(1).join(" ");
+    run (message) {
+        let question = message.content.split(/\s+/g).slice(1).join(" ");
       
         if (!question) {
           message.channel.send('You must provide a question!');
         }
-
-        const res = await snekfetch.get(`https://8ball.delegator.com/magic/JSON/${question}`);
-      
-        if (!res || !res.body || !res.body.magic) {
-          message.channel.send('Could not retrieve answer from 8-ball!');
-        }
       
         try {
-          const magic = res.body.magic;
             const embed = new Discord.MessageEmbed()
                 .setAuthor(question, 'https://a.safe.moe/aKDHV.png')
-                .setDescription(magic.answer + '.')
+                .setDescription(answer[Math.round(Math.random() * (answer.length - 1))] + '.')
                 .setColor('#646770');
           return message.channel.send({embed});
         
