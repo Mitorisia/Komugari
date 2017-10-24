@@ -62,7 +62,7 @@ module.exports = class EvalCommand extends Command {
 			this.lastResult = eval(args.script);
 			hrDiff = process.hrtime(hrStart);
 		} catch(err) {
-			return msg.channel.send(`There was an error while evaluating! \`${err}\``);
+			return msg.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| There was an error while evaluating!** \`${err}\``);
 		}
 
 		// Prepare for callback time and respond

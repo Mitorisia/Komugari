@@ -241,7 +241,7 @@ class CommandMessage {
 
 				const invite = this.client.options.invite;
 				return this.channel.send(stripIndents`
-					<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> An error occurred while running the command! \`${err.name}: ${err.message}\`
+					<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err.name}: ${err.message}\`
 					Please contact **${ownerList || 'the bot owner'}**${invite ? ` in ${invite}` : '!'}
 				`);
 			}

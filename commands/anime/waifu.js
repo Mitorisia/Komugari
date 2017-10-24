@@ -7,7 +7,7 @@ module.exports = class WaifuCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'waifu',
-            group: 'fun',
+            group: 'anime',
             memberName: 'waifu',
             guildOnly: true,
             description: `Finds you a waifu from a database of ${total} waifus!`,

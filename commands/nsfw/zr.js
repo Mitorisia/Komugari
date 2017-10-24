@@ -8,7 +8,7 @@ module.exports = class ZrCommand extends Command {
         super(client, {
             name: 'zr',
             aliases: ['zettairyouiki'],
-            group: 'anime',
+            group: 'nsfw',
             memberName: 'zr',
             guildOnly: true,
             description: '"Absolute Territory" (絶対領域, zettai ryouiki) describes the amount of bare thigh skin between the skirt and stockings or socks for female characters.',

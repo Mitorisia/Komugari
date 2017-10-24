@@ -48,7 +48,7 @@ module.exports = class LickCommand extends Command {
     
         } catch(err) {
             console.log(err);
-            message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
+            message.react('<:CANCELLEDLMFAO:372188144059285505>');
 
             return null;
         }

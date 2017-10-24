@@ -26,7 +26,7 @@ module.exports = class HelpCommand extends Command {
 		if (command) {
 			if (commands.length === 1) {
 				const embed = new Discord.MessageEmbed()
-					.setAuthor(commands[0].name, this.client.user.displayAvatarURL({ format: 'png' }))
+					.setAuthor(commands[0].name, 'https://a.safe.moe/55XCQ.png')
 					.setColor('#727293')
 					.setDescription(`${commands[0].description}\n${commands[0].details || ''}`)
 					.addField('__Usage:__', commands[0].examples[0], true)
@@ -38,7 +38,7 @@ module.exports = class HelpCommand extends Command {
 				return message.channel.send(`Multiple commands found! ${commands.map(c => c.name).join(', ')}`);
 			} else {
 				const embed = new Discord.MessageEmbed()
-                	.setAuthor(`Komugari`, this.client.user.displayAvatarURL({ format: 'png' }))
+                	.setAuthor(`Komugari`, 'https://a.safe.moe/55XCQ.png')
                 	.setColor('#727293')
                 	.setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
                 	.setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji!`)
@@ -50,7 +50,7 @@ module.exports = class HelpCommand extends Command {
 			}
 		} else {
 			const embed = new Discord.MessageEmbed()
-				.setAuthor(`Komugari`, this.client.user.displayAvatarURL({ format: 'png' }))
+				.setAuthor(`Komugari`, 'https://a.safe.moe/55XCQ.png')
 				.setColor('#727293')
 				.setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
 				.setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji!`)

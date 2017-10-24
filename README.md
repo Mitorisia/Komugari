@@ -7,13 +7,13 @@
         chances are you stumbled upon here by accident
 
 ## Index
-- [Intro](https://github.com/DysphoriAlluka/Komugari/wiki)
-- [Requirements](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#requirements)
-- [Installing](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#installing)
-- [Setup](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#setup)
-- [Running](https://github.com/DysphoriAlluka/Komugari/wiki/Running-the-Bot-Yourself!#running)
-- [To-do](https://github.com/DysphoriAlluka/Komugari/projects/1)
-- [Credits](https://github.com/DysphoriAlluka/Komugari/wiki/Credits)
+- [Intro](https://github.com/Mitorisia/Komugari/wiki)
+- [Requirements](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#requirements)
+- [Installing](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#installing)
+- [Setup](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#setup)
+- [Running](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#running)
+- [To-do](https://github.com/Mitorisia/Komugari/projects/1)
+- [Credits](https://github.com/Mitorisia/Komugari/wiki/Credits)
 
 ## Additonal Info! 
 If you want to help develop the bot or add anything, please feel free to! 

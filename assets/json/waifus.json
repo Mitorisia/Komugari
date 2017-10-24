@@ -408,9 +408,9 @@
     },
 
     "69": {
-        "name": "Flesh Backbone",
-        "origin": "Shikabane Hime",
-        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/7843/dae7db741479b2db27140e4d821155603d0f3bb12a48ccaddd0e80028cc4999b.jpeg"
+        "name": "Kanan Matsuura",
+        "origin": "Love Live! School Idol Project",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/397/f48cddeb158aef5e17c751398831afa6090e856b4aa6e1e7d61ae280d2c8d3ff_thumb.jpeg"
     },
 
     "70": {
@@ -1608,9 +1608,9 @@
     },
 
     "269": {
-        "name": "Anjou Naruko",
-        "origin": "Anohana",
-        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/1757/b32c7e54034df2611303c39b5fb895e53469ab26b6229ba9a5af51048bd9abb8.jpeg"
+        "name": "Satsuki Kiryuuin",
+        "origin": "Kill la Kill",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/2/096335328e07b69f3d3b78da03820f0c1da782757273998cc5df496faf5e22a3jpeg"
     },
 
     "270": {
@@ -1983,5 +1983,35 @@
         "name": "Takane Shijou",
         "origin": "The Idolm@ster",
         "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/110/accde3689e47ef324dc458912adc40052605d0a9b9213eb1a78f266e509feb5b_thumb.jpeg"
+    },
+
+    "332": {
+        "name": "Nakiri Erina",
+        "origin": "Shokugeki no Soma",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/604/1ae8995bf416423533704b7f792d70f0178d9ef1cad0dbd3d41ef1c0ffe9a0d9_thumb.png"
+    },
+
+    "333": {
+        "name": "Hanamaru Kunikida",
+        "origin": "Love Live! School Idol Project",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/349/c6722ba74fefe1b293fa452e1358406590a2639a6a0f9fe66f0d354e6b5dfc2d_thumb.jpeg"
+    },
+
+    "334": {
+        "name": "Umi Sonoda",
+        "origin": "Love Live! School Idol Project",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/391/8d2bb9cb25c51b03abb97cdf72821e978bdf84616625987cbcd18ebb887373e5_thumb.jpeg"
+    },
+
+    "335": {
+        "name": "Eli Ayase",
+        "origin": "Love Live! School Idol Project",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/390/2165c0772ed1a5233c487f7259aa9f92a7e8c517074422e73157d55eedb1cbed_thumb.jpeg"
+    },
+
+    "336": {
+        "name": "Rachnera Arachnera",
+        "origin": "Monster Musume",
+        "image": "https://mywaifulist.s3-us-west-1.amazonaws.com/waifus/1/f312d2256d48da0fcebe6bdb427d29d5b40e19faa9fb12a3632ad6330fec4530.jpeg"
     }
 }
