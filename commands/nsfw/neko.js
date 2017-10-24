@@ -7,11 +7,12 @@ module.exports = class NekoCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'neko',
+            aliases: ['catgirl', 'nekomimi'],
             group: 'nsfw',
             memberName: 'neko',
             guildOnly: true,
             description: 'Nekos!',
-            details: 'This command is NSFW in NSFW channels and not NSFW in normal channels! Magic!',
+            details: 'This command is NSFW in NSFW channels and not NSFW in normal channels!',
             examples: ['~neko'],
             throttling: {
                 usages: 1,
