@@ -37,18 +37,19 @@ module.exports = class WaifuCommand extends Command {
         
         if(!somethingThere) {
             var random = Math.floor(Math.random() * total + 1);
-            var waifu = waifus[random]
+            var waifu = waifus[random];
+
             const embed = new Discord.MessageEmbed()
                 .setAuthor(waifu.name, waifu.image)
                 .setDescription(waifu.origin)
                 .setImage(waifu.image)
                 .setFooter(`Waifu Number ${random}`)
                 .setColor('#FAC193');
-          var ms = await message.channel.send(`💝 **${waifu.name}**? `, {embed: embed})
-          await ms.react('👍')
-          await ms.react('👎')
+            var ms = await message.channel.send(`💝 **${waifu.name}**? `, {embed: embed});
+                await ms.react('👍');
+                await ms.react('👎');
 
-          return null;
+                return null;
         
         } else {
             const waifuNumber = args.number
@@ -59,9 +60,9 @@ module.exports = class WaifuCommand extends Command {
                 .setImage(waifu.image)
                 .setFooter(`Waifu Number ${waifuNumber}`)
                 .setColor('#FAC193');
-            var ms = await message.channel.send(`💝 Here's waifu number **${waifuNumber}**!`, {embed: embed})
-                await ms.react('👍')
-                await ms.react('👎')
+            var ms = await message.channel.send(`💝 Here's waifu number **${waifuNumber}**!`, {embed: embed});
+                await ms.react('👍');
+                await ms.react('👎');
 
                 return null;
         }

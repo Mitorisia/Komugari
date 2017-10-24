@@ -39,10 +39,7 @@ module.exports = class AnimeCommand extends Command {
             .addField('❯\u2000\Status', `•\u2000\**Episodes:** ${anime.episodeCount ? anime.episodeCount : 'N/A'}\n\•\u2000\**Start Date:** ${anime.startDate}\n\•\u2000\**End Date:** ${anime.endDate ? anime.endDate : "Still airing"}`, true)
             .setImage(anime.posterImage.original);
           return message.channel.send(`Try watching **${anime.titles.english}**!`, {embed: embed});
-        }).catch(err => {
-          console.log(err)
-          return message.channel.send(`There was an error executing that command!`)
-        });
+        })
   
       } else {
         var search = message.content.split(/\s+/g).slice(1).join(" ");

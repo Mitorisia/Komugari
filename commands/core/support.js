@@ -22,7 +22,10 @@ module.exports = class SupportCommand extends Command {
     async run (message) {
         const notifyChannel = '198399488614727680';
         var channel = this.client.channels.get(notifyChannel);
+        const invite = this.client.options.invite;
+
         let supportMessage = message.content.split(/\s+/g).slice(1).join(" ");
+
         if(!supportMessage) {
             message.react("💢");
             return message.channel.send(`Please add an issue to your message.`);
@@ -45,7 +48,7 @@ module.exports = class SupportCommand extends Command {
             return null;
     
         } catch(err) {
-            message.channel.send("There was an issue sending your support message, please try again at a later time.");
+            return message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err.name}: ${err.message}\`\n\Please join the server instead! ${invite}`);
         }
 	}
 }

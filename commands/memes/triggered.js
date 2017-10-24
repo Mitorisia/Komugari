@@ -59,18 +59,12 @@ module.exports = class TriggeredCommand extends Command {
 	
 		stream.on('data', async buffer => await buffers.push(buffer));
 		stream.on('end', async () => {
-			try {
-				return await message.channel.send({
-					files: [{
-						name: 'triggered.gif',
-						attachment: Buffer.concat(buffers)
-					}]
-				})
-				
-			} catch (e) {
-				return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function.`);
-			}
-	
+			return await message.channel.send({
+				files: [{
+					name: 'triggered.gif',
+					attachment: Buffer.concat(buffers)
+				}]
+			})
 		})
 	
 		for (let i = 0; i < options.frames; i++) {

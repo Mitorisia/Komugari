@@ -26,7 +26,8 @@ module.exports = class FCommand extends Command {
                 .setColor('#4E373B')
                 .setFooter(`Press F to pay your respects.`);
             message.channel.send({embed}).then(m=>m.react("🇫"));
-            return
+
+            return null;
             
             } else {
                 var respect = message.content.split(/\s+/g).slice(1).join(" ");
@@ -36,7 +37,8 @@ module.exports = class FCommand extends Command {
                     .setDescription(`${message.author} has paid their respects to ${respect}`)
                     .setFooter(`Press F to pay your respects.`);
                 message.channel.send({embed}).then(m=>m.react("🇫"));
-                return
+                
+                return null;
             }
 	}
 }

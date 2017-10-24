@@ -36,22 +36,14 @@ module.exports = class LickCommand extends Command {
             
         } else {
     
-        var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=lick`);
-        var body = JSON.parse(text.text);
+            var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=lick`);
+            var body = JSON.parse(text.text);
     
-        try{
             var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`);
             return message.channel.send(`${message.author} licks ${recipient}!`, {embed:embed});
-    
-        } catch(err) {
-            console.log(err);
-            message.react('<:CANCELLEDLMFAO:372188144059285505>');
-
-            return null;
         }
-    }
 	}
 }

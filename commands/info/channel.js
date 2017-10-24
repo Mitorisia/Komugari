@@ -29,18 +29,18 @@ module.exports = class ChannelCommand extends Command {
 
     run (message, args) {
         let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
+
+        const channelCategory = message.guild.channels.filter(c => c.type === 'category')
+        const textChannels = message.guild.channels.filter(c => c.type === 'text')
+        const voiceChannels = message.guild.channels.filter(c => c.type === 'voice')
+
+        const sortPos = (a, b) => a.position - b.position;
                 
         if(!somethingThere) {
-            const channelCategory = message.guild.channels.filter(c => c.type === 'category')
-            const textChannels = message.guild.channels.filter(c => c.type === 'text')
-            const voiceChannels = message.guild.channels.filter(c => c.type === 'voice')
-
             const hasPerm = (c, perms) => c.permissionsFor(message.member).has(perms)
             const f = t => ` **\`[${t}]\`**`
             const displayPerms = c => `${!hasPerm(c, 'SEND_MESSAGES') && c instanceof Discord.TextChannel ? f('NO SEND') : ''}${!hasPerm(c, 'CONNECT') && c instanceof Discord.VoiceChannel ? f('NO CONNECT') : ''}${!hasPerm(c, 'VIEW_CHANNEL') ? f('NO VIEW') : ''}`      
             const isAFK = c => c.id === message.guild.afkChannelID;
-
-            const sortPos = (a, b) => a.position - b.position;
 
             var description = [].concat(
 
@@ -52,7 +52,7 @@ module.exports = class ChannelCommand extends Command {
                 
                 voiceChannels.sort(sortPos).map(c => `•\u2000${c.name}${displayPerms(c)}${isAFK(c) ? ' **`[AFK]`**' : ''}`)
                 
-            )
+            );
 
             if(description.length > 2048) return message.channel.send('Too much channels in this server! I couldn\'t send the information!');            
 
@@ -63,8 +63,6 @@ module.exports = class ChannelCommand extends Command {
                 .setFooter(`Permissions shown for ${message.author.tag}`, message.author.displayAvatarURL())
                 .setColor('#8B9EB7');         
             return message.channel.send({embed});
-        } else if (message.mentions.users.first()) {
-
         }
 
         var { channel } = args;
@@ -92,6 +90,6 @@ module.exports = class ChannelCommand extends Command {
             .setColor('#846B86')            
             .addField('❯\u2000\Information', `•\u2000\**ID:** ${channel.id}\n\•\u2000\**Category:** ${channel.parent}\n\•\u2000\**Created:** ${moment(channel.createdAt).format('MMMM Do YYYY')} (${fromNow(channel.createdAt)})`, true)
             .addField('❯\u2000\Miscellaneous', `•\u2000\**NSFW:** ${channel.nsfw ? "Yes" : "No"}\n\•\u2000\**Matching Permissions:** ${channel.permissionsLocked ? "Yes" : "No"}`, true)
-        return message.channel.send({embed})
-        }
+        return message.channel.send({embed})    
+    }
 }

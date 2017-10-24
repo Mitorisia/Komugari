@@ -36,17 +36,12 @@ module.exports = class DisabledCommand extends Command {
 	
 		disabled.composite(avatar, 390, 252);
 		disabled.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
-			try {
-				return await message.channel.send({
-					files: [{
-						name: 'disabled.png',
-						attachment: buffer
-					}]
-				})
-			} catch (e) {
-				return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!`);
-			}
-	
+		return await message.channel.send({
+			files: [{
+				name: 'disabled.png',
+				attachment: buffer
+				}]
+			})
 		})
 	}
 }

@@ -35,7 +35,7 @@ client.registry
 		['moderation', 'Moderation'],
 		['nsfw', 'NSFW'],
 		['utility', 'Utility'],
-		['owner','Owner']
+		['owner','Hidden + Owner']
 	])
 	.registerCommandsIn(__dirname + "/commands");
 

@@ -24,17 +24,9 @@ module.exports = class SmugCommand extends Command {
         var text = await snekfetch.get(`http://smugs.safe.moe/api/v1/i/r`);
         var body = JSON.parse(text.text);
 
-        try{
-            var embed = new Discord.MessageEmbed()
-                .setColor('#727293')
-                .setImage(`https://smugs.safe.moe/${body.url}`);
-            return message.channel.send({embed});
-    
-        } catch(err) {
-            console.log(err);
-            
-
-            return null;
-        }
+        var embed = new Discord.MessageEmbed()
+            .setColor('#727293')
+            .setImage(`https://smugs.safe.moe/${body.url}`);
+        return message.channel.send({embed});
 	}
 }

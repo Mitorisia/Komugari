@@ -21,15 +21,9 @@ module.exports = class PickUpCommand extends Command {
     }
 
     run (message) {      
-        try {
-            const embed = new Discord.MessageEmbed()
-                .setDescription('💖 | ' + line[Math.round(Math.random() * (line.length - 1))])
-                .setColor('#C597B8');
-          return message.channel.send({embed});
-        
-        } catch(err) {
-          
-          return message.channel.send(err)
-        }
+        const embed = new Discord.MessageEmbed()
+            .setDescription('💖 | ' + line[Math.round(Math.random() * (line.length - 1))])
+            .setColor('#C597B8');
+        return message.channel.send({embed});
 	}
 }

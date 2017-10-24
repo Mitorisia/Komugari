@@ -35,18 +35,13 @@ module.exports = class BDSMCommand extends Command {
 
         var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
-        try {
-            randomPuppy(sub)
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`BDSM`)
-                        .setImage(url)
-                        .setColor('#A187E0');
-                    return message.channel.send({embed});
-                })
-    
-            } catch(err) {
-                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
-        }
+        randomPuppy(sub)
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`BDSM`)
+                    .setImage(url)
+                    .setColor('#A187E0');
+                return message.channel.send({embed});
+            })
     }
 }

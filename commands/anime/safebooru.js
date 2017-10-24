@@ -2,7 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const booru = require('booru');
 
-//remember to return before every promise
+
 module.exports = class SafeBooruCommand extends Command {
     constructor(client) {
         super(client, {
@@ -39,9 +39,9 @@ module.exports = class SafeBooruCommand extends Command {
 
          }).catch(err => {
              if(err.name === 'booruError') {
-                 return message.channel.send(`No results found for **${query}**.`);
+                 return message.channel.send(`No results found for **${query}**!`);
              } else {
-                 return message.channel.send(`No results found for **${query}**.`);
+                 return message.channel.send(`No results found for **${query}**!`);
              }
          })
 	}

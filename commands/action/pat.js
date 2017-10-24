@@ -35,10 +35,10 @@ module.exports = class PatCommand extends Command {
             
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");
-                    const embed = new Discord.MessageEmbed()
-                        .setColor('#FBCFCF')
-                        .setImage(actions.patP[Math.round(Math.random() * (actions.patP.length - 1))]);
-                    return message.channel.send(`${message.author} pats ${recipient}!`, {embed: embed});
-            }
+            const embed = new Discord.MessageEmbed()
+                .setColor('#FBCFCF')
+                .setImage(actions.patP[Math.round(Math.random() * (actions.patP.length - 1))]);
+            return message.channel.send(`${message.author} pats ${recipient}!`, {embed: embed});    
+        }
 	} 
 }

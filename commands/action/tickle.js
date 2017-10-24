@@ -36,22 +36,15 @@ module.exports = class TickleCommand extends Command {
             
         } else {
     
-        var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=tickle`);
-        var body = JSON.parse(text.text);
-    
-        try{
+            var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=tickle`);
+            var body = JSON.parse(text.text);
+
             var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`);
             return message.channel.send(`${message.author} tickles ${recipient}!`, {embed:embed});
     
-        } catch(err) {
-            console.log(err);
-            
-
-            return null;
         }
-    }
 	}
 }

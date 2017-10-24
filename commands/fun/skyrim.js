@@ -21,15 +21,10 @@ module.exports = class SkyrimCommand extends Command {
     }
 
     run (message) {      
-        try {
-            const embed = new Discord.MessageEmbed()
-                .setAuthor(line[Math.round(Math.random() * (line.length - 1))])
-                .setColor('#613921');
-          return message.channel.send({embed});
+        const embed = new Discord.MessageEmbed()
+            .setAuthor(line[Math.round(Math.random() * (line.length - 1))])
+            .setColor('#613921');
+        return message.channel.send({embed});
         
-        } catch(err) {
-          
-          return message.channel.send(err)
-        }
 	}
 }

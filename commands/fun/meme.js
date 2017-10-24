@@ -22,19 +22,14 @@ module.exports = class MemeCommand extends Command {
 
     run (message) {
         var randSubreddit = subreddits.memeSubreddits[Math.round(Math.random() * (subreddits.memeSubreddits.length - 1))];
-        try {
-            randomPuppy(randSubreddit)
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`${randSubreddit}`)
-                        .setImage(url)
-                        .setColor('#887064');
-                    return message.channel.send({embed});
+
+        randomPuppy(randSubreddit)
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`${randSubreddit}`)
+                    .setImage(url)
+                    .setColor('#887064');
+                return message.channel.send({embed});
             })
-            
-        } catch(err) {
-            
-            return console.log(err);
         }
-	}
 }

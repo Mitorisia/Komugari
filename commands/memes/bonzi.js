@@ -39,18 +39,14 @@ module.exports = class BonziCommand extends Command {
 		blank.resize(175, 120);
 		const fact = blank.print(font, 0, 0, text, 175);
 	
-		try{
 		bonzi.composite(fact, 23, 12);
 		bonzi.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
-				return await message.channel.send({
-					files: [{
-						name: 'bonzi.png',
-						attachment: buffer
-					}]
-				})
+			return await message.channel.send({
+				files: [{
+					name: 'bonzi.png',
+					attachment: buffer
+				}]
+			})
 		})
-		} catch(err) {
-			return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!`);
-		}
 	}
 }

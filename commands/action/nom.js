@@ -35,22 +35,14 @@ module.exports = class NomCommand extends Command {
             
         } else {
     
-        var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=nom`);
-        var body = JSON.parse(text.text);
+            var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=nom`);
+            var body = JSON.parse(text.text);
     
-        try{
             var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`)
             return message.channel.send(`${message.author} noms on ${recipient}!`, {embed:embed})
-    
-        } catch(err) {
-            console.log(err)
-            message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>')
-
-            return null;
         }
-    }
 	}
 }

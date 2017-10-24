@@ -32,20 +32,14 @@ module.exports = class HoroscopeCommand extends Command {
         var horoscope = body.horoscope
         var replaced = horoscope.replace('(c) Kelli Fox, The Astrologer, http://new.theastrologer.com', "")
     
-        try{
-            const embed = new Discord.MessageEmbed()
-                .setColor('#5D7B9D')
-                .setAuthor(`Horoscope for ${body.sunsign} on ${body.date}`, 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
-                .setDescription(replaced)
-                .setTimestamp()
-                .setFooter(`${message.author.username}'s Horoscope`)
-                .addField('Mood', body.meta.mood, true)
-                .addField("Intensity", body.meta.intensity, true);
-            return message.channel.send({embed});
-    
-        } catch(err) {
-            
-            return console.log(err);
-        }
+        const embed = new Discord.MessageEmbed()
+            .setColor('#5D7B9D')
+            .setAuthor(`Horoscope for ${body.sunsign} on ${body.date}`, 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
+            .setDescription(replaced)
+            .setTimestamp()
+            .setFooter(`${message.author.username}'s Horoscope`)
+            .addField('Mood', body.meta.mood, true)
+            .addField("Intensity", body.meta.intensity, true);
+        return message.channel.send({embed});
 	}
 }

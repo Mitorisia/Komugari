@@ -50,17 +50,12 @@ module.exports = class ShitCommand extends Command {
 	
 		shit.composite(search, 195, 585);
 		shit.getBuffer(Jimp.MIME_PNG, async(err, buffer) => {
-			try {
-				return await message.channel.send({
-					files: [{
-						name: 'shit.png',
-						attachment: buffer
-					}]
-				})
-				
-			} catch (err) {
-				return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function.`);
-			}
+			return await message.channel.send({
+				files: [{
+					name: 'shit.png',
+					attachment: buffer
+				}]
+			})
 		})
 	}
 }
