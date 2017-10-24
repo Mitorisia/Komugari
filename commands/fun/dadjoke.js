@@ -33,7 +33,7 @@ module.exports = class DadJokeCommand extends Command {
           return message.channel.send({embed});
         
         } catch(err) {
-          message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
+          
           return message.channel.send(`Consult your dad! My API isn't working!`)
         }
 	}

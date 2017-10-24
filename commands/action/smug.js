@@ -32,7 +32,7 @@ module.exports = class SmugCommand extends Command {
     
         } catch(err) {
             console.log(err);
-            message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
+            
 
             return null;
         }
