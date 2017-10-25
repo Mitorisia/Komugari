@@ -57,7 +57,7 @@ module.exports = class ChannelCommand extends Command {
             if(description.length > 2048) return message.channel.send('Too much channels in this server! I couldn\'t send the information!');            
 
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`Channels in ${message.guild.name}! [${message.guild.channels.size}]`, message.guild.iconURL())
+                .setAuthor(`Channels in ${message.guild.name} [${message.guild.channels.size}]`, message.guild.iconURL())
                 .setDescription(description)
                 .setThumbnail(message.guild.iconURL())
                 .setFooter(`Permissions shown for ${message.author.tag}`, message.author.displayAvatarURL())
@@ -87,7 +87,7 @@ module.exports = class ChannelCommand extends Command {
             .setDescription(`❯\u2000${channel.topic}`)
             .setThumbnail(message.guild.iconURL())
             .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
-            .setColor('#846B86')            
+            .setColor('#846B86')
             .addField('❯\u2000\Information', `•\u2000\**ID:** ${channel.id}\n\•\u2000\**Category:** ${channel.parent ? channel.parent : 'None'}\n\•\u2000\**Created:** ${moment(channel.createdAt).format('MMMM Do YYYY')} (${fromNow(channel.createdAt)})`, true)
             .addField('❯\u2000\Miscellaneous', `•\u2000\**NSFW:** ${channel.nsfw ? "Yes" : "No"}\n\•\u2000\**Matching Permissions:** ${channel.permissionsLocked ? "Yes" : "No"}`, true)
         return message.channel.send({embed})    

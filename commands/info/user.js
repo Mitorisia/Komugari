@@ -73,7 +73,7 @@ module.exports = class UserCommand extends Command {
             .addField('❯\u2000\Server Membership', `•\u2000\**Nickname:** ${nickname}\n\•\u2000\**Joined:** ${moment(member.joinedAt).format('MMMM Do YYYY')} (${fromNow(member.joinedAt)})`, true)
             .addField('❯\u2000\**Role Infomation**', `•\u2000\**Highest Role:** ${member.highestRole.name !== '@everyone' ? member.highestRole.name : 'None'}\n\•\u2000\**Hoist Role:** ${member.hoistRole ? member.hoistRole.name : 'None'}`, true)
             .addField(`❯\u2000\**Roles** [${roles.length}]`, roles.length ? '•\u2000' + roles.join(', ') : '•\u2000\None', true)
-            .addField(`❯\u2000\**Permissions**`, allowed ? allowed : '•\u2000\None')
+            .addField(`❯\u2000\**Permissions**`, allowed ? `•\u2000${allowed}` : '•\u2000\None')
 		    return message.channel.send(`User information for **${member.user.username}**#${member.user.discriminator}`, {embed: embed});
       }
 }
