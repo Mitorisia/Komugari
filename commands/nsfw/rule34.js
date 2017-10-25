@@ -50,5 +50,5 @@ module.exports = class Rule34Command extends Command {
                      return message.channel.send(`No results found for **${query}**.`);
                  }
              })
-	}
-}
+            }
+        }

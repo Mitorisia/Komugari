@@ -21,19 +21,13 @@ module.exports = class ZrCommand extends Command {
     }
 
     run (message) {
-        try {
-            randomPuppy('ZettaiRyouiki')
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`ZettaiRyouiki`)
-                        .setImage(url)
-                        .setColor('#A187E0')
-                    return message.channel.send({embed})
-                })
-                
-            } catch(err) {
-                message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!')
-                return console.log(err)
-            }
-	}
+        randomPuppy('ZettaiRyouiki')
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`ZettaiRyouiki`)
+                    .setImage(url)
+                    .setColor('#A187E0');
+                return message.channel.send({embed});
+            })
+        }
 }

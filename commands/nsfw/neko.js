@@ -25,26 +25,22 @@ module.exports = class NekoCommand extends Command {
         if(!message.channel.nsfw) {
             const res = await snekfetch.get(`http://nekos.life/api/neko`);
             const preview = res.body.neko;
-                const embed = new Discord.MessageEmbed()
-                    .setImage(preview)
-                    .setColor('#A187E0')
-                    .setFooter('http://nekos.life', 'https://a.safe.moe/3XYZ6.gif');
+
+            const embed = new Discord.MessageEmbed()
+                .setImage(preview)
+                .setColor('#A187E0')
+                .setFooter('http://nekos.life', 'https://a.safe.moe/3XYZ6.gif');
             return message.channel.send({embed});
             
         } else {
-    
-            try {
-                const res = await snekfetch.get(`http://nekos.life/api/lewd/neko`);
-                const preview = res.body.neko;
-                    const embed = new Discord.MessageEmbed()
-                        .setImage(preview)
-                        .setColor('#A187E0')
-                        .setFooter('http://nekos.life', 'https://a.safe.moe/3XYZ6.gif');
-                    return message.channel.send({embed});
-                
-                } catch(err) {
-                    return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
-                }
-            }
-        }
-    }
+            const res = await snekfetch.get(`http://nekos.life/api/lewd/neko`);
+            const preview = res.body.neko;
+
+            const embed = new Discord.MessageEmbed()
+                .setImage(preview)
+                .setColor('#A187E0')
+                .setFooter('http://nekos.life', 'https://a.safe.moe/3XYZ6.gif');
+            return message.channel.send({embed});   
+        }   
+    }    
+}
