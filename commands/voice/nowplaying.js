@@ -21,7 +21,7 @@ module.exports = class NowPlayingCommand extends Command {
 
     async run (message) {
         const res = await snekfetch.get(`https://feed.tunein.com/profiles/s277012/nowPlaying`);
-        var body = JSON.parse(res.body);
+        var body = JSON.parse(res.text);
 
         if(!body.Secondary) return message.channel.send('There was an error retrieving the data!');
 
