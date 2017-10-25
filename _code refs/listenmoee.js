@@ -92,21 +92,3 @@ stream(guildsMap,client,args,message){
     }
   }
 
-  nowPlaying(guildsMap,message){
-    var np = guildsMap.get(message.guild.id).playing;
-    if (np) {
-      request(`https://feed.tunein.com/profiles/${np}/nowPlaying`, function (error, response, body) {
-        if (error!=null) {
-          message.channel.send(lib.embed(`**ERROR:** Could not access TuneIn API`,message));
-        }else {
-          body = JSON.parse(body);
-          message.channel.send({embed:new Discord.RichEmbed()
-            .setDescription(`${body.Secondary ? `**Currently Playing:** ${body.Secondary.Title}`:'No ID3 Tags found for this stream'}`)
-            .setThumbnail(body.Secondary ? body.Secondary.Image:'')
-            .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : config.hexColour}`)});
-        }
-      });
-    }else {
-      message.channel.send(lib.embed(`**ERROR:** No streaming data could be found`,message));
-    }
-  }
