@@ -31,19 +31,14 @@ module.exports = class NSFWCommand extends Command {
         }
         
         var randSubreddit = subreddits.nsfwSubreddits[Math.round(Math.random() * (subreddits.nsfwSubreddits.length - 1))];
-    
-        try {
-            randomPuppy(randSubreddit)
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`${randSubreddit}`)
-                        .setImage(url)
-                        .setColor('#CEA0A6');
-                    return message.channel.send({embed});
-                })
-                
-            } catch(err) {
-                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
-        }
-	}
+
+         randomPuppy(randSubreddit)
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`${randSubreddit}`)
+                    .setImage(url)
+                    .setColor('#CEA0A6');
+                return message.channel.send({embed});
+            })
+	    }
 }

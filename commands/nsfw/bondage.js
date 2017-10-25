@@ -29,18 +29,13 @@ module.exports = class HentaiBondageCommand extends Command {
             return message.channel.send(errMessage);
         }
         
-        try {
-            randomPuppy('hentaibondage')
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`hentaibondage`)
-                        .setImage(url)
-                        .setColor('#A187E0');
-                    return message.channel.send({embed});
-                })
-    
-            } catch(err) {
-                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
-        }
+        randomPuppy('hentaibondage')
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`hentaibondage`)
+                    .setImage(url)
+                    .setColor('#A187E0');
+                return message.channel.send({embed});
+            })
     }
 }

@@ -40,17 +40,12 @@ module.exports = class RetardedCommand extends Command {
 	
 		retarded.composite(search, 295, 5);
 		retarded.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
-			try {
-				return await message.channel.send({
-					files: [{
-						name: 'retarded.png',
-						attachment: buffer
-					}]
-				})
-				
-			} catch (err) {
-				return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!`);
-			}
+			return await message.channel.send({
+				files: [{
+					name: 'retarded.png',
+					attachment: buffer
+				}]
+			})
 		})
 	}
 }

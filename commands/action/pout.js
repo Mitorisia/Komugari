@@ -32,22 +32,13 @@ module.exports = class PoutCommand extends Command {
     
         } else {
     
-        var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=pout`);
-        var body = JSON.parse(text.text);
-    
-        try{
+            var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=pout`);
+            var body = JSON.parse(text.text);
             var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`);
             return message.channel.send(`${message.author} pouts at ${recipient}!`, {embed:embed});
-    
-        } catch(err) {
-            console.log(err);
-            message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
-
-            return null;
         }
-    }
 	}
 }

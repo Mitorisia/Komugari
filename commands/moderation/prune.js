@@ -32,13 +32,13 @@ module.exports = class PruneCommand extends Command {
 	}
 
 	async run(message, args) {
-
         const { count } = args;
         
 		try {
 			const messages = await message.channel.messages.fetch({ limit: count });
 			await message.channel.bulkDelete(messages.size, true);
 			return message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${messages.size} ${messages.size == 1 ? 'message!' : 'messages!'}`)
+		
 		} catch (err) {
 			console.log(err)
 			return message.channel.send('These messages are too old to be deleted! I can only delete messages within two weeks!');

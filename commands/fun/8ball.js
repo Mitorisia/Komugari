@@ -24,19 +24,14 @@ module.exports = class EightBallCommand extends Command {
         let question = message.content.split(/\s+/g).slice(1).join(" ");
       
         if (!question) {
-          message.channel.send('You must provide a question!');
+          return message.channel.send('You must provide a question!');
         }
-      
-        try {
-            const embed = new Discord.MessageEmbed()
-                .setAuthor(question, 'https://a.safe.moe/aKDHV.png')
-                .setDescription(answer[Math.round(Math.random() * (answer.length - 1))] + '.')
-                .setColor('#646770');
-          return message.channel.send({embed});
-        
-        } catch(err) {
-          message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
-          return console.log(err);
+
+        const embed = new Discord.MessageEmbed()
+            .setAuthor(question, 'https://a.safe.moe/aKDHV.png')
+            .setDescription(answer[Math.round(Math.random() * (answer.length - 1))] + '.')
+            .setColor('#646770');
+         return message.channel.send({embed});
+         
         }
-	}
 }

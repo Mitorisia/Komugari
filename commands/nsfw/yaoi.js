@@ -28,19 +28,14 @@ module.exports = class YaoiCommand extends Command {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
-        try {
-            randomPuppy('yaoi')
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`yaoi`)
-                        .setImage(url)
-                        .setColor('#A187E0');
-                    return message.channel.send({embed});
-                })
-    
-            } catch(err) {
-                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
+
+        randomPuppy('yaoi')
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`yaoi`)
+                    .setImage(url)
+                    .setColor('#A187E0');
+                return message.channel.send({embed});
+            })
         }
-    }
 }

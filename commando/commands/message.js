@@ -169,7 +169,7 @@ class CommandMessage {
 			const remaining = (throttle.start + (this.command.throttling.duration * 1000) - Date.now()) / 1000;
 			this.client.emit('commandBlocked', this, 'throttling');
 			return this.channel.send(
-				`You're going far too fast for me to handle!\n\Please wait ${remaining.toFixed(1)} more seconds before using the \`${this.command.name}\` command again!`
+				`**${this.message.author.username}**, please wait ${remaining.toFixed(1)} more seconds before using the \`${this.command.name}\` command again!`
 			);
 		}
 

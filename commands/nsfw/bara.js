@@ -28,18 +28,13 @@ module.exports = class BaraCommand extends Command {
             return message.channel.send(errMessage);
         }
         
-        try {
-            randomPuppy('baramanga')
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`bara`)
-                        .setImage(url)
-                        .setColor('#A187E0');
-                    return message.channel.send({embed});
-                })
-    
-            } catch(err) {
-                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
-        }
+        randomPuppy('baramanga')
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`bara`)
+                    .setImage(url)
+                    .setColor('#A187E0');
+                return message.channel.send({embed});
+            })
     }
 }

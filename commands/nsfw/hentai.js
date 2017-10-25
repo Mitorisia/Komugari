@@ -31,18 +31,13 @@ module.exports = class HentaiCommand extends Command {
     
         var randSubreddit = subreddits.hentaiSubreddits[Math.round(Math.random() * (subreddits.hentaiSubreddits.length - 1))];
         
-        try {
-            randomPuppy(randSubreddit)
-                .then(url => {
-                    const embed = new Discord.MessageEmbed()
-                        .setFooter(`${randSubreddit}`)
-                        .setImage(url)
-                        .setColor('#A187E0');
-                    return message.channel.send({embed});
-                })
-    
-            } catch(err) {
-                return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!');
-            }
-	}
+        randomPuppy(randSubreddit)
+            .then(url => {
+                const embed = new Discord.MessageEmbed()
+                    .setFooter(`${randSubreddit}`)
+                    .setImage(url)
+                    .setColor('#A187E0');
+                return message.channel.send({embed});
+            })
+	    }
 }

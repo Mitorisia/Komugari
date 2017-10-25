@@ -57,7 +57,7 @@ module.exports = class UrbanCommand extends Command {
           return message.channel.send(resultMessage, {embed});
           
         } catch(err) {
-          message.react('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658>');
+          
           return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!')
         }
 	}

@@ -41,17 +41,12 @@ module.exports = class TheSearchCommand extends Command {
 	
 		thesearch.composite(search, 60, 331);
 		thesearch.getBuffer(Jimp.MIME_PNG, async (err, buffer) => {
-			try {
-				return await message.channel.send({
-					files: [{
-						name: 'thesearch.png',
-						attachment: buffer
-					}]
-				})
-	
-			} catch (err) {
-				return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function.`);
-			}
+			return await message.channel.send({
+				files: [{
+					name: 'thesearch.png',
+					attachment: buffer
+				}]
+			})
 		})
 	}
 }

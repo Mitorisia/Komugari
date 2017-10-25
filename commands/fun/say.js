@@ -19,7 +19,8 @@ module.exports = class SayCommand extends Command {
 
     run (message) {
 	    let sayMessage = message.content.split(/\s+/g).slice(1).join(" ");
-	    if(!sayMessage) return message.say('Please specify something for me to say.');
-		    return message.say(sayMessage).catch(console.error);
+	    if(!sayMessage) return message.say('Please specify something for me to say!');
+            
+        return message.say(sayMessage).catch(console.error);
 	}
 }
