@@ -8,7 +8,7 @@ module.exports = class TsundereCommand extends Command {
         super(client, {
             name: 'tsundere',
             aliases: ['tsun'],
-            group: 'anime',
+            group: 'fun',
             memberName: 'tsundere',
             guildOnly: true,
             description: 'Get a random tsundere quote!',

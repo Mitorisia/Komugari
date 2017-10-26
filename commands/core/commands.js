@@ -21,7 +21,7 @@ module.exports = class CommandsCommand extends Command {
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("Any message from me can be removed by reacting with a 🎴 emoji!")
             .addField("__Core:__", "`commands` `nsfwcommands` `help` `support`", true)
-            .addField("__Moderation:__", "`ban` `kick` `prune`", true) //debating whether or not i want these aaasdasdasdfasdf
+            .addField("__Moderation:__", "`ban` `kick` `prune`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
             .addField("__Info:__", "`avatar` `emoji` `channel` `inrole`\n\`role` `server` `user`", true)
             .addField("__Fun:__", "`8ball` `advice` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pasta` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")

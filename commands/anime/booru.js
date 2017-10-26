@@ -6,8 +6,8 @@ const booru = require('booru');
 module.exports = class SafeBooruCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'safebooru',
-            aliases: ['sb', 'safe', 'animepic', 'booru'],
+            name: 'booru',
+            aliases: ['safebooru', 'sb', 'safe', 'animepic'],
             group: 'anime',
             memberName: 'safebooru',
             guildOnly: true,

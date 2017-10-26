@@ -31,6 +31,7 @@ module.exports = class DiscrimCommand extends Command {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle(`${users.length} ${users.length > 1 ? 'users' : 'user'} with the discriminator: ${discrim}`)
+			.setColor('#4C6684')
 			.setDescription(users);
 		return message.channel.send({embed});
 	}
