@@ -28,7 +28,8 @@ module.exports = class SecretCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Hidden Utility:__", "`botinfo` `ping`")
+            .addField("__Hidden Utility:__", "`botinfo` `ping`", true)
+            .addField("__Hidden Fun__", "`iku`")
         message.channel.send({embed}).then(m=> {m.react('🎴')});
 
         return null; 
