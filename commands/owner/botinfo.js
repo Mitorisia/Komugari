@@ -14,10 +14,6 @@ module.exports = class BotInfoCommand extends Command {
             examples: ['~botinfo'],
         });
     }
-
-    hasPermission (message) {
-		return this.client.isOwner(message.author);
-    }
     
     async run (message) {
         function fromNow(date) {

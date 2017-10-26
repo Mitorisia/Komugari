@@ -22,13 +22,13 @@ module.exports = class SecretCommand extends Command {
     run (message) {
         const embed = new Discord.MessageEmbed()
             .setAuthor("Secret Commands", 'https://a.safe.moe/Tr9Jr.png')
-            .setDescription(`Congrats! You found some the secret commands! Have fun...?`)
+            .setDescription(`Here's the not-so-secret and not-so-useful commands!`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Hidden Utility:__", "`ping` `botinfo`")
+            .addField("__Hidden Utility:__", "`botinfo` `ping`")
         message.channel.send({embed}).then(m=> {m.react('🎴')});
 
         return null; 
