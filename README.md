@@ -6,7 +6,9 @@
         who am I kidding no one asks me any questions
         chances are you stumbled upon here by accident
 
-## Index
+# Index
+
+- [Website](https://mitorisia.github.io/Komugari/)
 - [Intro](https://github.com/Mitorisia/Komugari/wiki)
 - [Requirements](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#requirements)
 - [Installing](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#installing)
@@ -15,11 +17,13 @@
 - [To-do](https://github.com/Mitorisia/Komugari/projects/1)
 - [Credits](https://github.com/Mitorisia/Komugari/wiki/Credits)
 
-## Additonal Info! 
-If you want to help develop the bot or add anything, please feel free to! 
+## Additonal Info!
+
+If you want to help develop the bot or add anything, please feel free to!
 Simply submit a pull request! Or even contact me on Discord: **Mako#8739**
 
-### If it's stupid, but it works, then it's not stupid.
+### If it's stupid, but it works, then it's not stupid
+
 There are some API keys in here!! Please have some sense of morality!!
 
 [Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
