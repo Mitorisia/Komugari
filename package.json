@@ -43,6 +43,7 @@
     "moment-timezone": "^0.5.13",
     "node-opus": "^0.2.7",
     "node-osu": "^1.3.0",
+    "os-toolbox": "^0.2.9",
     "pornsearch": "^2.2.5",
     "random-puppy": "^1.1.0",
     "relevant-urban": "^2.0.0",
@@ -55,6 +56,7 @@
   },
   "false": {},
   "devDependencies": {
+    "dotenv": "^4.0.0",
     "eslint": "^4.8.0",
     "eslint-config-google": "^0.9.1"
   }

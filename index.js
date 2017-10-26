@@ -5,6 +5,7 @@
 */ 
 //botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782
 
+require('dotenv').config()
 const moment = require('moment');
 const tz = require('moment-timezone');
 
@@ -223,5 +224,5 @@ client.on("message", async message => {
 
 });
 
-
-client.login('MzY1OTA3NjQ1Nzk1Nzk0OTQ2.DLqKPw.AyTLOnGqxlahYZG5xTs6LIolVGs');
+console.log(process.env)
+client.login(process.env.TOKEN);
