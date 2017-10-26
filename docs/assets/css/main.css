@@ -2093,7 +2093,7 @@
 /* Intro */
 
 	#intro {
-		background: url("images/overlay.png"), url("https://a.safe.moe/vVov1.png");
+		background: url("images/overlay.png"), url("https://a.safe.moe/pG8Gn.png");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, bottom center;
@@ -2103,7 +2103,7 @@
 /* One */
 
 	#one {
-		background: url("images/overlay.png"), url("../../images/one.jpg");
+		background: url("images/overlay.png"), url("https://a.safe.moe/uSA6r.png");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
@@ -2112,7 +2112,7 @@
 /* Two */
 
 	#two {
-		background: url("images/overlay.png"), url("../../images/two.jpg");
+		background: url("images/overlay.png"), url("https://a.safe.moe/zqOrg.png");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
