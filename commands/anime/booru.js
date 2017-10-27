@@ -7,7 +7,7 @@ module.exports = class SafeBooruCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'booru',
-            aliases: ['safebooru', 'sb', 'safe', 'animepic'],
+            aliases: ['safebooru', 'sb', 'safe', 'animepic', 'sfwbooru', 'sfw'],
             group: 'anime',
             memberName: 'safebooru',
             guildOnly: true,
