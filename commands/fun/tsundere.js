@@ -1,4 +1,6 @@
-[
+const { Command } = require('../../commando');
+const Discord = require('discord.js');
+const tsun = [
     "N-No, it's not like I did it for you! I did it because I had freetime, that's all! ┐(￣ヘ￣;)┌",
     "I like you, you idiot! 💢",
     "BAKAAAAAAAAAAAAAAA!!!!! YOU'RE A BAKAAAAAAA!!!! 💢💢",
@@ -26,3 +28,26 @@
     "B-baka! I am not a tsundere! 💢",
     "Na-nan des-ka?"
 ]
+
+
+module.exports = class TsundereCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'tsundere',
+            aliases: ['tsun'],
+            group: 'fun',
+            memberName: 'tsundere',
+            guildOnly: true,
+            description: 'Get a random tsundere quote!',
+            examples: ['~tsundere'],
+            throttling: {
+                usages: 1,
+                duration: 3
+            }
+        });
+    }
+
+    run (message) {  
+        return message.channel.send(tsun[Math.round(Math.random() * (tsun.length - 1))]);
+	}
+}
