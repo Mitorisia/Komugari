@@ -26,7 +26,7 @@ module.exports = class PruneCommand extends Command {
 						if (count < 100 && count > 0) return true;
 						return 'I can\'t delete more than 100 messages at once!';
 					}
-				}
+				},
 			]
 		});
 	}

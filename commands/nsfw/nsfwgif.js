@@ -39,7 +39,7 @@ module.exports = class NSFWGifCommand extends Command {
             return message.channel.send(errMessage);
         }
         
-        var randSubreddit = subreddits[M[Math.round(Math.random() * (subreddits[M.length - 1))];
+        var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
     
         randomPuppy(randSubreddit)
             .then(url => {

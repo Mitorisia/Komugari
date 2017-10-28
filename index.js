@@ -8,6 +8,7 @@
 require('dotenv').config()
 const moment = require('moment');
 const tz = require('moment-timezone');
+const snekfetch = require('snekfetch')
 
 const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
@@ -44,6 +45,9 @@ client.on('disconnect', () => console.log('Disconnected from the server...just t
 	
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
+setInterval(function() {
+	snekfetch.get("http://komugari.herokuapp.com");
+}, 500000); // prevents sleeping
 
 //ready and game status, message ready to main server
 client.on("ready", () => {

@@ -26,7 +26,7 @@ module.exports = class PoutCommand extends Command {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.noSwearP[Math.round(Math.random() * (actions.noSwearP.length - 1))]);
-            return message.channel.send(`NO SWEARING!`, {embed: embed});
+            return message.channel.send(`**NO SWEARING!**`, {embed: embed});
 
         } else {
     
