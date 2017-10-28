@@ -24,6 +24,7 @@ module.exports = class HelpCommand extends Command {
 		const { command } = args;
 		const commands = this.client.registry.findCommands(command, false);
 		if (command) {
+			
 			if (commands.length === 1) {
 				const embed = new Discord.MessageEmbed()
 					.setAuthor(commands[0].name, 'https://a.safe.moe/55XCQ.png')
@@ -35,7 +36,9 @@ module.exports = class HelpCommand extends Command {
 				return message.channel.send({embed});  
 				
 			} else if (commands.length > 1) {
+
 				return message.channel.send(`Multiple commands found! ${commands.map(c => c.name).join(', ')}`);
+
 			} else {
 				const embed = new Discord.MessageEmbed()
                 	.setAuthor(`Komugari`, 'https://a.safe.moe/55XCQ.png')
@@ -48,6 +51,7 @@ module.exports = class HelpCommand extends Command {
                 	.addField(`__Commands:__`, `Use \`~commands\` to see a list of my commands.\n\You can also use \`~help [command]\` to get help on a specific command.`);
 				return message.channel.send(`The command **${command}** was not found!`, {embed: embed});
 			}
+
 		} else {
 			const embed = new Discord.MessageEmbed()
 				.setAuthor(`Komugari`, 'https://a.safe.moe/55XCQ.png')
