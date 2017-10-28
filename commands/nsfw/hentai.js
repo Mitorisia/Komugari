@@ -2,8 +2,11 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
-const subreddits = require('../../assets/json/subreddits');
-
+const subreddits = [
+    "hentai",
+    "rule34",
+    "HQHentai"
+]
 
 module.exports = class HentaiCommand extends Command {
     constructor(client) {
@@ -29,7 +32,7 @@ module.exports = class HentaiCommand extends Command {
             return message.channel.send(errMessage);
         }
     
-        var randSubreddit = subreddits.hentaiSubreddits[Math.round(Math.random() * (subreddits.hentaiSubreddits.length - 1))];
+        var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
         
         randomPuppy(randSubreddit)
             .then(url => {

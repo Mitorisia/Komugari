@@ -2,7 +2,15 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
-const subreddits = require('../../assets/json/subreddits');
+const subreddits = [
+    "nsfw",
+    "porn",
+    "BonerMaterial",
+    "adorableporn",
+    "nsfw2",
+    "Sexy",
+    "NSFW_nospam"
+]
 
 
 module.exports = class NSFWCommand extends Command {
@@ -30,7 +38,7 @@ module.exports = class NSFWCommand extends Command {
             return message.channel.send(errMessage);
         }
         
-        var randSubreddit = subreddits.nsfwSubreddits[Math.round(Math.random() * (subreddits.nsfwSubreddits.length - 1))];
+        var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
          randomPuppy(randSubreddit)
             .then(url => {

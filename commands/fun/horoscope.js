@@ -1,7 +1,20 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
-const signs = require('../../assets/json/horoscope');
+const signs = [
+	"capricorn",
+	"aquarius",
+	"pisces",
+	"aries",
+	"taurus",
+	"gemini",
+	"cancer",
+	"leo",
+	"virgo",
+	"libra",
+	"scorpio",
+	"sagittarius"
+]
 
 module.exports = class HoroscopeCommand extends Command {
     constructor(client) {

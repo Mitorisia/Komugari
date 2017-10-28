@@ -1,7 +1,16 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
-const subreddits = require('../../assets/json/subreddits.json');
+const subreddits = [
+    "memes",
+    "DeepFriedMemes",
+    "bonehurtingjuice",
+    "surrealmemes",
+    "dankmemes",
+    "meirl",
+    "me_irl",
+    "funny"
+]
 
 module.exports = class MemeCommand extends Command {
     constructor(client) {
@@ -21,7 +30,7 @@ module.exports = class MemeCommand extends Command {
     }
 
     run (message) {
-        var randSubreddit = subreddits.memeSubreddits[Math.round(Math.random() * (subreddits.memeSubreddits.length - 1))];
+        var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
         randomPuppy(randSubreddit)
             .then(url => {

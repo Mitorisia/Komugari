@@ -2,7 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 const moment = require('moment');
-const clocks = require('../../assets/json/clocks.json')
+const clocks = ["🕛", "🕐", "🕑", "🕒", "🕓", "🕔", "🕕", "🕖", "🕗", "🕘", "🕙", "🕚"]
 
 const timeIs = 'https://time.is/';
 

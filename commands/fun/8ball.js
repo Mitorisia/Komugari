@@ -1,6 +1,27 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const answer = require('../../assets/json/eightball.json')
+const answer = [
+    "It is certain",
+    "It is decidedly so",
+    "Without a doubt",
+    "Yes, definitely",
+    "You may rely on it",
+    "As I see it, yes",
+    "Most likely",
+    "Yes",
+    "Signs point to yes",
+    "The reply is hazy, try again",
+    "Ask again later",
+    "I'd better not tell you now",
+    "I cannot predict now",
+    "Concentrate and ask again",
+    "Don't count on it",
+    "My sources say no",
+    "The outlook isn't so good",
+    "Very doubtful",
+    "B-Baka! No!",
+    "Yes daddy..."
+  ]
 
 
 module.exports = class EightBallCommand extends Command {
