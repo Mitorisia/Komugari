@@ -28,7 +28,7 @@ client.registry
 	.registerGroups([
 		['action', 'Action'], 
 		['anime', 'Anime'],
-		['voice', 'Voice'],
+		['music', 'Music'],
 		['fun', 'Fun'],
 		['core', 'Core'],
 		['info', 'Info'],

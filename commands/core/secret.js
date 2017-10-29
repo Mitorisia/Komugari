@@ -7,8 +7,8 @@ module.exports = class SecretCommand extends Command {
         super(client, {
             name: 'secret',
             guildOnly: true,
-            aliases: ['hidden', 'easteregg', 'secrets'],
-            group: 'owner',
+            aliases: ['hidden', 'easteregg', 'secrets', 'commands2', 'extra', 'extras'],
+            group: 'core',
             memberName: 'secret',
             description: 'Hey look, hidden commands!',
             examples: ['~secret'],
@@ -28,8 +28,9 @@ module.exports = class SecretCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Hidden Utility:__", "`botinfo` `ping`", true)
-            .addField("__Hidden Fun__", "`iku`")
+            .addField("__Moderation:__", '`cybernuke` `hackban` `softban` `unban`')
+            .addField("__Utility:__", "`botinfo` `ping` `remindme`", true)
+            .addField("__Fun__", "`iku`")
         message.channel.send({embed}).then(m=> {m.react('🎴')});
 
         return null; 

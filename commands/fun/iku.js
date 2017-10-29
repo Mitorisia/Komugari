@@ -8,7 +8,7 @@ module.exports = class IkuCommand extends Command {
             name: 'iku',
             guildOnly: true,
             aliases: ['bestgirl', 'i19'],
-            group: 'owner',
+            group: 'fun',
             memberName: 'iku',
             description: 'Iku is best girl and there\'s no denying it!!',
             examples: ['~iku'],

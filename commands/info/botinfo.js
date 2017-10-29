@@ -8,7 +8,7 @@ module.exports = class BotInfoCommand extends Command {
         super(client, {
             name: 'botinfo',
             aliases: ['stats', 'botstats'],
-            group: 'owner',
+            group: 'info',
             memberName: 'botinfo',
             description: 'Shows some information about the running instance!',
             examples: ['~botinfo'],
@@ -34,6 +34,7 @@ module.exports = class BotInfoCommand extends Command {
         return msg.edit('🈯 **Here\'s my current info!**', {embed:embed});
 	}
 }
+
 
 function fromNow(date) {
   if (!date) {

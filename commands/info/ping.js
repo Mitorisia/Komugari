@@ -21,7 +21,7 @@ module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'ping',
-			group: 'owner',
+			group: 'info',
 			memberName: 'ping',
 			description: 'Checks the ping latency and if the bot is operating!',
 			throttling: {

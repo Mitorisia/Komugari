@@ -1,6 +1,5 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const request = require('request');
 const https = require('https');
 
 
@@ -8,8 +7,8 @@ module.exports = class ListenCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'listen',
-            aliases: ['listenmoe', 'radio', 'play'],
-            group: 'voice',
+            aliases: ['listenmoe', 'radio', 'play', 'join'],
+            group: 'music',
             memberName: 'listen',
             guildOnly: true,
             description: 'Plays the Listen.moe radio!',
@@ -47,7 +46,7 @@ module.exports = class ListenCommand extends Command {
                         dispatcher.on('end', async (reason) => {
                             clearInterval(inAC);
                             if(reason == "heck") {
-                                message.channel.send("⚠ Left voice channel due to inactivity!")  
+                                message.channel.send("⚠ Left voice channel due to inactivity or being muted! ...Please don't abuse me!")  
                                 delete connection.channel.textChannel;
                                 return connection.disconnect();
                             }  
@@ -58,7 +57,7 @@ module.exports = class ListenCommand extends Command {
                     console.log(err)
                 });
 
-                message.channel.send(`Now streaming https://listen.moe/ in **${voiceChannel.name}**!`)
+                message.channel.send( message.guild.me.mute ? `⚠ **${message.author.username}**, I can't play if I'm muted! Please unmute me as soon as possible!` : `🎵 Now streaming https://listen.moe/ in **${voiceChannel.name}**!`)
         
               } else { 
                 message.react('‼'); 
