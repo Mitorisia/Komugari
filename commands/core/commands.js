@@ -20,7 +20,7 @@ module.exports = class CommandsCommand extends Command {
             .setDescription(`Use \`~help [command]\` for more details.`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
-            .setFooter(`${Math.random() < 0.5 ? 'Any message from me can be removed by reacting with a 🎴 emoji!' : 'Psst..check out \`~secret\` for more commands...this is just between you and me!'}`)
+            .setFooter(`${Math.random() < 0.5 ? 'Any message from me can be removed by reacting with a 🎴 emoji!' : 'Psst..check out ~secret for more commands...this is just between you and me!'}`)
             .addField("__Core:__", "`commands` `nsfwcommands` `help` `support`", true)
             .addField("__Moderation:__", "`ban` `kick` `prune`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)

@@ -45,9 +45,11 @@ client.on('disconnect', () => console.log('Disconnected from the server...just t
 	
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
+/*
 setInterval(function() {
 	snekfetch.get("http://komugari.herokuapp.com");
 }, 500000); // prevents sleeping
+*/
 
 //ready and game status, message ready to main server
 client.on("ready", () => {
@@ -80,21 +82,6 @@ client.on('guildCreate', guild => {
 	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
 	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
 
-	function fromNow(date) {
-		if (!date) {
-			return false;
-		  }
-		
-		  const ms = new Date().getTime() - date.getTime();
-		
-		  if (ms >= 86400000) {
-			const days = Math.floor(ms / 86400000);
-			return `${days} day${days !== 1 ? 's' : ''} ago`;
-		  }
-		
-		  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
-	} 
-
 	const embed = new Discord.MessageEmbed()
 		.setAuthor(`Added to ${guild.name}!`, guild.iconURL())
 		.setDescription(`Server infomation for **${guild.name}**`)
@@ -120,21 +107,6 @@ client.on('guildDelete', guild => {
 
 	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
 	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
-
-	function fromNow(date) {
-		if (!date) {
-			return false;
-		  }
-		
-		  const ms = new Date().getTime() - date.getTime();
-		
-		  if (ms >= 86400000) {
-			const days = Math.floor(ms / 86400000);
-			return `${days} day${days !== 1 ? 's' : ''} ago`;
-		  }
-		
-		  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
-	} 
 
 	const embed = new Discord.MessageEmbed()
 		.setAuthor('Removed from a Server!', guild.iconURL())
@@ -175,6 +147,7 @@ client.on("message", async message => {
 			.setColor('#D48AD8')
 			.setTimestamp();
 		channel.send({embed});
+
 		return message.channel.send('Your message has been sent to the support server! https://discord.gg/dHqWWSS');
 	}
 
@@ -226,5 +199,20 @@ client.on("message", async message => {
 		}
 
 });
+
+function fromNow(date) {
+	if (!date) {
+		return false;
+	  }
+	
+	  const ms = new Date().getTime() - date.getTime();
+	
+	  if (ms >= 86400000) {
+		const days = Math.floor(ms / 86400000);
+		return `${days} day${days !== 1 ? 's' : ''} ago`;
+	  }
+	
+	  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
+} 
 
 client.login(process.env.TOKEN);

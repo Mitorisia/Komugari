@@ -19,7 +19,7 @@ module.exports = class LeaveCommand extends Command {
     }
 
     async run (message) {
-        if (!message.channel.permissionsFor(this.message.member).has('MANAGE_MESSAGES')) {
+        if (!message.channel.permissionsFor(message.member).has('MANAGE_MESSAGES')) {
             return message.channel.send('You can\'t use this command! It requires the `manage messages` permission!')
         }
 
@@ -27,7 +27,7 @@ module.exports = class LeaveCommand extends Command {
             return message.channel.send(`I'm not in a voice channel!`);            
         } else if (message.guild.voiceConnection) {
             await message.guild.voiceConnection.channel.leave();
-            return message.channel.send(`Left the channel **${message.member.voiceChannel.name}** at **${message.author.username}**'s request!`);            
+            return message.channel.send(`Left the channel **${message.member.voiceChannel}** at **${message.author.username}**'s request!`);            
         }
 	}
 }

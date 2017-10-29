@@ -11,7 +11,10 @@ const responses = [
 	'Ping! ...I mean **pong!**',
 	'Hi there!',
 	'At your service!',
-	'Yes?'
+	'Yes?',
+	'Hello!',
+	"Konnichiwa!",
+	"Ohayoo~!"
 ];
 
 module.exports = class PingCommand extends Command {
