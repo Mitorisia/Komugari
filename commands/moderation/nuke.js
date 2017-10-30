@@ -73,7 +73,7 @@ module.exports = class NukeCommand extends Command {
                         member.send(stripIndents `
 					Sorry, but you've been automatically targetted by the cybernuke in the **${message.guild.name}** server!
 					This means that you have been banned, likely in the case of a server raid!
-					Please contact them if you believe this ban to be in error!
+					Please contact them if you believe this ban to be in error! \`(${message.author.tag})\`
 				`).catch('ok')
                         .then(() => member.ban())
                         .then(() => {
