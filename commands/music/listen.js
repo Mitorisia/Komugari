@@ -38,7 +38,6 @@ module.exports = class ListenCommand extends Command {
                     var broadcast = this.client.createVoiceBroadcast();
 
                     message.member.voiceChannel.join().then(connection => {
-                        broadcast.playStream(res);
 
                         dispatcher.on('end', async(reason) => {
                             clearInterval(inAC);
@@ -56,6 +55,9 @@ module.exports = class ListenCommand extends Command {
 
                 } else {
                     message.react('‼');
+
+
+                    
                     return message.channel.send('Hold on... I\'m already playing in a voice channel!');
                 }
 

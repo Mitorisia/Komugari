@@ -10,7 +10,7 @@ const moment = require('moment');
 const tz = require('moment-timezone');
 const snekfetch = require('snekfetch')
 
-const { CommandoClient } = require('./commando');
+const { CommandoClient } = require('./commando'); 
 const client = new CommandoClient({
     commandPrefix: '~',
     owner: '180050347589369856',
@@ -104,7 +104,7 @@ client.on('guildCreate', guild => {
                 .setThumbnail(guild.iconURL())
                 .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
-		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)            
+		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()
 		.setFooter(`(${client.guilds.size})`);
 		return channel.send({embed});
@@ -114,7 +114,7 @@ client.on('guildDelete', guild => {
 	var channel = client.channels.get('367828773426429953');
 
 	var online = guild.members.filter(m => m.user.presence.status === "online").size
-	var bots = guild.members.filter(m => m.user.bot).size	
+	var bots = guild.members.filter(m => m.user.bot).size
 	var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
 
 	var textChannels = guild.channels.filter(c => c.type === 'text');
@@ -130,7 +130,7 @@ client.on('guildDelete', guild => {
 		.setDescription(`Server infomation for **${guild.name}**`)
 		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
-		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)   
+		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()
 		.setFooter(`(${client.guilds.size})`);
 	return channel.send({embed});
@@ -152,7 +152,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 //basic message replies
 client.on("message", async message => {
 	if(message.author.bot) return undefined;
-	
+
 	if(message.channel.type == "dm") {
 		var channel = client.channels.get('370719709110468609');
 
@@ -189,12 +189,12 @@ client.on("message", async message => {
 			var serverIDs = ['198399488614727680', '202075400225030144']
 
 			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen')) {
-				if (serverIDs.indexOf(message.guild.id) > -1) { 
+				if (serverIDs.indexOf(message.guild.id) > -1) {
 
 					var timeZone = moment(moment().format());
 					var spetTime = timeZone.tz('America/Toronto').format('MMM Do, HH:mm');
 					var keyreenTime = timeZone.tz('Europe/Kiev').format('MMM Do, HH:mm');
-					var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm'); 
+					var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm');
 
 					var embed = new Discord.MessageEmbed()
 						.setColor('#8FB3C3')
@@ -207,7 +207,7 @@ client.on("message", async message => {
 					return message.channel.send('<:KeyreenShrug:358696826314162189>')
 				}
 			}
-					
+
 		} catch(err) {
 			console.log(err)
 			return message.channel.send("<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!")
@@ -219,15 +219,15 @@ function fromNow(date) {
 	if (!date) {
 		return false;
 	  }
-	
+
 	  const ms = new Date().getTime() - date.getTime();
-	
+
 	  if (ms >= 86400000) {
 		const days = Math.floor(ms / 86400000);
 		return `${days} day${days !== 1 ? 's' : ''} ago`;
 	  }
-	
+
 	  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
-} 
+}
 
 client.login(process.env.TOKEN);

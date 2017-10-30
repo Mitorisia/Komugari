@@ -1,13 +1,13 @@
 const { Command } = require('../../commando');
 const moment = require('moment');
-const sherlock = require('Sherlock');
+const sherlock = require('sherlockjs');
 
 module.exports = class RemindMeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'remindme',
             aliases: ['remind', 'timer', 'alarm'],
-            group: 'utililty',
+            group: 'utility',
             memberName: 'remindme',
             description: 'I\'ll remind you of something!',
             details: 'This does not persist across restarts! Please keep it short!',

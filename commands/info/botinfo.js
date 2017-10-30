@@ -2,6 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const moment = require('moment');
 const ostb = require('os-toolbox');
+const { version } = require('../../package.json')
 
 module.exports = class BotInfoCommand extends Command {
     constructor(client) {
@@ -28,7 +29,7 @@ module.exports = class BotInfoCommand extends Command {
         const memoryUsage = await ostb.memoryUsage();
 
         const embed = new Discord.MessageEmbed()
-            .setAuthor('Komugari v0.6', this.client.user.displayAvatarURL())
+            .setAuthor(`Komugari v${version}`, this.client.user.displayAvatarURL())
             .setThumbnail(this.client.user.displayAvatarURL())
             .setColor('#6C70EB')
             .addField('❯\u2000\System', `•\u2000\**Ping:** ${ping}ms\n\•\u2000\**CPU Load:** ${cpuLoad}%\n\•\u2000\**Memory Usage:** ${memoryUsage}%\n\•\u2000\**Heap:** ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)

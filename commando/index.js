@@ -13,7 +13,6 @@ module.exports = {
 	CommandFormatError: require('./errors/command-format'),
 
 	util: require('./util'),
-	version: require('../package').version,
 
 	SettingProvider: require('./providers/base'),
 	get SQLiteProvider() {
