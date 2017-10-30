@@ -12,7 +12,7 @@ module.exports = class SoftbanCommand extends Command {
 			description: 'Kicks a user and deletes all their messages in the past 7 days!',
 			guildOnly: true,
 			clientPermissions: ['BAN_MEMBERS'],
-			userPermissions: ['KICK_MEMBERS'],
+			userPermissions: ['BAN_MEMBERS'],
 			args: [
 				{
 					key: 'member',

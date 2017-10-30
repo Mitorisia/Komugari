@@ -6,6 +6,7 @@ module.exports = class BanCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'hackban',
+            aliases: ['hb', 'banid'],
             group: 'moderation',
             memberName: 'hackban',
             guildOnly: true,
@@ -45,20 +46,23 @@ module.exports = class BanCommand extends Command {
 
         if (member === this.client.user.id) return message.channel.send('Please don\'t hackban me...!');
         if (member === message.author.id) return message.channel.send('I wouldn\'t dare hackban you...!');
-        
-        await message.channel.send(`Are you sure you want to hackban \`${member}\`? \`\`(y/n)\`\``);
-        const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
-			max: 1,
-			time: 30000
-        });
 
-        if (!msgs.size || !['y', 'yes'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!');
-        if (['n', 'no'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!')
+        this.client.users.fetch(member).then(async usr => {
+            await message.channel.send(`Are you sure you want to ban **${usr.tag}**? \`\`(y/n)\`\``);
+            const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
+                max: 1,
+                time: 30000
+            });
+    
+            if (!msgs.size || !['y', 'yes'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!');
+            if (['n', 'no'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!')
+            
+            await message.guild.ban(member, {
+                reason: `${message.author.tag}: ${reason}`
+            });
+            return await message.channel.send(`Successfully banned **${usr.tag}**! 👋`);
+        })
         
-		await message.guild.ban(member, {
-			reason: `${message.author.tag}: ${reason}`
-		});
-		await message.channel.send(`Successfully banned \`${member}\`! 👋`);
         
 	}
 }

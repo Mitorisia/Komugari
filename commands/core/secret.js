@@ -19,7 +19,7 @@ module.exports = class SecretCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         const embed = new Discord.MessageEmbed()
             .setAuthor("Secret Commands", 'https://a.safe.moe/Tr9Jr.png')
             .setDescription(`Here's the not-so-secret and not-so-useful commands!`)
@@ -28,11 +28,11 @@ module.exports = class SecretCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Moderation:__", '`cybernuke` `hackban` `softban` `unban`')
+            .addField('__Moderation:__', '`hackban` `nuke` `softban` `unban`', true)
             .addField("__Utility:__", "`botinfo` `ping` `remindme`", true)
             .addField("__Fun__", "`iku`")
-        message.channel.send({embed}).then(m=> {m.react('🎴')});
+        message.channel.send({ embed }).then(m => { m.react('🎴') });
 
-        return null; 
-	}
+        return null;
+    }
 }

@@ -19,7 +19,7 @@ module.exports = class AdviceCommand extends Command {
         });
     }
 
-    async run (message) {
+    async run(message) {
         var res = await snekfetch.get("http://api.adviceslip.com/advice");
         var advice = JSON.parse(res.body)
 
@@ -28,12 +28,10 @@ module.exports = class AdviceCommand extends Command {
                 .setAuthor(`Here's some advice!`, 'https://a.safe.moe/BVBr9.png')
                 .setDescription(advice.slip.advice)
                 .setColor('#727684');
-          return message.channel.send({embed});
-        
-        } catch(err) {
-          
-          return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Sorry! My API isn't working!`)
+            return message.channel.send({ embed });
+
+        } catch (err) {
+            return message.channel.send(`<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Sorry! My API isn't working!`)
         }
-	}
+    }
 }
-  

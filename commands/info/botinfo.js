@@ -12,6 +12,10 @@ module.exports = class BotInfoCommand extends Command {
             memberName: 'botinfo',
             description: 'Shows some information about the running instance!',
             examples: ['~botinfo'],
+            throttling: {
+              usages: 1,
+              duration: 5
+          }
         });
     }
     

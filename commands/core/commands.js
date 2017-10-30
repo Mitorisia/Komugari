@@ -13,7 +13,7 @@ module.exports = class CommandsCommand extends Command {
         });
     };
 
-    async run (message) {
+    async run(message) {
         var percentage = Math.random() < 0.5 ? 'heads' : 'tails'
         const embed = new Discord.MessageEmbed()
             .setAuthor("Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -30,8 +30,8 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Music:__", "`listen` `np` `stop`", true)
             .addField("__Action:__", "`action` `cry` `disgust` `grope` `hand` `hug` `kiss` `lewd` `nobully` `noswearing` `nom` `nyan` `pat` `pout` `slap` `smug` `slap` `stare` `tickle`", true)
             .addField("__NSFW:__", "Hentai, boobs, porn, gifs, image boards, lewd nekos... \n\Say **~nsfwcommands** to see them all!");
-        message.channel.send({embed}).then(m=> {m.react('🎴')});
+        message.channel.send({ embed }).then(m => { m.react('🎴') });
 
-        return null; 
-	}
+        return null;
+    }
 }
