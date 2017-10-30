@@ -19,10 +19,10 @@ module.exports = class IkuCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         const embed = new Discord.MessageEmbed()
             .setColor('#FBCFCF')
             .setImage(iku[Math.round(Math.random() * (iku.length - 1))]);
-        return message.channel.send({embed});
-	}
+        return message.channel.send({ embed });
+    }
 }

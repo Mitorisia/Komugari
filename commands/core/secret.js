@@ -7,7 +7,7 @@ module.exports = class SecretCommand extends Command {
         super(client, {
             name: 'secret',
             guildOnly: true,
-            aliases: ['hidden', 'easteregg', 'secrets', 'commands2', 'extra', 'extras'],
+            aliases: ['hidden', 'easteregg', 'secrets', 'commands2', 'extra', 'extras', 'morecommands'],
             group: 'core',
             memberName: 'secret',
             description: 'Hey look, hidden commands!',

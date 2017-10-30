@@ -22,13 +22,13 @@ module.exports = class FourKNSFWCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
+
         var subreddits = [
             'NSFW_Wallpapers',
             'SexyWallpapers',
@@ -45,8 +45,8 @@ module.exports = class FourKNSFWCommand extends Command {
                     .setFooter(`4kNSFW`)
                     .setImage(url)
                     .setColor('#A187E0');
-                
-                    return message.channel.send({embed});
-            })        
+
+                return message.channel.send({ embed });
+            })
     }
 }

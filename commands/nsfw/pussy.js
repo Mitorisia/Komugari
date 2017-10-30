@@ -21,13 +21,13 @@ module.exports = class PussyCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
+
         var subreddits = [
             'pussy',
             'rearpussy',
@@ -46,7 +46,7 @@ module.exports = class PussyCommand extends Command {
                     .setFooter(`pussy`)
                     .setImage(url)
                     .setColor('#A187E0');
-                return message.channel.send({embed});
+                return message.channel.send({ embed });
             })
-        }
+    }
 }

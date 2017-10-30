@@ -18,27 +18,27 @@ module.exports = class FCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var respect = message.content.split(/\s+/g).slice(1).join(" ");
-        if(!respect) {
+        if (!respect) {
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.author.username} has paid their respects.`, message.author.displayAvatarURL({ format: 'png' }))
                 .setColor('#4E373B')
                 .setFooter(`Press F to pay your respects.`);
-            message.channel.send({embed}).then(m=>m.react("🇫"));
+            message.channel.send({ embed }).then(m => m.react("🇫"));
 
             return null;
-            
-            } else {
-                var respect = message.content.split(/\s+/g).slice(1).join(" ");
-                const embed = new Discord.MessageEmbed()
-                    .setAuthor(`\u2000`, message.author.displayAvatarURL({ format: 'png' }))
-                    .setColor('#4E373B')
-                    .setDescription(`${message.author} has paid their respects to ${respect}`)
-                    .setFooter(`Press F to pay your respects.`);
-                message.channel.send({embed}).then(m=>m.react("🇫"));
-                
-                return null;
-            }
-	}
+
+        } else {
+            var respect = message.content.split(/\s+/g).slice(1).join(" ");
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`\u2000`, message.author.displayAvatarURL({ format: 'png' }))
+                .setColor('#4E373B')
+                .setDescription(`${message.author} has paid their respects to ${respect}`)
+                .setFooter(`Press F to pay your respects.`);
+            message.channel.send({ embed }).then(m => m.react("🇫"));
+
+            return null;
+        }
+    }
 }

@@ -19,14 +19,14 @@ module.exports = class CatCommand extends Command {
         });
     }
 
-    async run (message) {
+    async run(message) {
         const res = await snekfetch.get('http://www.random.cat/meow');
         const image = res.body.file;
-    
+
         const embed = new Discord.MessageEmbed()
             .setImage(image)
             .setFooter('http://www.random.cat ©', 'https://a.safe.moe/6GDXu.png')
             .setColor('#71A3BE');
-        return message.channel.send({embed});
-	}
+        return message.channel.send({ embed });
+    }
 }

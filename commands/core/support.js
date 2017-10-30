@@ -19,18 +19,18 @@ module.exports = class SupportCommand extends Command {
         });
     }
 
-    async run (message) {
+    async run(message) {
         const notifyChannel = '198399488614727680';
         var channel = this.client.channels.get(notifyChannel);
         const invite = this.client.options.invite;
 
         let supportMessage = message.content.split(/\s+/g).slice(1).join(" ");
 
-        if(!supportMessage) {
+        if (!supportMessage) {
             message.react("💢");
             return message.channel.send(`Please add an issue to your message.`);
         }
-    
+
         try {
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.member.user.tag}`, message.member.user.displayAvatarURL({ format: 'png' }))
@@ -38,7 +38,7 @@ module.exports = class SupportCommand extends Command {
                 .setTimestamp()
                 .setFooter(`Channel ID: ${message.channel.id}`)
                 .addField(message.guild.name + ', ' + message.channel.name, supportMessage);
-            channel.send({embed});
+            channel.send({ embed });
 
             await message.react("🇸").catch(console.error);
             await message.react("🇪").catch(console.error);
@@ -46,9 +46,9 @@ module.exports = class SupportCommand extends Command {
             await message.react("🇹").catch(console.error);
 
             return null;
-    
-        } catch(err) {
+
+        } catch (err) {
             return message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err.name}: ${err.message}\`\n\Please join the server instead! ${invite}`);
         }
-	}
+    }
 }

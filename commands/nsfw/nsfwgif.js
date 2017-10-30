@@ -32,22 +32,22 @@ module.exports = class NSFWGifCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
+
         var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
-    
+
         randomPuppy(randSubreddit)
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter('NSFW.gif', 'https://a.safe.moe/O8TDd.png')
                     .setImage(url)
                     .setColor('#CEA0A6');
-                return message.channel.send({embed});
+                return message.channel.send({ embed });
             })
-	    }
+    }
 }

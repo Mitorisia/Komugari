@@ -22,20 +22,20 @@ module.exports = class TentacleCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
+
         randomPuppy('tentai')
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`tentacles`)
                     .setImage(url)
                     .setColor('#A187E0');
-                return message.channel.send({embed});
+                return message.channel.send({ embed });
             })
-        }
+    }
 }

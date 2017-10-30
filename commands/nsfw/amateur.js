@@ -21,13 +21,13 @@ module.exports = class AmateurCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
+
         var subreddits = [
             'RealGirls',
             'amateur',
@@ -42,7 +42,7 @@ module.exports = class AmateurCommand extends Command {
                     .setFooter(`amateur`)
                     .setImage(url)
                     .setColor('#A187E0');
-                return message.channel.send({embed}); 
+                return message.channel.send({ embed });
             })
     }
 }

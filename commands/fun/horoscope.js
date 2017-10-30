@@ -2,18 +2,18 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 const signs = [
-	"capricorn",
-	"aquarius",
-	"pisces",
-	"aries",
-	"taurus",
-	"gemini",
-	"cancer",
-	"leo",
-	"virgo",
-	"libra",
-	"scorpio",
-	"sagittarius"
+    "capricorn",
+    "aquarius",
+    "pisces",
+    "aries",
+    "taurus",
+    "gemini",
+    "cancer",
+    "leo",
+    "virgo",
+    "libra",
+    "scorpio",
+    "sagittarius"
 ]
 
 module.exports = class HoroscopeCommand extends Command {
@@ -32,9 +32,9 @@ module.exports = class HoroscopeCommand extends Command {
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         const sign = message.content.split(/\s+/g).slice(1).join(" ");
-        if(!sign) return message.channel.send("Please give me a sign to get the horoscope of!");
+        if (!sign) return message.channel.send("Please give me a sign to get the horoscope of!");
 
         if (!signs.includes(sign.toLowerCase())) return message.channel.send('That is not a valid sign!');
 
@@ -44,7 +44,7 @@ module.exports = class HoroscopeCommand extends Command {
 
         var horoscope = body.horoscope
         var replaced = horoscope.replace('(c) Kelli Fox, The Astrologer, http://new.theastrologer.com', "")
-    
+
         const embed = new Discord.MessageEmbed()
             .setColor('#5D7B9D')
             .setAuthor(`Horoscope for ${body.sunsign} on ${body.date}`, 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
@@ -53,6 +53,6 @@ module.exports = class HoroscopeCommand extends Command {
             .setFooter(`${message.author.username}'s Horoscope`)
             .addField('Mood', body.meta.mood, true)
             .addField("Intensity", body.meta.intensity, true);
-        return message.channel.send({embed});
-	}
+        return message.channel.send({ embed });
+    }
 }

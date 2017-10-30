@@ -20,11 +20,11 @@ module.exports = class FortuneCommand extends Command {
         });
     }
 
-    run (message) {      
+    run(message) {
         const embed = new Discord.MessageEmbed()
             .setAuthor(`${message.author.username}'s fortune`, "https://a.safe.moe/KBMis.png")
             .setDescription(fortune[Math.round(Math.random() * (fortune.length - 1))])
             .setColor('#FAC193');
-        return message.channel.send({embed});
-	}
+        return message.channel.send({ embed });
+    }
 }

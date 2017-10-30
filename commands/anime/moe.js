@@ -19,14 +19,14 @@ module.exports = class MoeCommand extends Command {
         });
     }
 
-    run (message) { 
+    run(message) {
         randomPuppy('awwnime')
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`awwnime`)
                     .setImage(url)
                     .setColor('#A187E0')
-                return message.channel.send({embed})
+                return message.channel.send({ embed })
             })
-        }
     }
+}

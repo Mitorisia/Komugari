@@ -14,7 +14,7 @@ module.exports = class NSFWCommandsCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         const embed = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
             .setDescription(`Use \`~help [command]\` for more details.`)
@@ -26,8 +26,8 @@ module.exports = class NSFWCommandsCommand extends Command {
             .addField("__3D NSFW:__", "`4knsfw` `artsyporn` `ass` `boobs`\n\`nsfw` `nsfwgif` `pornhub` `pussy`", true)
             .addField("__3D Fetish:__", "`asian` `amateur` `bdsm`\n\`cosplay` `grool` `lingerie`", true)
             .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `tbib` `yandere` `xbooru` `e621`");
-        message.channel.send({embed}).then(m=> {m.react('🎴')});
+        message.channel.send({ embed }).then(m => { m.react('🎴') });
 
         return null;
-	}
+    }
 }

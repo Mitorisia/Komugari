@@ -16,20 +16,18 @@ module.exports = class JishoCommand extends Command {
                 usages: 1,
                 duration: 10
             },
-            args: [
-				{
-					key: 'word',
-					prompt: 'Please provide me with a word to get the definition of!',
-					type: 'string'
-				}
-			]
+            args: [{
+                key: 'word',
+                prompt: 'Please provide me with a word to get the definition of!',
+                type: 'string'
+            }]
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         var { word } = args;
         var query = encodeURI(word);
-        
+
         var res = await snekfetch.get(`http://jisho.org/api/v1/search/words?keyword=${query}`).catch(console.error);
         var text = res.text || res.body.toString();
 
@@ -37,7 +35,7 @@ module.exports = class JishoCommand extends Command {
         if (jisho.data.length > 0) {
             var content = jisho.data[0];
             var senses = JSON.stringify(content.senses[0].english_definitions).replace(/\"/g, '').replace(/,/g, '\n');
-            senses = senses.substring(1, senses.length-1);
+            senses = senses.substring(1, senses.length - 1);
             senses = senses.replace(/^/gm, '・');
             senses = senses.replace(/\\/g, "")
 
@@ -46,10 +44,10 @@ module.exports = class JishoCommand extends Command {
                 .setColor('#9678D2')
                 .setFooter(content.japanese[0].reading)
                 .setDescription(senses);
-            return message.channel.send({embed});
-                  
-        } else { 
+            return message.channel.send({ embed });
+
+        } else {
             return message.channel.send(`No results found for **${query}**!`);
         }
-	}
+    }
 }

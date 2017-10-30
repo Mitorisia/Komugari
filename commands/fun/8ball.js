@@ -21,7 +21,7 @@ const answer = [
     "Very doubtful",
     "B-Baka! No!",
     "Yes daddy..."
-  ]
+]
 
 
 module.exports = class EightBallCommand extends Command {
@@ -41,18 +41,18 @@ module.exports = class EightBallCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         let question = message.content.split(/\s+/g).slice(1).join(" ");
-      
+
         if (!question) {
-          return message.channel.send('You must provide a question!');
+            return message.channel.send('You must provide a question!');
         }
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(question, 'https://a.safe.moe/aKDHV.png')
             .setDescription(answer[Math.round(Math.random() * (answer.length - 1))] + '.')
             .setColor('#646770');
-         return message.channel.send({embed});
-         
-        }
+        return message.channel.send({ embed });
+
+    }
 }

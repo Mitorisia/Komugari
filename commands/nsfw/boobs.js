@@ -22,14 +22,14 @@ module.exports = class BoobsCommand extends Command {
         });
     }
 
-    async run (message) {
+    async run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
 
         } else {
-        
+
             const id = [Math.floor(Math.random() * 10930)];
             const res = await snekfetch.get(`http://api.oboobs.ru/boobs/${id}`);
             const preview = res.body[0]["PREVIEW".toLowerCase()];
@@ -39,7 +39,7 @@ module.exports = class BoobsCommand extends Command {
                 .setFooter('http://oboobs.ru/')
                 .setImage(image)
                 .setColor('#CEA0A6');
-            return message.channel.send({embed});
+            return message.channel.send({ embed });
         }
-	}
+    }
 }

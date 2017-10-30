@@ -47,7 +47,7 @@ module.exports = class TsundereCommand extends Command {
         });
     }
 
-    run (message) {  
+    run(message) {
         return message.channel.send(tsun[Math.round(Math.random() * (tsun.length - 1))]);
-	}
+    }
 }

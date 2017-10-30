@@ -29,7 +29,7 @@ module.exports = class MemeCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
         randomPuppy(randSubreddit)
@@ -38,7 +38,7 @@ module.exports = class MemeCommand extends Command {
                     .setFooter(`${randSubreddit}`)
                     .setImage(url)
                     .setColor('#887064');
-                return message.channel.send({embed});
+                return message.channel.send({ embed });
             })
-        }
+    }
 }

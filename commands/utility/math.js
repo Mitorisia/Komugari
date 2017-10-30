@@ -16,28 +16,26 @@ module.exports = class MathCommand extends Command {
                 usages: 1,
                 duration: 5
             },
-            args: [
-				{
-					key: 'equation',
-					prompt: 'Please provide me with an equation to solve!',
-					type: 'string'
-				}
-			]
+            args: [{
+                key: 'equation',
+                prompt: 'Please provide me with an equation to solve!',
+                type: 'string'
+            }]
         });
     }
 
-    run (message, args) {
+    run(message, args) {
         var { equation } = args;
-            try {
-                var solution = math.eval(equation)
-            } catch(err) {
-                return message.channel.send(`❎ | I couldn\'t solve that equation! \`${err}\``)
-            } 
-            const embed = new Discord.MessageEmbed()
-                .setColor('#767CC1')
-                .setAuthor(equation, this.client.user.displayAvatarURL({format: 'png'}))
-                .setDescription(solution);
-            return message.channel.send({embed})
-        
-	}
+        try {
+            var solution = math.eval(equation)
+        } catch (err) {
+            return message.channel.send(`❎ | I couldn\'t solve that equation! \`${err}\``)
+        }
+        const embed = new Discord.MessageEmbed()
+            .setColor('#767CC1')
+            .setAuthor(equation, this.client.user.displayAvatarURL({ format: 'png' }))
+            .setDescription(solution);
+        return message.channel.send({ embed })
+
+    }
 }

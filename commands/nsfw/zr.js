@@ -20,14 +20,14 @@ module.exports = class ZrCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         randomPuppy('ZettaiRyouiki')
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`ZettaiRyouiki`)
                     .setImage(url)
                     .setColor('#A187E0');
-                return message.channel.send({embed});
+                return message.channel.send({ embed });
             })
-        }
+    }
 }

@@ -22,21 +22,21 @@ module.exports = class FutaCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
-        if(!message.channel.nsfw) {
+        if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
-        
+
         randomPuppy('futarani')
             .then(url => {
-                 const embed = new Discord.MessageEmbed()
+                const embed = new Discord.MessageEmbed()
                     .setFooter(`futa`)
                     .setImage(url)
                     .setColor('#A187E0');
-                return message.channel.send({embed});
-            
+                return message.channel.send({ embed });
+
             })
-        }
+    }
 }
