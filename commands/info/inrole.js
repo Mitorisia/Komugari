@@ -26,11 +26,11 @@ module.exports = class InRoleCommand extends Command {
         }
 
         run(message, args) {
-                let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
+            let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
 
-                if (!somethingThere) {
-                    var guildMembers = message.guild.members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
-                                return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
+            if (!somethingThere) {
+                var guildMembers = message.guild.members.filter(m => !m.role).sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
+                    return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
             }).join(', ')
 
             const embed = new Discord.MessageEmbed()
@@ -38,9 +38,9 @@ module.exports = class InRoleCommand extends Command {
                 .setDescription(guildMembers)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
                 .setColor('#9473DB');
-            return message.channel.send({embed})        
+            return message.channel.send({embed});
         }
-        
+
         const { role } = args;
         let members = role.members;
 
@@ -51,12 +51,12 @@ module.exports = class InRoleCommand extends Command {
         if(!allMembers) return message.channel.send('There are no members in that role!')
 
         if(allMembers.length > 2048) return message.channel.send('Too much members in that role! I couldn\'t send the information!');
-        
+
         const embed = new Discord.MessageEmbed()
             .setAuthor(`${role.name}`, message.guild.iconURL())
             .setColor(role.hexColor)
             .setDescription(allMembers)
-            .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());         
+            .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
         return message.channel.send(`Here's all the members with the ${role.name} role!`, {embed: embed});
 	}
 }
