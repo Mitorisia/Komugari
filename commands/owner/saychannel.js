@@ -37,7 +37,7 @@ module.exports = class SayChannelCommand extends Command {
             return null;
 
         } catch (err) {
-            return message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err.name}: ${err.message}\``);
+            return message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err}\``);
         }
     }
 }
