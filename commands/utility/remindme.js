@@ -35,31 +35,27 @@ module.exports = class RemindMeCommand extends Command {
 
     async run(message, { remind }) {
         const time = remind.startDate.getTime() - Date.now();
-        const preRemind = await message.channel.send(stripIndents `
-			I will remind you '${cleanContent(msg, remind.eventTitle)}' ${moment().add(time, 'ms').fromNow()}!
-		`);
+        const preRemind = await message.channel.send(`I will remind you **${cleanContent(message, remind.eventTitle)}** ${moment().add(time, 'ms').fromNow()}!`);
         const remindMessage = await new Promise(resolve => {
-            setTimeout(() => resolve(message.author.send(stripIndents `
-				:alarm: | ${cleanContent(msg, remind.eventTitle)}!
-			`)), time);
+            setTimeout(() => resolve(message.author.send(`⏰ | ${cleanContent(message, remind.eventTitle)}!`)), time);
         });
 
         return [preRemind, remindMessage];
     }
 };
 
-function cleanContent(msg, content) {
+function cleanContent(message, content) {
     return content.replace(/@everyone/g, '@\u200Beveryone')
         .replace(/@here/g, '@\u200Bhere')
         .replace(/<@&[0-9]+>/g, roles => {
             const replaceID = roles.replace(/<|&|>|@/g, '');
-            const role = msg.channel.guild.roles.get(replaceID);
+            const role = message.channel.guild.roles.get(replaceID);
 
             return `@${role.name}`;
         })
         .replace(/<@!?[0-9]+>/g, user => {
             const replaceID = user.replace(/<|!|>|@/g, '');
-            const member = msg.channel.guild.members.get(replaceID);
+            const member = message.channel.guild.members.get(replaceID);
 
             return `@${member.user.username}`;
         });

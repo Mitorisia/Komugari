@@ -29,9 +29,9 @@ module.exports = class InRoleCommand extends Command {
             let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
 
             if (!somethingThere) {
-                var guildMembers = message.guild.members.filter(m => !m.role).sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
+                var guildMembers = message.guild.members.sort((a, b) => a.user.tag.localeCompare(b.user.tag)).map(m => {
                     return `${m.user.tag}${(m.user.bot ? ' **`[BOT]`**' : '')}`
-            }).join(', ')
+                }).join(', ')
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`All Members in ${message.guild.name}`, message.guild.iconURL())

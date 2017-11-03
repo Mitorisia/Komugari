@@ -1,4 +1,4 @@
-const Command = require('../../commando');
+const { Command } = require('../../commando');
 
 
 module.exports = class LockdownCommand extends Command {
@@ -30,11 +30,11 @@ module.exports = class LockdownCommand extends Command {
     async run(message, args) { // eslint-disable-line consistent-return
         const { type } = args;
         if (type === 'start') {
-            await message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });
+            await message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false }, `Lockdown initiated by ${message.author.tag}`);
             return message.channel.send(`Lockdown has initiated! Most users are now unable to send a message in this channel!\n\Please use \`lockdown stop\` to end the lockdown!`);
 
         } else if (type === 'stop') {
-            await message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: null });
+            await message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: null }, `Lockdown terminated by ${message.author.tag}`);
             return message.channel.send('Lockdown ended!');
         }
     }

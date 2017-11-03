@@ -161,7 +161,7 @@ client.on("message", async message => {
 			.setDescription(message.content)
 			.setColor('#D48AD8')
 			.setTimestamp();
-		channel.send({embed});
+		channel.send({embed}).then(m => m.delete(3000));
 
 		return message.channel.send('Your message has been sent to the support server! https://discord.gg/dHqWWSS');
 	}

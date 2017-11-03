@@ -9,7 +9,7 @@ module.exports = class BotInfoCommand extends Command {
         super(client, {
             name: 'botinfo',
             aliases: ['stats', 'botstats'],
-            group: 'info',
+            group: 'core',
             memberName: 'botinfo',
             description: 'Shows some information about the running instance!',
             examples: ['~botinfo'],

@@ -7,7 +7,7 @@ module.exports = class DadJokeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'dadjoke',
-            aliases: ['dadpun'],
+            aliases: ['dadpun', 'joke', 'pun'],
             group: 'fun',
             memberName: 'dadjoke',
             guildOnly: true,
@@ -27,7 +27,7 @@ module.exports = class DadJokeCommand extends Command {
 
         try {
             const embed = new Discord.MessageEmbed()
-                .setAuthor(`Here's a dad joke!`, 'https://a.safe.moe/X1gKJ.png')
+                .setAuthor(`Here's a joke!`, 'https://a.safe.moe/X1gKJ.png')
                 .setDescription(joke.body.joke)
                 .setColor('#727684');
             return message.channel.send({ embed });
