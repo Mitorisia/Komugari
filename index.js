@@ -34,6 +34,10 @@ const Discord = require('discord.js');
 const auth = require("./auth.json");
 
 
+const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
+const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
+
+
 client.registry
     .registerDefaultTypes()
     .registerGroups([
@@ -85,29 +89,26 @@ client.on("ready", () => {
 
 
 client.on('guildCreate', guild => {
-            var channel = client.channels.get('367828773426429953')
+    var channel = client.channels.get('367828773426429953')
 
-            var online = guild.members.filter(m => m.user.presence.status === "online").size
-            var bots = guild.members.filter(m => m.user.bot).size
-            var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
+    var online = guild.members.filter(m => m.user.presence.status === "online").size
+    var bots = guild.members.filter(m => m.user.bot).size
+    var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
 
-            var textChannels = guild.channels.filter(c => c.type === 'text');
-            var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+    var textChannels = guild.channels.filter(c => c.type === 'text');
+    var voiceChannels = guild.channels.filter(c => c.type === 'voice');
 
-            const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
-            const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
-
-            const embed = new Discord.MessageEmbed()
-                .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
-                .setDescription(`Server infomation for **${guild.name}**`)
-                .setColor('#78AEE8')
-                .setThumbnail(guild.iconURL())
-                .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+    const embed = new Discord.MessageEmbed()
+        .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
+        .setDescription(`Server infomation for **${guild.name}**`)
+        .setColor('#78AEE8')
+        .setThumbnail(guild.iconURL())
+        .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
 		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()
 		.setFooter(`(${client.guilds.size})`);
-		return channel.send({embed});
+	return channel.send({embed});
 });
 
 client.on('guildDelete', guild => {
@@ -120,15 +121,12 @@ client.on('guildDelete', guild => {
 	var textChannels = guild.channels.filter(c => c.type === 'text');
 	var voiceChannels = guild.channels.filter(c => c.type === 'voice');
 
-	const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
-	const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
-
 	const embed = new Discord.MessageEmbed()
 		.setAuthor('Removed from a Server!', guild.iconURL())
 		.setColor('#898276')
 		.setThumbnail(guild.iconURL())
 		.setDescription(`Server infomation for **${guild.name}**`)
-		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} (${fromNow(guild.createdAt)})\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+		.addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
 		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()
@@ -154,6 +152,7 @@ client.on("message", async message => {
 	if(message.author.bot) return undefined;
 
 	if(message.channel.type == "dm") {
+		if(message.content.startsWith('~')) return;
 		var channel = client.channels.get('370719709110468609');
 
 		const embed = new Discord.MessageEmbed()
@@ -161,7 +160,7 @@ client.on("message", async message => {
 			.setDescription(message.content)
 			.setColor('#D48AD8')
 			.setTimestamp();
-		channel.send({embed}).then(m => m.delete(3000));
+		channel.send({embed});
 
 		return message.channel.send('Your message has been sent to the support server! https://discord.gg/dHqWWSS');
 	}

@@ -8,7 +8,6 @@ module.exports = class PornHubCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'pornhub',
-            aliases: ['ph'],
             group: 'nsfw',
             memberName: 'pornhub',
             guildOnly: true,

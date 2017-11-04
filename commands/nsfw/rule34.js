@@ -45,9 +45,9 @@ module.exports = class Rule34Command extends Command {
 
             }).catch(err => {
                 if (err.name === 'booruError') {
-                    return message.channel.send(`No results found for **${query}**.`);
+                    return message.channel.send(`No results found for **${query}**!`);
                 } else {
-                    return message.channel.send(`No results found for **${query}**.`);
+                    return message.channel.send(`No results found for **${query}**!`);
                 }
             })
     }

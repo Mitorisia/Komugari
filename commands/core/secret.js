@@ -29,10 +29,10 @@ module.exports = class SecretCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Core:__", "`botinfo` `ping` `uptime`")
-            .addField('__Moderation:__', '`hackban` `lockdown` `nuke` `pruneuser` `pruneword` `softban` `unban`', true)
+            .addField("__Core:__", "`botinfo` `ping` `support` `uptime`", true)
+            .addField("__Fun:__", "`iku`", true)            
+            .addField('__Moderation:__', '`addrole` `delrole` `hackban` `lockdown` `nickname`\n\`nuke` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`remindme`", true)
-            .addField("__Fun:__", "`iku`");
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 
         return null;

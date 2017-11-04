@@ -12,23 +12,12 @@ module.exports = class PruneCommand extends Command {
             guildOnly: true,
             clientPermissions: ['MANAGE_MESSAGES'],
             userPermissions: ['MANAGE_MESSAGES'],
-            examples: '~prune [all/images/bots/codeblocks/attachments/embeds] [1-100]',
+            examples: ['~prune [1-100] <all/images/bots/codeblocks/attachments/embeds>'],
             throttling: {
                 usages: 1,
                 duration: 10
             },
             args: [
-                {
-                key: 'type',
-                label: 'type of messages pruned',
-                prompt: 'Please provide me a valid type of message to prune!',
-                type: 'string',
-                default: "all",
-                validate: base => {
-                    if (['all', 'images', 'pics', 'image', 'bots', 'bot', 'codeblocks', 'code', 'attachments', 'attachment', 'files', 'file', 'embeds', 'embed'].includes(base.toLowerCase())) return true;
-                    return 'Please enter a valid type of message! `all` `images` `bots` `codeblocks` `embeds`';
-                },
-            },
                 {
                     key: 'count',
                     label: 'messages to be pruned',
@@ -38,13 +27,24 @@ module.exports = class PruneCommand extends Command {
                         if (count < 100 && count > 0) return true;
                         return 'I can\'t delete more than 100 messages at once!';
                         }
+                },
+                {
+                    key: 'type',
+                    label: 'type of messages pruned',
+                    prompt: 'Please provide me a valid type of message to prune!',
+                    type: 'string',
+                    default: "all",
+                    validate: base => {
+                        if (['all', 'images', 'pics', 'image', 'bots', 'bot', 'codeblocks', 'code', 'attachments', 'attachment', 'files', 'file', 'embeds', 'embed'].includes(base.toLowerCase())) return true;
+                        return 'Please enter a valid type of message! `all` `images` `bots` `codeblocks` `embeds`';
+                    },
                 }
         ]
         });
     }
 
     async run(message, args) {
-        const { type, count } = args;
+        const { count, type } = args;
 
         if(type == 'all') { 
             try {

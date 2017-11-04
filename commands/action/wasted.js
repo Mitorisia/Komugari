@@ -2,16 +2,16 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const actions = require('../../assets/json/actions.json');
 
-module.exports = class PatCommand extends Command {
+module.exports = class WastedCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'pat',
-            aliases: ['pet'],
+            name: 'wasted',
+            aliases: ['rekt', 'wrecked'],
             group: 'action',
-            memberName: 'pat',
+            memberName: 'wasted',
             guildOnly: true,
-            description: 'Pats the user you mentioned on the head!',
-            examples: ['~pat <user>'],
+            description: 'W A S T E D',
+            examples: ['~wasted <user>'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -24,21 +24,21 @@ module.exports = class PatCommand extends Command {
         if(!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.patP[Math.round(Math.random() * (actions.patP.length - 1))]);
-            return message.channel.send(`${message.author}, you can't pat yourself, but I'll pat you!`, {embed: embed});
+                .setImage(actions.wastedP[Math.round(Math.random() * (actions.wastedP.length - 1))]);
+            return message.channel.send(`${message.author} got wasted!`, {embed: embed});
     
         } else if(message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.patP[Math.round(Math.random() * (actions.patP.length - 1))]);
-            return message.channel.send(`${message.author}, you can't pat yourself, but I'll pat you!`, {embed: embed});
+                .setImage(actions.wastedP[Math.round(Math.random() * (actions.wastedP.length - 1))]);
+            return message.channel.send(`${message.author} got wasted!`, {embed: embed});
             
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.patP[Math.round(Math.random() * (actions.patP.length - 1))]);
-            return message.channel.send(`${message.author} pats ${recipient}!`, {embed: embed});    
+                .setImage(actions.wastedP[Math.round(Math.random() * (actions.wastedP.length - 1))]);
+            return message.channel.send(`${recipient} just got wasted!`, {embed: embed});    
         }
 	} 
 }

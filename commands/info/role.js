@@ -44,7 +44,7 @@ module.exports = class RoleCommand extends Command {
             .setColor(role.hexColor)
             .setThumbnail(message.guild.iconURL())
             .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
-            .addField('❯\u2000\Information', `•\u2000\**ID:** ${role.id}\n\•\u2000\**Created:** ${moment(role.createdAt).format('MMMM Do YYYY')} (${fromNow(role.createdAt)})\n\•\u2000\**Position:** ${message.guild.roles.size - role.position} out of ${message.guild.roles.size}\n\•\u2000\**Members:** ${role.members.size} users`, true)
+            .addField('❯\u2000\Information', `•\u2000\**ID:** ${role.id}\n\•\u2000\**Created:** ${moment(role.createdAt).format('MMMM Do YYYY')} \`(${fromNow(role.createdAt)})\`\n\•\u2000\**Position:** ${message.guild.roles.size - role.position} out of ${message.guild.roles.size}\n\•\u2000\**Members:** ${role.members.size} users`, true)
             .addField('❯\u2000\Miscellaneous', `•\u2000\**Hex Color:** ${role.hexColor}\n\•\u2000\**Hoisted:** ${role.hoist ? 'Yes' : 'No'}\n\•\u2000\**Mentionable:** ${role.mentionable ? 'Yes' : 'No'}\n\•\u2000\**Managed:** ${role.managed ? 'Yes' : 'No'}`, true)
             .addField('❯ Permissions', allowed)
         return message.channel.send(`Information for the role **${role.name}**!`, { embed: embed });

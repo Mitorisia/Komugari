@@ -9,7 +9,7 @@ module.exports = class AmateurCommand extends Command {
         super(client, {
             name: 'amateur',
             group: 'nsfw',
-            memberName: 'amatueur',
+            memberName: 'amateur',
             guildOnly: true,
             description: 'Finds?? Amateur...nsfw?? For you...??',
             details: 'This command can only be used in NSFW channels!',

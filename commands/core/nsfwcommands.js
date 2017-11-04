@@ -25,7 +25,7 @@ module.exports = class NSFWCommandsCommand extends Command {
             .addField("__2D Fetish:__", "`ahegao` `bara` `bondage`\n\`futa` `monstergirl` `paizuri`\n\`sukebei` `tentacle` `trap`", true)
             .addField("__3D NSFW:__", "`4knsfw` `artsyporn` `ass` `boobs`\n\`nsfw` `nsfwgif` `pornhub` `pussy`", true)
             .addField("__3D Fetish:__", "`asian` `amateur` `bdsm`\n\`cosplay` `grool` `lingerie`", true)
-            .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `konachan` `rule34` `tbib` `yandere` `xbooru` `e621`");
+            .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `hypno` `konachan` `paheal` `rule34` `tbib` `yandere` `xbooru` `e621`");
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 
         return null;

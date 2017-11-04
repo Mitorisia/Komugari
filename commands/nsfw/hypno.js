@@ -4,17 +4,17 @@ const booru = require('booru');
 const errors = require('../../assets/json/errors');
 
 
-module.exports = class XBooruCommand extends Command {
+module.exports = class HypnoCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'xbooru',
-            aliases: ['xb'],
+            name: 'hypno',
+            aliases: ['hypnohub', 'hh'],
             group: 'nsfw',
-            memberName: 'xbooru',
+            memberName: 'hypno',
             guildOnly: true,
-            description: 'Searches for images on xbooru!',
+            description: 'Searches for images on Hypnohub!',
             details: 'This command can only be used in NSFW channels!',
-            examples: ['~xbooru <search>'],
+            examples: ['~hypno <search>'],
             throttling: {
                 usages: 1,
                 duration: 3
@@ -32,16 +32,16 @@ module.exports = class XBooruCommand extends Command {
         if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
         var query = message.content.split(/\s+/g).slice(1).join(" ");
-
-        booru.search('xbooru', [query], { limit: 1, random: true })
+        booru.search('hh', [query], { limit: 1, random: true })
             .then(booru.commonfy)
             .then(images => {
                 for (let image of images) {
                     const embed = new Discord.MessageEmbed()
-                        .setAuthor(`xbooru ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`Hypnohub ${query}`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
                         .setColor('#E89F3E');
-                    return message.channel.send({ embed });
+                    message.channel.send({ embed });
+                    message.channel.send(image.common.file_url)
                 }
             }).catch(err => {
                 if (err.name === 'booruError') {
