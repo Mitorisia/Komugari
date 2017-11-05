@@ -5,7 +5,7 @@ module.exports = class SupportCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'support',
-            aliases: ['bug', 'bother', 'contact'],
+            aliases: ['bug', 'bother', 'contact', 'suggest'],
             group: 'core',
             memberName: 'support',
             guildOnly: true,
