@@ -29,9 +29,9 @@ module.exports = class DelRoleCommand extends Command {
     }
 
     async run(message, args) {
-        const { member, role } = args; 
-        if(!member.roles.has(role.id)) return message.channel.send(`❎ | **${member.displayName}** does not have have the role **${role.name}**!`)
-        
+        const { member, role } = args;
+        if (!member.roles.has(role.id)) return message.channel.send(`❎ | **${member.displayName}** does not have have the role **${role.name}**!`)
+
 
         try {
             await member.removeRole(role)
