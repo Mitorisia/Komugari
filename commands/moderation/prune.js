@@ -26,7 +26,7 @@ module.exports = class PruneCommand extends Command {
                     type: 'integer',
                     validate: count => {
                         if (count < 100 && count > 0) return true;
-                        return 'I can\'t delete more than 100 messages at once!';
+                        return 'I can\'t delete more than 99 messages at once!';
                     }
                 },
                 {
@@ -62,13 +62,20 @@ module.exports = class PruneCommand extends Command {
 
         if (type == 'images' || type == 'pics' || type == 'image') {
             try {
-                const messages = await message.channel.fetchMessages({
-                    limit: Math.min(count, 100),
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
                     before: message.id
                 })
-                const flushable = messages.filter(m => m.attachments.filter(a => a.height).length > 0 || ImageRegex.test(m.content))
-                await Promise.all(flushable.map(m => m.bulkDelete()))
-                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? 'image!' : 'images!'}`);
+                
+                const attachments = messages.filter(m => ImageRegex.test(m.content))
+                const urls = messages.filter(m => m.attachments.size > 0)
+                
+                const flushable = attachments.concat(urls)
+
+                await message.channel.bulkDelete(flushable)
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no images to prune in the last ${count} messages!`);
+
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'image!' : 'images!'}`);
 
                 return null;
             } catch (err) {
@@ -81,13 +88,15 @@ module.exports = class PruneCommand extends Command {
 
         if (type == 'bots' || type == 'bot') {
             try {
-                const messages = await message.channel.fetchMessages({
-                    limit: Math.min(count, 100),
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.author.bot)
-                await Promise.all(flushable.map(m => m.bulkDelete()))
-                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? 'bot message!' : 'bot messages!'}`);
+                await message.channel.bulkDelete(flushable)
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no bot messages to prune in the last ${count} messages!`)
+                
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'bot message!' : 'bot messages!'}`);
 
                 return null;
 
@@ -100,13 +109,13 @@ module.exports = class PruneCommand extends Command {
 
         if (type == 'codeblocks' || type == 'code') {
             try {
-                const messages = await message.channel.fetchMessages({
-                    limit: Math.min(count, 100),
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.content.startsWith('```'));
-                await Promise.all(flushable.map(m => m.bulkDelete()))
-                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? 'codeblock!' : 'codeblocks!'}`);
+                await message.channel.bulkDelete(flushable)
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'codeblock!' : 'codeblocks!'}`);
 
                 return null;
 
@@ -119,13 +128,13 @@ module.exports = class PruneCommand extends Command {
 
         if (type == 'attachments' || type == 'attachment' || type == 'files' || type == 'file') {
             try {
-                const messages = await message.channel.fetchMessages({
-                    limit: Math.min(count, 100),
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.attachments.length > 0)
-                await Promise.all(flushable.map(m => m.bulkDelete()))
-                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? 'attachment!' : 'attachments!'}`);
+                await message.channel.bulkDelete(flushable)
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'attachment!' : 'attachments!'}`);
 
                 return null;
 
@@ -138,13 +147,13 @@ module.exports = class PruneCommand extends Command {
 
         if (type == 'embeds' || type == 'embed') {
             try {
-                const messages = await message.channel.fetchMessages({
-                    limit: Math.min(count, 100),
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.embeds.length > 0)
-                await Promise.all(flushable.map(m => m.bulkDelete()))
-                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? 'embed!' : 'embeds!'}`);
+                await message.channel.bulkDelete(flushable)
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'embed!' : 'embeds!'}`);
 
                 return null;
 
@@ -157,13 +166,13 @@ module.exports = class PruneCommand extends Command {
 
         if (type == 'me') {
             try {
-                const messages = await message.channel.fetchMessages({
-                    limit: Math.min(count, 100),
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.id == message.author.id)
-                await Promise.all(flushable.map(m => m.bulkDelete()))
-                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} of your messages!`);
+                await message.channel.bulkDelete(flushable)
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** of your messages!`);
 
                 return null;
 

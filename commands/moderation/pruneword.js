@@ -30,27 +30,28 @@ module.exports = class PruneWordCommand extends Command {
                         }
                     },
                     {
-                        key: 'includes',
+                        key: 'inc',
                         label: 'the word included to be pruned',
                         prompt: 'Please provide me a word or phrase to prune!',
-                        type: 'string',
-                        default: "all"
+                        type: 'string'
                     }
                 ]
             });
         }
 
         async run(message, args) {
-                const { type, inc } = args;
+                const { count, inc } = args;
 
                 try {
-                    const messages = await message.channel.fetchMessages({
+                    const messages = await message.channel.messages.fetch({
                         limit: Math.min(count, 100),
                         before: message.id
                     })
                     const flushable = messages.filter(m => m.content.toLowerCase().includes(inc))
-                    await Promise.all(flushable.map(m => m.bulkDelete()))
-                    const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? `message containing the word **${inc}**!` : `messages containing the word **${inc}**`}`);
+                    if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no messages containing the word **${inc}** in the last ${count} messages!`);
+                    await message.channel.bulkDelete(flushable)
+
+                    const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned ${flushable.size} ${flushable.size == 1 ? `message containing the word **${inc}**!` : `messages containing the word **${inc}**!`}`);
 
             return null;
         } catch (err) {
