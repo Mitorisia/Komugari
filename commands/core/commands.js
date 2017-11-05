@@ -56,9 +56,8 @@ module.exports = class CommandsCommand extends Command {
             .addField("__3D Fetish:__", "`asian` `amateur` `bdsm`\n\`cosplay` `grool` `lingerie`", true)
             .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `hypno` `konachan` `paheal` `rule34` `tbib` `yandere` `xbooru` `e621`");
 
-        return new Promise(async(resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
     
-            //Post current period message and create collector
             const interactiveMessage = await message.channel.send({ embed: mainCommands });
             const collector = await interactiveMessage.createReactionCollector((reaction, user) => user.id === message.author.id);
 
