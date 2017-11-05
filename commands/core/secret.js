@@ -30,7 +30,7 @@ module.exports = class SecretCommand extends Command {
             .addField("__Owner-Only:__", "`eval` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
             .addField("__Core:__", "`botinfo` `ping` `support` `uptime`", true)
-            .addField("__Fun:__", "`iku`", true)            
+            .addField("__Fun:__", "`bird` `iku` `lizard`", true)
             .addField('__Moderation:__', '`addrole` `delrole` `hackban` `lockdown` `nickname`\n\`nuke` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`remindme`", true)
         message.channel.send({ embed }).then(m => { m.react('🎴') });
