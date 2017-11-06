@@ -2,14 +2,14 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 
 
-module.exports = class SecretCommand extends Command {
+module.exports = class ExtraCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'secret',
+            name: 'extras',
             guildOnly: true,
-            aliases: ['hidden', 'secrets', 'commands2', 'extra', 'extras', 'morecommands'],
+            aliases: ['hidden', 'secrets', 'commands2', 'secret', 'extras', 'morecommands', 'extra'],
             group: 'core',
-            memberName: 'secret',
+            memberName: 'extra',
             description: 'Hey look, more commands!',
             details: 'So very secret...',
             examples: ['~secret'],
@@ -22,16 +22,16 @@ module.exports = class SecretCommand extends Command {
 
     run(message) {
         const embed = new Discord.MessageEmbed()
-            .setAuthor("Secret Commands", 'https://a.safe.moe/Tr9Jr.png')
+            .setAuthor("Extra Commands", 'https://a.safe.moe/Tr9Jr.png')
             .setDescription(`Here's the not-so-secret and not-so-useful commands!`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `fleave` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Core:__", "`botinfo` `ping` `support` `uptime`", true)
+            .addField("__Core:__", "`botinfo` `uptime`", true)
             .addField("__Fun:__", "`bird` `iku` `lizard`", true)
-            .addField('__Moderation:__', '`addrole` `delrole` `hackban` `lockdown` `nickname`\n\`nuke` `pruneuser` `pruneword` `softban` `unban`', true)
+            .addField('__Moderation:__', '`addrole` `delrole` `ban` `hackban` `kick` `lockdown` `nickname`\n\`nuke` `massadd` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`remindme`", true)
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 

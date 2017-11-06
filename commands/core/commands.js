@@ -5,11 +5,16 @@ module.exports = class CommandsCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'commands',
-            aliases: ['command'],
+            aliases: ['command', 'cmds', 'cmd'],
             group: 'core',
             memberName: 'commands',
             description: 'Sends a list of all commands!',
-            examples: ['~commands']
+            details: 'Use the reactions to scroll through the panels!',
+            examples: ['~commands'],
+            throttling: {
+                usages: 1,
+                duration: 10
+            }
         });
     };
 
@@ -21,8 +26,7 @@ module.exports = class CommandsCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter(`Click the reactions to check out other commands!`)
-            .addField("__Core:__", "`commands` `nsfwcommands` `help` `invite`", true)
-            .addField("__Moderation:__", "`ban` `kick` `prune`", true)
+            .addField("__Core:__", "`commands` `nsfwcommands` `extras` `help` `invite` `ping` `support`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
             .addField("__Info:__", "`avatar` `emoji` `channel` `discim`\n\`inrole` `role` `server` `user`", true)
             .addField("__Fun:__", "`8ball` `advice` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pasta` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
@@ -32,14 +36,14 @@ module.exports = class CommandsCommand extends Command {
             .addField("__NSFW:__", "Hentai, boobs, porn, gifs, image boards, lewd nekos... \n\Say **~nsfwcommands** to see them all!");
 
         const secretCommands = new Discord.MessageEmbed()
-            .setAuthor("Secret Commands", 'https://a.safe.moe/Tr9Jr.png')
-            .setDescription(`Here's the not-so-secret and not-so-useful commands!`)
+            .setAuthor("Extra Commands", 'https://a.safe.moe/Tr9Jr.png')
+            .setDescription(`Moderation and Added Fun!`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Core:__", "`botinfo` `ping` `support` `uptime`", true)
             .addField("__Fun:__", "`bird` `iku` `lizard` `magik`", true)            
-            .addField('__Moderation:__', '`addrole` `delrole` `hackban` `lockdown` `nickname`\n\`nuke` `pruneuser` `pruneword` `softban` `unban`', true)
+            .addField('__Moderation:__', '`addrole` `delrole` `ban` `hackban` `kick` `lockdown` `nickname`\n\`nuke` `massadd` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`remindme`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
@@ -92,11 +96,12 @@ module.exports = class CommandsCommand extends Command {
                 await r.remove(message.author.id); //Delete user reaction         
                 timeout = setTimeout(function() {
                     collector.stop('timeout');
-                }, 120000);
+                }, 120000); 
             });
             //--------------------------On collector end-----------------------------------------------
             collector.on('end', async(collected, reason) => {
-                return resolve(interactiveMessage.delete());
+                interactiveMessage.clearReactions()
+                return resolve(interactiveMessage.edit('⏏ | This message is no longer active! Use `~commands` to generate a new one!', {embed: mainCommands}));
             });
         });
         

@@ -60,7 +60,7 @@ module.exports = class NukeCommand extends Command {
                     if (!msgs.size || !['y', 'yes'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!');
                     if (['n', 'no'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!')
 
-                    statusMsg2 = await message.channel.send('Launching cybernuke...!');
+                    statusMsg2 = await message.channel.send('🚀 | Launching cybernuke...!');
                 }
                 /* eslint-enable no-await-in-loop */
 
@@ -89,7 +89,7 @@ module.exports = class NukeCommand extends Command {
                         .then(() => {
                             if (members.size <= 5) return;
                             if (promises.length % 5 === 0) {
-                                statusMsg2.edit(`Launching cybernuke (${Math.round(promises.length / members.size * 100)}%)...`);
+                                statusMsg2.edit(`🚀 | Launching cybernuke (${Math.round(promises.length / members.size * 100)}%)...`);
                             }
                         })
                     );

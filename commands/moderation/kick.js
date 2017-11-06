@@ -41,9 +41,9 @@ module.exports = class KickCommand extends Command {
         if (member.id === this.client.user.id) return message.channel.send('Please don\'t kick me...!');
         if (member.id === message.author.id) return message.channel.send('I wouldn\'t dare kick you...!');
         if (member.highestRole.calculatedPosition > message.member.highestRole.calculatedPosition - 1) {
-            return message.channel.send(`❎ | You can't kick **${member}**! Their position is higher than you!`);
+            return message.channel.send(`❎ | You can't kick **${member.username}**! Their position is higher than you!`);
         }
-        if (!member.kickable) return message.channel.send(`❎ | I can't kick **${member}**! Their role is higher than mine!`);
+        if (!member.kickable) return message.channel.send(`❎ | I can't kick **${member.username}**! Their role is higher than mine!`);
 
         await message.channel.send(`Are you sure you want to kick **${member.user.tag}**? \`(y/n)\``);
         const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
