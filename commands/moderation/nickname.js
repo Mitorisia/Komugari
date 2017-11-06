@@ -32,9 +32,9 @@ module.exports = class nickCommand extends Command {
     async run(message, args) {
         const { member, nickname } = args;
         if (member.highestRole.calculatedPosition > message.member.highestRole.calculatedPosition - 1) {
-            return message.channel.send(`❎ | You can't change the nickname of **${member.user.username}**! Their position is higher than you!`);
+            return message.channel.send(`❎ | You can't change **${member.user.username}**'s nickname! Their position is higher than you!`);
         }
-        if (!member.bannable) return message.channel.send(`❎ | I can't change the nickname of **${member.user.username}**! Their role is higher than mine!`);
+        if (!member.bannable) return message.channel.send(`❎ | I can't change **${member.user.username}**'s nickname! Their role is higher than mine!`);
 
         return await nickname !== 'clear' ? member.setNickname(nickname).then(() => message.say(`The nickname **${nickname}** has been assigned to **${member.user.username}**!`)) : member.setNickname('').then(() => message.say(`**${member.displayName}**'s nickname has been cleared!`));
     };

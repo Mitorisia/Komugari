@@ -31,7 +31,7 @@ module.exports = class ExtraCommand extends Command {
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
             .addField("__Core:__", "`botinfo` `uptime`", true)
             .addField("__Fun:__", "`bird` `iku` `lizard`", true)
-            .addField('__Moderation:__', '`addrole` `delrole` `ban` `hackban` `kick` `lockdown` `nickname`\n\`nuke` `massadd` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
+            .addField('__Moderation:__', '`addrole` `delrole` `ban` `hackban` `kick` `lockdown` `nickname`\n\`nuke` `massadd` `massrem` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`remindme`", true)
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 

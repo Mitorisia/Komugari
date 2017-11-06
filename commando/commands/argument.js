@@ -150,9 +150,9 @@ class Argument {
 				${!value ? `**${this.prompt}**` : valid ? valid : `You provided an invalid **${this.label}**! Please try again!`}
 				${oneLine`
 					Respond with \`cancel\` to cancel the command,
-					${wait ? `the command will automatically be cancelled in ${this.wait} seconds!` : ''}
+					${wait ? `which will automatically be cancelled in ${this.wait} seconds!` : ''}
 				`}
-			`));
+			`))
 
 			// Get the user's response
 			const responses = await msg.channel.awaitMessages(msg2 => msg2.author.id === msg.author.id, {
@@ -238,7 +238,7 @@ class Argument {
 						`}
 						${oneLine`
 							Respond with \`cancel\` to cancel the command, or \`finish\` to finish entry up to this point.
-							${wait ? `The command will automatically be cancelled in ${this.wait} seconds.` : ''}
+							${wait ? `Which will automatically be cancelled in ${this.wait} seconds.` : ''}
 						`}
 					`));
 				} else if(results.length === 0) {
@@ -246,7 +246,7 @@ class Argument {
 						${this.prompt}
 						${oneLine`
 							Respond with \`cancel\` to cancel the command, or \`finish\` to finish your entry!
-							${wait ? `The command will automatically be cancelled in ${this.wait} seconds, unless you respond.` : ''}
+							${wait ? `Which will automatically be cancelled in ${this.wait} seconds, unless you respond.` : ''}
 						`}
 					`));
 				}

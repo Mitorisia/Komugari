@@ -41,9 +41,9 @@ module.exports = class BanCommand extends Command {
         if (member.id === this.client.user.id) return message.channel.send('Please don\'t ban me...!');
         if (member.id === message.author.id) return message.channel.send('I wouldn\'t dare ban you...!');
         if (member.highestRole.calculatedPosition > message.member.highestRole.calculatedPosition - 1) {
-            return message.channel.send(`❎ | You can't ban **${member.username}**! Their position is higher than you!`);
+            return message.channel.send(`❎ | You can't ban **${member.user.username}**! Their position is higher than you!`);
         }
-        if (!member.bannable) return message.channel.send(`❎ | I can't ban **${member.username}**! Their role is higher than mine!`);
+        if (!member.bannable) return message.channel.send(`❎ | I can't ban **${member.user.username}**! Their role is higher than mine!`);
 
         await message.channel.send(`Are you sure you want to ban **${member.user.tag}**? \`\`(y/n)\`\``);
         const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
