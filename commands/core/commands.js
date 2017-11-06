@@ -37,8 +37,6 @@ module.exports = class CommandsCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
-            .addField("__Owner-Only:__", "`eval` `reload`", true)
-            .addField("__Bot Admin-Only:__", "`saychannel`", true)
             .addField("__Core:__", "`botinfo` `ping` `support` `uptime`", true)
             .addField("__Fun:__", "`bird` `iku` `lizard` `magik`", true)            
             .addField('__Moderation:__', '`addrole` `delrole` `hackban` `lockdown` `nickname`\n\`nuke` `pruneuser` `pruneword` `softban` `unban`', true)

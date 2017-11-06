@@ -1,6 +1,6 @@
 {
     "name": "komugari",
-    "version": "0.6.5",
+    "version": "0.7.0",
     "description": "A simple, multi-functional Discord bot with a focus around anime and NSFW!",
     "main": "index.js",
     "scripts": {

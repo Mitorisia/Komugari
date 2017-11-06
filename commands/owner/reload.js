@@ -10,7 +10,7 @@ module.exports = class ReloadCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'reload',
-            aliases: ['reload-command'],
+            aliases: ['reload-command', 'rl', 'load'],
             group: 'owner',
             memberName: 'reload',
             description: 'Reloads a command or command group.',

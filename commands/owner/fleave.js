@@ -14,9 +14,16 @@ module.exports = class FLeaveCommand extends Command {
             args: [{
                 key: 'toLeave',
                 label: 'toLeave',
-                prompt: 'What guild would you like to leave?',
+                prompt: 'Please specify a guild to leave!',
                 type: 'string'
-            }],
+            },
+            {
+                key: 'reason',
+                label: 'reason',
+                prompt: 'For what reason am I leaving the server?',
+                type: 'string'
+            }
+        ],
         });
     }
 
@@ -27,11 +34,13 @@ module.exports = class FLeaveCommand extends Command {
     async run(message, args) {
 
         let guild = this.client.guilds.get(args.toLeave)
+        let reason = args.reason
+        const defaultChannel = guild.channels.find(c => c.permissionsFor(guild.me).has('SEND_MESSAGES'));
 
         try {
-            guild.defaultChannel.send('**ALERT:** Your guild has been marked as an illegal guild. \nThis may be due to it being marked as a bot guild or marked as a spam guild. \nThe bot will now leave this server. \nIf you wish to speak to my developer, you may join here: https://discord.gg/6P6MNAU')
+            defaultChannel.send(`👋 My developer has requested that I leave this server!\n\**Reason:** ${args.reason}`)
             guild.leave()
-            return message.reply('')
+            return message.channel.send(`Successfully left the guild **${guild.name}**!`)
         } catch (err) {
             return message.channel.send(`There was an error leaving the specified guild! \`${err}\``)
         }
