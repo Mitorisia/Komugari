@@ -63,7 +63,8 @@ module.exports = class BanCommand extends Command {
             days: 7,
             reason: `${message.author.tag}: ${reason}`
         });
-        await message.channel.send(`Successfully banned ${member.user.tag}! 👋`);
+
+        return await message.channel.send(`**${message.author.username}**, successfully banned ${member.user.tag}! 👋`);
 
     }
 }

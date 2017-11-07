@@ -60,7 +60,7 @@ module.exports = class KickCommand extends Command {
         }
 
         await member.kick(`${message.author.tag}: ${reason}`);
-        return message.channel.send(`Successfully kicked **${member.user.tag}**! 👋`);
+        return message.channel.send(`**${message.author.username}**, successfully kicked **${member.user.tag}**! 👋`);
 
     }
 }
