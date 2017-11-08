@@ -10,7 +10,7 @@ const moment = require('moment');
 const tz = require('moment-timezone');
 const snekfetch = require('snekfetch')
 
-const { CommandoClient } = require('./commando'); 
+const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
     commandPrefix: '~',
     owner: '180050347589369856',
@@ -82,7 +82,7 @@ client.on("ready", () => {
     const embed = new Discord.MessageEmbed()
         .setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
         .setColor('#727293')
-        .setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!`)
+        .setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!\n\**Commands:** `)
         .setTimestamp();
     channel.send({ embed });
 });
