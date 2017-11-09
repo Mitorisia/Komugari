@@ -26,7 +26,7 @@ module.exports = class MagikCommand extends Command {
 
         const args = message.content.split(" ").slice(1)
 
-        const msg = await message.channel.send('🔄 Adding a hint of magik...')
+        const msg = await message.channel.send('🔄 | Adding a hint of magik...')
 
         let avatarurl = (message.mentions.users.size > 0 ? message.mentions.users.first().displayAvatarURL({ format: 'png', size: 512 }) : message.author.displayAvatarURL({ format: 'png', size: 512 })).replace('gif', 'png');
         if (['jpg', 'jpeg', 'gif', 'png', 'webp'].some(x => args.join(' ').includes(x))) {
