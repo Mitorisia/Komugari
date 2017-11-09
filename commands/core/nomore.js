@@ -39,6 +39,6 @@ module.exports = class NoMoreCommand extends Command {
             await message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> | **${message.author.username}**, there was an error trying to make this channel into a SFW channel! \`${err}\``);
         }
 
-        return await message.channel.send(`**${message.author.username}**, successfully made **${message.channel.name}** into a SFW channel!`);
+        return await message.channel.send(`✅ | **${message.author.username}**, successfully made **${message.channel.name}** into a SFW channel!`);
 	}
 }

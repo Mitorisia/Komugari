@@ -39,6 +39,6 @@ module.exports = class HowToCommand extends Command {
             await message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> | **${message.author.username}**, there was an error trying to make this channel into an NSFW channel! \`${err}\``);
         }
 
-        return await message.channel.send(`**${message.author.username}**, successfully made **${message.channel.name}** into an NSFW channel!`);
+        return await message.channel.send(`✅ | **${message.author.username}**, successfully made **${message.channel.name}** into an NSFW channel!`);
 	}
 }
