@@ -25,7 +25,7 @@ module.exports = class CommandsCommand extends Command {
             .setDescription(`Use \`~help [command]\` for more details.`)
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
-            .setFooter(`Click the reactions to check out other commands!`)
+            .setFooter(`Click the reactions to check out other commands! (${this.client.registry.commands.size})`)
             .addField("__Core:__", "`commands` `nsfwcommands` `extras` `help` `invite` `ping` `support`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
             .addField("__Info:__", "`avatar` `emoji` `channel` `discim`\n\`inrole` `role` `server` `user`", true)

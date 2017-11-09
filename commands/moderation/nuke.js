@@ -6,7 +6,7 @@ module.exports = class NukeCommand extends Command {
         constructor(client) {
             super(client, {
                 name: 'nuke',
-                aliases: ['cybernuke', 'massban'],
+                aliases: ['cybernuke'],
                 group: 'moderation',
                 memberName: 'nuke',
                 description: 'Bans all members that have joined recently, with new accounts!',

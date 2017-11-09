@@ -167,51 +167,21 @@ client.on("message", async message => {
 
 	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) return undefined;
 
-		try {
-			if(message.content.toUpperCase().includes('PRESS F')) {
-				message.react('🇫');
-				return null;
-			}
 
-			if(message.content.toUpperCase().includes('NYA')) {
-				message.react('🐱');
-				return null;
-			}
+	if(message.content.toUpperCase().includes('PRESS F')) {
+		message.react('🇫');
+		return null;
+	}
 
-			if(message.content.toUpperCase().includes('BAKA')) {
-				message.react('💢');
-				return null;
-			}
+	if(message.content.toUpperCase().includes('NYA')) {
+		message.react('🐱');
+		return null;
+	}
 
-			//time formatting for private use
-
-			var serverIDs = ['198399488614727680', '202075400225030144']
-
-			if(message.content.startsWith('<@365907645795794946> keyreen') || message.content.startsWith('<@!365907645795794946> keyreen')) {
-				if (serverIDs.indexOf(message.guild.id) > -1) {
-
-					var timeZone = moment(moment().format());
-					var spetTime = timeZone.tz('America/Toronto').format('MMM Do, HH:mm');
-					var keyreenTime = timeZone.tz('Europe/Kiev').format('MMM Do, HH:mm');
-					var kodicksTime = timeZone.tz('Asia/Manila').format('MMM Do, HH:mm');
-
-					var embed = new Discord.MessageEmbed()
-						.setColor('#8FB3C3')
-						.addField('keyreen', keyreenTime)
-						.addField('kodicks', kodicksTime)
-						.addField('spet', spetTime)
-						.setThumbnail('https://cdn.discordapp.com/emojis/358680862734286873.png')
-					return message.channel.send({embed})
-				} else {
-					return message.channel.send('<:KeyreenShrug:358696826314162189>')
-				}
-			}
-
-		} catch(err) {
-			console.log(err)
-			return message.channel.send("<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that function!")
-		}
-
+	if(message.content.toUpperCase().includes('BAKA')) {
+		message.react('💢');
+		return null;
+	}
 });
 
 function fromNow(date) {
