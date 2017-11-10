@@ -32,6 +32,7 @@ const client = new CommandoClient({
 const Discord = require('discord.js');
 
 const auth = require("./auth.json");
+const { fromNow } =  require('./commands/utils')
 
 
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
@@ -70,13 +71,14 @@ setInterval(function() {
 }, 500000); // prevents sleeping
 */
 
+let beginTime;
+
 //ready and game status, message ready to main server
 client.on("ready", () => {
+
     //client.user.setActivity('with you | ~help')
 
     client.user.setActivity('I am still incomplete! Take caution, uptime is never guaranteed!')
-
-    console.log(`Komugari is live and ready in ${client.guilds.size} guilds.`);
 
     var channel = client.channels.get('367828468366573570');
     const embed = new Discord.MessageEmbed()
@@ -84,7 +86,10 @@ client.on("ready", () => {
         .setColor('#727293')
         .setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!\n\**Commands:** ${client.registry.commands.size}`)
         .setTimestamp();
-    channel.send({ embed });
+	channel.send({ embed });
+	
+	const elapsedTime = process.hrtime(beginTime)
+	console.log(`Komugari is live and ready in ${client.guilds.size} guilds. Taken ${Math.floor((elapsedTime[0] * 1e9 + elapsedTime[1]) / 1e9)}s!`);	
 });
 
 
@@ -183,20 +188,5 @@ client.on("message", async message => {
 		return null;
 	}
 });
-
-function fromNow(date) {
-	if (!date) {
-		return false;
-	  }
-
-	  const ms = new Date().getTime() - date.getTime();
-
-	  if (ms >= 86400000) {
-		const days = Math.floor(ms / 86400000);
-		return `${days} day${days !== 1 ? 's' : ''} ago`;
-	  }
-
-	  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
-}
 
 client.login(process.env.TOKEN);

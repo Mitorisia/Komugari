@@ -1,8 +1,9 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const moment = require('moment')
-const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
-const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages']
+const moment = require('moment');
+const { fromNow } =  require('../utils');
+const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'];
+const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages'];
 
 
 module.exports = class ServerCommand extends Command {
@@ -43,18 +44,3 @@ module.exports = class ServerCommand extends Command {
         return message.channel.send({embed});
 	}
 }
-
-function fromNow(date) {
-			if (!date) {
-				return false;
-			  }
-			
-			  const ms = new Date().getTime() - date.getTime();
-			
-			  if (ms >= 86400000) {
-				const days = Math.floor(ms / 86400000);
-				return `${days} day${days !== 1 ? 's' : ''} ago`;
-			  }
-			
-			  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
-        }

@@ -9,7 +9,7 @@ module.exports = class ExtraCommand extends Command {
             guildOnly: true,
             aliases: ['hidden', 'secrets', 'commands2', 'secret', 'extras', 'morecommands', 'extra'],
             group: 'core',
-            memberName: 'extra',
+            memberName: 'extras',
             description: 'Hey look, more commands!',
             details: 'So very secret...',
             examples: ['~secret'],
@@ -29,10 +29,10 @@ module.exports = class ExtraCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `fleave` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Core:__", "`botinfo` `howto` `nomore` `ping`", true)
-            .addField("__Fun:__", "`bird` `iku` `lizard`", true)
+            .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
+            .addField("__Fun:__", "`bird` `lizard`", true)
             .addField('__Moderation:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`remindme`", true)
+            .addField("__Utility:__", "`emoji` `remindme`", true)
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 
         return null;

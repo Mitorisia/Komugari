@@ -28,7 +28,7 @@ module.exports = class CommandsCommand extends Command {
             .setFooter(`Click the reactions to check out other commands! (${this.client.registry.commands.size})`)
             .addField("__Core:__", "`commands` `nsfwcommands` `extras` `help` `invite` `ping` `support`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
-            .addField("__Info:__", "`avatar` `emoji` `channel` `discim`\n\`inrole` `role` `server` `user`", true)
+            .addField("__Info:__", "`avatar` `edits` `channel` `discim`\n\`inrole` `role` `server` `user`", true)
             .addField("__Fun:__", "`8ball` `advice` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pasta` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
             .addField("__Anime:__", "`anime` `neko` `manga` `moe` `booru` `waifu`", true)
             .addField("__Music:__", "`listen` `np` `stop`", true)
@@ -41,10 +41,10 @@ module.exports = class CommandsCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
-            .addField("__Core:__", "`botinfo` `howto` `nomore` `ping`", true)
-            .addField("__Fun:__", "`bird` `iku` `lizard` `magik`", true)            
+            .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
+            .addField("__Fun:__", "`bird` `lizard` `magik`", true)            
             .addField('__Moderation:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`remindme`", true);
+            .addField("__Utility:__", "`emoji` `remindme`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -90,7 +90,7 @@ module.exports = class CommandsCommand extends Command {
 
                 } else if (r.emoji.name === "❌") {
 
-                    collector.stop('aborted');
+                    return await interactiveMessage.delete()
                 }
 
                 await r.remove(message.author.id); //Delete user reaction         
