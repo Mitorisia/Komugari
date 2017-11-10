@@ -6,7 +6,7 @@ module.exports = class MuteCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'mute',
-            aliases: ['deafen', 'shutup'],
+            aliases: ['deafen', 'shutup', 'silent', 'shh', 'shut'],
             group: 'moderation',
             memberName: 'mute',
             guildOnly: true,
