@@ -25,6 +25,7 @@ module.exports = class ZrCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`ZettaiRyouiki`)
+                    .setDescription(`[Image URL](${url})`)
                     .setImage(url)
                     .setColor('#A187E0');
                 return message.channel.send({ embed });

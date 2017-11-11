@@ -44,6 +44,7 @@ module.exports = class NSFWCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`${randSubreddit}`)
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
                     .setColor('#CEA0A6');
                 return message.channel.send({ embed });

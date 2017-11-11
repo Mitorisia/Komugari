@@ -38,6 +38,7 @@ module.exports = class PahealCommand extends Command {
                 for (let image of images) {
                     const embed = new Discord.MessageEmbed()
                         .setAuthor(`Paheal ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setDescription(`[Image URL](${image.common.file_url})`)
                         .setImage(image.common.file_url)
                         .setColor('#E89F3E');
                     return message.channel.send({ embed });
