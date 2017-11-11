@@ -8,7 +8,7 @@
 require('dotenv').config()
 const moment = require('moment');
 const tz = require('moment-timezone');
-const snekfetch = require('snekfetch')
+const snekfetch = require('snekfetch');
 
 const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
