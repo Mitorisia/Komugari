@@ -4,47 +4,47 @@ const moment = require('moment');
 const { fromNow } = require('../../commando/util')
 
 module.exports = class ChannelCommand extends Command {
-        constructor(client) {
-            super(client, {
-                name: 'channel',
-                aliases: ['channels', 'channelinfo'],
-                group: 'info',
-                guildOnly: true,
-                memberName: 'channel',
-                description: 'Displays all channels of the server, or gives information on a channel!',
-                examples: ['~channel <channel name>'],
-                throttling: {
-                    usages: 1,
-                    duration: 3
-                },
-                args: [{
-                    key: 'channel',
-                    prompt: 'Please provide me with a channel to get the information of!',
-                    type: 'channel',
-                    default: ''
-                }]
-            });
-        }
+    constructor(client) {
+        super(client, {
+            name: 'channel',
+            aliases: ['channels', 'channelinfo'],
+            group: 'info',
+            guildOnly: true,
+            memberName: 'channel',
+            description: 'Displays all channels of the server, or gives information on a channel!',
+            examples: ['~channel <channel name>'],
+            throttling: {
+                usages: 1,
+                duration: 3
+            },
+            args: [{
+                key: 'channel',
+                prompt: 'Please provide me with a channel to get the information of!',
+                type: 'channel',
+                default: ''
+            }]
+        });
+    }
 
-        run(message, args) {
-            let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
+    run(message, args) {
+        let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
 
-            const channelCategory = message.guild.channels.filter(c => c.type === 'category')
-            const textChannels = message.guild.channels.filter(c => c.type === 'text')
-            const voiceChannels = message.guild.channels.filter(c => c.type === 'voice')
+        const channelCategory = message.guild.channels.filter(c => c.type === 'category')
+        const textChannels = message.guild.channels.filter(c => c.type === 'text')
+        const voiceChannels = message.guild.channels.filter(c => c.type === 'voice')
 
-            const sortPos = (a, b) => a.position - b.position;
+        const sortPos = (a, b) => a.position - b.position;
 
-            if (!somethingThere) {
-                const hasPerm = (c, perms) => c.permissionsFor(message.member).has(perms)
-                const f = t => ` **\`[${t}]\`**`
-                const displayPerms = c => `${!hasPerm(c, 'SEND_MESSAGES') && c instanceof Discord.TextChannel ? f('NO SEND') : ''}${!hasPerm(c, 'CONNECT') && c instanceof Discord.VoiceChannel ? f('NO CONNECT') : ''}${!hasPerm(c, 'VIEW_CHANNEL') ? f('NO VIEW') : ''}`
-                const isAFK = c => c.id === message.guild.afkChannelID;
+        if (!somethingThere) {
+            const hasPerm = (c, perms) => c.permissionsFor(message.member).has(perms)
+            const f = t => ` **\`[${t}]\`**`
+            const displayPerms = c => `${!hasPerm(c, 'SEND_MESSAGES') && c instanceof Discord.TextChannel ? f('NO SEND') : ''}${!hasPerm(c, 'CONNECT') && c instanceof Discord.VoiceChannel ? f('NO CONNECT') : ''}${!hasPerm(c, 'VIEW_CHANNEL') ? f('NO VIEW') : ''}`
+            const isAFK = c => c.id === message.guild.afkChannelID;
 
-                var description = [].concat(
+            var description = [].concat(
 
-                    `**❯\u2000\Text channels [${textChannels.size}]:**`,
-                    channelCategory.sort(sortPos).map(c => `•\u2000**${c.name}** [${c.children.size}]\n${textChannels.filter(d => d.parentID === c.id).sort(sortPos).map(d => (`#\u2000${d.name}${displayPerms(d)}\n`)).join("")}`),
+                `**❯\u2000\Text channels [${textChannels.size}]:**`,
+                channelCategory.sort(sortPos).map(c => `•\u2000**${c.name}** [${c.children.size}]\n${textChannels.filter(d => d.parentID === c.id).sort(sortPos).map(d => (`#\u2000${d.name}${displayPerms(d)}\n`)).join("")}`),
                 textChannels.filter(e => e.parentID === null || e.parentID === undefined).sort(sortPos).map(c => c ? `#\u2000${c.name}${displayPerms(c)}` : ""),
                 
                 `**❯\u2000\Voice channels [${voiceChannels.size}]:**`,

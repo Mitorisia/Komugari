@@ -29,14 +29,15 @@ module.exports = class FutaCommand extends Command {
             return message.channel.send(errMessage);
         }
 
-        randomPuppy('futarani')
-            .then(url => {
-                const embed = new Discord.MessageEmbed()
-                    .setFooter(`futa`)
-                    .setImage(url)
-                    .setColor('#A187E0');
-                return message.channel.send({ embed });
+        randomPuppy('futanari')
+        .then(url => {
+            const embed = new Discord.MessageEmbed()
+                .setFooter(`futanari`)
+                .setImage(url)
+                .setColor('#A187E0');
+            return message.channel.send({ embed });
+        })
 
-            })
+        return null;
     }
 }

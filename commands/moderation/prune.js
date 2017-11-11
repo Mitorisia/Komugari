@@ -2,6 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 
 const ImageRegex = /(?:([^:/?#]+):)?(?:\/\/([^\/?#]*))?([^?#]*\.(?:png|jpe?g|gifv?|webp|bmp|tiff|jfif))(?:\?([^#]*))?(?:#(.*))?/gi;
+const LinkRegex = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 
 module.exports = class PruneCommand extends Command {
     constructor(client) {
@@ -14,7 +15,7 @@ module.exports = class PruneCommand extends Command {
             guildOnly: true,
             clientPermissions: ['MANAGE_MESSAGES'],
             userPermissions: ['MANAGE_MESSAGES'],
-            examples: ['~prune [1-100] <all/images/bots/codeblocks/attachments/embeds/me>'],
+            examples: ['~prune [1-100] <all/images/links/bots/codeblocks/attachments/embeds/me>'],
             throttling: {
                 usages: 1,
                 duration: 10
@@ -36,8 +37,8 @@ module.exports = class PruneCommand extends Command {
                     type: 'string',
                     default: "all",
                     validate: base => {
-                        if (['all', 'images', 'pics', 'image', 'bots', 'bot', 'codeblocks', 'code', 'attachments', 'attachment', 'files', 'file', 'embeds', 'embed', 'me'].includes(base.toLowerCase())) return true;
-                        return 'Please enter a valid type of message! `all` `images` `bots` `codeblocks` `embeds`';
+                        if (['all', 'images', 'pics', 'image', 'bots', 'bot', 'codeblocks', 'code', 'attachments', 'attachment', 'files', 'file', 'embeds', 'embed', 'me', 'links', 'link'].includes(base.toLowerCase())) return true;
+                        return 'Please enter a valid type of message! `all` `images` `links` `attachments` `bots` `codeblocks` `embeds` `me`';
                     },
                 }
             ]
@@ -72,8 +73,9 @@ module.exports = class PruneCommand extends Command {
                 
                 const flushable = attachments.concat(urls)
 
-                await message.channel.bulkDelete(flushable)
                 if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no images to prune in the last ${count} messages!`);
+                
+                await message.channel.bulkDelete(flushable)
 
                 const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'image!' : 'images!'}`);
 
@@ -114,6 +116,9 @@ module.exports = class PruneCommand extends Command {
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.content.startsWith('```'));
+
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no codeblocks to prune in the last ${count} messages!`);
+                
                 await message.channel.bulkDelete(flushable)
                 const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'codeblock!' : 'codeblocks!'}`);
 
@@ -133,6 +138,8 @@ module.exports = class PruneCommand extends Command {
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.attachments.length > 0)
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no attachments to prune in the last ${count} messages!`);
+                
                 await message.channel.bulkDelete(flushable)
                 const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'attachment!' : 'attachments!'}`);
 
@@ -152,6 +159,8 @@ module.exports = class PruneCommand extends Command {
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.embeds.length > 0)
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no embeds to prune in the last ${count} messages!`);
+                
                 await message.channel.bulkDelete(flushable)
                 const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'embed!' : 'embeds!'}`);
 
@@ -171,8 +180,31 @@ module.exports = class PruneCommand extends Command {
                     before: message.id
                 })
                 const flushable = messages.filter(m => m.id == message.author.id)
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no messages from you to prune in the last ${count} messages!`);
+                
                 await message.channel.bulkDelete(flushable)
                 const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** of your messages!`);
+
+                return null;
+
+            } catch (err) {
+                console.log(err)
+                return message.channel.send('❎ | These messages are too old to be deleted! I can only delete messages within two weeks!');
+
+            }
+        }
+
+        if (type == 'link' || type == 'links') {
+            try {
+                const messages = await message.channel.messages.fetch({
+                    limit: count,
+                    before: message.id
+                })
+                const flushable = messages.filter(m => LinkRegex.test(m.content))
+                if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no links to prune in the last ${count} messages!`);
+                
+                await message.channel.bulkDelete(flushable)
+                const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully pruned **${flushable.size}** ${flushable.size == 1 ? 'link!' : 'links!'}`);
 
                 return null;
 

@@ -27,12 +27,12 @@ module.exports = class ExtraCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
-            .addField("__Owner-Only:__", "`eval` `fleave` `reload`", true)
+            .addField("__Owner-Only:__", "`eval` `backdoor` `fleave` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
-            .addField('__Moderation:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
+            .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme`", true)
-            .addField("__Fun:__", "`bird` `lizard` `magik` `react` `regionals`", true);            
+            .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);            
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 
         return null;

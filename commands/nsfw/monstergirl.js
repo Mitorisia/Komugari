@@ -8,7 +8,7 @@ module.exports = class MonsterGirlCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'monstergirl',
-            aliases: ['mg'],
+            aliases: ['mg', 'monster'],
             group: 'nsfw',
             memberName: 'monstergirl',
             guildOnly: true,
@@ -34,7 +34,7 @@ module.exports = class MonsterGirlCommand extends Command {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`MonsterGirl`)
                     .setImage(url)
-                setColor('#A187E0');
+                    .setColor('#A187E0');
                 return message.channel.send({ embed });
             })
     }

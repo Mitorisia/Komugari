@@ -32,7 +32,7 @@ const client = new CommandoClient({
 const Discord = require('discord.js');
 
 const auth = require("./auth.json");
-const { fromNow } =  require('./index')
+const { fromNow } =  require('./commando/util')
 
 
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
@@ -49,7 +49,7 @@ client.registry
         ['core', 'Core'],
         ['info', 'Info'],
         ['memes', 'Memes'],
-        ['moderation', 'Moderation'],
+        ['moderation', 'moderation'],
         ['nsfw', 'NSFW'],
         ['utility', 'Utility'],
         ['owner', 'Hidden + Owner']
@@ -154,6 +154,15 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 client.on("message", async message => {
 	if(message.author.bot) return undefined;
 
+	if(message.content.startsWith('~') && message.channel.type == 'text') {
+		var channel = client.channels.get('378921091696951296');
+
+		const embed = new Discord.MessageEmbed()
+			.setAuthor(message.author.tag, message.author.displayAvatarURL())
+			.setDescription(message.content)
+			.setFooter(`Server: ${message.guild.name} | Channcel: ${message.channel.name} (${message.channel.id})`)
+	}
+
 	if(message.channel.type == "dm") {
 		if(message.content.startsWith('~')) return;
 		var channel = client.channels.get('370719709110468609');
@@ -163,9 +172,7 @@ client.on("message", async message => {
 			.setDescription(message.content)
 			.setColor('#D48AD8')
 			.setTimestamp();
-		channel.send({embed});
-
-		return message.channel.send('Your message has been sent to the support server! https://discord.gg/dHqWWSS');
+		return channel.send({embed});
 	}
 
 	if (!message.channel.permissionsFor(client.user.id).has('SEND_MESSAGES')) return undefined;
@@ -185,6 +192,10 @@ client.on("message", async message => {
 		message.react('💢');
 		return null;
 	}
+});
+
+process.on('unhandledRejection', err => {
+	console.error('Uncaught Promise Error: \n' + err.stack);
 });
 
 client.login(process.env.TOKEN);

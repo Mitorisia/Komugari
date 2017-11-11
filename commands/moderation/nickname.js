@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 
-module.exports = class nickCommand extends Command {
+module.exports = class NickCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'nickname',

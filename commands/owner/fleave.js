@@ -33,12 +33,18 @@ module.exports = class FLeaveCommand extends Command {
 
     async run(message, args) {
 
-        let guild = this.client.guilds.get(args.toLeave)
+        let guild = this.client.guilds.get(args.toLeave) || 'woopsies'
+        if(guild == 'woopsies') return message.channel.send('That guild was not found! Please try again!')
+        
         let reason = args.reason
         const defaultChannel = guild.channels.find(c => c.permissionsFor(guild.me).has('SEND_MESSAGES'));
 
         try {
-            defaultChannel.send(`👋 My developer has requested that I leave this server!\n\**Reason:** ${args.reason}`)
+            try {
+                defaultChannel.send(`👋 My developer has requested that I leave this server!\n\**Reason:** ${args.reason}`)
+            } catch(err) {
+                guild.owner.send(`👋 My developer has requested that I leave this server!\n\**Reason:** ${args.reason}`)
+            }
             guild.leave()
             return message.channel.send(`Successfully left the guild **${guild.name}**!`)
         } catch (err) {

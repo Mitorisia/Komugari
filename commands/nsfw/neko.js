@@ -7,7 +7,7 @@ module.exports = class NekoCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'neko',
-            aliases: ['catgirl', 'nekomimi'],
+            aliases: ['catgirl', 'nekomimi', 'nekos'],
             group: 'nsfw',
             memberName: 'neko',
             guildOnly: true,

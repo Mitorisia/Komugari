@@ -29,7 +29,7 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Core:__", "`commands` `nsfwcommands` `extras` `help` `invite` `ping` `support`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
             .addField("__Info:__", "`avatar` `edits` `channel` `discim`\n\`inrole` `role` `server` `user`", true)
-            .addField("__Fun:__", "`8ball` `advice` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pasta` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
+            .addField("__Fun:__", "`8ball` `advice` `big` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
             .addField("__Anime:__", "`anime` `neko` `manga` `moe` `booru` `waifu`", true)
             .addField("__Music:__", "`listen` `np` `stop`", true)
             .addField("__Action:__", "`action` `cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true)
@@ -42,9 +42,9 @@ module.exports = class CommandsCommand extends Command {
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
-            .addField('__Moderation:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
+            .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme`", true)
-            .addField("__Fun:__", "`bird` `lizard` `magik` `react` `regionals`", true);            
+            .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);            
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -93,9 +93,10 @@ module.exports = class CommandsCommand extends Command {
                     await interactiveMessage.edit('This message will now be deleted!')
                     
                     setTimeout(function (){
-                        return await interactiveMessage.delete()
+                        return interactiveMessage.delete()
                     }, 5000);
                     
+                    return null;
                 }
 
                 await r.remove(message.author.id); //Delete user reaction         

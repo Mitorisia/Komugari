@@ -13,6 +13,7 @@ module.exports = class LockdownCommand extends Command {
             guildOnly: true,
             clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR'],
+            examples: ['~lockdown [start/stop]'],
             args: [{
                 key: 'type',
                 prompt: 'Please enter either start or stop.',

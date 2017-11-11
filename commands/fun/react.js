@@ -45,7 +45,7 @@ module.exports = class ReactCommand extends Command {
             }
         }
 
-        return msg.edit(`✅ | Successfully reacted on **${m.author.username}**'s message!`)
+        return msg.edit(`✅ | Successfully reacted on **${m.author.username}**'s message with ${text}!`)
 	}
 }
 
