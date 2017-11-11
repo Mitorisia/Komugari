@@ -32,6 +32,7 @@ module.exports = class AhegaoCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`ahegao`)
+                    .setDescription(`[Image URL](${url})`)                    
                     .setImage(url)
                     .setColor('#A187E0');
                 return message.channel.send({ embed });

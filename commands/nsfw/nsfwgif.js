@@ -45,6 +45,7 @@ module.exports = class NSFWGifCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter('NSFW.gif', 'https://a.safe.moe/O8TDd.png')
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
                     .setColor('#CEA0A6');
                 return message.channel.send({ embed });

@@ -33,6 +33,7 @@ module.exports = class HentaiIrlCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter('Hentai_irl', 'https://a.safe.moe/jZZKM.png')
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
                     .setColor('#A187E0');
                 return message.channel.send({ embed });

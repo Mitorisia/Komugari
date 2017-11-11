@@ -42,6 +42,7 @@ module.exports = class LingerieCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`Lingerie`)
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
                     .setColor('#A187E0');
                 return message.channel.send({ embed });

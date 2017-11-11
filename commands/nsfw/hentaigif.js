@@ -33,6 +33,7 @@ module.exports = class HentaiGifCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`hentai.gif`)
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
                     .setColor('#A187E0');
                 return message.channel.send({ embed });

@@ -43,6 +43,7 @@ module.exports = class FourKNSFWCommand extends Command {
             .then(url => {
                 const embed = new Discord.MessageEmbed()
                     .setFooter(`4kNSFW`)
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
                     .setColor('#A187E0');
 
