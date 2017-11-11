@@ -44,7 +44,7 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme`", true)
-            .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);            
+            .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -58,8 +58,8 @@ module.exports = class CommandsCommand extends Command {
             .addField("__3D Fetish:__", "`asian` `amateur` `bdsm`\n\`cosplay` `grool` `lingerie`", true)
             .addField("__NSFW Image Boards:__", "`danbooru` `gelbooru` `hypno` `konachan` `paheal` `rule34` `tbib` `yandere` `xbooru` `e621`");
 
-        return new Promise(async (resolve, reject) => {
-    
+        return new Promise(async(resolve, reject) => {
+
             const interactiveMessage = await message.channel.send({ embed: mainCommands });
             const collector = await interactiveMessage.createReactionCollector((reaction, user) => user.id === message.author.id);
 
@@ -78,7 +78,7 @@ module.exports = class CommandsCommand extends Command {
 
                 if (r.emoji.name === "◀") { //main commands page
 
-                    await interactiveMessage.edit( {embed: mainCommands} );
+                    await interactiveMessage.edit({ embed: mainCommands });
 
                 } else if (r.emoji.name === "▶") { //more commands page
 
@@ -91,26 +91,50 @@ module.exports = class CommandsCommand extends Command {
                 } else if (r.emoji.name === "❌") {
 
                     await interactiveMessage.edit('This message will now be deleted!')
-                    
-                    setTimeout(function (){
-                        return interactiveMessage.delete()
-                    }, 5000);
-                    
+
+                    setTimeout(async function() {
+                        await interactiveMessage.edit('This message will now be deleted in 5 seconds!')
+
+                        setTimeout(async function() {
+                            await interactiveMessage.edit('This message will now be deleted in 4 seconds!')
+
+                            setTimeout(async function() {
+                                await interactiveMessage.edit('This message will now be deleted in 3 seconds!')
+
+                                setTimeout(async function() {
+                                    await interactiveMessage.edit('This message will now be deleted in 2 seconds!')
+
+                                    setTimeout(async function() {
+                                        await interactiveMessage.edit('This message will now be deleted in 1 second!')
+
+                                        setTimeout(async function() {
+                                            await interactiveMessage.delete()
+                                        }, 1000);
+
+                                    }, 1000);
+
+                                }, 1000);
+
+                            }, 1000);
+
+                        }, 1000);
+
+                    }, 1000);
+
                     return null;
                 }
 
                 await r.remove(message.author.id); //Delete user reaction         
                 timeout = setTimeout(function() {
                     collector.stop('timeout');
-                }, 120000); 
+                }, 120000);
             });
             //--------------------------On collector end-----------------------------------------------
             collector.on('end', async(collected, reason) => {
                 interactiveMessage.clearReactions()
-                return resolve(interactiveMessage.edit('⏏ | This message is no longer active! Use `~commands` to generate a new one!', {embed: mainCommands}));
+                return resolve(interactiveMessage.edit('⏏ | This message is no longer active! Use `~commands` to generate a new one!', { embed: mainCommands }));
             });
         });
-        
+
     }
 }
-
