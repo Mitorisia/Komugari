@@ -1,6 +1,7 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const moment = require('moment')
+const moment = require('moment');
+const { fromNow } = require('../utils')
 
 module.exports = class ChannelCommand extends Command {
         constructor(client) {
@@ -64,21 +65,6 @@ module.exports = class ChannelCommand extends Command {
         }
 
         var { channel } = args;
-
-        function fromNow(date) {
-			if (!date) {
-				return false;
-			  }
-			
-			  const ms = new Date().getTime() - date.getTime();
-			
-			  if (ms >= 86400000) {
-				const days = Math.floor(ms / 86400000);
-				return `${days} day${days !== 1 ? 's' : ''} ago`;
-			  }
-			
-			  return `${this.humanizeDuration(ms, 1, false, false)} ago`;
-        } 
         
         const embed = new Discord.MessageEmbed()
             .setAuthor(channel.name, message.guild.iconURL())

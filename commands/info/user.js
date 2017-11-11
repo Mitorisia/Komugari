@@ -2,6 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const moment = require('moment');
 const perms = require('../../assets/json/permissions');
+const { fromNow } =  require('../utils');
 
 
 module.exports = class UserCommand extends Command {
@@ -59,19 +60,4 @@ module.exports = class UserCommand extends Command {
             .addField(`❯\u2000\**Permissions**`, allowed ? `•\u2000${allowed}` : '•\u2000\None')
         return message.channel.send(`User information for **${member.user.username}**#${member.user.discriminator}`, { embed: embed });
     }
-}
-
-function fromNow(date) {
-    if (!date) {
-        return false;
-    }
-
-    const ms = new Date().getTime() - date.getTime();
-
-    if (ms >= 86400000) {
-        const days = Math.floor(ms / 86400000);
-        return `${days} day${days !== 1 ? 's' : ''} ago`;
-    }
-
-    return `${this.humanizeDuration(ms, 1, false, false)} ago`;
 }

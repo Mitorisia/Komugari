@@ -38,13 +38,14 @@ module.exports = class MagikCommand extends Command {
         if (res.body == 'some error sry :/') {
             await msg.delete()
             return message.channel.send('❎ | Invalid image/URL! Please try again!')
-        } 
-
-        await msg.delete()
-        const embed = new Discord.MessageEmbed()
-            .setColor('#294475')
-            .setImage(`https://discord.services/api/magik?url=${avatarurl}`);
-        return message.channel.send({embed})
-
+        } else {
+            await msg.delete()
+            return message.channel.send({
+                file: {
+                  name: 'magik.png',
+                  attachment: res.body
+                }
+              })
+        }
 	}
 }

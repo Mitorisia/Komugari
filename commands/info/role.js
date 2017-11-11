@@ -2,6 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const moment = require('moment')
 const perms = require('../../assets/json/permissions');
+const { fromNow } = require('../utils');
 
 
 module.exports = class RoleCommand extends Command {
@@ -49,19 +50,4 @@ module.exports = class RoleCommand extends Command {
             .addField('❯ Permissions', allowed)
         return message.channel.send(`Information for the role **${role.name}**!`, { embed: embed });
     }
-}
-
-function fromNow(date) {
-    if (!date) {
-        return false;
-    }
-
-    const ms = new Date().getTime() - date.getTime();
-
-    if (ms >= 86400000) {
-        const days = Math.floor(ms / 86400000);
-        return `${days} day${days !== 1 ? 's' : ''} ago`;
-    }
-
-    return `${this.humanizeDuration(ms, 1, false, false)} ago`;
 }
