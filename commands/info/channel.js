@@ -1,7 +1,7 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const moment = require('moment');
-const { fromNow } = require('../utils')
+const { fromNow } = require('../../commando/util')
 
 module.exports = class ChannelCommand extends Command {
         constructor(client) {
@@ -68,7 +68,7 @@ module.exports = class ChannelCommand extends Command {
         
         const embed = new Discord.MessageEmbed()
             .setAuthor(channel.name, message.guild.iconURL())
-            .setDescription(`❯\u2000${channel.topic}`)
+            .setDescription(`❯\u2000${channel.topic ? channel.topic : '`No Topic`'}`)
             .setThumbnail(message.guild.iconURL())
             .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
             .setColor('#846B86')

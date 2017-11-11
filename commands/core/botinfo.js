@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const moment = require('moment');
 const ostb = require('os-toolbox');
 const { version } = require('../../package.json');
-const { fromNow, humanizeDuration } = require('../utils')
+const { fromNow, humanizeDuration } = require('../../commando/util')
 
 module.exports = class BotInfoCommand extends Command {
     constructor(client) {

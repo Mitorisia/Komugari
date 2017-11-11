@@ -32,7 +32,7 @@ const client = new CommandoClient({
 const Discord = require('discord.js');
 
 const auth = require("./auth.json");
-const { fromNow } =  require('./commands/utils')
+const { fromNow } =  require('./index')
 
 
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
@@ -71,8 +71,6 @@ setInterval(function() {
 }, 500000); // prevents sleeping
 */
 
-let beginTime;
-
 //ready and game status, message ready to main server
 client.on("ready", () => {
 
@@ -87,9 +85,9 @@ client.on("ready", () => {
         .setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!\n\**Commands:** ${client.registry.commands.size}`)
         .setTimestamp();
 	channel.send({ embed });
+
+	return console.log(`Komugari is live and ready in ${client.guilds.size} servers!`)
 	
-	const elapsedTime = process.hrtime(beginTime)
-	console.log(`Komugari is live and ready in ${client.guilds.size} guilds. Taken ${Math.floor((elapsedTime[0] * 1e9 + elapsedTime[1]) / 1e9)}s!`);	
 });
 
 

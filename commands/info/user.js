@@ -2,7 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const moment = require('moment');
 const perms = require('../../assets/json/permissions');
-const { fromNow } =  require('../utils');
+const { fromNow } =  require('../../commando/util');
 
 
 module.exports = class UserCommand extends Command {

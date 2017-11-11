@@ -64,14 +64,10 @@ module.exports = class ListenCommand extends Command {
                             console.log(err)
                         });
 
-
                     message.channel.send(message.guild.me.mute ? `⚠ **${message.author.username}**, I can't play if I'm muted! Please unmute me as soon as possible!` : `🎵 Now streaming <https://listen.moe> in **${voiceChannel.name}**!`)
 
                 } else {
                     message.react('‼');
-
-
-
                     return message.channel.send('Hold on... I\'m already playing in a voice channel!');
                 }
 

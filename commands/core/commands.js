@@ -42,9 +42,9 @@ module.exports = class CommandsCommand extends Command {
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
-            .addField("__Fun:__", "`bird` `lizard` `magik`", true)            
             .addField('__Moderation:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`emoji` `remindme`", true);
+            .addField("__Utility:__", "`emoji` `remindme`", true)
+            .addField("__Fun:__", "`bird` `lizard` `magik` `react` `regionals`", true);            
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -90,7 +90,12 @@ module.exports = class CommandsCommand extends Command {
 
                 } else if (r.emoji.name === "❌") {
 
-                    return await interactiveMessage.delete()
+                    await interactiveMessage.edit('This message will now be deleted!')
+                    
+                    setTimeout(function (){
+                        return await interactiveMessage.delete()
+                    }, 5000);
+                    
                 }
 
                 await r.remove(message.author.id); //Delete user reaction         

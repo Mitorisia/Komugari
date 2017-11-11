@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const { fromNow } = require('../utils')
+const { fromNow } = require('../../commando/util')
 
 module.exports = class EditsCommand extends Command {
     constructor(client) {

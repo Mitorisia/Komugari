@@ -30,9 +30,9 @@ module.exports = class ExtraCommand extends Command {
             .addField("__Owner-Only:__", "`eval` `fleave` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
-            .addField("__Fun:__", "`bird` `lizard`", true)
             .addField('__Moderation:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme`", true)
+            .addField("__Fun:__", "`bird` `lizard` `magik` `react` `regionals`", true);            
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 
         return null;

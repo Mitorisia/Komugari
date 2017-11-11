@@ -1,7 +1,7 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const moment = require('moment');
-const { fromNow } =  require('../utils');
+const { fromNow } =  require('../../commando/util');
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'];
 const explicitContentFilters = ['None', 'Scan messages from those without a role', 'Scan all messages'];
 

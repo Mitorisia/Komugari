@@ -105,7 +105,7 @@ module.exports = class EvalCommand extends Command {
 				\`\`\`javascript
 				${input}
 				\`\`\`
-				**📤 Output** ${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000}ms
+				**📤 Output** \`${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000}ms\`
 				\`\`\`javascript
 				${inspected}
 				\`\`\`
