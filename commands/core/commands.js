@@ -44,7 +44,7 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme`", true)
-            .addField("__Fun:__", "`bird` `dere` `garfield` `lizard` `magik` `pasta` `react`", true);
+            .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
