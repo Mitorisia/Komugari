@@ -17,21 +17,19 @@ module.exports = class MassRemCommand extends Command {
                 usages: 1,
                 duration: 60
             },
-            args: [
-            {
+            args: [{
                 key: 'role',
                 prompt: 'Please provide me a role to remove!',
                 type: 'role'
-            }
-        ]
+            }]
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         const { role } = args;
         const members = await message.guild.members.fetch()
         await message.channel.send(`🔄 | Removing the **${role.name}** role from **${members.size}** members...this might take a while...`)
         await members.forEach(m => m.removeRole(role))
 
-	}
+    }
 }

@@ -17,22 +17,20 @@ module.exports = class MassAddCommand extends Command {
                 usages: 1,
                 duration: 60
             },
-            args: [
-            {
+            args: [{
                 key: 'role',
                 prompt: 'Please provide me a role to add!',
                 type: 'role'
-            }
-        ]
+            }]
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         const { role } = args;
         const members = await message.guild.members.fetch()
         const msg = await message.channel.send(`🔄 | Adding the **${role.name}** role to **${members.size}** members...this might take a while...`)
         await members.forEach(m => m.addRole(role))
 
         msg.delete()
-	}
+    }
 }

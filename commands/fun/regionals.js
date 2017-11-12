@@ -16,17 +16,15 @@ module.exports = class RegionalsCommand extends Command {
                 usages: 1,
                 duration: 3
             },
-            args: [
-                {
-                    key: 'text',
-                    prompt: 'Please provide me some text to render!',
-                    type: 'string'
-                }
-            ]
+            args: [{
+                key: 'text',
+                prompt: 'Please provide me some text to render!',
+                type: 'string'
+            }]
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         var output = ''
         for (let c of args.text.toLowerCase()) {
             if (c in map) {
@@ -36,7 +34,7 @@ module.exports = class RegionalsCommand extends Command {
         }
 
         return message.channel.send('\u200b' + output)
-	}
+    }
 }
 
 const map = {

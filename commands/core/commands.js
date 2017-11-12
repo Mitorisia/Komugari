@@ -26,13 +26,13 @@ module.exports = class CommandsCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter(`Click the reactions to check out other commands! (${this.client.registry.commands.size})`)
-            .addField("__Core:__", "`commands` `nsfwcommands` `extras` `help` `invite` `ping` `support`", true)
+            .addField("__Core:__", "`commands` `nsfwcommands` `help` `invite` `ping` `support`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
             .addField("__Info:__", "`avatar` `edits` `channel` `discim`\n\`inrole` `role` `server` `user`", true)
             .addField("__Fun:__", "`8ball` `advice` `big` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
             .addField("__Anime:__", "`anime` `neko` `manga` `moe` `booru` `waifu`", true)
             .addField("__Music:__", "`listen` `np` `stop`", true)
-            .addField("__Action:__", "`action` `cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true)
+            .addField("__Action:__", "`action` `cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `owo` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true)
             .addField("__NSFW:__", "Hentai, boobs, porn, gifs, image boards, lewd nekos... \n\Say **~nsfwcommands** to see them all!");
 
         const secretCommands = new Discord.MessageEmbed()
@@ -41,7 +41,7 @@ module.exports = class CommandsCommand extends Command {
             .setColor('727293')
             .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
             .setFooter("These are only here to de-clutter the main commands interface...")
-            .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
+            .addField("__Core:__", "`iku` `botinfo` `howtonsfw` `nonsfw` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme` `temperature`", true)
             .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);
@@ -89,8 +89,6 @@ module.exports = class CommandsCommand extends Command {
                     await interactiveMessage.edit({ embed: nsfwCommands });
 
                 } else if (r.emoji.name === "❌") {
-
-                    await interactiveMessage.edit('This message will now be deleted!')
 
                     setTimeout(async function() {
                         await interactiveMessage.edit('This message will now be deleted in 5 seconds!')

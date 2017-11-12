@@ -13,8 +13,17 @@ const responses = [
     'At your service!',
     'Yes?',
     'Hello!',
-    "Konnichiwa!",
-    "Ohayoo~!"
+    "Konnichiwa~",
+    "Ohayoo~",
+    "I'm up and running!",
+    "Here I am!",
+    "Right here!",
+    "Hai!",
+    "Hey there!",
+    "You found me!",
+    "Nya!",
+    "N-Nya..?",
+    "Nyahaha you found me!"
 ];
 
 module.exports = class PingCommand extends Command {
@@ -23,9 +32,9 @@ module.exports = class PingCommand extends Command {
             name: 'ping',
             group: 'core',
             memberName: 'ping',
-            description: 'Checks the ping latency and if the bot is operating!',
+            description: 'Checks the ping latency and whether or not I\'m operating!',
             throttling: {
-                usages: 5,
+                usages: 2,
                 duration: 10
             }
         });
@@ -34,7 +43,7 @@ module.exports = class PingCommand extends Command {
     async run(message) {
         let choice = Math.floor(Math.random() * responses.length);
 
-        const pingMsg = await message.channel.send('Pinging...');
-        return pingMsg.edit(`🏓 | ${responses[choice]} \`(${pingMsg.createdTimestamp - message.createdTimestamp}ms)\``);
+        const pingMsg = await message.channel.send('🔄 | Pinging...');
+        return pingMsg.edit(`🐱 | ${responses[choice]} \`(${pingMsg.createdTimestamp - message.createdTimestamp}ms)\``);
     }
 };

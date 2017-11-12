@@ -16,8 +16,7 @@ module.exports = class ReactCommand extends Command {
                 usages: 1,
                 duration: 3
             },
-            args: [
-                {
+            args: [{
                     key: 'message',
                     prompt: 'Please provide me a message to react on!',
                     type: 'message'
@@ -31,7 +30,7 @@ module.exports = class ReactCommand extends Command {
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         const { text } = args;
         const m = args.message;
 
@@ -46,7 +45,7 @@ module.exports = class ReactCommand extends Command {
         }
 
         return msg.edit(`✅ | Successfully reacted on **${m.author.username}**'s message with ${text}!`)
-	}
+    }
 }
 
 const map = {

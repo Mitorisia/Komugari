@@ -29,7 +29,7 @@ module.exports = class ExtraCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Owner-Only:__", "`eval` `backdoor` `fleave` `reload`", true)
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
-            .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
+            .addField("__Core:__", "`iku` `botinfo` `howtonsfw` `nonsfw` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
             .addField("__Utility:__", "`emoji` `remindme` `temperature`", true)
             .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);

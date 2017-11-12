@@ -1,5 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
+const moment = require('moment')
 const { fromNow } = require('../../commando/util')
 
 module.exports = class EditsCommand extends Command {
@@ -24,11 +25,10 @@ module.exports = class EditsCommand extends Command {
                 }
             ]
         });
-    }
+    };
 
     run (message, args) {
         const m = args.message
-        console.log(m.edits)
 
         const nestedFields = []
 
@@ -41,12 +41,12 @@ module.exports = class EditsCommand extends Command {
         const embed = new Discord.MessageEmbed()
             .setColor('#B094AF')
             .setAuthor(m.author.tag, m.author.displayAvatarURL())
-            .setFooter(`Latest edit: ${moment(m[0].createdAt).format('MMMM Do YYYY')} \`(${fromNow(channel.createdAt)})\` | ID: ${m.id}`)
+            .setFooter(`Latest edit: ${moment(m.editedAt).format('MMMM Do YYYY')} \`(${fromNow(m.editedAt)})\` | ID: ${m.id}`)
             .setDescription(nestedFields);
         return message.channel.send({embed})
 
 	}
-}
+};
 
 function truncate (string, max, append = '') {
     if (!string || !max || (1 + append.length) >= max) {

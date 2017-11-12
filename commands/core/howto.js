@@ -20,8 +20,8 @@ module.exports = class HowToCommand extends Command {
         });
     }
 
-    async run (message) {
-        if(message.channel.nsfw) return message.channel.send('Looks like you\'ve got it all set up already! An NSFW channel perfect for...lewding? Try `~nsfwcommands` to see what I can do!')
+    async run(message) {
+        if (message.channel.nsfw) return message.channel.send('Looks like you\'ve got it all set up already! An NSFW channel perfect for...lewding? Try `~nsfwcommands` to see what I can do!')
         message.channel.send(`__**Here's how to set a channel into nsfw!**__\n\**1)** Click the *channel settings cog* beside the channel name!\n\**2)** Click the *NSFW switch* right under the channel topic box!\n\**3)** You're done! An NSFW channel all set up for you!\n\https://a.safe.moe/0NX2x.png\n\**Would you like me to make this channel NSFW for you?** \`(y/n)\``);
 
         const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
@@ -31,7 +31,7 @@ module.exports = class HowToCommand extends Command {
         if (!msgs.size || !['y', 'yes'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!');
         if (['n', 'no'].includes(msgs.first().content.toLowerCase())) return message.channel.send('Cancelled command!')
 
-        if(!message.guild.member(message.author).hasPermission('MANAGE_CHANNELS')) return message.channel.send('Hold on..you don\'t have the permissions to do this! @A@ beanboozled aagain...');
+        if (!message.guild.member(message.author).hasPermission('MANAGE_CHANNELS')) return message.channel.send('Hold on..you don\'t have the permissions to do this! @A@ beanboozled aagain...');
 
         try {
             await message.channel.setNSFW(true, `set by ${message.author.tag}`);
@@ -40,5 +40,5 @@ module.exports = class HowToCommand extends Command {
         }
 
         return await message.channel.send(`✅ | **${message.author.username}**, successfully made **${message.channel.name}** into an NSFW channel!`);
-	}
+    }
 }
