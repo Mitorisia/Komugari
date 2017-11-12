@@ -29,9 +29,9 @@ module.exports = class AddRoleCommand extends Command {
     }
 
     async run(message, args) {
-        const { member, role } = args; 
-        if(member.roles.has(role.id)) return message.channel.send(`❎ | **${member.displayName}** already has the role **${role.name}**!`)
-        
+        const { member, role } = args;
+        if (member.roles.has(role.id)) return message.channel.send(`❎ | **${member.displayName}** already has the role **${role.name}**!`)
+
         try {
             await member.addRole(role)
             return message.channel.send(`✅ | **${member.displayName}** has been given the role **${role.name}**!`)

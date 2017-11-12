@@ -67,10 +67,10 @@ module.exports = class DeleteCommand extends Command {
                     limit: count,
                     before: message.id
                 })
-                
+
                 const attachments = messages.filter(m => ImageRegex.test(m.content))
                 const urls = messages.filter(m => m.attachments.size > 0)
-                
+
                 const flushable = attachments.concat(urls)
 
                 await Promise.all(flushable.map(m => m.delete()))
@@ -96,7 +96,7 @@ module.exports = class DeleteCommand extends Command {
                 const flushable = messages.filter(m => m.author.bot)
                 await Promise.all(flushable.map(m => m.delete()))
                 if (flushable.size == 0) return message.channel.send(`🍇 | **${message.author.username}**, there were no bot messages to prune in the last ${count} messages!`)
-                
+
                 const m = await message.channel.send(`🍇 | **${message.author.username}**, successfully deleted **${flushable.size}** ${flushable.size == 1 ? 'bot message!' : 'bot messages!'}`);
 
                 return null;

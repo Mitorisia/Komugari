@@ -12,18 +12,18 @@ module.exports = class FLeaveCommand extends Command {
             examples: ['~fleave 1234567890'],
 
             args: [{
-                key: 'toLeave',
-                label: 'toLeave',
-                prompt: 'Please specify a guild to leave!',
-                type: 'string'
-            },
-            {
-                key: 'reason',
-                label: 'reason',
-                prompt: 'For what reason am I leaving the server?',
-                type: 'string'
-            }
-        ],
+                    key: 'toLeave',
+                    label: 'toLeave',
+                    prompt: 'Please specify a guild to leave!',
+                    type: 'string'
+                },
+                {
+                    key: 'reason',
+                    label: 'reason',
+                    prompt: 'For what reason am I leaving the server?',
+                    type: 'string'
+                }
+            ],
         });
     }
 
@@ -34,15 +34,15 @@ module.exports = class FLeaveCommand extends Command {
     async run(message, args) {
 
         let guild = this.client.guilds.get(args.toLeave) || 'woopsies'
-        if(guild == 'woopsies') return message.channel.send('That guild was not found! Please try again!')
-        
+        if (guild == 'woopsies') return message.channel.send('That guild was not found! Please try again!')
+
         let reason = args.reason
         const defaultChannel = guild.channels.find(c => c.permissionsFor(guild.me).has('SEND_MESSAGES'));
 
         try {
             try {
                 defaultChannel.send(`👋 My developer has requested that I leave this server!\n\**Reason:** ${args.reason}`)
-            } catch(err) {
+            } catch (err) {
                 guild.owner.send(`👋 My developer has requested that I leave this server!\n\**Reason:** ${args.reason}`)
             }
             guild.leave()
@@ -50,5 +50,5 @@ module.exports = class FLeaveCommand extends Command {
         } catch (err) {
             return message.channel.send(`There was an error leaving the specified guild! \`${err}\``)
         }
-  }
+    }
 };

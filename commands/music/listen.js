@@ -38,28 +38,28 @@ module.exports = class ListenCommand extends Command {
                     var broadcast = this.client.createVoiceBroadcast();
 
                     getStream()
-                    .then(res => {
-                        message.member.voiceChannel.join().then(connection => {
-                            broadcast.playStream(res);
-                            var dispatcher = connection.playBroadcast(broadcast);
+                        .then(res => {
+                            message.member.voiceChannel.join().then(connection => {
+                                    broadcast.playStream(res);
+                                    var dispatcher = connection.playBroadcast(broadcast);
 
-                            dispatcher.on('end', async (reason) => {
-                            dispatcher.on('end', async(reason) => {
-                                clearInterval(inAC);
-                                if(reason == "heck") {
-                                    message.channel.send("⚠ Left voice channel due to inactivity or being muted! ...Please don't abuse me!")
-                                if (reason == "heck") {
-                                    message.channel.send("⚠ Left voice channel due to inactivity or being muted! ...Please don't abuse me!")
-                                    delete connection.channel.textChannel;
-                                    return connection.disconnect();
-                                }
-                                }
-                            });
-                        })
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    });
+                                    dispatcher.on('end', async(reason) => {
+                                        dispatcher.on('end', async(reason) => {
+                                            clearInterval(inAC);
+                                            if (reason == "heck") {
+                                                message.channel.send("⚠ Left voice channel due to inactivity or being muted! ...Please don't abuse me!")
+                                                if (reason == "heck") {
+                                                    message.channel.send("⚠ Left voice channel due to inactivity or being muted! ...Please don't abuse me!")
+                                                    delete connection.channel.textChannel;
+                                                    return connection.disconnect();
+                                                }
+                                            }
+                                        });
+                                    })
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                });
                         }).catch(err => {
                             console.log(err)
                         });
