@@ -43,11 +43,7 @@ module.exports = class CommandsCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Core:__", "`iku` `botinfo` `howto` `nomore` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-<<<<<<< HEAD
             .addField("__Utility:__", "`emoji` `remindme` `temperature`", true)
-=======
-            .addField("__Utility:__", "`emoji` `remindme`", true)
->>>>>>> master
             .addField("__Fun:__", "`bird` `garfield` `lizard` `magik` `pasta` `react`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
@@ -96,11 +92,6 @@ module.exports = class CommandsCommand extends Command {
 
                     await interactiveMessage.edit('This message will now be deleted!')
 
-<<<<<<< HEAD
-                    setTimeout(function() {
-                        return interactiveMessage.delete()
-                    }, 5000);
-=======
                     setTimeout(async function() {
                         await interactiveMessage.edit('This message will now be deleted in 5 seconds!')
 
@@ -129,7 +120,6 @@ module.exports = class CommandsCommand extends Command {
                         }, 1000);
 
                     }, 1000);
->>>>>>> master
 
                     return null;
                 }

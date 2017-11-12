@@ -19,26 +19,26 @@ module.exports = class KissCommand extends Command {
         });
     }
 
-    run (message) {
-        const recipient = message.content.split(/\s+/g).slice(1).join(" ");        
-        if(!recipient) {
+    run(message) {
+        const recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        if (!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.kissP[Math.round(Math.random() * (actions.kissP.length - 1))]);
-            return message.channel.send(`You can't kiss yourself, but I'll kiss you, ${message.author}!`, {embed: embed});
-    
-        } else if(message.mentions.users.first() == message.author) {
+            return message.channel.send(`You can't kiss yourself, but I'll kiss you, ${message.author}!`, { embed: embed });
+
+        } else if (message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.kissP[Math.round(Math.random() * (actions.kissP.length - 1))]);
-            return message.channel.send(`You can't kiss yourself, but I'll kiss you, ${message.author}!`, {embed: embed});
-            
+            return message.channel.send(`You can't kiss yourself, but I'll kiss you, ${message.author}!`, { embed: embed });
+
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.kissP[Math.round(Math.random() * (actions.kissP.length - 1))]);
-            return message.channel.send(`${message.author} kisses ${recipient}!`, {embed: embed});
-            }
-	}
+            return message.channel.send(`${message.author} kisses ${recipient}!`, { embed: embed });
+        }
+    }
 }

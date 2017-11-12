@@ -19,26 +19,26 @@ module.exports = class HandCommand extends Command {
         });
     }
 
-    run (message) {
-        var recipient = message.content.split(/\s+/g).slice(1).join(" ");    
-        if(!recipient) {
+    run(message) {
+        var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        if (!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
-            return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, {embed: embed})
-    
-        } else if(message.mentions.users.first() == message.author) {
+            return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, { embed: embed })
+
+        } else if (message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
-            return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, {embed: embed})
-            
+            return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, { embed: embed })
+
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
-            return message.channel.send(`${message.author} holds hands with ${recipient}!`, {embed: embed})
-            }
-	}
+            return message.channel.send(`${message.author} holds hands with ${recipient}!`, { embed: embed })
+        }
+    }
 }

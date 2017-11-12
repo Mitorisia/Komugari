@@ -23,8 +23,11 @@ module.exports = class DogCommand extends Command {
         const res = await snekfetch.get('https://random.dog/woof.json');
         const image = res.body.url;
 
+        console.log(image)
+
         const embed = new Discord.MessageEmbed()
             .setImage(image)
+            .setDescription(`[Image URL](${image})`)
             .setFooter('http://www.random.dog ©', 'https://random.dog/3f62f2c1-e0cb-4077-8cd9-1ca76bfe98d5.jpg')
             .setColor('#71A3BE');
         return message.channel.send({ embed });

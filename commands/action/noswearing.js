@@ -20,22 +20,22 @@ module.exports = class PoutCommand extends Command {
         });
     }
 
-    run (message) {
-        var recipient = message.content.split(/\s+/g).slice(1).join(" ");        
-        if(!recipient) {    
+    run(message) {
+        var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        if (!recipient) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.noSwearP[Math.round(Math.random() * (actions.noSwearP.length - 1))]);
-            return message.channel.send(`**NO SWEARING!**`, {embed: embed});
+            return message.channel.send(`**NO SWEARING! <:NOSWEARING:379103012007706624>**`, { embed: embed });
 
         } else {
-    
+
             var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(actions.noSwearP[Math.round(Math.random() * (actions.noSwearP.length - 1))]);
-            return message.channel.send(`${recipient}, NO SWEARING!`, {embed:embed});
-    
-        }       
-    }   
+            return message.channel.send(`${recipient}, NO SWEARING!`, { embed: embed });
+
+        }
+    }
 }

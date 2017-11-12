@@ -25,6 +25,7 @@ module.exports = class LizardCommand extends Command {
 
         const embed = new Discord.MessageEmbed()
             .setImage(image)
+            .setDescription(`[Image URL](${image})`)
             .setFooter('https://nekos.life/ ©', 'https://nekos.life/static/lizard/010C.jpg')
             .setColor('#71A3BE');
         return message.channel.send({ embed });

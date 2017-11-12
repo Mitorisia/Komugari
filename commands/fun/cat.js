@@ -25,6 +25,7 @@ module.exports = class CatCommand extends Command {
 
         const embed = new Discord.MessageEmbed()
             .setImage(image)
+            .setDescription(`[Image URL](${image})`)
             .setFooter('http://www.random.cat ©', 'https://a.safe.moe/6GDXu.png')
             .setColor('#71A3BE');
         return message.channel.send({ embed });

@@ -19,10 +19,10 @@ module.exports = class CryCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         const embed = new Discord.MessageEmbed()
             .setColor('#FBCFCF')
             .setImage(actions.cryP[Math.round(Math.random() * (actions.cryP.length - 1))]);
-        return message.channel.send(`${message.author} has started crying!`, {embed: embed});
-	}
+        return message.channel.send(`${message.author} has started crying!`, { embed: embed });
+    }
 }

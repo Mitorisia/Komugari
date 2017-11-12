@@ -33,6 +33,7 @@ module.exports = class SafeBooruCommand extends Command {
                     const embed = new Discord.MessageEmbed()
                         .setAuthor(`Safebooru ${query}`, 'https://a.safe.moe/ppHw0.png')
                         .setImage(image.common.file_url)
+                        .setDescription(`[Image URL](${image.common.file_url})`)
                         .setColor('#C597B8');
                     return message.channel.send({ embed });
                 }

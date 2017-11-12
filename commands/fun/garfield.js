@@ -19,7 +19,7 @@ module.exports = class GarfieldCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         let year = random(1990, 2016);
         let day = random(0, 366);
         let date = moment().year(year).dayOfYear(day);
@@ -28,10 +28,11 @@ module.exports = class GarfieldCommand extends Command {
 
         const embed = new Discord.MessageEmbed()
             .setColor('#E16935')
+            .setDescription(`[Image URL](https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/${dateYear}/${dateFormat}.gif)`)
             .setImage(`https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/${dateYear}/${dateFormat}.gif`)
         message.channel.send({ embed })
 
-	}
+    }
 }
 
 function random(min, max) {

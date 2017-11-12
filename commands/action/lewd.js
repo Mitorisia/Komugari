@@ -19,10 +19,10 @@ module.exports = class LewdCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         const embed = new Discord.MessageEmbed()
             .setColor('#FBCFCF')
             .setImage(actions.lewdP[Math.round(Math.random() * (actions.lewdP.length - 1))]);
-    return message.channel.send('L-Lewd!', {embed: embed});
-	}
+        return message.channel.send('L-Lewd!', { embed: embed });
+    }
 }

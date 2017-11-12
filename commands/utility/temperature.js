@@ -14,7 +14,7 @@ module.exports = class TemperatureCommand extends Command {
                     prompt: 'Please provide me a base or a temperature!',
                     type: 'string',
                     validate: base => {
-                        if (['celsius', 'fahrenheit', 'kelvin'].includes(base.toLowerCase())) return true;
+                        if (['celsius', 'fahrenheit', 'kelvin', 'c', 'f', 'k'].includes(base.toLowerCase())) return true;
                         return 'Please enter either celsius, fahrenheit, or kelvin!';
                     },
                     parse: base => base.toLowerCase()
@@ -24,8 +24,8 @@ module.exports = class TemperatureCommand extends Command {
                     prompt: 'Please provide me a temperature unit to convert to!',
                     type: 'string',
                     validate: to => {
-                        if (['celsius', 'fahrenheit', 'kelvin'].includes(to.toLowerCase())) return true;
-                        return 'Please enter either celsius, fahrenheit, or kelvin!';
+                        if (['celsius', 'fahrenheit', 'kelvin', 'c', 'f', 'k'].includes(to.toLowerCase())) return true;
+                        return 'Please enter either celsius, fahrenheit, or kelvin! `(Or their abbreviations!)`';
                     },
                     parse: to => to.toLowerCase()
                 },
@@ -44,17 +44,22 @@ module.exports = class TemperatureCommand extends Command {
         if (base === to) {
             return message.channel.send(`But... converting **${base}** to **${to}** is the same value...!`);
 
-        } else if (base === 'celsius') {
-            if (to === 'fahrenheit') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°C is equivalent to **${(amount * 1.8) + 32}°F!**`);
-            else if (to === 'kelvin') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°C is equivalent to  **${amount + 273.15}°K**!`);
+        } else if (base === 'celsius' || base === 'c') {
+            if (to === 'fahrenheit' || 'f') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°C is equivalent to **${(amount * 1.8) + 32}°F!**`);
+            else if (to === 'kelvin' || to == 'k') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°C is equivalent to  **${amount + 273.15}°K**!`);
 
-        } else if (base === 'fahrenheit') {
-            if (to === 'celsius') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°F is equivalent to **${(amount - 32) / 1.8}°C**!`);
-            else if (to === 'kelvin') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°F is equivalent to **${(amount + 459.67) * (5 / 9)}°K**.`);
+        } else if (base === 'fahrenheit' || base == 'f') {
+            if (to === 'celsius' || to == 'c') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°F is equivalent to **${(amount - 32) / 1.8}°C**!`);
+            else if (to === 'kelvin' || to == 'k') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°F is equivalent to **${(amount + 459.67) * (5 / 9)}°K**.`);
 
-        } else if (base === 'kelvin') {
-            if (to === 'celsius') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°K is equivalent to **${amount - 273.15}°C**!`);
-            else if (to === 'fahrenheit') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°K is equivalent to **${(amount * 1.8) - 459.67}°F**!`);
+        } else if (base === 'kelvin' || base == 'k') {
+            if (to === 'celsius' || to == 'c') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°K is equivalent to **${amount - 273.15}°C**!`);
+            else if (to === 'fahrenheit' || to == 'f') return message.channel.send(`🌡 | **${message.author.username}**, ${amount}°K is equivalent to **${(amount * 1.8) - 459.67}°F**!`);
+
+        } else {
+            return message.channel.send('Invalid conversion parameters! Please enter Celsius, Fahrenheit, or Kelvin!')
         }
+
+
     }
 };
