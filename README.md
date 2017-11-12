@@ -19,15 +19,13 @@
 
 ## Additonal Info!
 
-### If it's stupid, but it works, then it's not stupid
-
-There are some API keys in here!! Please have some sense of morality!!
-
 [Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
+
+### If it's stupid, but it works, then it's not stupid
 
 ### Contributing!
 
-If you want to help develop the bot or add anything, please feel free to!
+If you want to help develop the bot or add anything, please feel free to!  
 Simply submit a pull request! Or even contact me on Discord: **Mako#8739**
 
 I'm always looking for more help! More hands make light work :" ^ )) 

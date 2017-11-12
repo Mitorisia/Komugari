@@ -2,7 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const osu = require('node-osu');
 
-var osuApi = new osu.Api('f316a5a29f4b0da2712b4fb68422f083f3fdb931', {
+var osuApi = new osu.Api(process.env.OSUKEY, {
     notFoundAsError: false,
     completeScores: false
 })
@@ -32,7 +32,7 @@ module.exports = class OsuCommand extends Command {
         try {
             osuApi.getUser({ u: query }).then(user => {
 
-                if (!user.plays) return message.channel.send(`The user **${query}** was not found!`);
+                if (!user.name) return message.channel.send(`The user **${query}** was not found!`);
 
                 const embed = new Discord.MessageEmbed()
                     .setAuthor(user.name, `https://a.ppy.sh/${user.id}`)
@@ -44,6 +44,9 @@ module.exports = class OsuCommand extends Command {
                     .setColor('#ff66aa')
                     .setImage(`https://lemmmy.pw/osusig/sig.php?colour=bpink&uname=${query}&countryrank&darkheader&darktriangles&avatarrounding=10`);
                 return message.channel.send({ embed });
+            }).catch(err => {
+                console.log(err)
+                return message.channel.send(`The user **${query}** was not found!`);
             });
 
         } catch (err) {
