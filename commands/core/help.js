@@ -28,13 +28,13 @@ module.exports = class HelpCommand extends Command {
                 const embed = new Discord.MessageEmbed()
                     .setAuthor(commands[0].name, 'https://a.safe.moe/55XCQ.png')
                     .setColor('#727293')
-                    .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))                    
+                    .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
                     .setDescription(`${commands[0].description}\n${commands[0].details || ''}`)
                     .addField('__Usage:__', commands[0].examples[0] ? commands[0].examples[0] : '`None`', true)
                     .addField('__Aliases:__', commands[0].aliases.join(', ') || 'None', true)
                     .setFooter(`${commands[0].group.name} | Any message from me can be removed by reacting with a 🎴 emoji!`);
                 return message.channel.send({ embed });
-                
+
 
             } else if (commands.length > 1) {
 
