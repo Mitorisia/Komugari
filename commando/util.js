@@ -60,7 +60,7 @@ function fromNow (date) {
         return `${days} day${days !== 1 ? 's' : ''} ago`;
       }
     
-      return `${this.humanizeDuration(ms, 1, false, false)} ago`;
+      return `${humanizeDuration(ms, 1, false, false)} ago`;
 } 
 
 function humanizeDuration (ms, maxUnits, short = false, fraction = true) {

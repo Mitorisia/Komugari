@@ -41,7 +41,7 @@ module.exports = class EditsCommand extends Command {
         const embed = new Discord.MessageEmbed()
             .setColor('#B094AF')
             .setAuthor(m.author.tag, m.author.displayAvatarURL())
-            .setFooter(`Latest edit: ${moment(m.editedAt).format('MMMM Do YYYY')} \`(${fromNow(m.editedAt)})\` | ID: ${m.id}`)
+            .setFooter(`Latest edit: ${moment(m.editedAt).format('MMMM Do YYYY')} (${fromNow(m.editedAt)}) | ID: ${m.id}`)
             .setDescription(nestedFields);
         return message.channel.send({embed})
 

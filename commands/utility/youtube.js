@@ -2,7 +2,7 @@ const { Command } = require('../../commando');
 const Discord = require('discord.js');
 var youtube_node = require('youtube-node');
 youtube = new youtube_node();
-youtube.setKey('AIzaSyAeSSAdGkMhfK_-jgJlYwP0pB6X6HgIqwA');
+youtube.setKey(process.env.YOUTUBEKEY);
 youtube.addParam('type', 'video');
 
 module.exports = class YouTubeCommand extends Command {
@@ -30,9 +30,12 @@ module.exports = class YouTubeCommand extends Command {
                     return message.channel.send('Please provide me with something to search!');
                 }
                 if (error) {
-                    return message.channel.send("There was an error executing that search.");
+                    return message.channel.send("There was an error executing that search!");
+
                 } else {
                     if (!result || !result.items || result.items.length < 1) {
+                        return message.channel.send(`No results found for **${query}**`);
+                    } else if (!result.items[0].id.videoId) {
                         return message.channel.send(`No results found for **${query}**`);
                     } else {
                         return message.channel.send(`<:youtubBwwWOWWwowwWOWwthanks:341350435312893953> **${query}**(http://www.youtube.com/watch?v=${result.items[0].id.videoId})`);

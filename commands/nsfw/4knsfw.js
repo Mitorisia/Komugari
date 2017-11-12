@@ -46,7 +46,6 @@ module.exports = class FourKNSFWCommand extends Command {
                     .setDescription(`[Image URL](${url})`)
                     .setImage(url)
                     .setColor('#A187E0');
-
                 return message.channel.send({ embed });
             })
     }

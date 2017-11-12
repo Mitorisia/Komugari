@@ -30,9 +30,8 @@ const client = new CommandoClient({
     ]
 });
 const Discord = require('discord.js');
-
-const auth = require("./auth.json");
 const { fromNow } = require('./commando/util')
+const { version } = require('./package')
 
 
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻']
@@ -82,31 +81,32 @@ client.on("ready", () => {
     const embed = new Discord.MessageEmbed()
         .setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
         .setColor('#727293')
-        .setDescription(`Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!\n\**Commands:** ${client.registry.commands.size}`)
-        .setTimestamp();
+        .setDescription(`•\u2000\Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!\n\•\u2000**Commands:** ${client.registry.commands.size}`)
+		.setFooter(`v${version}`)
+		.setTimestamp();
     channel.send({ embed });
 
-    return console.log(`Komugari is live and ready in ${client.guilds.size} servers!`)
+    return console.log(`Komugari is live and ready in ${client.guilds.size} servers!`);
 
 });
 
 
 client.on('guildCreate', guild => {
-            var channel = client.channels.get('367828773426429953')
+    var channel = client.channels.get('367828773426429953');
 
-            var online = guild.members.filter(m => m.user.presence.status === "online").size
-            var bots = guild.members.filter(m => m.user.bot).size
-            var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0]
+    var online = guild.members.filter(m => m.user.presence.status === "online").size;
+    var bots = guild.members.filter(m => m.user.bot).size;
+    var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0];
 
-            var textChannels = guild.channels.filter(c => c.type === 'text');
-            var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+    var textChannels = guild.channels.filter(c => c.type === 'text');
+    var voiceChannels = guild.channels.filter(c => c.type === 'voice');
 
-            const embed = new Discord.MessageEmbed()
-                .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
-                .setDescription(`Server infomation for **${guild.name}**`)
-                .setColor('#78AEE8')
-                .setThumbnail(guild.iconURL())
-                .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+    const embed = new Discord.MessageEmbed()
+        .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
+        .setDescription(`Server infomation for **${guild.name}**`)
+        .setColor('#78AEE8')
+        .setThumbnail(guild.iconURL())
+        .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
 		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()
@@ -143,10 +143,45 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 	if(messageReaction.message.author.id !== client.user.id) return undefined;
 	if(user.bot) return undefined;
 	if(messageReaction.emoji == '🎴') {
-		await messageReaction.message.react('🆗');
-		await messageReaction.message.react('🇰');
-		return messageReaction.message.delete();
-      }
+
+		setTimeout(async function() {
+			await messageReaction.message.react('5⃣');
+			await messageReaction.fetchUsers().then(users => console.log(users))
+
+			setTimeout(async function() {
+				await messageReaction.message.react('4⃣');
+				await messageReaction.fetchUsers().then(users => console.log(users))
+
+				setTimeout(async function() {
+					await messageReaction.message.react('3⃣');
+					await messageReaction.fetchUsers().then(users => console.log(users))
+
+					setTimeout(async function() {
+						await messageReaction.message.react('2⃣');
+						await messageReaction.fetchUsers().then(users => console.log(users))
+
+						setTimeout(async function() {
+							await messageReaction.message.react('1⃣');
+							await messageReaction.fetchUsers().then(users => console.log(users))
+
+							setTimeout(async function() {
+								await messageReaction.message.delete()
+							}, 1000);
+
+						}, 1000);
+
+					}, 1000);
+
+				}, 1000);
+
+			}, 1000);
+
+		}, 1000);
+
+		return null;
+	  }
+	  
+	  return null;
 })
 
 
@@ -192,6 +227,8 @@ client.on("message", async message => {
 		message.react('💢');
 		return null;
 	}
+
+	return null;
 });
 
 process.on('unhandledRejection', err => {
