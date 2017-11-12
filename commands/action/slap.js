@@ -22,7 +22,7 @@ module.exports = class SlapCommand extends Command {
     run(message) {
         function selfSlap() {
             var rand = ['http://cdn.awwni.me/mz98.gif', 'https://media.giphy.com/media/UxFtCk3f62uGI/200.gif'];
-            return rand[Math.floor(Math.random() * rand.length)];
+            return rand[Math.floor(Math.random() * rand.length - 1)];
         }
 
         const recipient = message.content.split(/\s+/g).slice(1).join(" ");

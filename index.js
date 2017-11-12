@@ -146,23 +146,18 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 
 		setTimeout(async function() {
 			await messageReaction.message.react('5⃣');
-			await messageReaction.fetchUsers().then(users => console.log(users))
 
 			setTimeout(async function() {
 				await messageReaction.message.react('4⃣');
-				await messageReaction.fetchUsers().then(users => console.log(users))
 
 				setTimeout(async function() {
 					await messageReaction.message.react('3⃣');
-					await messageReaction.fetchUsers().then(users => console.log(users))
 
 					setTimeout(async function() {
 						await messageReaction.message.react('2⃣');
-						await messageReaction.fetchUsers().then(users => console.log(users))
 
 						setTimeout(async function() {
 							await messageReaction.message.react('1⃣');
-							await messageReaction.fetchUsers().then(users => console.log(users))
 
 							setTimeout(async function() {
 								await messageReaction.message.delete()

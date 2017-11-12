@@ -41,7 +41,7 @@ module.exports = class PingCommand extends Command {
     }
 
     async run(message) {
-        let choice = Math.floor(Math.random() * responses.length);
+        let choice = Math.floor(Math.random() * responses.length - 1);
 
         const pingMsg = await message.channel.send('🔄 | Pinging...');
         return pingMsg.edit(`🐱 | ${responses[choice]} \`(${pingMsg.createdTimestamp - message.createdTimestamp}ms)\``);
