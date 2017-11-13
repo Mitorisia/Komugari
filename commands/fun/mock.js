@@ -10,6 +10,7 @@ module.exports = class MockCommand extends Command {
             aliases: ['sayas', 'webhook'],
             group: 'fun',
             memberName: 'mock',
+            clientPermissions: ['MANAGE_WEBHOOKS'],
             description: 'Mocks the provided user with your text!',
             details: 'This command works through webhooks!',
             examples: ['~mock [user] [text]'],

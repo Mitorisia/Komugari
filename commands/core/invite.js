@@ -6,7 +6,7 @@ module.exports = class InviteCommand extends Command {
         super(client, {
             name: 'invite',
             guildOnly: true,
-            aliases: [ 'oauth', 'get', 'link', 'invlink'],
+            aliases: ['oauth', 'get', 'link', 'invlink'],
             group: 'core',
             memberName: 'invite',
             description: 'Gives you the invite link!',
@@ -18,7 +18,7 @@ module.exports = class InviteCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var phrases = [
             'Add me to your server with this link!',
             'I-It\'s not like I want to be invited to your server...',
@@ -32,6 +32,6 @@ module.exports = class InviteCommand extends Command {
 
         var phrase = phrases[Math.round(Math.random() * (phrases.length - 1))];
 
-        return message.channel.send(phrase + ' <https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782>')
-	}
+        return message.channel.send(phrase + ' <https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303>')
+    }
 }
