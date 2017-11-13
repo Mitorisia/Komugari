@@ -1,11 +1,11 @@
 <html>
     <header>
-        <img align="right" src="https://a.safe.moe/hu4ry.png" height="400" >
-        <h1>Komugari</h1>
-        [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/kinda-sfw.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)[![forthebadge](http://forthebadge.com/images/badges/built-by-codebabes.svg)](http://forthebadge.com)
-        <p><b>A simple, multifunctional Discord bot with a focus on anime and NSFW!</b></p>
-        who am I kidding no one asks me any questions
-        chances are you stumbled upon here by accident
+        <img align="right" src="https://a.safe.moe/hu4ry.png" height="400" > </html>
+
+# Komugari
+[![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/kinda-sfw.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)[![forthebadge](http://forthebadge.com/images/badges/built-by-codebabes.svg)](http://forthebadge.com)
+### A simple, multifunctional Discord bot with a focus on anime and NSFW!</b></p>
+
 
 # Index
 
