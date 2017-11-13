@@ -5,7 +5,7 @@
         </a>
 
 <h1> Komugari <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
-    <img src="https://a.safe.moe/4kKNg.png" height="30">
+    <img src="https://a.safe.moe/4kKNg.png" height="20">
 </a></h1>
 
 ### A simple, multifunctional Discord bot with a focus on anime and NSFW!
