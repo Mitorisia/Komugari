@@ -1,6 +1,7 @@
 <html>
     <header>
-        <img align="right" src="https://a.safe.moe/hu4ry.png" height="400" href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782'> </html>
+        <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782'>
+        <img align="right" src="https://a.safe.moe/hu4ry.png" height="400"> </a>
 
 # Komugari
 ### A simple, multifunctional Discord bot with a focus on anime and NSFW!
