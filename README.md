@@ -4,9 +4,9 @@
             <img align="right" src="https://a.safe.moe/hu4ry.png" height="400">
         </a>
 
-<h1> Komugari  </h1> <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
-    <img align = 'right' src="https://a.safe.moe/4kKNg.png" height="40">
-</a>
+<h1> Komugari <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
+    <img src="https://a.safe.moe/4kKNg.png" height="40">
+</a></h1>
 
 ### A simple, multifunctional Discord bot with a focus on anime and NSFW!
 
