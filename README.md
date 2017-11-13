@@ -1,13 +1,18 @@
 <html>
     <header>
         <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
-        <img align="right" src="https://a.safe.moe/hu4ry.png" height="400"> </a>
+            <img align="right" src="https://a.safe.moe/hu4ry.png" height="400">
+        </a>
 
 # Komugari
 ### A simple, multifunctional Discord bot with a focus on anime and NSFW!
 
 [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303) [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)  
-[![invbadge](https://a.safe.moe/4kKNg.png) =100x20](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)
+<a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
+    <img align="right" src="https://a.safe.moe/4kKNg.png" height="40">
+</a>
+
+
 
 # Index
 
