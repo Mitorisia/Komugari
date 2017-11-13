@@ -10,6 +10,7 @@ module.exports = class MockCommand extends Command {
             aliases: ['sayas', 'webhook'],
             group: 'fun',
             memberName: 'mock',
+            clientPermissions: ['MANAGE_WEBHOOKS'],
             description: 'Mocks the provided user with your text!',
             details: 'This command works through webhooks!',
             examples: ['~mock [user] [text]'],
@@ -17,8 +18,7 @@ module.exports = class MockCommand extends Command {
                 usages: 1,
                 duration: 45
             },
-            args: [
-                {
+            args: [{
                     key: 'member',
                     prompt: 'Please provide a user for me to mock!',
                     type: 'member'
@@ -33,7 +33,7 @@ module.exports = class MockCommand extends Command {
         });
     }
 
-    async run (message, args) {
+    async run(message, args) {
         var { member, text } = args;
         let name;
 
@@ -43,12 +43,12 @@ module.exports = class MockCommand extends Command {
             name = member.nickname;
         }
 
-        if(text == 'none') {
-            text = mock[Math.round(Math.random() * (mock.length - 1))
+        if (text == 'none') {
+            text = mock[Math.round(Math.random() * (mock.length - 1))]
         }
 
         var hook = await message.channel.createWebhook(name, {
-            avatar: member.user.displayAvatarURL({ format: 'png', size: 128}),
+            avatar: member.user.displayAvatarURL({ format: 'png', size: 128 }),
             reason: `${message.author.tag} is mocking ${member.user.tag}`
         })
 
@@ -58,6 +58,5 @@ module.exports = class MockCommand extends Command {
             await hook.delete()
         }, 1000);
 
-	}
+    }
 }
-

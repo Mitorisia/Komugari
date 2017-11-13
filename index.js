@@ -3,7 +3,7 @@
  *  if you see any similarities in my code that was clearly references off of yours, please do tell, I'll give as much credit as I can for your help!!
  *  ^^ i can't really give credits as of now (near completion), as I don't remember the specific repositories that I referenced off of QwQ
  */
-//botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782
+//botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303
 
 require('dotenv').config()
 const moment = require('moment');
@@ -82,8 +82,8 @@ client.on("ready", () => {
         .setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
         .setColor('#727293')
         .setDescription(`•\u2000\Serving ${client.users.size} users in ${client.guilds.size} servers and ${client.channels.size} channels!\n\•\u2000**Commands:** ${client.registry.commands.size}`)
-		.setFooter(`v${version}`)
-		.setTimestamp();
+        .setFooter(`v${version}`)
+        .setTimestamp();
     channel.send({ embed });
 
     return console.log(`Komugari is live and ready in ${client.guilds.size} servers!`);
@@ -92,21 +92,21 @@ client.on("ready", () => {
 
 
 client.on('guildCreate', guild => {
-    var channel = client.channels.get('367828773426429953');
+            var channel = client.channels.get('367828773426429953');
 
-    var online = guild.members.filter(m => m.user.presence.status === "online").size;
-    var bots = guild.members.filter(m => m.user.bot).size;
-    var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0];
+            var online = guild.members.filter(m => m.user.presence.status === "online").size;
+            var bots = guild.members.filter(m => m.user.bot).size;
+            var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0];
 
-    var textChannels = guild.channels.filter(c => c.type === 'text');
-    var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+            var textChannels = guild.channels.filter(c => c.type === 'text');
+            var voiceChannels = guild.channels.filter(c => c.type === 'voice');
 
-    const embed = new Discord.MessageEmbed()
-        .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
-        .setDescription(`Server infomation for **${guild.name}**`)
-        .setColor('#78AEE8')
-        .setThumbnail(guild.iconURL())
-        .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
+                .setDescription(`Server infomation for **${guild.name}**`)
+                .setColor('#78AEE8')
+                .setThumbnail(guild.iconURL())
+                .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
 		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()

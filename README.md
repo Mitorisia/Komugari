@@ -1,12 +1,16 @@
 <html>
     <header>
-        <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782'>
+        <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
         <img align="right" src="https://a.safe.moe/hu4ry.png" height="400"> </a>
 
 # Komugari
 ### A simple, multifunctional Discord bot with a focus on anime and NSFW!
 
+<<<<<<< HEAD
 [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)[![forthebadge](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)[![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782) [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)[![forthebadge](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=305523782)
+=======
+[![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[![forthebadge](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)
+>>>>>>> master
 
 # Index
 
@@ -21,9 +25,9 @@
 
 ## Additonal Info!
 
-[Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
-
 ### If it's stupid, but it works, then it's not stupid
+
+[Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
 
 ### Contributing!
 
