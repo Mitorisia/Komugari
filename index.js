@@ -13,8 +13,8 @@ const snekfetch = require('snekfetch');
 const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
     commandPrefix: '~',
-    owner: '180050347589369856',
-    invite: 'https://discord.gg/dHqWWSS',
+    owner: process.env.OWNER,
+    invite: process.env.INVITE,
     disableEveryone: true,
     unknownCommandResponse: false,
     //messageCacheMaxSize	= 50,
@@ -77,7 +77,7 @@ client.on("ready", () => {
 
     client.user.setActivity('I am still incomplete! Take caution, uptime is never guaranteed!')
 
-    var channel = client.channels.get('367828468366573570');
+    var channel = client.channels.get(process.env.STATUSLOG);
     const embed = new Discord.MessageEmbed()
         .setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
         .setColor('#727293')
@@ -92,21 +92,21 @@ client.on("ready", () => {
 
 
 client.on('guildCreate', guild => {
-            var channel = client.channels.get('367828773426429953');
+    var channel = client.channels.get(process.env.GUILDLOG);
 
-            var online = guild.members.filter(m => m.user.presence.status === "online").size;
-            var bots = guild.members.filter(m => m.user.bot).size;
-            var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0];
+    var online = guild.members.filter(m => m.user.presence.status === "online").size;
+    var bots = guild.members.filter(m => m.user.bot).size;
+    var highestRole = guild.roles.sort((a, b) => a.position - b.position).map(role => role.toString()).slice(1).reverse()[0];
 
-            var textChannels = guild.channels.filter(c => c.type === 'text');
-            var voiceChannels = guild.channels.filter(c => c.type === 'voice');
+    var textChannels = guild.channels.filter(c => c.type === 'text');
+    var voiceChannels = guild.channels.filter(c => c.type === 'voice');
 
-            const embed = new Discord.MessageEmbed()
-                .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
-                .setDescription(`Server infomation for **${guild.name}**`)
-                .setColor('#78AEE8')
-                .setThumbnail(guild.iconURL())
-                .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
+    const embed = new Discord.MessageEmbed()
+        .setAuthor(`Added to ${guild.name}!`, guild.iconURL())
+        .setDescription(`Server infomation for **${guild.name}**`)
+        .setColor('#78AEE8')
+        .setThumbnail(guild.iconURL())
+        .addField('❯\u2000\Information', `•\u2000\**ID:** ${guild.id}\n\•\u2000\**${guild.owner ? 'Owner' : 'Owner ID'}:** ${guild.owner ? `${guild.owner.user.tag} (${guild.owner.id})` : guild.ownerID}\n\•\u2000\**Created:** ${moment(guild.createdAt).format('MMMM Do YYYY')} \`(${fromNow(guild.createdAt)})\`\n\•\u2000\**Region:** ${guild.region}\n\•\u2000\**Verification:** ${verificationLevels[guild.verificationLevel]}\n\•\u2000\**Content Filter:** ${explicitContentFilters[guild.explicitContentFilter]}`)
 		.addField('❯\u2000\Quantitative Statistics', `•\u2000\**Channels** [${guild.channels.size}]: ${textChannels.size} text - ${voiceChannels.size} voice\n\•\u2000\**Members** [${guild.memberCount}]: ${online} online - ${bots} bots\n\•\u2000\**Roles:** ${guild.roles.size}`, true)
 		.addField('❯\u2000\Miscellaneous', `•\u2000\**Emojis:** ${guild.emojis.size}`, true)
 		.setTimestamp()
@@ -115,7 +115,7 @@ client.on('guildCreate', guild => {
 });
 
 client.on('guildDelete', guild => {
-	var channel = client.channels.get('367828773426429953');
+	var channel = client.channels.get(process.env.GUILDLOG);
 
 	var online = guild.members.filter(m => m.user.presence.status === "online").size
 	var bots = guild.members.filter(m => m.user.bot).size
@@ -227,7 +227,7 @@ client.on("message", async message => {
 });
 
 process.on('unhandledRejection', err => {
-	console.error('Uncaught Promise Error: \n' + err.stack);
+	console.error('Uncaught Promise Error! \n' + err.stack);
 });
 
 client.login(process.env.TOKEN);

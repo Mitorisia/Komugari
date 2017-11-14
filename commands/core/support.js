@@ -20,8 +20,7 @@ module.exports = class SupportCommand extends Command {
     }
 
     async run(message) {
-        const notifyChannel = '198399488614727680';
-        var channel = this.client.channels.get(notifyChannel);
+        var channel = this.client.channels.get(process.env.SUPPORTLOG);
         const invite = this.client.options.invite;
 
         let supportMessage = message.content.split(/\s+/g).slice(1).join(" ");
