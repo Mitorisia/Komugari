@@ -15,19 +15,24 @@ module.exports = class SupportCommand extends Command {
             throttling: {
                 usages: 1,
                 duration: 30
-            }
+            },
+            args: [{
+                key: 'support',
+                prompt: 'Please provide me a message to send to the backend!',
+                type: 'string',
+                default: 'N////A'
+            }]
         });
     }
 
-    async run(message) {
+    async run(message, args) {
+        const { support } = args;
         var channel = this.client.channels.get(process.env.SUPPORTLOG);
         const invite = this.client.options.invite;
 
-        let supportMessage = message.content.split(/\s+/g).slice(1).join(" ");
-
-        if (!supportMessage) {
+        if (supportMessage = 'N////A') {
             message.react("💢");
-            return message.channel.send(`Please add an issue to your message.`);
+            return message.channel.send(`Please add an issue to your message!`);
         }
 
         try {

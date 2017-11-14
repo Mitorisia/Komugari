@@ -28,12 +28,11 @@ module.exports = class CommandsCommand extends Command {
             .setFooter(`Click the reactions to check out other commands! (${this.client.registry.commands.size})`)
             .addField("__Core:__", "`commands` `nsfwcommands` `help` `invite` `ping` `support`", true)
             .addField("__Utility:__", "`color` `time` `trans` `weather` `math`\n\`img` `jisho` `osu` `wiki` `urban` `yt`", true)
-            .addField("__Info:__", "`avatar` `edits` `channel` `inrole` `role` `server` `topgame` `user`", true)
-            .addField("__Fun:__", "`8ball` `advice` `big` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `meme` `pickup` `rate` `rthere` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
+            .addField("__Info:__", "`avatar` `discrim` `edits` `channel`\n\`inrole` `role` `server` `user`", true)
+            .addField("__Fun:__", "`8ball` `advice` `big` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `magik` `meme` `mock` `pickup` `rate` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
             .addField("__Anime:__", "`anime` `neko` `manga` `moe` `booru` `waifu`", true)
             .addField("__Music:__", "`listen` `np` `stop`", true)
-            .addField("__Action:__", "`action` `cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `owo` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true)
-            .addField("__NSFW:__", "Hentai, boobs, porn, gifs, image boards, lewd nekos... \n\Say **~nsfwcommands** to see them all!");
+            .addField("__Action:__", "`action` `cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `owo` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true);
 
         const secretCommands = new Discord.MessageEmbed()
             .setAuthor("Extra Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -43,8 +42,8 @@ module.exports = class CommandsCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Core:__", "`botinfo` `iku` `howtonsfw` `nonsfw` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`discim` `emoji` `status` `remindme` `temperature`", true)
-            .addField("__Fun:__", "`bird` `garfield` `kaomoji` `lizard` `magik` `mock` `pasta` `react`", true);
+            .addField("__Utility:__", "`emoji` `status` `remindme` `temperature`", true)
+            .addField("__Fun:__", "`bird` `garfield` `kaomoji` `lizard` `pasta` `react` `rightthere`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')
@@ -122,7 +121,7 @@ module.exports = class CommandsCommand extends Command {
                     return null;
                 }
 
-                await r.remove(message.author.id); //Delete user reaction         
+                await r.remove(message.author.id); //Delete user reaction
                 timeout = setTimeout(function() {
                     collector.stop('timeout');
                 }, 120000);

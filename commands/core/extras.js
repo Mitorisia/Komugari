@@ -31,7 +31,7 @@ module.exports = class ExtraCommand extends Command {
             .addField("__Bot Admin-Only:__", "`saychannel`", true)
             .addField("__Core:__", "`botinfo` `iku` `howtonsfw` `nonsfw` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`discrim` `emoji` `status` `remindme` `temperature`", true)
+            .addField("__Utility:__", "`emoji` `status` `remindme` `temperature`", true)
             .addField("__Fun:__", "`bird` `garfield` `kaomoji` `lizard` `magik` `mock` `pasta` `react`", true);
         message.channel.send({ embed }).then(m => { m.react('🎴') });
 

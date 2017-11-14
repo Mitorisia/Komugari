@@ -14,13 +14,19 @@ module.exports = class FCommand extends Command {
             throttling: {
                 usages: 1,
                 duration: 5
-            }
+            },
+            args: [{
+                key: 'respect',
+                prompt: 'Please provide me something to respect!',
+                type: 'string',
+                default: 'none'
+            }]
         });
     }
 
-    run(message) {
-        var respect = message.content.split(/\s+/g).slice(1).join(" ");
-        if (!respect) {
+    run(message, args) {
+        const { respect } = args;
+        if (respect == 'none') {
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.author.username} has paid their respects.`, message.author.displayAvatarURL({ format: 'png' }))
                 .setColor('#4E373B')

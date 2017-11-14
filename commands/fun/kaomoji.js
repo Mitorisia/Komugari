@@ -19,7 +19,12 @@ module.exports = class KaomojiCommand extends Command {
                 key: 'emotion',
                 prompt: 'Please enter a valid kaomoji emotion!',
                 type: 'string',
-                default: 'random'
+                default: 'random',
+                validate: emotion => {
+                    if (['happy', 'sad'].includes(emotion.toLowerCase())) return true;
+                    return 'Please enter either start or stop.';
+                },
+                parse: emotion => emotion.toLowerCase()
             }]
         });
     }
@@ -27,6 +32,9 @@ module.exports = class KaomojiCommand extends Command {
     run(message, args) {
         const { emotion } = args;
 
+        if (emotion == 'random') {
+
+        }
 
     }
 }
