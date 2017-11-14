@@ -35,6 +35,5 @@ module.exports = class KaomojiCommand extends Command {
         if (emotion == 'random') {
 
         }
-
     }
 }
