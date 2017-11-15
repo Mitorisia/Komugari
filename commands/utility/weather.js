@@ -14,19 +14,21 @@ module.exports = class WeatherCommand extends Command {
             throttling: {
                 usages: 1,
                 duration: 5
-            }
+            },
+            args: [{
+                key: 'city',
+                label: 'city',
+                prompt: 'Please provide me a city to search up!',
+                type: 'string'
+            }]
         });
     }
 
-    run(message) {
-        const messageThing = message.content.split(/\s+/g).slice(1).join(" ");
-        if (!messageThing) {
-            return message.channel.send('Please provide a location.');
-        }
+    run(message, args) {
+        const { city } = args;
 
         try {
-            const city = message.content.split(/\s+/g).slice(1).join(" ");
-            got(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${city}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`)
+            got(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${location}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`)
                 .then(resp => {
                     let weatherinfo = JSON.parse(resp.body).query.results.channel;
                     const embed = new Discord.MessageEmbed()

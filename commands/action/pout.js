@@ -21,20 +21,17 @@ module.exports = class PoutCommand extends Command {
 
     async run(message) {
         var recipient = message.content.split(/\s+/g).slice(1).join(" ");
-        if (!recipient) {
-            var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=pout`);
-            var body = JSON.parse(text.text);
 
+        var res = await snekfetch.get(`https://rra.ram.moe/i/r?type=pout`);
+        var body = JSON.parse(res.text);
+
+        if (!recipient) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`);
             return message.channel.send(`${message.author} has started pouting!`, { embed: embed });
 
         } else {
-
-            var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=pout`);
-            var body = JSON.parse(text.text);
-            var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`);

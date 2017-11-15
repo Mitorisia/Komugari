@@ -23,7 +23,6 @@ module.exports = class OwoCommand extends Command {
         var text = await snekfetch.get(`https://rra.ram.moe/i/r?type=owo`);
         var body = JSON.parse(text.text);
 
-        var recipient = message.content.split(/\s+/g).slice(1).join(" ");
         var embed = new Discord.MessageEmbed()
             .setColor('#FBCFCF')
             .setImage(`https://rra.ram.moe${body.path}`);

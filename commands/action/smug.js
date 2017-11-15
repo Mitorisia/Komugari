@@ -21,8 +21,8 @@ module.exports = class SmugCommand extends Command {
     }
 
     async run(message) {
-        var text = await snekfetch.get(`http://smugs.safe.moe/api/v1/i/r`);
-        var body = JSON.parse(text.text);
+        var res = await snekfetch.get(`http://smugs.safe.moe/api/v1/i/r`);
+        var body = JSON.parse(res.text);
 
         var embed = new Discord.MessageEmbed()
             .setColor('#727293')

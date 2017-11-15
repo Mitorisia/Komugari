@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { disgustP } = require('../../assets/json/actions.json');
 
 module.exports = class DisgustCommand extends Command {
     constructor(client) {
@@ -22,7 +22,7 @@ module.exports = class DisgustCommand extends Command {
     run(message) {
         const embed = new Discord.MessageEmbed()
             .setColor('#FBCFCF')
-            .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
+            .setImage(disgustP[Math.round(Math.random() * (disgustP.length - 1))]);
         return message.channel.send({ embed });
     }
 }

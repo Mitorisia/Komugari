@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { disgustP, gropeP } = require('../../assets/json/actions.json');
 
 module.exports = class GropeCommand extends Command {
     constructor(client) {
@@ -18,26 +18,34 @@ module.exports = class GropeCommand extends Command {
         });
     }
 
-    run (message) {
+    run(message) {
         var recipient = message.content.split(/\s+/g).slice(1).join(" ");
-        if(!recipient) {
+        var disgust = disgustP[Math.round(Math.random() * (disgustP.length - 1))];
+        var grope = gropeP[Math.round(Math.random() * (gropeP.length - 1))];
+
+        if (!recipient) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
-            return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed});
-    
-        } else if(message.mentions.users.first() == message.author) {
+                .setImage(disgust);
+            return message.channel.send(`${message.author} gropes... themselves..?`, { embed: embed });
+
+        } else if (message.mentions.users.first() == message.author) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))]);
-            return message.channel.send(`${message.author} gropes... themselves..?`, {embed: embed});
-            
+                .setImage(disgust);
+            return message.channel.send(`${message.author} gropes... themselves..?`, { embed: embed });
+
+        } else if (message.mentions.users.first() == this.client.user) {
+            const embed = new Discord.MessageEmbed()
+                .setColor('#FBCFCF')
+                .setImage(grope);
+            return message.channel.send(`E-EH?! Nya! Where...are you.. touching.. (✿\´ ꒳ \` ) I guess I'm okay with it as long as you are... Don't take this the wrong way!`, { embed: embed });
+
         } else {
-            var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.gropeP[Math.round(Math.random() * (actions.gropeP.length - 1))]);
-            return message.channel.send(`${message.author} has started... groping ${recipient}?`, {embed: embed});
-            }
-	}
+                .setImage(grope);
+            return message.channel.send(`${message.author} has started... groping ${recipient}?`, { embed: embed });
+        }
+    }
 }

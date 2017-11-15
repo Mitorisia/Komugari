@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { cryP } = require('../../assets/json/actions.json');
 
 module.exports = class CryCommand extends Command {
     constructor(client) {
@@ -22,7 +22,7 @@ module.exports = class CryCommand extends Command {
     run(message) {
         const embed = new Discord.MessageEmbed()
             .setColor('#FBCFCF')
-            .setImage(actions.cryP[Math.round(Math.random() * (actions.cryP.length - 1))]);
+            .setImage(cryP[Math.round(Math.random() * (cryP.length - 1))]);
         return message.channel.send(`${message.author} has started crying!`, { embed: embed });
     }
 }

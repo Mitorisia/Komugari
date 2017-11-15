@@ -18,45 +18,37 @@ module.exports = class RemindMeCommand extends Command {
             },
 
             args: [{
-                key: 'remind',
-                label: 'reminder',
-                prompt: 'what would you like me to remind you about?\n',
-                type: 'string',
-                validate: time => {
-                    const remindTime = sherlock.parse(time);
-                    if (!remindTime.startDate) return `please provide a valid starting time.`;
-
-                    return true;
+                    key: 'remind',
+                    label: 'reminder',
+                    prompt: 'what would you like me to remind you about?',
+                    type: 'string',
                 },
-                parse: time => sherlock.parse(time)
-            }]
+                {
+                    key: 'time',
+                    label: 'time',
+                    prompt: 'In how long would you like me to remind you?',
+                    type: 'string',
+                    validate: time => {
+                        const remindTime = sherlock.parse(time);
+                        if (!remindTime.startDate) return `please provide a valid starting time.`;
+
+                        return true;
+                    },
+                    parse: time => sherlock.parse(time)
+                }
+            ]
         });
     }
 
-    async run(message, { remind }) {
-        const time = remind.startDate.getTime() - Date.now();
-        const preRemind = await message.channel.send(`I will remind you **${cleanContent(message, remind.eventTitle)}** ${moment().add(time, 'ms').fromNow()}!`);
+    async run(message, args) {
+        const { remind, time } = args;
+
+        const timer = time.startDate.getTime() - Date.now();
+        const preRemind = await message.channel.send(`Got it! I will remind you in **${moment().add(timer, 'ms').fromNow(true)}**! \`(${timer}ms)\``);
         const remindMessage = await new Promise(resolve => {
-            setTimeout(() => resolve(message.author.send(`⏰ | ${cleanContent(message, remind.eventTitle)}!`)), time);
+            setTimeout(() => resolve(message.author.send(`⏰ | ${remind}!`)), timer);
         });
 
         return [preRemind, remindMessage];
     }
 };
-
-function cleanContent(message, content) {
-    return content.replace(/@everyone/g, '@\u200Beveryone')
-        .replace(/@here/g, '@\u200Bhere')
-        .replace(/<@&[0-9]+>/g, roles => {
-            const replaceID = roles.replace(/<|&|>|@/g, '');
-            const role = message.channel.guild.roles.get(replaceID);
-
-            return `@${role.name}`;
-        })
-        .replace(/<@!?[0-9]+>/g, user => {
-            const replaceID = user.replace(/<|!|>|@/g, '');
-            const member = message.channel.guild.members.get(replaceID);
-
-            return `@${member.user.username}`;
-        });
-}

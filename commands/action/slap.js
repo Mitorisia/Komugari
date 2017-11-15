@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { slapP } = require('../../assets/json/actions.json');
 
 module.exports = class SlapCommand extends Command {
     constructor(client) {
@@ -26,6 +26,8 @@ module.exports = class SlapCommand extends Command {
         }
 
         const recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        var slap = slapP[Math.round(Math.random() * (slapP.length - 1))];
+
         if (!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
@@ -38,11 +40,13 @@ module.exports = class SlapCommand extends Command {
                 .setImage(selfSlap());
             return message.channel.send(`${message.author}, please don't slap yourself!`, { embed: embed });
 
+        } else if (message.mentions.users.first() == this.client.user) {
+            return message.channel.send(`(；︿ ；✿) I-I'm sorry.. please d-don't slap me...`, { embed: embed });
+
         } else {
-            const recipient = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.slapP[Math.round(Math.random() * (actions.slapP.length - 1))]);
+                .setImage(slap);
             return message.channel.send(`${message.author} slaps ${recipient}!`, { embed: embed });
         }
     }

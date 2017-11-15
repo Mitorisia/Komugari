@@ -1,8 +1,6 @@
-<html>
-    <header>
-        <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
-            <img align="right" src="https://a.safe.moe/hu4ry.png" height="400">
-        </a>
+<a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
+    <img align="right" src="https://a.safe.moe/hu4ry.png" height="400">
+</a>
 
 <h1> Komugari <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
     <img src="https://a.safe.moe/4kKNg.png" height="25">
@@ -10,7 +8,7 @@
 
 ### Your Friendly Neighbourhood Submarine Bringing you the Best Lewds™
 
-[![Fuck it Ship it](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://mitorisia.github.io/Komugari/)[![Kinda SFW](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://mitorisia.github.io/Komugari/)[![Makes People Smile](http://forthebadge.com/images/badges/makes-people-smile.svg)](https://mitorisia.github.io/Komugari/) [![Gluten Free](http://forthebadge.com/images/badges/gluten-free.svg)](https://mitorisia.github.io/Komugari/)[![Made with Crayons](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://mitorisia.github.io/Komugari/)
+[![Fuck it Ship it](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://mitorisia.github.io/Komugari/)[![Kinda SFW](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://mitorisia.github.io/Komugari/)[![Made with Crayons](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://mitorisia.github.io/Komugari/)
 
 # Index
 
@@ -26,6 +24,8 @@
 ## Additonal Info!
 
 ### If it's stupid, but it works, then it's not stupid
+
+### ฅ (˵´•ω • `˵๑) Please Leave a Star and Give her a Home! It Means a Lot!
 
 [Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
 

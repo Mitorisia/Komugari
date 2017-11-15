@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { noSwearP } = require('../../assets/json/actions.json');
 
 
 module.exports = class PoutCommand extends Command {
@@ -22,18 +22,18 @@ module.exports = class PoutCommand extends Command {
 
     run(message) {
         var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        var noSwear = noSwearP[Math.round(Math.random() * (noSwearP.length - 1))];
+
         if (!recipient) {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.noSwearP[Math.round(Math.random() * (actions.noSwearP.length - 1))]);
+                .setImage(noSwear);
             return message.channel.send(`**NO SWEARING! <:NOSWEARING:379103012007706624>**`, { embed: embed });
 
         } else {
-
-            var recipient = message.content.split(/\s+/g).slice(1).join(" ");
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.noSwearP[Math.round(Math.random() * (actions.noSwearP.length - 1))]);
+                .setImage(noSwear);
             return message.channel.send(`${recipient}, NO SWEARING!`, { embed: embed });
 
         }

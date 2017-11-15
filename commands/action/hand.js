@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { hand } = require('../../assets/json/actions.json');
 
 module.exports = class HandCommand extends Command {
     constructor(client) {
@@ -21,23 +21,31 @@ module.exports = class HandCommand extends Command {
 
     run(message) {
         var recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        var hand = handP[Math.round(Math.random() * (handP.length - 1))];
+
         if (!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
+                .setImage(hand)
             return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, { embed: embed })
 
         } else if (message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
+                .setImage(hand)
             return message.channel.send(`You can\'t hold your own hand, but I'll hold your hand, ${message.author}!`, { embed: embed })
+
+        } else if (message.mentions.users.first() == this.client.user) {
+            const embed = new Discord.MessageEmbed()
+                .setColor('#FBCFCF')
+                .setImage(hand);
+            return message.channel.send(`K-Kya~~ I guess I'll hold you hand, senpai! (〃・ω・〃)ノ`, { embed: embed });
 
         } else {
             const recipient = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.handP[Math.round(Math.random() * (actions.handP.length - 1))])
+                .setImage(hand)
             return message.channel.send(`${message.author} holds hands with ${recipient}!`, { embed: embed })
         }
     }
