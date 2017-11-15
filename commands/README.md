@@ -26,7 +26,7 @@
 - [NSFW](#NSFW)
 
 
-## General
+## General (12)
 Name | Description | Usage
 ----------------|--------------|-------
 `~help` | Sends the generic help message! | `~help`
@@ -60,4 +60,5 @@ Name | Description | Usage
 
 ## Action
 
-## NSFW [![Ages 18](http://forthebadge.com/images/badges/ages-18.svg)](https://mitorisia.github.io/Komugari/)
+## NSFW
+[![Ages 18](http://forthebadge.com/images/badges/ages-18.svg)](https://mitorisia.github.io/Komugari/)
