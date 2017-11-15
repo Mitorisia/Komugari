@@ -10,7 +10,7 @@
 
 ### Your Friendly Neighbourhood Submarine Bringing you the Best Lewds™
 
-[~[forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[~[forthebadge](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[~[forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303) [~[forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)[~[forthebadge](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)
+[![Fuck it Ship it](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://mitorisia.github.io/Komugari/)[![Kinda SFW](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://mitorisia.github.io/Komugari/)[![Makes People Smile](http://forthebadge.com/images/badges/makes-people-smile.svg)](https://mitorisia.github.io/Komugari/) [![Gluten Free](http://forthebadge.com/images/badges/gluten-free.svg)](https://mitorisia.github.io/Komugari/)[![Made with Crayons](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://mitorisia.github.io/Komugari/)
 
 # Index
 
@@ -60,5 +60,4 @@ Name | Description | Usage
 
 ## Action
 
-## NSFW
-[![forthebadge](http://forthebadge.com/images/badges/ages-18.svg)](https://mitorisia.github.io/Komugari/)
+## NSFW [![Ages 18](http://forthebadge.com/images/badges/ages-18.svg)](https://mitorisia.github.io/Komugari/)
