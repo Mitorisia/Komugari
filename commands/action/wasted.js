@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const actions = require('../../assets/json/actions.json');
+const { wastedP } = require('../../assets/json/actions.json');
 
 module.exports = class WastedCommand extends Command {
     constructor(client) {
@@ -21,23 +21,27 @@ module.exports = class WastedCommand extends Command {
 
     run(message) {
         const recipient = message.content.split(/\s+/g).slice(1).join(" ");
+        const wasted = wastedP[Math.round(Math.random() * (wastedP.length - 1))];
+
         if (!recipient) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.wastedP[Math.round(Math.random() * (actions.wastedP.length - 1))]);
+                .setImage(wasted);
             return message.channel.send(`${message.author} got wasted!`, { embed: embed });
 
         } else if (message.mentions.users.first() == message.author) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.wastedP[Math.round(Math.random() * (actions.wastedP.length - 1))]);
+                .setImage(wasted);
             return message.channel.send(`${message.author} got wasted!`, { embed: embed });
 
+        } else if (message.mentions.users.first() == this.client.user) {
+            return message.channel.send(`${message.author}... please don't bully me! (๑◕︵◕๑)`);
+
         } else {
-            const recipient = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
-                .setImage(actions.wastedP[Math.round(Math.random() * (actions.wastedP.length - 1))]);
+                .setImage(wasted);
             return message.channel.send(`${recipient} just got wasted!`, { embed: embed });
         }
     }
