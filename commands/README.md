@@ -25,6 +25,12 @@
 - [Action](#Action)
 - [NSFW](#NSFW)
 
+## Legend
+Name | Description 
+----------------|--------------
+`[]` | Indicates a mandatory argument, you must provide this for the command to work!
+`<>` | Indicates an optional argument, you do not need to provide this for the command to work
+
 
 ## General (12)
 Name | Description | Usage
@@ -44,7 +50,20 @@ Name | Description | Usage
 
 ###### [Back to ToC](#contents)
 
-## Info
+## Info (9)
+Name | Description | Usage
+----------------|--------------|-------
+`~user` | Gets information on a user! | `~user <user>`
+`~avatar` | Retrieves the user's avatar! | `~avatar <user>`
+`~channel` | Displays information on the specified channel! If none provided, all channels will be listed with corresponding permissions for the user that triggered the command! | `~channel <channel>`
+`~server` | Displays information on the server! | `~server`
+`~role` | Displays information on the specified role! If none provided, all roles will be listed! | `~role <role>`
+`~inrole` | Finds all the users in the specified role! If none provided, all members will be listed! | `~inrole [role]`
+`~edits` | Grabs a message's recent edits! | `~edits [message ID]`
+`~discrim` | Finds all the users that have the corresponding discriminator! | `~discrim <4 digit number>`
+`~emoji` | Enlarges the specified emoji! Or lists all the custom emojis! | `~emoji <custom emoji>`
+
+###### [Back to ToC](#contents)
 
 ## Utility
 

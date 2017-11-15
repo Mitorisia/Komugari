@@ -36,7 +36,6 @@ module.exports = class FCommand extends Command {
             return null;
 
         } else {
-            var respect = message.content.split(/\s+/g).slice(1).join(" ");
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`\u2000`, message.author.displayAvatarURL({ format: 'png' }))
                 .setColor('#4E373B')

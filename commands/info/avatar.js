@@ -6,7 +6,7 @@ module.exports = class AvatarCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'avatar',
-            aliases: ['dp'],
+            aliases: ['dp', 'ava', 'picture'],
             group: 'info',
             memberName: 'avatar',
             guildOnly: true,
