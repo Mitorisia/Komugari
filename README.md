@@ -21,7 +21,7 @@
 - [To-do](https://github.com/Mitorisia/Komugari/projects/1)
 - [Credits](https://github.com/Mitorisia/Komugari/wiki/Credits)
 
-## ฅ (˵´•ω • `˵๑) Please Leave a Star and Give her a Home! It Means a Lot!
+## ฅ (˵´•ω • `˵๑) Please Give her a Home!
 
 ### Contributing!
 
