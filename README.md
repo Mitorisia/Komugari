@@ -23,11 +23,7 @@
 
 ## Additonal Info!
 
-### If it's stupid, but it works, then it's not stupid
-
 ### ฅ (˵´•ω • `˵๑) Please Leave a Star and Give her a Home! It Means a Lot!
-
-[Join](https://discord.gg/dHqWWSS) the support server where you'll be prisoned!!
 
 ### Contributing!
 
