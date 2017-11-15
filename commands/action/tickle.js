@@ -43,7 +43,7 @@ module.exports = class TickleCommand extends Command {
             var embed = new Discord.MessageEmbed()
                 .setColor('#FBCFCF')
                 .setImage(`https://rra.ram.moe${body.path}`);
-            return message.channel.send(`${message.author} tickles ${recipient}!`, { embed: embed });
+            return message.channel.send(`NyaAhaha! ⊂(( ^ ▽ ^ ))⊃`, { embed: embed });
 
         } else {
 

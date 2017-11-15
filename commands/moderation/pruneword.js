@@ -6,7 +6,7 @@ module.exports = class PruneWordCommand extends Command {
         constructor(client) {
             super(client, {
                 name: 'pruneword',
-                aliases: ['purgew', 'prunew', 'filter'],
+                aliases: ['purgew', 'prunew', 'filter', 'pw'],
                 group: 'moderation',
                 memberName: 'pruneword',
                 description: 'Deletes up to 99 messages containing a specific phrase!',
@@ -25,8 +25,8 @@ module.exports = class PruneWordCommand extends Command {
                         prompt: 'Please provide me a set number of messages to prune!',
                         type: 'integer',
                         validate: count => {
-                            if (count < 100 && count > 0) return true;
-                            return 'I can\'t delete more than 100 messages at once!';
+                            if (count <= 100 && count > 0) return true;
+                            return 'Please provide me a valid number between 1 and 100!';
                         }
                     },
                     {
