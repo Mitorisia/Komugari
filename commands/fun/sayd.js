@@ -25,7 +25,7 @@ module.exports = class SayCommand extends Command {
 
     run(message, args) {
         const { sayMessage } = args;
-        if (sayMessage = 'N////A') return message.say('Please specify something for me to say!');
+        if (sayMessage == 'N////A') return message.say('Please specify something for me to say!');
 
         message.delete();
         return message.say(sayMessage).catch(console.error);

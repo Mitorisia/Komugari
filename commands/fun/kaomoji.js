@@ -1,5 +1,6 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
+const kaomojis = require('../../assets/json/kaomoji')
+const total = Object.keys(kaomojis)
 
 module.exports = class KaomojiCommand extends Command {
     constructor(client) {
@@ -9,7 +10,8 @@ module.exports = class KaomojiCommand extends Command {
             aliases: ['lenny', 'face', 'emoticon'],
             group: 'fun',
             memberName: 'kaomoji',
-            description: 'Displays a random kaomoji! (´・ω・｀)',
+            description: 'Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ',
+            details: 'Available categories: `angry` `confused` `congrats` `crazy` `exited` `happy` `hungry` `hurt` `love` `sad` `scared` `shrug` `shy` `smug` `success` `surprised` `thanks` `worried`',
             examples: ['~kaomoji <emotion>'],
             throttling: {
                 usages: 1,
@@ -21,19 +23,26 @@ module.exports = class KaomojiCommand extends Command {
                 type: 'string',
                 default: 'random',
                 validate: emotion => {
-                    if (['happy', 'sad'].includes(emotion.toLowerCase())) return true;
-                    return 'Please enter either start or stop.';
+                    if (kaomojis.has(emotion.toLowerCase())) return true;
+                    return 'Invalid kaomoji category! Use `~help kaomoji` for a list of valid kaomojis!';
                 },
-                parse: emotion => emotion.toLowerCase()
+                parse: sign => sign.toLowerCase()
             }]
         });
     }
 
     run(message, args) {
-        const { emotion } = args;
+        var { emotion } = args;
+
 
         if (emotion == 'random') {
+            var random = total[Math.floor(Math.random() * total.length - 1)];
+            var face = kaomojis[random];
+            return message.channel.send(face[Math.round(Math.random() * (face.length - 1))]);
 
+        } else {
+            emotion = kaomojis[emotion[Math.round(Math.random() * (emotion.length - 1))]];
+            return message.channel.send(emotion);
         }
     }
 }

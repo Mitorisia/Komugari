@@ -26,6 +26,7 @@ module.exports = class UnBanCommand extends Command {
                     key: 'content',
                     prompt: 'Please provide me the reason for the unban!',
                     type: 'string',
+                    default: 'none',                    
                     validate: reason => {
                         if (reason.length < 140) return true;
                         return 'Reason must be under 140 characters.';

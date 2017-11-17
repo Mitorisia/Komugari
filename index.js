@@ -6,8 +6,6 @@
 //botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303
 
 require('dotenv').config()
-const moment = require('moment');
-const tz = require('moment-timezone');
 const snekfetch = require('snekfetch');
 
 const { CommandoClient } = require('./commando');
@@ -77,7 +75,7 @@ client.on("ready", () => {
 
     client.user.setActivity('I am still incomplete! Take caution, uptime is never guaranteed!')
 
-    var channel = client.channels.get(process.env.STATUSLOG);
+	var channel = client.channels.get(process.env.STATUSLOG);
     const embed = new Discord.MessageEmbed()
         .setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
         .setColor('#727293')
@@ -145,19 +143,19 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 	if(messageReaction.emoji == '🎴') {
 
 		setTimeout(async function() {
-			await messageReaction.message.react('5⃣');
+			await messageReaction.message.edit('5⃣');
 
 			setTimeout(async function() {
-				await messageReaction.message.react('4⃣');
+				await messageReaction.message.edit('4⃣');
 
 				setTimeout(async function() {
-					await messageReaction.message.react('3⃣');
+					await messageReaction.message.edit('3⃣');
 
 					setTimeout(async function() {
-						await messageReaction.message.react('2⃣');
+						await messageReaction.message.edit('2⃣');
 
 						setTimeout(async function() {
-							await messageReaction.message.react('1⃣');
+							await messageReaction.message.edit('1⃣');
 
 							setTimeout(async function() {
 								await messageReaction.message.delete()

@@ -42,8 +42,8 @@ module.exports = class CommandsCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface...")
             .addField("__Core:__", "`botinfo` `iku` `howtonsfw` `nonsfw` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`emoji` `status` `remindme` `temperature`", true)
-            .addField("__Fun:__", "`bird` `garfield` `kaomoji` `lizard` `pasta` `react` `rightthere`", true);
+            .addField("__Utility:__", "`emoji` `github` `status` `remindme` `steam` `temperature`", true)
+            .addField("__Fun:__", "`bird` `garfield` `giphy` `kaomoji` `lizard` `pasta` `react` `rightthere` `zalgo`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()
             .setAuthor("NSFW Commands", 'https://a.safe.moe/Tr9Jr.png')

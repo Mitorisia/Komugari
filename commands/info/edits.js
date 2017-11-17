@@ -8,7 +8,7 @@ module.exports = class EditsCommand extends Command {
         super(client, {
             name: 'edits',
             guildOnly: true,
-            aliases: ['edit', 'history'],
+            aliases: ['edit'],
             group: 'info',
             memberName: 'edits',
             description: 'Fetches the recent edits of a message!',

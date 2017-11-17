@@ -22,6 +22,7 @@ module.exports = class SoftbanCommand extends Command {
                     key: 'reason',
                     prompt: 'Please set a reason for the softban!',
                     type: 'string',
+                    default: 'none',                    
                     validate: reason => {
                         if (reason.length < 140) return true;
                         return 'Reason must be under 140 characters!';

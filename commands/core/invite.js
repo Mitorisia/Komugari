@@ -32,6 +32,6 @@ module.exports = class InviteCommand extends Command {
 
         var phrase = phrases[Math.round(Math.random() * (phrases.length - 1))];
 
-        return message.channel.send(phrase + ' <https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303>')
+        return message.channel.send(`${phrase} <https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=1043721303>`)
     }
 }

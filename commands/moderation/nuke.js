@@ -8,6 +8,8 @@ module.exports = class NukeCommand extends Command {
                 aliases: ['cybernuke'],
                 group: 'moderation',
                 memberName: 'nuke',
+                clientPermissions: ['ADMINISTRATOR'],
+                userPermissions: ['BAN_MEMBERS'],
                 description: 'Bans all members that have joined recently, with new accounts!',
                 details: 'Useful for servers under constant raiding!',
                 guildOnly: true,

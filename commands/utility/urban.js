@@ -49,9 +49,9 @@ module.exports = class UrbanCommand extends Command {
             const embed = new Discord.MessageEmbed()
                 .setTitle(`${defs.word} by ${defs.author}`)
                 .setDescription(defs.definition)
-                .addField('Example(s)', defs.example ? defs.example : 'N/A')
-                .addField('Rating', `👍\u2000${defs.thumbsUp} | 👎\u2000${defs.thumbsDown}`)
-                .addField('Link', `**${defs.urbanURL}**`)
+                .addField('❯\u2000\Example(s)', defs.example ? defs.example : 'N/A')
+                .addField('❯\u2000\Rating', `👍\u2000${defs.thumbsUp} | 👎\u2000${defs.thumbsDown}`)
+                .addField('❯\u2000\Link', `**${defs.urbanURL}**`)
                 .setColor('#e86222')
                 .setFooter('Urban Dictionary', 'https://a.safe.moe/1fscn.png');
             return message.channel.send(resultMessage, { embed });

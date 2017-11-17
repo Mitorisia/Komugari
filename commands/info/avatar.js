@@ -13,26 +13,26 @@ module.exports = class AvatarCommand extends Command {
             description: 'Shows the avatar of the specified user or yourself!',
             examples: ['~avatar <mention>'],
             args: [{
-                key: 'user',
+                key: 'member',
                 prompt: 'Which user would you like to get the avatar of?',
-                type: 'user',
+                type: 'member',
                 default: ''
             }]
         });
     }
 
     run(message, args) {
-        const user = args.user || message.author;
-        if (!user.avatar) return message.channel.send('This user does not have an avatar!');
-        const avatar = user.avatarURL({
-            format: user.avatar.startsWith('a_') ? 'gif' : 'png',
+        const member = args.member || message.author;
+        if (!member.user.avatar) return message.channel.send('This user does not have an avatar!');
+        const avatar = member.user.avatarURL({
+            format: member.user.avatar.startsWith('a_') ? 'gif' : 'png',
             size: 2048
         });
 
         const embed = new Discord.MessageEmbed()
-            .setAuthor(`${user.username}'s avatar!`, avatar)
-            .setColor('#D0C7FF')
-            .setDescription(`[https://cdn.discordapp.com/avatars](${avatar})`)
+            .setAuthor(`${member.user.tag}`, avatar)
+            .setColor(member.displayHexColor ? member.displayHexColor :'#D0C7FF')
+            .setDescription(`[Avatar URL](${avatar})`)
             .setImage(avatar)
         return message.channel.send({ embed });
     }

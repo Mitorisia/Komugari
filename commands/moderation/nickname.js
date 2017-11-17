@@ -7,6 +7,8 @@ module.exports = class NickCommand extends Command {
             group: 'moderation',
             aliases: ['nick'],
             memberName: 'nickname',
+            clientPermissions: ['MANAGE_NICKNAMES'],
+            userPermissions: ['MANAGE_NICKNAMES'],
             description: 'Assigns a nickname to a member! Use "clear"or leave it blank to remove the nickname!',
             examples: ['~nickname [user] [name/clear]'],
             guildOnly: true,
@@ -23,10 +25,6 @@ module.exports = class NickCommand extends Command {
                 }
             ]
         });
-    }
-
-    hasPermission(message) {
-        return message.member.hasPermission('MANAGE_NICKNAMES');
     }
 
     async run(message, args) {

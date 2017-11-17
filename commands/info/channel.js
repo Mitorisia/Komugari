@@ -61,7 +61,7 @@ module.exports = class ChannelCommand extends Command {
                 .setThumbnail(message.guild.iconURL())
                 .setFooter(`Permissions shown for ${message.author.tag}`, message.author.displayAvatarURL())
                 .setColor('#8B9EB7');         
-            return message.channel.send({embed});
+            return message.channel.send({ embed });
         }
 
         var { channel } = args;
@@ -74,6 +74,6 @@ module.exports = class ChannelCommand extends Command {
             .setColor('#846B86')
             .addField('❯\u2000\Information', `•\u2000\**ID:** ${channel.id}\n\•\u2000\**Category:** ${channel.parent ? channel.parent : 'None'}\n\•\u2000\**Created:** ${moment(channel.createdAt).format('MMMM Do YYYY')} \`(${fromNow(channel.createdAt)})\``, true)
             .addField('❯\u2000\Miscellaneous', `•\u2000\**NSFW:** ${channel.nsfw ? "Yes" : "No"}\n\•\u2000\**Matching Permissions:** ${channel.permissionsLocked ? "Yes" : "No"}`, true)
-        return message.channel.send({embed})    
+        return message.channel.send({ embed })    
     }
 }

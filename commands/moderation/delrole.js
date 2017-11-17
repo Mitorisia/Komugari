@@ -7,6 +7,8 @@ module.exports = class DelRoleCommand extends Command {
             group: 'moderation',
             aliases: ['rmrole', 'deleterole', 'remrole', 'drole', 'dr'],
             memberName: 'delrole',
+            clientPermissions: ['MANAGE_ROLES'],
+            userPermissions: ['MANAGE_ROLES'],
             description: 'Removed a role from a member!',
             examples: ['~delrole [name] [role]'],
             guildOnly: true,
@@ -22,10 +24,6 @@ module.exports = class DelRoleCommand extends Command {
                 }
             ]
         });
-    }
-
-    hasPermission(message) {
-        return message.member.hasPermission('MANAGE_ROLES');
     }
 
     async run(message, args) {

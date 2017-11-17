@@ -9,6 +9,8 @@ module.exports = class MassAddCommand extends Command {
             guildOnly: true,
             aliases: ['ma', 'addroleall', 'roleall'],
             group: 'moderation',
+            clientPermissions: ['MANAGE_ROLES'],
+            userPermissions: ['MANAGE_ROLES'],
             memberName: 'massadd',
             description: 'Adds the role to everyone on the server!',
             details: 'Why..would you want to do that!!! Also this command will take a long time...',

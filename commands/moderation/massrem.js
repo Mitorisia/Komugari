@@ -10,6 +10,8 @@ module.exports = class MassRemCommand extends Command {
             aliases: ['mr', 'remroleall', 'remroleall'],
             group: 'moderation',
             memberName: 'massrem',
+            clientPermissions: ['MANAGE_ROLES'],
+            userPermissions: ['MANAGE_ROLES'],
             description: 'Removes the role from everyone on the server!',
             details: 'Why..would you want to do that!!! Also this command will take a long time...',
             examples: ['~massrem [role]'],
