@@ -7,6 +7,7 @@
 
 require('dotenv').config()
 const snekfetch = require('snekfetch');
+const moment = require('moment')
 
 const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
