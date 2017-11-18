@@ -3,22 +3,33 @@ const Discord = require('discord.js');
 const snekfetch = require('snekfetch')
 const { stripIndents } = require('common-tags')
 
+const WEATHER_THUMBS = [
+    { icon: 'https://a.safe.moe/UexWE.png', regex: /partly (cloudy|sunny)/i },
+    { icon: 'https://a.safe.moe/eqK5f.png', regex: /cloudy/i },
+    { icon: 'https://a.safe.moe/TcGmr.png', regex: /clear|sunny/i },
+    { icon: 'https://a.safe.moe/K2fJ5.png', regex: /thunderstorms/i },
+    { icon: 'https://a.safe.moe/5TyRY.png', regex: /scattered showers/i },
+    { icon: 'https://a.safe.moe/vGZkK.png', regex: /rain/i },
+    { icon: 'https://a.safe.moe/Jyr5A.png', regex: /snow/g}
+]
+
 const WEATHER_ICONS = [
     { icon: '⛅', regex: /partly (cloudy|sunny)/i },
     { icon: '☁', regex: /cloudy/i },
     { icon: '☀', regex: /clear|sunny/i },
     { icon: '⛈', regex: /thunderstorms/i },
     { icon: '🌦', regex: /scattered showers/i },
-    { icon: '🌧', regex: /rain/i }
+    { icon: '🌧', regex: /rain/i },
+    { icon: '🌨', regex: /snow/g}    
 ]
 const DAYS = {
-    'Mon': 'Monday',
-    'Tue': 'Tuesday',
-    'Wed': 'Wednesday',
-    'Thu': 'Thursday',
-    'Fri': 'Friday',
-    'Sat': 'Saturday',
-    'Sun': 'Sunday'
+    'Mon': 'Mon',
+    'Tue': 'Tue',
+    'Wed': 'Wed',
+    'Thu': 'Thu',
+    'Fri': 'Fri',
+    'Sat': 'Sat',
+    'Sun': 'Sun'
 }
 
 const EMOJIMAP = {
@@ -111,6 +122,17 @@ module.exports = class WeatherCommand extends Command {
             return typeof e === 'object' ? e[0] : e;
         }).join('');
 
+        const formatIcon = text => {
+            let icon = ''
+            for (const wi of WEATHER_THUMBS) {
+                if (wi.regex.test(text)) {
+                    icon = wi.icon;
+                    break
+                }
+            }
+            return icon;
+        }
+
         const formatCondition = text => {
             let icon = ''
             for (const wi of WEATHER_ICONS) {
@@ -124,9 +146,9 @@ module.exports = class WeatherCommand extends Command {
 
         const formatTemp = value => {
             if (weather.units.temperature === 'F') {
-                return `${((parseFloat(value) - 32) * 5 / 9).toFixed(0)} °C | ${value.toFixed(0)} °F`
+                return `${((parseFloat(value) - 32) * 5 / 9).toFixed(0)} °C | ${value} °F`
             } else if (weather.units.temperature === 'C') {
-                return `${value.toFixed(0)} °C | ${(parseFloat(value) * 9 / 5 + 32).toFixed(0)} °F`
+                return `${value} °C | ${(parseFloat(value) * 9 / 5 + 32).toFixed(0)} °F`
             } else {
                 return `${parseInt(value)} °${weather.units.temperature}`
             }
@@ -134,9 +156,9 @@ module.exports = class WeatherCommand extends Command {
 
         const formatSpeed = value => {
             if (weather.units.speed === 'mph') {
-                return `${(parseFloat(value) * 0.44704).toFixed(1)} mps | ${value.toFixed(1)} mph`
+                return `${(parseFloat(value) * 0.44704).toFixed(1)} mps | ${value} mph`
             } else if (weather.units.speed === 'mps') {
-                return `${value.toFixed(1)} mps | ${(parseFloat(value) * 2.2369).toFixed(1)} mph`
+                return `${value} mps | ${(parseFloat(value) * 2.2369).toFixed(1)} mph`
             } else {
                 return `${parseInt(value)} ${weather.units.speed}`
             }
@@ -147,12 +169,11 @@ module.exports = class WeatherCommand extends Command {
             const _ = i => i.length === 1 ? `0${i}` : i
             return `${_(matches[1])}:${_(matches[2])} ${matches[3].toUpperCase()}`
         }
-
-
-
     
         const embed = new Discord.MessageEmbed()
             .setColor('#DFA661')
+            .setThumbnail(formatIcon(weather.item.condition.text))
+            .setFooter(`Last Update: ${weather.item.pubDate}`, this.client.user.displayAvatarURL())
             .setDescription(stripIndents`
                 ${flag}\u2000|\u2000**${location}**
             
@@ -163,15 +184,10 @@ module.exports = class WeatherCommand extends Command {
                 •\u2000\**Humidity:** ${weather.atmosphere.humidity}%
                 •\u2000\**Pressure:** ${weather.atmosphere.pressure} hPa
                 •\u2000\**Visibility:** ${weather.atmosphere.visibility}%
-                •\u2000\**Sunrise:** ${formatClock(weather.astronomy.sunrise)} / **Sunset:** ${formatClock(weather.astronomy.sunset)}
-                •\u2000\**Coordinates:** ${weather.item.lat}, ${weather.item.long}
-                •\u2000\**Last update:** ${weather.item.pubDate}`)
+                •\u2000\**Sunrise:** ${formatClock(weather.astronomy.sunrise)} / **Sunset:** ${formatClock(weather.astronomy.sunset)}`)
             .addField('❯\u2000\**Forecasts**', weather.item.forecast.map(f => {
-                return {
-                    name: '',
-                    value: `**${DAYS[f.day]}** \u2000\•\u2000\ ${f.text} \u2000\•\u2000\ \`${formatTemp(f.low)} - ${formatTemp(f.high)}\``
-                }
+                return `•\u2000\**${DAYS[f.day]}:** ${f.text} • \`${formatTemp(f.low)} - ${formatTemp(f.high)}\``
             }));
-        return message.channel.send(`Weather information for the location that matched the word **${keyword}**!`,{ embed: embed });
+        return msg.edit(`Weather information for the location that matched the word **${city}**!`,{ embed: embed });
     }
 }

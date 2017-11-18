@@ -39,7 +39,7 @@ module.exports = class TimeCommand extends Command {
             const clock = clocks[parseInt(time.split(':')[0], 10) % 12]
 
             var parsedTime = moment(`${date} ${time}`, 'dddd, MMMM D, YYYY HH:mm:ss A')
-            return message.channel.send(`${clock} | The time in **${place}** is ${parsedTime.format('dddd, MMMM Do YYYY @ h:mm:ss a')}!`)
+            return message.channel.send(`${clock} | The time in **${place}** is \`${parsedTime.format('dddd, MMMM Do YYYY @ h:mm:ss a')}\`!`)
 
         } catch (err) {
             console.log(err)
