@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 
 module.exports = class RegionalsCommand extends Command {
@@ -19,14 +18,16 @@ module.exports = class RegionalsCommand extends Command {
             args: [{
                 key: 'text',
                 prompt: 'Please provide me some text to render!',
-                type: 'string'
+                type: 'string',
+                default: 'traps are not gay!',
+                parse: text => text.toLowerCase()
             }]
         });
     }
 
     async run(message, args) {
         var output = ''
-        for (let c of args.text.toLowerCase()) {
+        for (let c of args.text) {
             if (c in map) {
                 c = map[c] + '\u200b'
             }

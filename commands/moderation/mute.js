@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 
 module.exports = class MuteCommand extends Command {
@@ -50,7 +49,7 @@ module.exports = class MuteCommand extends Command {
                 ADD_REACTIONS: false
             })
         } catch (err) {
-            await message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> | **${message.author.username}**, there was an error trying to mute **${member}**! \`${err}\``);
+            await message.channel.send(`❎ | **${message.author.username}**, there was an error trying to mute **${member}**! \`${err}\``);
         }
 
         return await message.channel.send(`**${message.author.username}**, successfully muted **${member.user.tag}** in **${message.channel.name}**! 🙊`);

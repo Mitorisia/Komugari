@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const Jimp = require('jimp');
 const GIFEncoder = require('gifencoder');
 
@@ -34,6 +33,8 @@ module.exports = class TriggeredCommand extends Command {
             return message.channel.send('I can\'t attach messages!');
         }
 
+        await message.channel.startTyping()
+
         const args = message.content.split(" ").slice(1)
 
         let avatarurl = (message.mentions.users.size > 0 ? message.mentions.users.first().displayAvatarURL({ format: 'png' }) : message.author.displayAvatarURL({ format: 'png' }));
@@ -59,12 +60,15 @@ module.exports = class TriggeredCommand extends Command {
 
         stream.on('data', async buffer => await buffers.push(buffer));
         stream.on('end', async() => {
-            return await message.channel.send({
+            await message.channel.send({
                 files: [{
                     name: 'triggered.gif',
                     attachment: Buffer.concat(buffers)
                 }]
             })
+            await message.channel.stopTyping();
+
+            return null;
         })
 
         for (let i = 0; i < options.frames; i++) {

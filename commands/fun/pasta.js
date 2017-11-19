@@ -17,7 +17,7 @@ module.exports = class EasterEggCommand extends Command {
                 type: 'string',
                 validate: tag => {
                     if (pasta[tag.toLowerCase()]) return true;
-                    return 'Invalid pasta! This is equivalent to an easter egg command that only the creator has full knowledge of!';
+                    return 'Invalid pasta! This is equivalent to an easter egg command that only the creator has full knowledge of!\nAsk around the support server or send a pasta through the `~support` command!';
                 },
                 parse: tag => tag.toLowerCase()
             }]

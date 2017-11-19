@@ -44,7 +44,7 @@ module.exports = class UserCommand extends Command {
         const allowed = Object.entries(member.permissions.serialize()).filter(([perm, allowed]) => allowed).map(([perm]) => perms[perm]).join(', ');
 
         const roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => {
-            return role.name
+            return role.name;
         })
 
         const embed = new Discord.MessageEmbed()

@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const { stripIndents } = require('common-tags');
 
 module.exports = class SoftbanCommand extends Command {
@@ -53,7 +52,7 @@ module.exports = class SoftbanCommand extends Command {
         try {
             await member.send(`You were softbanned from **${message.guild.name}** by **${message.author.tag}**!\n\**Reason:** ${reason}`);
         } catch (err) {
-            await message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> | **${message.author.username}**, failed to Send DM **${member}** the reason! \`${err}\``);
+            await message.channel.send(`❎ | **${message.author.username}**, failed to Send DM **${member}** the reason! \`${err}\``);
         }
 
         await member.ban({

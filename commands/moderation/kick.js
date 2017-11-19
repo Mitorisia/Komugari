@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 
 module.exports = class KickCommand extends Command {
@@ -56,7 +55,7 @@ module.exports = class KickCommand extends Command {
         try {
             await member.send(`You were kicked from **${message.guild.name}** by **${message.author.tag}**!\n\**Reason:** ${reason}`);
         } catch (err) {
-            await message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> | **${message.author.username}**, failed to Send DM to **${member}**! \`${err}\``);
+            await message.channel.send(`❎ | **${message.author.username}**, failed to Send DM to **${member}**! \`${err}\``);
         }
 
         await member.kick(`${message.author.tag}: ${reason}`);

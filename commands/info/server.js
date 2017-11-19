@@ -34,12 +34,12 @@ module.exports = class ServerCommand extends Command {
     run(message, args) {
         let guild;
 
-        if(!this.client.isOwner(message.author)) {
+        if (!this.client.isOwner(message.author)) {
             guild = message.guild;
-        } else if(args.id == 'this') {
+        } else if (args.id == 'this') {
             guild = message.guild;
         } else if (!/^[0-9]+$/.test(args.id)) {
-            guild = message.guild ;
+            guild = message.guild;
         } else {
             try {
                 guild = this.client.guilds.get(args.id);

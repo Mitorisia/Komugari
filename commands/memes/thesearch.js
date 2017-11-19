@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const Jimp = require('jimp');
 
 //remember to return before every promise
@@ -30,6 +29,8 @@ module.exports = class TheSearchCommand extends Command {
             return message.channel.send('Please provide some text!');
         }
 
+        await message.channel.startTyping()
+
         const text = message.content.split(/\s+/g).slice(1).join(" ");
         const thesearch = await Jimp.read('assets/images/thesearch.png');
         const blank = await Jimp.read('assets/images/blank.png');
@@ -41,12 +42,15 @@ module.exports = class TheSearchCommand extends Command {
 
         thesearch.composite(search, 60, 331);
         thesearch.getBuffer(Jimp.MIME_PNG, async(err, buffer) => {
-            return await message.channel.send({
+            await message.channel.send({
                 files: [{
                     name: 'thesearch.png',
                     attachment: buffer
                 }]
             })
+            await message.channel.stopTyping()
         })
+
+        return null;
     }
 }

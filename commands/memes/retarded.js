@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const Jimp = require('jimp');
 
 module.exports = class RetardedCommand extends Command {

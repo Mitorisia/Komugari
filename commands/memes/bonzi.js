@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const Jimp = require('jimp');
 
 //remember to return before every promise
@@ -30,7 +29,7 @@ module.exports = class BonziCommand extends Command {
     async run(message, args) {
         const argu = args.argument
         if (argu = 'N////A') {
-            return message.channel.send('Please provide arguments!');
+            return message.channel.send('Please provide something for Bonzi to say!');
         }
 
         await message.channel.startTyping()

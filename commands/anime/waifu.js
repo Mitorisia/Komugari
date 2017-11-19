@@ -27,6 +27,7 @@ module.exports = class WaifuCommand extends Command {
             group: 'anime',
             memberName: 'waifu',
             guildOnly: true,
+            wait: 0.1,            
             description: `Finds you a waifu from a database of ${total} waifus!`,
             details: 'Others can vote on the waifu through reactions!\n\Also #119 is best girl.',
             examples: ['~waifu <optional number>'],
@@ -38,7 +39,7 @@ module.exports = class WaifuCommand extends Command {
                 key: 'number',
                 prompt: 'Give me a number and I\'ll find the respective waifu!',
                 type: 'integer',
-                default: '',
+                default: 'none',
                 validate: waifuNumber => {
                     if (waifuNumber <= total && waifuNumber > 0) return true;
                     return `That's not a valid waifu number! There are only **${total}** waifus right now, *choose a number between 1 and ${total}*!`;
@@ -50,7 +51,7 @@ module.exports = class WaifuCommand extends Command {
     async run(message, args) {
         let somethingThere = message.content.split(/\s+/g).slice(1).join(" ");
         const percentage = Math.random()
-        if (!somethingThere) {
+        if (!somethingThere || args.number == 'none') {
             var random = Math.floor(Math.random() * total + 1);
             var waifu = waifus[random];
 

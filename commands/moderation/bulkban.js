@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 module.exports = class BulkBanCommand extends Command {
     constructor(client) {

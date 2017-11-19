@@ -5,7 +5,7 @@ module.exports = class AddRoleCommand extends Command {
         super(client, {
             name: 'addrole',
             group: 'moderation',
-            aliases: ['newrole', 'ar', 'addr'],
+            aliases: ['newrole', 'ar', 'addr', 'assign'],
             memberName: 'addrole',
             description: 'Adds a role to a member!',
             examples: ['~addrole [name] [role]'],

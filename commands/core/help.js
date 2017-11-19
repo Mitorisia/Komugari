@@ -42,6 +42,7 @@ module.exports = class HelpCommand extends Command {
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setAuthor(`Komugari`, 'https://a.safe.moe/55XCQ.png')
+                    .setUrl('https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303')
                     .setColor('#727293')
                     .setThumbnail(this.client.user.displayAvatarURL({ format: 'png' }))
                     .setFooter(`Mako#8739 | Any message from the me can be removed by reacting with a 🎴 emoji!`)

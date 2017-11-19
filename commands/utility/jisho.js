@@ -1,6 +1,7 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
+const wanakana = require('wanakana');
 
 module.exports = class JishoCommand extends Command {
     constructor(client) {
@@ -28,22 +29,25 @@ module.exports = class JishoCommand extends Command {
         var { word } = args;
         var query = encodeURI(word);
 
-        var res = await snekfetch.get(`http://jisho.org/api/v1/search/words?keyword=${query}`).catch(console.error);
+        var res = await snekfetch.get(`https://jisho.org/api/v1/search/words?keyword=${query}`).catch(console.error);
         var text = res.text || res.body.toString();
 
         var jisho = JSON.parse(text);
+        console.log(jisho);
         if (jisho.data.length > 0) {
             var content = jisho.data[0];
             var senses = JSON.stringify(content.senses[0].english_definitions).replace(/\"/g, '').replace(/,/g, '\n');
             senses = senses.substring(1, senses.length - 1);
-            senses = senses.replace(/^/gm, '・');
+            senses = senses.replace(/^/gm, '•\u2000');
             senses = senses.replace(/\\/g, "")
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${content.japanese[0].word ? content.japanese[0].word : content.japanese[0].reading}`, 'https://a.safe.moe/FB0Qi.png')
+                .setThumbnail('https://a.safe.moe/FB0Qi.png')
                 .setColor('#9678D2')
-                .setFooter(content.japanese[0].reading)
-                .setDescription(senses);
+                .setDescription(content.is_common ? '`Common Word`' : '`Not a Common Word`' + `\n[External Link](https://jisho.org/search/${query})`)
+                .addField(`❯\u2000\Definition`, `${senses}`)
+                .addField(`❯\u2000\Reading`, `•\u2000**Kana:** ${content.japanese[0].reading ? content.japanese[0].reading : '`N/A`'}\n\•\u2000**Romāji:** ${wanakana.toRomaji(content.japanese[0].reading)}`);
             return message.channel.send({ embed });
 
         } else {

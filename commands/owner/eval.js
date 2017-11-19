@@ -8,83 +8,84 @@ const nl = '!!NL!!';
 const nlPattern = new RegExp(nl, 'g');
 
 module.exports = class EvalCommand extends Command {
-        constructor(client) {
-            super(client, {
-                name: 'eval',
-                group: 'owner',
-                memberName: 'eval',
-                description: 'Executes arbitrary JavaScript code!',
-                details: 'Only the bot owner may use this command!',
+    constructor(client) {
+        super(client, {
+            name: 'eval',
+            group: 'owner',
+            memberName: 'eval',
+            description: 'Executes arbitrary JavaScript code!',
+            details: 'Only the bot owner may use this command!',
 
-                args: [{
-                    key: 'script',
-                    prompt: 'Please provide me some code to evaluate!',
-                    type: 'string'
-                }]
-            });
+            args: [{
+                key: 'script',
+                prompt: 'Please provide me some code to evaluate!',
+                type: 'string'
+            }]
+        });
 
-            this.lastResult = null;
-        }
+        this.lastResult = null;
+    }
 
-        hasPermission(msg) {
-            return this.client.isOwner(msg.author);
-        }
+    hasPermission(msg) {
+        return this.client.isOwner(msg.author);
+    }
 
-        run(msg, args) {
-            // Make a bunch of helpers
-            /* eslint-disable no-unused-vars */
-            const message = msg;
-            const client = msg.client;
-            const objects = client.registry.evalObjects;
-            const lastResult = this.lastResult;
-            const doReply = val => {
-                if (val instanceof Error) {
-                    msg.channel.send(`There was a callback error! \`${val}\``);
-                } else {
-                    const result = this.makeResultMessages(val, process.hrtime(this.hrStart));
-                    if (Array.isArray(result)) {
-                        for (const item of result) {
-                            if (this.client.options.selfbot) msg.say(item);
-                            else msg.channel.send(item);
-                        }
-                    } else {
-                        msg.channel.send(result);
+    run(msg, args) {
+
+        const message = msg;
+        const client = msg.client;
+        const objects = client.registry.evalObjects;
+        const lastResult = this.lastResult;
+        const doReply = val => {
+            if (val instanceof Error) {
+                msg.channel.send(`There was a callback error! \`${val}\``);
+            } else {
+                const result = this.makeResultMessages(val, process.hrtime(this.hrStart));
+                if (Array.isArray(result)) {
+                    for (const item of result) {
+                        if (this.client.options.selfbot) msg.say(item);
+                        else msg.channel.send(item);
                     }
+                } else {
+                    msg.channel.send(result);
                 }
-            };
-            /* eslint-enable no-unused-vars */
-
-            // Run the code and measure its execution time
-            let hrDiff;
-            try {
-                const hrStart = process.hrtime();
-                this.lastResult = eval(args.script);
-                hrDiff = process.hrtime(hrStart);
-            } catch (err) {
-                return msg.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| There was an error while evaluating!** \`${err}\``);
             }
+        };
 
-            // Prepare for callback time and respond
-            this.hrStart = process.hrtime();
-            let response = this.makeResultMessages(this.lastResult, hrDiff, args.script, msg.editable);
-            if (msg.editable) {
-                if (response instanceof Array) {
-                    if (response.length > 0) response = response.slice(1, response.length - 1);
-                    for (const re of response) msg.say(re);
+        // Run the code and measure its execution time
+        let hrDiff;
+        try {
+            const hrStart = process.hrtime();
+            this.lastResult = eval(args.script);
+            hrDiff = process.hrtime(hrStart);
+        } catch (err) {
+            return msg.channel.send(`❎ | **There was an error while evaluating!** \`${err}\``);
+        }
+
+        // Prepare for callback time and respond
+        this.hrStart = process.hrtime();
+        let response = this.makeResultMessages(this.lastResult, hrDiff, args.script, msg.editable);
+        if (msg.editable) {
+            if (response instanceof Array) {
+                if (response.length > 0) response = response.slice(1, response.length - 1);
+                for (const re of response) msg.say(re);
                     return null;
                 } else {
                     return msg.edit(response);
                 }
             } else {
                 msg.delete()
-                return msg.channel.send(response);
+                const embed = new discord.MessageEmbed()
+                    .setColor('#CEA5B7')
+                    .setDescription(response);
+                return msg.channel.send({ embed });
             }
         }
 
         makeResultMessages(result, hrDiff, input = null, editable = false) {
                 const inspected = util.inspect(result, { depth: 0 })
                     .replace(nlPattern, '\n')
-                    .replace(this.sensitivePattern, '--snip--');
+                    .replace(this.sensitivePattern, '--REDACTED--');
                 const split = inspected.split('\n');
                 const last = inspected.length - 1;
                 const prependPart = inspected[0] !== '{' && inspected[0] !== '[' && inspected[0] !== "'" ? split[0] : inspected[0];
@@ -94,7 +95,7 @@ module.exports = class EvalCommand extends Command {
                 const prepend = `\`\`\`javascript\n${prependPart}\n`;
                 const append = `\n${appendPart}\n\`\`\``;
                 if (input) {
-                    return discord.splitMessage(tags.stripIndents `
+                    return discord.splitMessage(tags.stripIndents`
 				${editable ? `
 					*Input*
 					\`\`\`javascript
@@ -105,14 +106,14 @@ module.exports = class EvalCommand extends Command {
 				\`\`\`javascript
 				${input}
 				\`\`\`
-				**📤 Output** \`${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000}ms\`
+				**📤 Output** \`${hrDiff[0] > 0 ? `${(hrDiff[0]).toFixed(4)}s ` : ''}${(hrDiff[1] / 1000000).toFixed(4)}s\`
 				\`\`\`javascript
 				${inspected}
 				\`\`\`
 			`, 1900, '\n', prepend, append);
 		} else {
 			return discord.splitMessage(tags.stripIndents`
-				**Callback executed after ${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000}ms!**
+				**Callback executed after ${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000}s!**
 				\`\`\`javascript
 				${inspected}
 				\`\`\`

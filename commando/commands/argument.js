@@ -148,10 +148,6 @@ class Argument {
 			// Prompt the user for a new value
 			prompts.push(await msg.channel.send(stripIndents`
 				${!value ? `**${this.prompt}**` : valid ? valid : `You provided an invalid **${this.label}**! Please try again!`}
-				${oneLine`
-					Respond with \`cancel\` to cancel the command,
-					${wait ? `which will automatically be cancelled in ${this.wait} seconds!` : ''}
-				`}
 			`))
 
 			// Get the user's response
@@ -236,18 +232,10 @@ class Argument {
 							"${escaped.length < 1850 ? escaped : '[too long to show]'}".
 							Please try again!
 						`}
-						${oneLine`
-							Respond with \`cancel\` to cancel the command, or \`finish\` to finish entry up to this point.
-							${wait ? `Which will automatically be cancelled in ${this.wait} seconds.` : ''}
-						`}
 					`));
 				} else if(results.length === 0) {
 					prompts.push(await msg.channel.send(stripIndents`
 						${this.prompt}
-						${oneLine`
-							Respond with \`cancel\` to cancel the command, or \`finish\` to finish your entry!
-							${wait ? `Which will automatically be cancelled in ${this.wait} seconds, unless you respond.` : ''}
-						`}
 					`));
 				}
 

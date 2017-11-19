@@ -32,6 +32,12 @@ module.exports = class InviteCommand extends Command {
 
         var phrase = phrases[Math.round(Math.random() * (phrases.length - 1))];
 
-        return message.channel.send(`${phrase} <https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=1043721303>`)
+        const embed = new Discord.MessageEmbed()
+            .setAuthor('Invite Link', this.client.displayAvatarURL())
+            .setColor('#727293')
+            .setURL(`https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=1043721303`)
+            .setDescription(`[${phrase}](https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=1043721303)`);
+
+        return message.channel.send({ embed });
     }
 }

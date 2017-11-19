@@ -52,7 +52,7 @@ module.exports = class SupportCommand extends Command {
             return null;
 
         } catch (err) {
-            return message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err.name}: ${err.message}\`\n\Please join the server instead! ${invite}`);
+            return message.channel.send(`❎ | **An error occurred while running this command!** \`${err.name}: ${err.message}\`\n\Please join the server instead! ${invite}`);
         }
     }
 }

@@ -27,7 +27,7 @@ module.exports = class HoroscopeCommand extends Command {
             examples: ['~horoscope [sign]'],
             throttling: {
                 usages: 1,
-                duration: 10
+                duration: 8
             }
         });
     }
@@ -43,7 +43,7 @@ module.exports = class HoroscopeCommand extends Command {
         const body = JSON.parse(text.body);
 
         var horoscope = body.horoscope
-        var replaced = horoscope.replace('(c) Kelli Fox, The Astrologer, http://new.theastrologer.com', "")
+        var replaced = horoscope.replace('(c) Kelli Fox, The Astrologer, http://new.theastrologer.com', '')
 
         const embed = new Discord.MessageEmbed()
             .setColor('#5D7B9D')

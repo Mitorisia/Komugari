@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 
 module.exports = class UnMuteCommand extends Command {
@@ -48,7 +47,7 @@ module.exports = class UnMuteCommand extends Command {
                 ADD_REACTIONS: true
             })
         } catch (err) {
-            await message.channel.send(`<:CANCELLEDLMFAO:372188144059285505> | **${message.author.username}**, there was an error trying to unmute **${member}**! \`${err}\``);
+            await message.channel.send(`❎ | **${message.author.username}**, there was an error trying to unmute **${member}**! \`${err}\``);
         }
 
         return await message.channel.send(`**${message.author.username}**, successfully unmuted ${member.user.tag} in **${message.channel.name}**! 🙊`);

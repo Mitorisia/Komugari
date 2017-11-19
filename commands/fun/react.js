@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 
 module.exports = class ReactCommand extends Command {
@@ -10,6 +9,7 @@ module.exports = class ReactCommand extends Command {
             aliases: ['reactions', 'reaction'],
             group: 'fun',
             memberName: 'react',
+            wait: 0.1,
             description: 'Reacts on the given message ID!',
             examples: ['~react [message ID] [text]'],
             throttling: {

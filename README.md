@@ -13,6 +13,7 @@
 # Index
 
 - [Website](https://mitorisia.github.io/Komugari/)
+- [Invite](https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303)
 - [Intro](https://github.com/Mitorisia/Komugari/wiki)
 - [Requirements](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#requirements)
 - [Installing](https://github.com/Mitorisia/Komugari/wiki/Running-the-Bot-Yourself!#installing)

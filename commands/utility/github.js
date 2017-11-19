@@ -33,8 +33,12 @@ module.exports = class GitHubCommand extends Command {
 
     async run(message, args) {
         args = args.repo
-        var searche = message.content.split(/\s+/g).slice(1) || 'Mitorisia/Komugari'
-        
+        var searche = message.content.split(/\s+/g).slice(1)
+
+        if(searche.length == 0) {
+            searche = ['Mitorisia/Komugari', 'why', 'don\t', 'u', 'work']
+        }
+
         if (searche[0].indexOf('/') !== -1) {
             const repo = safeRepo(searche[0])
             const msg = await message.channel.send(`🔄 | Loading info for \`${repo}\`\u2026`)
@@ -100,7 +104,7 @@ function buildEmbedFromJson(json) {
     return new Discord.MessageEmbed()
         .setAuthor(json.full_name, 'https://a.safe.moe/cxwFp.png')
         .setURL(json.html_url)
-        .setColor(isMyGit ? '#4078c0' : '#070044')
+        .setColor(isMyGit ? '#4078c0' : '#6f72af')
         .setThumbnail(isMyGit ? 'https://a.safe.moe/jmHJI.jpg' : '')
         .setDescription(json.description || '`No description provided`')
         .setFooter(isMyGit ? 'Please leave a star! ฅ (˵´•ω • `˵๑)' : '')

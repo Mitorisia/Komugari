@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 
 module.exports = class MagikCommand extends Command {

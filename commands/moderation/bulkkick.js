@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 
 module.exports = class BulkKickCommand extends Command {
     constructor(client) {

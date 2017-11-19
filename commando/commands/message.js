@@ -169,7 +169,7 @@ class CommandMessage {
 			const remaining = (throttle.start + (this.command.throttling.duration * 1000) - Date.now()) / 1000;
 			this.client.emit('commandBlocked', this, 'throttling');
 			return this.channel.send(
-				`**${this.message.author.username}**, please wait ${remaining.toFixed(1)} more seconds before using the \`${this.command.name}\` command again!`
+				`**${this.message.author.username}**, please cool down! \`(${remaining.toFixed()} seconds remaining)\``
 			);
 		}
 
@@ -241,7 +241,7 @@ class CommandMessage {
 
 				const invite = this.client.options.invite;
 				return this.channel.send(stripIndents`
-					<:CANCELLEDLMFAO:372188144059285505> **| An error occurred while running this command!** \`${err.name}: ${err.message}\`
+					❎ | **An error occurred while running this command!** \`${err.name}: ${err.message}\`
 					Please contact **${ownerList || 'the bot owner'}**${invite ? ` in ${invite}` : '!'}
 				`);
 			}

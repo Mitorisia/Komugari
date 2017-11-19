@@ -1,5 +1,4 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
 const Jimp = require('jimp');
 
 //remember to return before every promise
@@ -38,6 +37,8 @@ module.exports = class ShitCommand extends Command {
             }
         }
 
+        await message.channel.startTyping()
+
         const text = args;
         const shit = await Jimp.read('assets/images/shit.jpg');
         const blank = await Jimp.read('assets/images/Empty.png');
@@ -56,6 +57,10 @@ module.exports = class ShitCommand extends Command {
                     attachment: buffer
                 }]
             })
+
+            await message.channel.stopTyping()
         })
+
+        return null;
     }
 }

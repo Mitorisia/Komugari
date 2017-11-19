@@ -11,7 +11,7 @@ module.exports = class DiscrimCommand extends Command {
             description: 'Finds all the users with the same discriminator!',
             args: [{
                 key: 'discrim',
-                prompt: 'Which discriminator would you like to search for?',
+                prompt: 'Please provide me a discriminator to search for!',
                 type: 'string',
                 default: '',
                 validate: discrim => {

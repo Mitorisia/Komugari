@@ -28,6 +28,7 @@ module.exports = class GarfieldCommand extends Command {
 
         const embed = new Discord.MessageEmbed()
             .setColor('#E16935')
+            .setFooter(`Published in ${dateYear}`)
             .setDescription(`[Image URL](https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/${dateYear}/${dateFormat}.gif)`)
             .setImage(`https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/${dateYear}/${dateFormat}.gif`)
         message.channel.send({ embed })

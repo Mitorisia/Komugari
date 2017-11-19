@@ -1,5 +1,10 @@
 const { Command } = require('../../commando');
-const Discord = require('discord.js');
+
+const mock = [
+    "I love Emilia!",
+    "Astolfo is best girl!",
+    "Traps are not gay!",
+]
 
 //remember to return before every promise
 module.exports = class MockCommand extends Command {

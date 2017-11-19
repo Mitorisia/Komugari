@@ -31,6 +31,7 @@ module.exports = class BotInfoCommand extends Command {
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Komugari v${version}`, this.client.user.displayAvatarURL())
+            .setUrl('https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303')
             .setThumbnail(this.client.user.displayAvatarURL())
             .setColor('#6C70EB')
             .setFooter('Made with ❤ by Mako#8739 using Discord.js and Discord.js-Commando')
