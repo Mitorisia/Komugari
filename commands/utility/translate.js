@@ -38,7 +38,7 @@ module.exports = class TranslateCommand extends Command {
                     .addField('📤 Output', `\`\`\`${res.text}\`\`\``);
                 return message.channel.send({ embed });
             }).catch(err => {
-                return message.channel.send(`❎ | **${message.author.username}**, you provided an invalid language! Try using \`en\` as your first argument, and \`こむがり\` as your second!\n\`~translate en こんいちは\``)
+                return message.channel.send(`❎ | **${message.author.username}**, you provided an invalid language! Try using \`en\` as your first argument, and \`こむがりは可愛いねえ\` as your second!\n\`~translate en こむがりは可愛いねえ\``)
             })
 
         } catch (err) {

@@ -189,7 +189,8 @@ client.on("message", async message => {
 		const embed = new Discord.MessageEmbed()
 			.setAuthor(message.author.tag, message.author.displayAvatarURL())
 			.setDescription(message.content)
-			.setFooter(`Server: ${message.guild.name} | Channcel: ${message.channel.name} (${message.channel.id})`)
+			.setFooter(`Server: ${message.guild.name} | Channel: ${message.channel.name} (${message.channel.id})`)
+		channel.send({ embed })
 	}
 
 	if(message.channel.type == "dm") {

@@ -45,7 +45,7 @@ module.exports = class SteamCommand extends Command {
 			.setAuthor(body.items[0].name, 'https://i.imgur.com/vL8b4D5.png')
 			.setURL(`http://store.steampowered.com/app/${body.items[0].id}`)
             .setImage(body.items[0].tiny_image)
-            .setDescription(`•\u2000\**Price:** ${price} **Metascore:** ${body.items[0].metascore || '`N/A`'}`);
+            .setDescription(`•\u2000\**Price:** ${price == '$0.00' ? price : '`Free`'} **Metascore:** ${body.items[0].metascore || '`N/A`'} \n•\u2000[Steam Link](http://store.steampowered.com/app/${body.items[0].id})`);
 		return message.channel.send({ embed });
 	}
 };

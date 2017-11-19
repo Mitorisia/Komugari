@@ -37,6 +37,5 @@ module.exports = class StatusCommand extends Command {
             return message.channel.send('I couldn\'t connect to the Discord status servers!')
         }
 
-
 	}
 }
