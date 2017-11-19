@@ -69,6 +69,7 @@ Name | Description | Usage
 Name | Description | Usage
 ----------------|--------------|-------
 `Color` | Shows you a preview of a color or a random color! | `~color <hex code>`
+`GitHub` | Searches for repositories on GitHub and retrieves their information! | `~github <(user/repo) | (search)>`
 `Img` | Searches google images for your tags! | `~img [tags]`
 `Jisho` | Searches Jisho.org for your term! | `~jisho [term]`
 `Math` | Evaluates a math equation! | `~math [equation]`

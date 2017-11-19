@@ -31,10 +31,11 @@ module.exports = class MathCommand extends Command {
         } catch (err) {
             return message.channel.send(`❎ | I couldn\'t solve that equation! \`${err}\``)
         }
+        
         const embed = new Discord.MessageEmbed()
             .setColor('#767CC1')
-            .setAuthor(equation, this.client.user.displayAvatarURL({ format: 'png' }))
-            .setDescription(solution);
+            .addField('❯\u2000**Expression', `\`\`\`${equation}\`\`\``)
+            .addField('❯\u2000**Result', `\`\`\`${solution}\`\`\``);
         return message.channel.send({ embed })
 
     }
