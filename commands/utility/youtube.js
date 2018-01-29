@@ -38,7 +38,7 @@ module.exports = class YouTubeCommand extends Command {
                     } else if (!result.items[0].id.videoId) {
                         return message.channel.send(`No results found for **${query}**`);
                     } else {
-                        return message.channel.send(`<:youtubBwwWOWWwowwWOWwthanks:341350435312893953> **${query}**(http://www.youtube.com/watch?v=${result.items[0].id.videoId})`);
+                        return message.channel.send(`<:youtubBwwWOWWwowwWOWwthanks:341350435312893953> **${query}** (http://www.youtube.com/watch?v=${result.items[0].id.videoId})`);
                     }
                 }
             });

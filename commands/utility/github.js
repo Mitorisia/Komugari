@@ -30,7 +30,8 @@ module.exports = class GitHubCommand extends Command {
     }
 
     async run(message, args) {
-        var searche = args.repo
+        args = args.repo
+        var searche = args
 
         if (searche[0].indexOf('/') !== -1) {
             const repo = safeRepo(searche[0])
