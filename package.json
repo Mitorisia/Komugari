@@ -34,6 +34,7 @@
     "cleverbot-node": "^0.3.11",
     "common-tags": "^1.4.0",
     "discord.js": "github:hydrabolt/discord.js",
+    "dotenv": "^4.0.0",
     "erlpack": "github:hammerandchisel/erlpack",
     "escape-string-regexp": "^1.0.5",
     "ffmpeg-binaries": "^3.2.2-3",
@@ -67,7 +68,6 @@
   },
   "false": {},
   "devDependencies": {
-    "dotenv": "^4.0.0",
     "eslint": "^4.8.0",
     "eslint-config-google": "^0.9.1"
   }
