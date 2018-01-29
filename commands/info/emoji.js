@@ -33,9 +33,9 @@ module.exports = class EmojiCommand extends Command {
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`Emojis in ${message.guild.name}! [${emojis.size}]`, message.guild.iconURL())
-                .setDescription(emojis.map(e => e).join(''))
+                .setDescription(emojis.map(e => e).join(' '))
                 .setColor('#A5A3BB')
-            return message.channel.send(`Here's all your custom emojis! ${emojis.map(e => e).join('')}`);
+            return message.channel.send(`Here's all your custom emojis!`, {embed: embed});
 
         } else {
             const args = message.content.split(" ");
