@@ -31,11 +31,10 @@ module.exports = class TranslateCommand extends Command {
             translate(input, { to: lang }).then(res => {
                 const embed = new Discord.MessageEmbed()
                     .setAuthor('Translated Text:')
-                    .setDescription(`**From:** __\`[auto]\`\n\__**To:** __\`${lang}\`__`)
                     .setColor('#4c8bf5')
                     .setFooter('Google Translate', 'https://a.safe.moe/2jXgX.png')
-                    .addField('📥 Input', `\`\`\`${input}\`\`\``)
-                    .addField('📤 Output', `\`\`\`${res.text}\`\`\``);
+                    .addField(`📥 Input: \`[auto]\``, `\`\`\`${input}\`\`\``)
+                    .addField(`📤 Output: \`[${lang}]\``, `\`\`\`${res.text}\`\`\``);
                 return message.channel.send({ embed });
             }).catch(err => {
                 return message.channel.send(`❎ | **${message.author.username}**, you provided an invalid language! Try using \`en\` as your first argument, and \`こんいちは\` as your second!\n\`~translate en こんいちは\``)

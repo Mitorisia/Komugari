@@ -13,7 +13,6 @@ const { CommandoClient } = require('./commando');
 const client = new CommandoClient({
     commandPrefix: '~',
     owner: process.env.OWNER,
-    invite: process.env.INVITE,
     disableEveryone: true,
     unknownCommandResponse: false,
     //messageCacheMaxSize	= 50,
@@ -72,11 +71,9 @@ setInterval(function() {
 //ready and game status, message ready to main server
 client.on("ready", () => {
 
-    //client.user.setActivity('with you | ~help')
+    client.user.setActivity('with you | ~help')
 
-    client.user.setActivity('I am still incomplete! Take caution, uptime is never guaranteed!')
-
-	var channel = client.channels.get(process.env.STATUSLOG);
+    var channel = client.channels.get(process.env.STATUSLOG);
     const embed = new Discord.MessageEmbed()
         .setAuthor('Komugari has (re)started!', client.user.displayAvatarURL({ format: 'png' }))
         .setColor('#727293')
@@ -174,7 +171,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 
 		return null;
 	  }
-	  
+
 	  return null;
 })
 
@@ -194,7 +191,7 @@ client.on("message", async message => {
 
 	if(message.channel.type == "dm") {
 		if(message.content.startsWith('~')) return;
-		var channel = client.channels.get('370719709110468609');
+		var channel = client.channels.get(process.env.DMLOGS);
 
 		const embed = new Discord.MessageEmbed()
 			.setAuthor(message.author.tag, message.author.displayAvatarURL())

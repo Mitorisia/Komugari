@@ -19,22 +19,19 @@ module.exports = class GitHubCommand extends Command {
                 usages: 1,
                 duration: 5
             },
-            args: [
-                {
-                    key: 'repo',
-                    label: 'repo',
-                    prompt: 'Please provide me a repository to search for!',
-                    type: 'string',
-                    default: 'Mitorisia/Komugari'
-                }
-            ]
+            args: [{
+                key: 'repo',
+                label: 'repo',
+                prompt: 'Please provide me a repository to search for!',
+                type: 'string',
+                default: 'Mitorisia/Komugari'
+            }]
         });
     }
 
     async run(message, args) {
-        args = args.repo
-        var searche = message.content.split(/\s+/g).slice(1) || 'Mitorisia/Komugari'
-        
+        var searche = args.repo
+
         if (searche[0].indexOf('/') !== -1) {
             const repo = safeRepo(searche[0])
             const msg = await message.channel.send(`🔄 | Loading info for \`${repo}\`\u2026`)
@@ -84,9 +81,9 @@ module.exports = class GitHubCommand extends Command {
 
 function safeRepo(input) {
     if (input.indexOf('/') === -1) {
-      return
+        return
     }
-  
+
     const user = input.substr(0, input.indexOf('/'))
     input = input.substr(input.indexOf('/') + 1)
     const repo = input.indexOf('/') === -1 ? input : input.substr(0, input.indexOf('/'))

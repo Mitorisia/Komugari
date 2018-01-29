@@ -46,11 +46,11 @@ module.exports = class ChannelCommand extends Command {
                 `**❯\u2000\Text channels [${textChannels.size}]:**`,
                 channelCategory.sort(sortPos).map(c => `•\u2000**${c.name}** [${c.children.size}]\n${textChannels.filter(d => d.parentID === c.id).sort(sortPos).map(d => (`#\u2000${d.name}${displayPerms(d)}\n`)).join("")}`),
                 textChannels.filter(e => e.parentID === null || e.parentID === undefined).sort(sortPos).map(c => c ? `#\u2000${c.name}${displayPerms(c)}` : ""),
-                
+
                 `**❯\u2000\Voice channels [${voiceChannels.size}]:**`,
-                
+
                 voiceChannels.sort(sortPos).map(c => `•\u2000${c.name}${displayPerms(c)}${isAFK(c) ? ' **`[AFK]`**' : ''}`)
-                
+
             );
 
             if(description.length > 2048) return message.channel.send('Too much channels in this server! I couldn\'t send the information!');            
@@ -60,20 +60,20 @@ module.exports = class ChannelCommand extends Command {
                 .setDescription(description)
                 .setThumbnail(message.guild.iconURL())
                 .setFooter(`Permissions shown for ${message.author.tag}`, message.author.displayAvatarURL())
-                .setColor('#8B9EB7');         
+                .setColor('#8B9EB7');
             return message.channel.send({ embed });
         }
 
         var { channel } = args;
-        
+
         const embed = new Discord.MessageEmbed()
             .setAuthor(channel.name, message.guild.iconURL())
-            .setDescription(`❯\u2000${channel.topic ? channel.topic : '`No Topic`'}`)
+            .setDescription(`•\u2000${channel.topic ? channel.topic : '`No Topic`'}`)
             .setThumbnail(message.guild.iconURL())
             .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
             .setColor('#846B86')
             .addField('❯\u2000\Information', `•\u2000\**ID:** ${channel.id}\n\•\u2000\**Category:** ${channel.parent ? channel.parent : 'None'}\n\•\u2000\**Created:** ${moment(channel.createdAt).format('MMMM Do YYYY')} \`(${fromNow(channel.createdAt)})\``, true)
             .addField('❯\u2000\Miscellaneous', `•\u2000\**NSFW:** ${channel.nsfw ? "Yes" : "No"}\n\•\u2000\**Matching Permissions:** ${channel.permissionsLocked ? "Yes" : "No"}`, true)
-        return message.channel.send({ embed })    
+        return message.channel.send({ embed });
     }
 }

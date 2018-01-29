@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const booru = require('booru');
 
 
-module.exports = class SafeBooruCommand extends Command {
+module.exports = class BooruCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'booru',
@@ -31,7 +31,7 @@ module.exports = class SafeBooruCommand extends Command {
             .then(images => {
                 for (let image of images) {
                     const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Safebooru ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`Safebooru ${query}`, 'https://b.catgirlsare.sexy/NrAI.png')
                         .setImage(image.common.file_url)
                         .setDescription(`[Image URL](${image.common.file_url})`)
                         .setColor('#C597B8');

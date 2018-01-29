@@ -38,7 +38,7 @@ module.exports = class XBooruCommand extends Command {
             .then(images => {
                 for (let image of images) {
                     const embed = new Discord.MessageEmbed()
-                        .setAuthor(`xbooru ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`xbooru ${query}`, 'https://b.catgirlsare.sexy/NrAI.png')
                         .setDescription(`[Image URL](${image.common.file_url})`)
                         .setImage(image.common.file_url)
                         .setColor('#E89F3E');

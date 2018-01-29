@@ -137,15 +137,6 @@ Name | Description | Usage
 
 ###### [Back to ToC](#contents)
 
-## Music
-Name | Description | Usage
-----------------|--------------|-------
-`Listen` | Starts playing [Listen.moe](https://listen.moe) radio in your voice channel! | `~listen`
-`Leave` | Leaves the voice channel! | `~leave`
-`NowPlaying` | Displays the currently playing song on [Listen.moe](https://listen.moe)! | `~nowplaying`
-
-###### [Back to ToC](#contents)
-
 ## Anime
 Name | Description | Usage
 ----------------|--------------|-------
