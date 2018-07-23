@@ -21,7 +21,7 @@ module.exports = class DadJokeCommand extends Command {
     }
 
     async run(message) {
-        var joke = await snekfetch
+        var joke = await snekfetch.get
             .get("https://icanhazdadjoke.com/")
             .set("Accept", "application/json");
 

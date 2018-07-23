@@ -21,12 +21,11 @@ module.exports = class SmugCommand extends Command {
     }
 
     async run(message) {
-        var res = await snekfetch.get(`http://smugs.safe.moe/api/v1/i/r`);
-        var body = JSON.parse(res.text);
+        var smugID = Math.floor(Math.random() * 58) + 1
 
         var embed = new Discord.MessageEmbed()
             .setColor('#727293')
-            .setImage(`https://smugs.safe.moe/${body.url}`);
+            .setImage(`http://smug.moe/smg/${smugID}.png`);
         return message.channel.send({ embed });
     }
 }

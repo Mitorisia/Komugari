@@ -34,8 +34,8 @@ module.exports = class MathCommand extends Command {
         
         const embed = new Discord.MessageEmbed()
             .setColor('#767CC1')
-            .addField('❯\u2000**Expression', `\`\`\`${equation}\`\`\``)
-            .addField('❯\u2000**Result', `\`\`\`${solution}\`\`\``);
+            .addField('**📥 Expression**', `\`\`\`${equation}\`\`\``)
+            .addField('**📤 Result**', `\`\`\`${solution}\`\`\``);
         return message.channel.send({ embed })
 
     }

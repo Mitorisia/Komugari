@@ -1,6 +1,7 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
+const { formatXml } = require('../../commando/util')
 
 module.exports = class CatCommand extends Command {
     constructor(client) {
@@ -20,13 +21,10 @@ module.exports = class CatCommand extends Command {
     }
 
     async run(message) {
-        const res = await snekfetch.get('http://www.random.cat/meow');
-        const image = res.body.file;
+        var catID = ('000' + (Math.floor(Math.random() * 773) + 1)).substr(-3);
 
         const embed = new Discord.MessageEmbed()
-            .setImage(image)
-            .setDescription(`[Image URL](${image})`)
-            .setFooter('http://www.random.cat ©', 'https://a.safe.moe/6GDXu.png')
+            .setImage(`https://nadeko-pictures.nyc3.digitaloceanspaces.com/cats/${catID}.png`)
             .setColor('#71A3BE');
         return message.channel.send({ embed });
     }

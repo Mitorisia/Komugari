@@ -26,33 +26,34 @@ module.exports = class SupportCommand extends Command {
     }
 
     async run(message, args) {
-        const { support } = args;
+        var { support } = args;
+        console.log(support)
         var channel = this.client.channels.get(process.env.SUPPORTLOG);
-        const invite = this.client.options.invite;
 
-        if (supportMessage = 'N////A') {
+        if (support == 'N////A') {
             message.react("💢");
             return message.channel.send(`Please add an issue to your message!`);
-        }
+        } else {
 
-        try {
-            const embed = new Discord.MessageEmbed()
-                .setAuthor(`${message.member.user.tag}`, message.member.user.displayAvatarURL({ format: 'png' }))
-                .setColor('48886D')
-                .setTimestamp()
-                .setFooter(`Channel ID: ${message.channel.id}`)
-                .addField(message.guild.name + ', ' + message.channel.name, supportMessage);
-            channel.send({ embed });
+            try {
+                const embed = new Discord.MessageEmbed()
+                    .setAuthor(`${message.member.user.tag}`, message.member.user.displayAvatarURL({ format: 'png' }))
+                    .setColor('48886D')
+                    .setTimestamp()
+                    .setFooter(`Channel ID: ${message.channel.id}`)
+                    .addField(message.guild.name + ', ' + message.channel.name, support);
+                channel.send({ embed });
 
-            await message.react("🇸").catch(console.error);
-            await message.react("🇪").catch(console.error);
-            await message.react("🇳").catch(console.error);
-            await message.react("🇹").catch(console.error);
+                await message.react("🇸").catch(console.error);
+                await message.react("🇪").catch(console.error);
+                await message.react("🇳").catch(console.error);
+                await message.react("🇹").catch(console.error);
 
-            return null;
+                return null;
 
-        } catch (err) {
-            return message.channel.send(`❎ | **An error occurred while running this command!** \`${err.name}: ${err.message}\`\n\Please join the server instead! ${invite}`);
+            } catch (err) {
+                return message.channel.send(`❎ | **An error occurred while running this command!** \`${err.name}: ${err.message}\``);
+            }
         }
     }
 }

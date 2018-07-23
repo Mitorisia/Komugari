@@ -1,4 +1,5 @@
 const { Command } = require('../../commando');
+const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 
 module.exports = class GiphyCommand extends Command {
@@ -14,7 +15,7 @@ module.exports = class GiphyCommand extends Command {
                 key: 'query',
                 prompt: 'Please provide me a term to search for!',
                 type: 'string',
-                default: 'ddlc'
+                default: 'wtf'
             }]
         });
     }
@@ -22,23 +23,23 @@ module.exports = class GiphyCommand extends Command {
     async run(message, args) {
         var { query } = args;
 
-        try {
-            const { body } = await snekfetch
-                .get('http://api.giphy.com/v1/gifs/search')
-                .query({
-                    q: query.split(' ').join('+'),
-                    api_key: process.env.GIPHYKEY,
-                    rating: message.channel.nsfw ? 'r' : 'pg',
-                    limit: 5
-                });
-        } catch (err) {
-            console.log(err);
-            return message.channel.send(`❎ | An error occurred while running this command! \`${err}\``);
-        }
-        console.log(body.data[random].images.original.url)
+        var res = await snekfetch
+            .get('http://api.giphy.com/v1/gifs/search')
+            .query({
+                q: query.split(' ').join('+'),
+                api_key: process.env.GIPHYKEY,
+                rating: message.channel.nsfw ? 'r' : 'pg',
+                limit: 5
+            })
 
+        var body = res.body
         if (!body.data.length) return message.channel.send(`No results found for **${query}**!`);
         const random = Math.floor(Math.random() * body.data.length);
-        return message.channel.send(body.data[random].images.original.url);
+
+        const embed = new Discord.MessageEmbed()
+            .setImage(body.data[random].images.original.url)
+            .setColor("#ADC4CC")
+
+        message.channel.send({ embed })
     }
 };

@@ -41,11 +41,11 @@ module.exports = class UrbanCommand extends Command {
         } else if (defs.constructor.name === 'Definition') {
             def = defs
         }
-        try {
-            const resultMessage = query.length > 0 ?
+        const resultMessage = query.length > 0 ?
                 `First result for \`${query}\` on Urban Dictionary:` :
                 `Random definition on Urban Dictionary:`
-
+                
+        try {
             const embed = new Discord.MessageEmbed()
                 .setTitle(`${defs.word} by ${defs.author}`)
                 .setDescription(defs.definition)
@@ -57,8 +57,15 @@ module.exports = class UrbanCommand extends Command {
             return message.channel.send(resultMessage, { embed });
 
         } catch (err) {
-
-            return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!')
+            const embed = new Discord.MessageEmbed()
+                .setTitle(`${defs.word} by ${defs.author}`)
+                .setDescription(defs.definition.split('\n')[0])
+                .addField('❯\u2000\Example(s)', defs.example ? defs.example : 'N/A')
+                .addField('❯\u2000\Rating', `👍\u2000${defs.thumbsUp} | 👎\u2000${defs.thumbsDown}`)
+                .addField('❯\u2000\Link', `**${defs.urbanURL}**`)
+                .setColor('#e86222')
+                .setFooter('Urban Dictionary', 'https://a.safe.moe/1fscn.png');
+            return message.channel.send(resultMessage, { embed });
         }
     }
 }

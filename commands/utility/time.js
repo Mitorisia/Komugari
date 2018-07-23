@@ -44,6 +44,6 @@ module.exports = class TimeCommand extends Command {
             console.log(err)
             return message.channel.send(`❎ | Location **${location}** was not found!`);
         }
-        
+
     }
 }

@@ -1,4 +1,5 @@
 const { Command } = require('../../commando');
+const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
 
 module.exports = class MagikCommand extends Command {
@@ -18,7 +19,7 @@ module.exports = class MagikCommand extends Command {
         });
     }
 
-    async run (message) {
+    async run(message) {
         if (!message.channel.permissionsFor(this.client.user).has('ATTACH_FILES')) {
             return message.channel.send('I can\'t attach messages!');
         }
@@ -39,10 +40,10 @@ module.exports = class MagikCommand extends Command {
             return message.channel.send('❎ | Invalid image/URL! Please try again!')
         } else {
             await msg.delete()
-            const embed = new Discord.MessageEmbed() 
-                .setColor('#294475') 
-                .setImage(`https://discord.services/api/magik?url=${avatarurl}`); 
-            return message.channel.send({embed}) 
+            const embed = new Discord.MessageEmbed()
+                .setColor('#294475')
+                .setImage(`https://discord.services/api/magik?url=${avatarurl}`);
+            return message.channel.send({ embed })
         }
-	}
+    }
 }

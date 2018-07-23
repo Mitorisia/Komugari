@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const { hand } = require('../../assets/json/actions.json');
+const { handP } = require('../../assets/json/actions.json');
 
 module.exports = class HandCommand extends Command {
     constructor(client) {

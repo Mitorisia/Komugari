@@ -22,7 +22,7 @@ module.exports = class LickCommand extends Command {
 
     async run(message) {
         var recipient = message.content.split(/\s+/g).slice(1).join(" ");
-        var disgust = disgustP[Math.round(Math.random() * (actions.disgustP.length - 1))];
+        var disgust = disgustP[Math.round(Math.random() * (disgustP.length - 1))];
 
         if (!recipient) {
             var embed = new Discord.MessageEmbed()

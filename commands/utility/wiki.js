@@ -36,7 +36,7 @@ module.exports = class WikiCommand extends Command {
         const paragraphs = summary.split('\n');
 
         if (!query.options) {
-            paragraphs.length = Math.min(2, paragraphs.length);
+            paragraphs.length = Math.min(1, paragraphs.length);
         }
         try {
             const embed = new Discord.MessageEmbed()
@@ -48,8 +48,13 @@ module.exports = class WikiCommand extends Command {
             return message.channel.send(`First search result of \`${query}\` on Wikipedia:`, { embed });
 
         } catch (err) {
-
-            return message.channel.send('<:NOTLIKETHIIIIIIIIIIIIIIIIIIIIIIS:371071292146843658> Something went wrong while executing that command!');
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(page.raw.title)
+                .setDescription("This paragraph was too long for the embed, please click the provided link.")
+                .addField('Link', `**${page.raw.fullurl}**`)
+                .setFooter('Wikipedia', 'https://a.safe.moe/8GCNj.png')
+                .setColor('#c7c8ca');
+             return message.channel.send(`First search result of \`${query}\` on Wikipedia:`, { embed });
         }
     }
 }

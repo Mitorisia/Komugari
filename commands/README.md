@@ -75,7 +75,6 @@ Name | Description | Usage
 `Math` | Evaluates a math equation! | `~math [equation]`
 `Osu` | Searches osu! for a user! | `~osu [user]`
 `Remindme` | DMs you with the reminder after a specified amount of time! Is not the most accurate, so keep it short! | `~remindme [event] [time]`
-`Status` | Checks the current Discord™ status...if you can use Discord™, it's probably working... | `~status`
 `Temperature` | Converts temperature between Celsius, Fahrenheit, and Kelvin | `~temperature [base] [to] [amount]`
 `Time` | Fetches the time in the specified location! | `~time [location]`
 `Translate` | Translates the given text into the desired language! | `~translate [language] [text]`

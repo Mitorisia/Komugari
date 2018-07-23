@@ -42,7 +42,7 @@ module.exports = class CommandsCommand extends Command {
             .setFooter("These are only here to de-clutter the main commands interface... | Page 2 of 3")
             .addField("__Core:__", "`botinfo` `iku` `howtonsfw` `nonsfw` `ping`", true)
             .addField('__Moe-Deration:__', '`addrole` `delrole` `delete` `ban` `hackban` `bulkban` `kick` `lockdown` `nickname` `nuke` `massadd` `massrem` `mute` `unmute` `prune` `pruneuser` `pruneword` `softban` `unban`', true)
-            .addField("__Utility:__", "`emoji` `github` `remindme` `status` `steam` `temperature`", true)
+            .addField("__Utility:__", "`emoji` `github` `remindme` `steam` `temperature`", true)
             .addField("__Fun:__", "`b` `bird` `garfield` `giphy` `kaomoji` `lizard` `pasta` `react` `rightthere` `zalgo`", true);
 
         const nsfwCommands = new Discord.MessageEmbed()

@@ -27,7 +27,7 @@ module.exports = class WaifuCommand extends Command {
             group: 'anime',
             memberName: 'waifu',
             guildOnly: true,
-            wait: 0.1,            
+            wait: 0.1,
             description: `Finds you a waifu from a database of ${total} waifus!`,
             details: 'Others can vote on the waifu through reactions!\n\Also #119 is best girl.',
             examples: ['~waifu <optional number>'],

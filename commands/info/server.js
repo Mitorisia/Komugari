@@ -10,7 +10,7 @@ module.exports = class ServerCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'server',
-            aliases: ['guild', 'serverinfo'],
+            aliases: ['guild', 'serverinfo', 'servers', 'guilds'],
             group: 'info',
             memberName: 'server',
             guildOnly: true,

@@ -1,6 +1,6 @@
 const { Command } = require('../../commando');
 const Discord = require('discord.js');
-const snekfetch = require('snekfetch')
+const snekfetch = require('snekfetch');
 const { stripIndents } = require('common-tags')
 
 const WEATHER_THUMBS = [
@@ -10,7 +10,7 @@ const WEATHER_THUMBS = [
     { icon: 'https://a.safe.moe/K2fJ5.png', regex: /thunderstorms/i },
     { icon: 'https://a.safe.moe/5TyRY.png', regex: /scattered showers/i },
     { icon: 'https://a.safe.moe/vGZkK.png', regex: /rain/i },
-    { icon: 'https://a.safe.moe/Jyr5A.png', regex: /snow/g}
+    { icon: 'https://a.safe.moe/Jyr5A.png', regex: /snow/g }
 ]
 
 const WEATHER_ICONS = [
@@ -20,7 +20,7 @@ const WEATHER_ICONS = [
     { icon: '⛈', regex: /thunderstorms/i },
     { icon: '🌦', regex: /scattered showers/i },
     { icon: '🌧', regex: /rain/i },
-    { icon: '🌨', regex: /snow/g}    
+    { icon: '🌨', regex: /snow/g }
 ]
 const DAYS = {
     'Mon': 'Mon',
@@ -102,18 +102,22 @@ module.exports = class WeatherCommand extends Command {
 
         const msg = await message.channel.send('🔄 | Fetching weather information...\u2026');
 
-        const res = await snekfetch.get(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${city}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`)
-        if (res.status !== 200) {
-            return msg.edit('❎ | Could not connect to the weather API!')
-        } else if (typeof res.body !== 'object' || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
+        const res = await snekfetch
+            .get(`https://query.yahooapis.com/v1/public/yql`)
+            .query({
+                q: `select * from weather.forecast where u='f' AND woeid in (select woeid from geo.places(1) where text="${city}")`, // eslint-disable-line max-len
+                format: 'json'
+            });
+            
+        if (typeof res.body !== 'object' || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
             return msg.edit(`❎ | Failed to retrieve weather information for **${city}**! Please verify that it is a valid location!`)
         }
 
         const weather = res.body.query.results.channel;
 
         const _location = []
-        for (const k of ['city', 'region', 'country']) {
-          if (weather.location[k]) _location.push(weather.location[k].trim())
+        for (const k of['city', 'region', 'country']) {
+            if (weather.location[k]) _location.push(weather.location[k].trim())
         }
         const location = _location.join(', ')
 
@@ -169,12 +173,12 @@ module.exports = class WeatherCommand extends Command {
             const _ = i => i.length === 1 ? `0${i}` : i
             return `${_(matches[1])}:${_(matches[2])} ${matches[3].toUpperCase()}`
         }
-    
+
         const embed = new Discord.MessageEmbed()
             .setColor('#DFA661')
             .setThumbnail(formatIcon(weather.item.condition.text))
             .setFooter(`Last Update: ${weather.item.pubDate}`, this.client.user.displayAvatarURL())
-            .setDescription(stripIndents`
+            .setDescription(stripIndents `
                 ${flag}\u2000|\u2000**${location}**
             
                 •\u2000${formatCondition(weather.item.condition.text)}
@@ -188,6 +192,6 @@ module.exports = class WeatherCommand extends Command {
             .addField('❯\u2000\**Forecasts**', weather.item.forecast.map(f => {
                 return `•\u2000\**${DAYS[f.day]}:** ${f.text} • \`${formatTemp(f.low)} - ${formatTemp(f.high)}\``
             }));
-        return msg.edit(`Weather information for the location that matched the word **${city}**!`,{ embed: embed });
+        return msg.edit(`Weather information for the location that matched the word **${city}**!`, { embed: embed });
     }
 }

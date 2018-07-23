@@ -31,7 +31,7 @@ module.exports = class AvatarCommand extends Command {
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`${member.user.tag}`, avatar)
-            .setColor(member.displayHexColor ? member.displayHexColor :'#D0C7FF')
+            .setColor(member.displayHexColor ? member.displayHexColor : '#D0C7FF')
             .setDescription(`[Avatar URL](${avatar})`)
             .setImage(avatar)
         return message.channel.send({ embed });
