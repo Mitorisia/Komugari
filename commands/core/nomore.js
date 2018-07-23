@@ -21,7 +21,7 @@ module.exports = class NoMoreCommand extends Command {
 
     async run (message) {
         if(!message.channel.nsfw) return message.channel.send('Looks like you\'ve got it all set up already! This channel isn\'t NSFW! Try `~howto` to see how to make it into an NSFW channel!')
-        message.channel.send(`__**Here's how to set a channel back to SFW!**__\n\**1)** Click the *channel settings cog* beside the channel name!\n\**2)** Click the *NSFW switch* right under the channel topic box!\n\**3)** You're done! A SFW channel all set up for you!\n\https://a.safe.moe/0NX2x.png\n\**Would you like me to make this channel SFW for you?** \`(y/n)\``);
+        message.channel.send(`__**Here's how to set a channel to SFW!**__\n\**1)** Click the __channel settings cog__ beside the channel name!\n\**2)** Click the __NSFW switch__ right under the channel topic box!\n\**3)** You're done! Save the settings and there's your pure, innocent channel back!\n\https://b.catgirlsare.sexy/i6CE.png\n\**Would you like me to make this channel SFW for you?** \`(y/n)\``);
 
         const msgs = await message.channel.awaitMessages(res => res.author.id === message.author.id, {
             max: 1,

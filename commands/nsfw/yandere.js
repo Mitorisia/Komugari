@@ -38,7 +38,7 @@ module.exports = class YandereCommand extends Command {
             .then(images => {
                 for (let image of images) {
                     const embed = new Discord.MessageEmbed()
-                        .setAuthor(`Yandere ${query}`, 'https://a.safe.moe/ppHw0.png')
+                        .setAuthor(`Yandere ${query}`, 'https://b.catgirlsare.sexy/NrAI.png')
                         .setImage(image.common.file_url)
                         .setColor('#E89F3E');
                     message.channel.send({ embed });

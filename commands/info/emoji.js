@@ -33,9 +33,9 @@ module.exports = class EmojiCommand extends Command {
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`Emojis in ${message.guild.name}! [${emojis.size}]`, message.guild.iconURL())
-                .setDescription(emojis.map(e => e).join(''))
+                .setDescription(emojis.map(e => e).join(' '))
                 .setColor('#A5A3BB')
-            return message.channel.send(`Here's all your custom emojis!`, { embed: embed });
+            return message.channel.send(`Here's all your custom emojis!`, {embed: embed});
 
         } else {
             const args = message.content.split(" ");
@@ -44,7 +44,7 @@ module.exports = class EmojiCommand extends Command {
             let id = args[1].substring(args[1].lastIndexOf(':') + 1, args[1].lastIndexOf('>'))
 
             let emoteInfo = this.client.emojis.get(id)
-            if (!emoteInfo) return message.channel.send('That\'s not a valid emoji!')
+            if (!emoteInfo) return message.channel.send('That\'s not a valid custom emoji!')
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(emoteInfo.name)

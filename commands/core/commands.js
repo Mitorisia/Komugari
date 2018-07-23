@@ -30,8 +30,9 @@ module.exports = class CommandsCommand extends Command {
             .addField("__Info:__", "`avatar` `discrim` `edits` `channel`\n\`inrole` `role` `server` `user`", true)
             .addField("__Fun:__", "`8ball` `advice` `big` `cat` `dog` `dadjoke` `f` `fortune` `horoscope` `magik` `meme` `mock` `pickup` `rate` `say` `sayd` `skyrim` `talk` `tsundere`\n\`bonzi` `disabled` `retarded` `shit` `shits` `thesearch` `triggered`")
             .addField("__Anime:__", "`anime` `neko` `manga` `moe` `booru` `waifu`", true)
-            .addField("__Music:__", "`listen` `np` `stop`", true)
-            .addField("__Action:__", "`cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `owo` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true);
+            //.addField("__Music:__", "`listen` `np` `stop`", true)
+            .addBlankField(true)
+            .addField("__Action:__", "`action` `cry` `grope` `gross` `hand` `hug` `kiss` `lewd` `nobully` `noswear` `nom` `nyan` `owo` `pat` `pout` `slap` `smug` `slap` `stare` `tickle` `wasted`", true);
 
         const secretCommands = new Discord.MessageEmbed()
             .setAuthor("Extra Commands", 'https://a.safe.moe/Tr9Jr.png')

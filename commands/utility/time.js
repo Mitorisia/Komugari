@@ -25,7 +25,7 @@ module.exports = class TimeCommand extends Command {
         if (!location) return message.channel.send('Please specify a location for me to gather information from!');
 
         try {
-            const res = await snekfetch.get(`https://time.is/${location}`);
+            const res = await snekfetch.get(`https://time.is/${location.replace(/^in/, "")}`);
             if (res.status !== 200) {
                 return message.channel.send('❎ | Could not connect to the server!')
             }
@@ -44,5 +44,6 @@ module.exports = class TimeCommand extends Command {
             console.log(err)
             return message.channel.send(`❎ | Location **${location}** was not found!`);
         }
+        
     }
 }

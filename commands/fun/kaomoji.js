@@ -15,6 +15,17 @@ module.exports = class KaomojiCommand extends Command {
                 usages: 1,
                 duration: 3
             },
+            args: [{
+                key: 'emotion',
+                prompt: 'Please enter a valid kaomoji emotion!',
+                type: 'string',
+                default: 'random',
+                validate: emotion => {
+                    if (kaomojis.includes(emotion.toLowerCase())) return true;
+                    return 'Invalid kaomoji category! Use `~help kaomoji` for a list of valid kaomojis!';
+                },
+                parse: sign => sign.toLowerCase()
+            }]
         });
     }
 

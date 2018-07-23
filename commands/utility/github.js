@@ -19,15 +19,13 @@ module.exports = class GitHubCommand extends Command {
                 usages: 1,
                 duration: 5
             },
-            args: [
-                {
-                    key: 'repo',
-                    label: 'repo',
-                    prompt: 'Please provide me a repository to search for!',
-                    type: 'string',
-                    default: 'Mitorisia/Komugari'
-                }
-            ]
+            args: [{
+                key: 'repo',
+                label: 'repo',
+                prompt: 'Please provide me a repository to search for!',
+                type: 'string',
+                default: 'Mitorisia/Komugari'
+            }]
         });
     }
 
@@ -35,8 +33,8 @@ module.exports = class GitHubCommand extends Command {
         args = args.repo
         var searche = message.content.split(/\s+/g).slice(1)
 
-        if(searche.length == 0) {
-            searche = ['Mitorisia/Komugari', 'why', 'don\t', 'u', 'work']
+        if (searche.length == 0) {
+            searche = 'Mitorisia/Komugari';
         }
 
         if (searche[0].indexOf('/') !== -1) {
@@ -88,9 +86,9 @@ module.exports = class GitHubCommand extends Command {
 
 function safeRepo(input) {
     if (input.indexOf('/') === -1) {
-      return
+        return
     }
-  
+
     const user = input.substr(0, input.indexOf('/'))
     input = input.substr(input.indexOf('/') + 1)
     const repo = input.indexOf('/') === -1 ? input : input.substr(0, input.indexOf('/'))
