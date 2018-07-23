@@ -180,16 +180,6 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
 client.on("message", async message => {
 	if(message.author.bot) return undefined;
 
-	if(message.content.startsWith('~') && message.channel.type == 'text') {
-		var channel = client.channels.get('378921091696951296');
-
-		const embed = new Discord.MessageEmbed()
-			.setAuthor(message.author.tag, message.author.displayAvatarURL())
-			.setDescription(message.content)
-			.setFooter(`Server: ${message.guild.name} | Channel: ${message.channel.name} (${message.channel.id})`)
-		channel.send({ embed })
-	}
-
 	if(message.channel.type == "dm") {
 		if(message.content.startsWith('~')) return;
 		var channel = client.channels.get(process.env.DMLOGS);
