@@ -23,7 +23,7 @@
         "discord.js"
     ],
     "engines": {
-        "node": ">= 10.9.0",
+        "node": ">= 8.11.3",
         "npm": ">= 6.2.0"
     },
     "author": "Mitorisia / Mako#8739",
