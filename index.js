@@ -5,7 +5,6 @@
  */
 //botURL = https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303
 
-require('dotenv').config()
 const snekfetch = require('snekfetch');
 const moment = require('moment')
 

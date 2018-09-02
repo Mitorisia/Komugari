@@ -28,12 +28,13 @@ module.exports = class EmojiCommand extends Command {
         let emoji = message.content.split(/\s+/g).slice(1).join(" ")
 
         if (!emoji) {
-            const emojis = message.guild.emojis;
+            const emojis = message.guild.emojis
             if (!emojis.size) return message.channel.send('You have no custom emoji.');
+
 
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`Emojis in ${message.guild.name}! [${emojis.size}]`, message.guild.iconURL())
-                .setDescription(emojis.map(e => e).join(' '))
+		        .setDescription(emojis.map(emoji => emoji.toString()).join(' '), { split: { char: ' ' } })
                 .setColor('#A5A3BB')
             return message.channel.send(`Here's all your custom emojis!`, { embed: embed });
 
