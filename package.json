@@ -1,6 +1,6 @@
 {
     "name": "komugari",
-    "version": "0.7.6.5",
+    "version": "0.7",
     "description": "A simple, multi-functional Discord bot with a focus around anime and NSFW!",
     "main": "index.js",
     "scripts": {
@@ -65,9 +65,5 @@
         "youtube-node": "^1.3.2",
         "zalgolize": "^1.2.4"
     },
-    "false": {},
-    "devDependencies": {
-        "eslint": "^4.8.0",
-        "eslint-config-google": "^0.9.1"
-    }
+    "false": {}
 }
