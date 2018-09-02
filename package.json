@@ -29,7 +29,7 @@
     "license": "ISC",
     "dependencies": {
         "animequote": "^1.1.1",
-        "booru": "^0.3.3",
+        "booru": "^0.3.6",
         "bufferutil": "^3.0.2",
         "cleverbot-node": "^0.3.11",
         "common-tags": "^1.4.0",
@@ -45,7 +45,7 @@
         "kitsu.js": "^2.0.0",
         "libsodium-wrappers": "^0.7.0",
         "mathjs": "^3.16.5",
-        "moment": "^2.18.1",
+        "moment": "^2.22.2",
         "moment-duration-format": "^1.3.0",
         "node-osu": "^1.3.0",
         "os-toolbox": "^0.2.9",
