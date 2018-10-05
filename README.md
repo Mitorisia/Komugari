@@ -1,14 +1,8 @@
-<a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
-    <img align="right" src="https://a.safe.moe/hu4ry.png" height="400">
-</a>
 
-<h1> Komugari <a href = 'https://discordapp.com/oauth2/authorize?client_id=365907645795794946&scope=bot&permissions=1043721303'>
-    <img src="https://a.safe.moe/4kKNg.png" height="25">
-</a></h1>
 
-### Your Friendly Neighbourhood Submarine Bringing you the Best Lewds™
-
-[![Fuck it Ship it](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://mitorisia.github.io/Komugari/)[![Kinda SFW](http://forthebadge.com/images/badges/kinda-sfw.svg)](https://mitorisia.github.io/Komugari/)[![Made with Crayons](http://forthebadge.com/images/badges/made-with-crayons.svg)](https://mitorisia.github.io/Komugari/)
+### NOTE THAT THIS BOT NO LONGER WORKS AS A STANDALONE - IT IS FAR TOO OUTDATED
+### YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS
+## I WILL *NOT* BE PROVIDING ANY SUPPORT FOR THIS BOT AS IT NO LONGER FUNCTIONS
 
 # Index
 
@@ -27,4 +21,4 @@
 ### Contributing!
 
 If you want to help develop the bot or add anything, please feel free to!  
-Simply submit a pull request! Or even contact me on Discord: **Mako#8739**
+ontact me on Discord: **Mako#8739**
