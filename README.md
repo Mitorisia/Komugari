@@ -4,4 +4,4 @@
 ### YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS
 ## I WILL *NOT* BE PROVIDING ANY SUPPORT FOR THIS BOT AS IT NO LONGER FUNCTIONS
 
-contact me on Discord: **Mako#8739**
+contact me on Discord: https://discord.gg/vj73Kr8 **Mako#8739**
